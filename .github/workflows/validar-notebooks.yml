@@ -1,0 +1,41 @@
+name: Validar notebooks
+
+on:
+  push:
+    paths:
+      - "**/*.ipynb"
+  pull_request:
+    paths:
+      - "**/*.ipynb"
+  workflow_dispatch:
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar nbformat
+        run: pip install --quiet nbformat
+
+      - name: Validar formato de todos los notebooks
+        run: |
+          python - <<'PY'
+          import glob, sys, nbformat
+          errores = 0
+          nbs = glob.glob("**/*.ipynb", recursive=True)
+          for nb in nbs:
+              try:
+                  nbformat.validate(nbformat.read(nb, as_version=4))
+                  print(f"OK   {nb}")
+              except Exception as e:
+                  errores += 1
+                  print(f"FAIL {nb}: {e}")
+          print(f"\n{len(nbs)} notebooks, {errores} con errores")
+          sys.exit(1 if errores else 0)
+          PY
