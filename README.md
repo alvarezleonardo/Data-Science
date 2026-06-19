@@ -1,5 +1,10 @@
 # Data Science
 
+![Progreso](https://img.shields.io/badge/progreso-2%2F9%20m%C3%B3dulos-blue)
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 Código, proyectos y apuntes de mi **Certificación en Data Science** (Digital House).
 Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning (CNNs, RNNs) y desarrollo end-to-end de Inteligencia Artificial.
 
@@ -56,6 +61,10 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Recomendado: **un único `.venv` en la raíz** del repo para todos los módulos (en vez de uno por ejercicio). La versión de Python sugerida está en [`.python-version`](.python-version).
+
+Datasets pesados: ver [`scripts/descargar_datos.sh`](scripts/descargar_datos.sh).
 
 ## Convenciones
 
