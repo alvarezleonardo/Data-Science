@@ -28,3 +28,7 @@ __pycache__/
 *.model
 *.pt
 *.pth
+
+# Config de workflow local (no versionar)
+CLAUDE.md
+.claude/
