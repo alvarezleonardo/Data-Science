@@ -1,0 +1,20 @@
+# Dependencias del Proyecto: Análisis Framingham
+# Trabajo Práctico 1 - Data Science Digital House
+
+# Core data manipulation
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+
+# Statistical analysis
+scipy>=1.10.0
+
+# Jupyter support (opcional si ya está instalado)
+jupyter>=1.0.0
+ipykernel>=6.25.0
