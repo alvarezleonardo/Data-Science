@@ -1,0 +1,20 @@
+# Asegura fin de línea LF en archivos de texto/código
+* text=auto eol=lf
+
+# --- GitHub Linguist ---
+# Que el repo se reporte como Jupyter Notebook (su contenido real),
+# y no quede sesgado por código de terceros / material de curso.
+
+# Notebooks: contenido principal del repo
+*.ipynb linguist-detectable=true
+
+# Material teórico y apuntes: documentación, no "código"
+*.md          linguist-documentation
+*.pdf         linguist-documentation
+**/teoria/**  linguist-documentation
+
+# Datasets: datos, no código
+*.csv linguist-detectable=false
+
+# Conversiones automáticas de PDF: generadas, no contar como fuente
+**/teoria/*.md linguist-generated
