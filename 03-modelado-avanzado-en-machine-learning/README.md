@@ -18,12 +18,20 @@ Slides del curso (PDF + conversión `.md`):
 | Introducción al Aprendizaje Supervisado | [PDF](<teoria/Introducción al Aprendizaje Supervisado.pdf>) | [MD](<teoria/Introducción al Aprendizaje Supervisado.md>) |
 | Principios de Regresión Lineal | [PDF](<teoria/Principios de Regresión Lienal.pdf>) | [MD](<teoria/Principios de Regresión Lienal.md>) |
 | Modelos de Regresión | [PDF](<teoria/Modelos de Regresión.pdf>) | [MD](<teoria/Modelos de Regresión.md>) |
+| Funciones de Costo y Mínimos Cuadrados | [PDF](<teoria/Funciones de Costo.pdf>) | [MD](<teoria/Funciones de Costo.md>) |
+| Regresión Lineal Múltiple | [PDF](<teoria/Regresión Lineal Múltiple.pdf>) | [MD](<teoria/Regresión Lineal Múltiple.md>) |
+| Validación Cruzada | [PDF](<teoria/Validación Cruzada.pdf>) | [MD](<teoria/Validación Cruzada.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
 advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_classification.
 
 ### `notebooks/`
-Aún sin notebooks (módulo en curso).
+
+| Notebook | Tema |
+|----------|------|
+| [regresion_lineal.ipynb](notebooks/regresion_lineal.ipynb) | Regresión lineal simple y múltiple con `statsmodels` (OLS), R² y validación cruzada (KFold). Dataset `advertising`. |
+| [evaluacion_modelos_regresion.ipynb](notebooks/evaluacion_modelos_regresion.ipynb) | Regresión lineal con `scikit-learn`, métricas (MAE/MSE/RMSE/R²) y train/test split. Dataset `bikes`. |
+| [regresion_polinomial.ipynb](notebooks/regresion_polinomial.ipynb) | Regresión polinómica con `PolynomialFeatures` + `Pipeline`; underfitting/overfitting y curva bias-variance (RMSE vs grado). Datos sintéticos. |
 
 [← Volver al índice](../README.md)
