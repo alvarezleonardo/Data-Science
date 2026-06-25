@@ -14,7 +14,14 @@ Predice una respuesta **cuantitativa** `Y` asumiendo relación aproximadamente l
 - **Residuo:** `eᵢ = yᵢ − ŷᵢ`.
 - **Mínimos cuadrados (OLS):** minimiza `RSS = Σ(yᵢ − ŷᵢ)²`.
 
-## 2. Métricas de regresión
+## 2. Función de costo y mínimos cuadrados
+
+La **función de costo** mide la discrepancia entre las predicciones del modelo y los valores reales; entrenar = **minimizarla**. En regresión lineal la función de costo es `RSS` (suma de residuos al cuadrado).
+
+- **Solución cerrada (ecuación normal):** `β̂ = (Xᵀ·X)⁻¹·Xᵀ·y`.
+- Pasos: (1) calcular predicciones, (2) calcular residuos `eᵢ = yᵢ − ŷᵢ`, (3) minimizar `Σeᵢ²`.
+
+## 3. Métricas de regresión
 
 | Métrica | Fórmula | Interpretación |
 |---------|---------|----------------|
@@ -27,7 +34,18 @@ Predice una respuesta **cuantitativa** `Y` asumiendo relación aproximadamente l
 
 **R²:** `1` = ajuste perfecto · `0` = no mejor que la media · `< 0` = peor que la media.
 
-## 3. Inferencia sobre los coeficientes
+## 4. Validación cruzada
+
+Estima la **capacidad de generalización** a datos no vistos y ayuda a prevenir el sobreajuste; más fiable que evaluar sobre los datos de entrenamiento.
+
+- **K-Fold:** se parte el dataset en `k` folds; se entrena en `k-1` y se valida en el restante, rotando y promediando la métrica sobre los `k` folds.
+- **LOOCV:** caso extremo con `k = n` (una observación por fold); muy costoso.
+- **Stratified K-Fold:** preserva la proporción de clases en cada fold (clasificación con clases desbalanceadas).
+- En regresión se promedian MSE / RMSE / R² entre folds.
+
+## 5. Inferencia sobre los coeficientes
+
+**Significación global (test F):** `H₀: β₁ = … = βₚ = 0` vs `H₁: al menos un βⱼ ≠ 0`, con `F = ((TSS − RSS)/p) / (RSS/(n − p − 1))`. Un p-value chico (`Prob (F-statistic)`) indica que el conjunto de predictores explica `Y`.
 
 Test de significación individual para `βⱼ`:
 
@@ -35,7 +53,7 @@ Test de significación individual para `βⱼ`:
 - Si `β₁ = 0`, el modelo se reduce a `Y = β₀ + ε` y `X` no aporta.
 - **p-value chico** (< 0,05) → se rechaza H₀: hay evidencia de relación. Complementar con **intervalos de confianza** de los coeficientes.
 
-## 4. Buenas prácticas del módulo
+## 6. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).
 - Estandarizar variables cuando se comparan coeficientes o se usa regularización.
