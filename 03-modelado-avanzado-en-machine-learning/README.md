@@ -21,6 +21,8 @@ Slides del curso (PDF + conversión `.md`):
 | Funciones de Costo y Mínimos Cuadrados | [PDF](<teoria/Funciones de Costo.pdf>) | [MD](<teoria/Funciones de Costo.md>) |
 | Regresión Lineal Múltiple | [PDF](<teoria/Regresión Lineal Múltiple.pdf>) | [MD](<teoria/Regresión Lineal Múltiple.md>) |
 | Validación Cruzada | [PDF](<teoria/Validación Cruzada.pdf>) | [MD](<teoria/Validación Cruzada.md>) |
+| Dilema Sesgo - Varianza | [PDF](<teoria/Dilema Sesgo - Varianza.pdf>) | [MD](<teoria/Dilema Sesgo - Varianza.md>) |
+| Regularización: Ridge y Lasso | [PDF](<teoria/Regularización - Ridge y Lasso.pdf>) | [MD](<teoria/Regularización - Ridge y Lasso.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
@@ -33,5 +35,6 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [regresion_lineal.ipynb](notebooks/regresion_lineal.ipynb) | Regresión lineal simple y múltiple con `statsmodels` (OLS), R² y validación cruzada (KFold). Dataset `advertising`. |
 | [evaluacion_modelos_regresion.ipynb](notebooks/evaluacion_modelos_regresion.ipynb) | Regresión lineal con `scikit-learn`, métricas (MAE/MSE/RMSE/R²) y train/test split. Dataset `bikes`. |
 | [regresion_polinomial.ipynb](notebooks/regresion_polinomial.ipynb) | Regresión polinómica con `PolynomialFeatures` + `Pipeline`; underfitting/overfitting y curva bias-variance (RMSE vs grado). Datos sintéticos. |
+| [regularizacion_ridge_lasso.ipynb](notebooks/regularizacion_ridge_lasso.ipynb) | Regularización Ridge (L2) y Lasso (L1) con `RidgeCV`/`LassoCV`; estandarización, elección de `alpha` por CV y selección de variables ante colinealidad. Dataset `Credit`. |
 
 [← Volver al índice](../README.md)
