@@ -53,7 +53,25 @@ Test de significación individual para `βⱼ`:
 - Si `β₁ = 0`, el modelo se reduce a `Y = β₀ + ε` y `X` no aporta.
 - **p-value chico** (< 0,05) → se rechaza H₀: hay evidencia de relación. Complementar con **intervalos de confianza** de los coeficientes.
 
-## 6. Buenas prácticas del módulo
+## 6. Dilema sesgo-varianza
+
+El error de un modelo se descompone en **sesgo² + varianza + error irreducible**:
+
+- **Sesgo (bias):** error sistemático por un modelo demasiado **simple** (pocos grados de libertad). `E[f̂(x)] ≠ E[f(x)]`. No baja por más datos que haya → **underfitting**.
+- **Varianza:** sensibilidad a la muestra de un modelo demasiado **complejo** (muchos grados de libertad); ajusta regularidades espurias → **overfitting**.
+- **Trade-off:** al subir la complejidad, el sesgo baja y la varianza sube. El **error total tiene forma de U**; el mínimo es la **complejidad óptima** (ni muy simple ni muy complejo).
+
+## 7. Regularización (Ridge, Lasso, Elastic Net)
+
+Agrega una penalidad a la función de costo para achicar los coeficientes y controlar el sobreajuste: `CF = RSS + α · penalidad(β)`. El hiperparámetro `α` (la `λ`) regula la fuerza y se elige por **cross-validation**. **Estandarizar** los regresores antes, porque la penalidad depende de la escala.
+
+| Método | Penalidad | Norma | Efecto |
+|--------|-----------|-------|--------|
+| **Ridge** | `λ Σ βⱼ²` | L2 | Achica los β hacia 0, pero ninguno llega a 0 exacto; reparte peso entre variables colineales. |
+| **Lasso** | `λ Σ \|βⱼ\|` | L1 | Lleva β **exactamente a 0** → selección de variables (modelos dispersos). |
+| **Elastic Net** | `λ(‖β‖₁ + α‖β‖₂²)` | L1 + L2 | Combina ambas; `α` regula el peso Lasso vs. Ridge. Calibra **dos** hiperparámetros. |
+
+## 8. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).
 - Estandarizar variables cuando se comparan coeficientes o se usa regularización.
