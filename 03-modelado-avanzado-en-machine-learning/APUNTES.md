@@ -71,7 +71,29 @@ Agrega una penalidad a la función de costo para achicar los coeficientes y cont
 | **Lasso** | `λ Σ \|βⱼ\|` | L1 | Lleva β **exactamente a 0** → selección de variables (modelos dispersos). |
 | **Elastic Net** | `λ(‖β‖₁ + α‖β‖₂²)` | L1 + L2 | Combina ambas; `α` regula el peso Lasso vs. Ridge. Calibra **dos** hiperparámetros. |
 
-## 8. Buenas prácticas del módulo
+## 8. Modelos de ensamble
+
+Combinan varios modelos para mejorar el rendimiento. Necesitan modelos **poco correlacionados** entre sí para aportar información. Dos familias:
+
+### Averaging (paralelo) — reduce **varianza**
+
+Entrena estimadores independientes y promedia/vota. Los modelos base suelen ser de alta varianza (árboles sin podar).
+
+- **Bagging** (Bootstrap Aggregation): entrena N modelos sobre N datasets de *bootstrap* (muestreo con reemplazo) y agrega. Si los árboles tienen varianza `S²`, el ensamble tiende a `S²/N`. En clasificación vota por mayoría; en regresión promedia.
+- **Random Forest:** bagging de árboles + en cada nodo se considera solo un subconjunto aleatorio de `M` features (descorrelaciona). Reglas empíricas: `M = P/3` (regresión), `M = √P` (clasificación). Bagging es el caso `M = P`.
+- **Extra Trees:** además elige los cortes al azar (más aleatoriedad).
+
+### Boosting (secuencial) — reduce **sesgo**
+
+Entrena modelos en secuencia; cada uno aprende de los errores del anterior. Combina modelos **débiles** en uno fuerte.
+
+| Método | Idea | sklearn |
+|--------|------|---------|
+| **AdaBoost** | Sube el peso de las observaciones mal clasificadas; usa *stumps* (árbol de 1 corte) con voto ponderado según su error. | `AdaBoostClassifier/Regressor` |
+| **Gradient Boosting** | Cada árbol predice los **residuos** del anterior; `ŷ = y₁ + η·r₁ + … + η·r_N`. `η` (learning rate) controla la convergencia (η↓ ⇒ N↑). | `GradientBoostingClassifier/Regressor` |
+| **XGBoost** | Gradient boosting optimizado: usa **gradientes de segundo orden**, es rápido, paraleliza, maneja nulos y hace pruning. | `xgboost` |
+
+## 9. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).
 - Estandarizar variables cuando se comparan coeficientes o se usa regularización.
