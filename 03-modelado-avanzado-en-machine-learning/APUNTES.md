@@ -122,6 +122,10 @@ Buscar la combinación de hiperparámetros que mejor generaliza, balanceando **o
 | **Random Search** | Muestrea combinaciones **al azar**. | Rápido, buena cobertura / no garantiza el óptimo. | `RandomizedSearchCV` |
 | **Bayesian Optimization** | Modelo **probabilístico** que usa iteraciones previas para elegir las próximas. | Eficiente en evaluaciones, dirigido / más complejo. | `optuna`, `skopt` |
 
+**Optimización convexa vs no convexa** (de la función objetivo del modelo, no de los hiperparámetros):
+- **Convexa:** un único **mínimo global**, fácil y garantizado de alcanzar. Ej.: regresión lineal, SVM lineal.
+- **No convexa:** múltiples **mínimos locales**; más flexible pero difícil de optimizar (heurísticas). Ej.: redes neuronales profundas, SVM no lineal.
+
 ## 11. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).

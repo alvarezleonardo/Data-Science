@@ -32,6 +32,7 @@ Slides del curso (PDF + conversión `.md`):
 | Fundamentos de SVM | [PDF](<teoria/Fundamentos de SVM.pdf>) | [MD](<teoria/Fundamentos de SVM.md>) |
 | Introducción a los Kernels | [PDF](<teoria/Introducción a los Kernels.pdf>) | [MD](<teoria/Introducción a los Kernels.md>) |
 | Técnicas de Optimización de SVM e Hiperparámetros | [PDF](<teoria/Técnicas de Optimización de SVM y Ajuste de Hiperparámetros.pdf>) | [MD](<teoria/Técnicas de Optimización de SVM y Ajuste de Hiperparámetros.md>) |
+| Métodos de Optimización (convexa vs no convexa) | [PDF](<teoria/Métodos de optimización.pdf>) | [MD](<teoria/Métodos de optimización.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
