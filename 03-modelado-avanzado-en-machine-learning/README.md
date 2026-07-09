@@ -23,6 +23,12 @@ Slides del curso (PDF + conversión `.md`):
 | Validación Cruzada | [PDF](<teoria/Validación Cruzada.pdf>) | [MD](<teoria/Validación Cruzada.md>) |
 | Dilema Sesgo - Varianza | [PDF](<teoria/Dilema Sesgo - Varianza.pdf>) | [MD](<teoria/Dilema Sesgo - Varianza.md>) |
 | Regularización: Ridge y Lasso | [PDF](<teoria/Regularización - Ridge y Lasso.pdf>) | [MD](<teoria/Regularización - Ridge y Lasso.md>) |
+| Introducción a Modelos de Ensamble | [PDF](<teoria/Introducción a Modelos de Ensamble.pdf>) | [MD](<teoria/Introducción a Modelos de Ensamble.md>) |
+| Introducción a Random Forest | [PDF](<teoria/Introducción a Random Forest.pdf>) | [MD](<teoria/Introducción a Random Forest.md>) |
+| Introducción a Boosting | [PDF](<teoria/Introducción a Boosting.pdf>) | [MD](<teoria/Introducción a Boosting.md>) |
+| Boosting - ADA Boosting | [PDF](<teoria/Introducción a Boosting - ADA Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - ADA Boosting.md>) |
+| Boosting - Gradient Boosting | [PDF](<teoria/Introducción a Boosting - Gradient Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - Gradient Boosting.md>) |
+| Boosting - XGBoost | [PDF](<teoria/Introducción a Boosting - XGBoost.pdf>) | [MD](<teoria/Introducción a Boosting - XGBoost.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
@@ -36,5 +42,6 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [evaluacion_modelos_regresion.ipynb](notebooks/evaluacion_modelos_regresion.ipynb) | Regresión lineal con `scikit-learn`, métricas (MAE/MSE/RMSE/R²) y train/test split. Dataset `bikes`. |
 | [regresion_polinomial.ipynb](notebooks/regresion_polinomial.ipynb) | Regresión polinómica con `PolynomialFeatures` + `Pipeline`; underfitting/overfitting y curva bias-variance (RMSE vs grado). Datos sintéticos. |
 | [regularizacion_ridge_lasso.ipynb](notebooks/regularizacion_ridge_lasso.ipynb) | Regularización Ridge (L2) y Lasso (L1) con `RidgeCV`/`LassoCV`; estandarización, elección de `alpha` por CV y selección de variables ante colinealidad. Dataset `Credit`. |
+| [ensambles_bagging_random_forest.ipynb](notebooks/ensambles_bagging_random_forest.ipynb) | Ensambles de averaging: `BaggingRegressor`, `RandomForestRegressor` y `ExtraTreesRegressor`; comparación de MSE vs. regresión lineal base. Dataset `Hitters`. |
 
 [← Volver al índice](../README.md)
