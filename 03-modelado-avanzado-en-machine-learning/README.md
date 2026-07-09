@@ -29,6 +29,7 @@ Slides del curso (PDF + conversión `.md`):
 | Boosting - ADA Boosting | [PDF](<teoria/Introducción a Boosting - ADA Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - ADA Boosting.md>) |
 | Boosting - Gradient Boosting | [PDF](<teoria/Introducción a Boosting - Gradient Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - Gradient Boosting.md>) |
 | Boosting - XGBoost | [PDF](<teoria/Introducción a Boosting - XGBoost.pdf>) | [MD](<teoria/Introducción a Boosting - XGBoost.md>) |
+| Fundamentos de SVM | [PDF](<teoria/Fundamentos de SVM.pdf>) | [MD](<teoria/Fundamentos de SVM.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
@@ -46,5 +47,6 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [adaboost.ipynb](notebooks/adaboost.ipynb) | Boosting con `AdaBoostRegressor` (base lineal) vs. regresión lineal. Dataset `Hitters`. |
 | [gradient_boosting.ipynb](notebooks/gradient_boosting.ipynb) | Boosting con `GradientBoostingRegressor` (árboles); MSE vs. base lineal. Dataset `Hitters`. |
 | [xgboost.ipynb](notebooks/xgboost.ipynb) | `XGBRegressor` sobre precios de viviendas; dummies para categóricas, nulos manejados por XGBoost, evaluación R²/MSE/RMSE. Dataset `housing` (California). |
+| [svm.ipynb](notebooks/svm.ipynb) | Clasificación con `SVC` (kernel lineal): margen máximo, estandarización, accuracy + matriz de confusión. Dataset `iris`. |
 
 [← Volver al índice](../README.md)

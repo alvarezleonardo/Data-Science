@@ -93,7 +93,16 @@ Entrena modelos en secuencia; cada uno aprende de los errores del anterior. Comb
 | **Gradient Boosting** | Cada árbol predice los **residuos** del anterior; `ŷ = y₁ + η·r₁ + … + η·r_N`. `η` (learning rate) controla la convergencia (η↓ ⇒ N↑). | `GradientBoostingClassifier/Regressor` |
 | **XGBoost** | Gradient boosting optimizado: usa **gradientes de segundo orden**, es rápido, paraleliza, maneja nulos y hace pruning. | `xgboost` |
 
-## 9. Buenas prácticas del módulo
+## 9. SVM (Support Vector Machines)
+
+Algoritmo supervisado (clasificación y regresión) que busca el **hiperplano que mejor separa las clases** maximizando el **margen** (distancia a los puntos más cercanos, los *vectores de soporte*). Más margen ⇒ mejor generalización.
+
+- **Función de costo:** `L(w,b) = ½‖w‖² + C·Σ max(0, 1 − yᵢ(w·xᵢ + b))`. El término `½‖w‖²` maximiza el margen; `C` regula el trade-off entre margen y errores. Se resuelve como optimización cuadrática (multiplicadores de Lagrange).
+- **SVM lineal:** hiperplano lineal; sirve cuando las clases son linealmente separables.
+- **SVM no lineal (kernel trick):** transforma los datos a un espacio de mayor dimensión **sin calcular las coordenadas**, permitiendo fronteras no lineales. Kernels comunes: **polinomial** y **RBF** (`K(xᵢ,xⱼ) = exp(−γ‖xᵢ−xⱼ‖²)`; `γ` define el alcance).
+- **Escala:** estandarizar siempre (SVM trabaja con distancias). En sklearn: `SVC` / `SVR`.
+
+## 10. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).
 - Estandarizar variables cuando se comparan coeficientes o se usa regularización.
