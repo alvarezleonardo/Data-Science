@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 28 | 🔄 En curso (16% · 1/7) |
+| 7 | 28 | 🔄 En curso (71% · 5/7) |
 
 Profundización en modelos de regresión y técnicas avanzadas de modelado supervisado.
 
@@ -30,6 +30,7 @@ Slides del curso (PDF + conversión `.md`):
 | Boosting - Gradient Boosting | [PDF](<teoria/Introducción a Boosting - Gradient Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - Gradient Boosting.md>) |
 | Boosting - XGBoost | [PDF](<teoria/Introducción a Boosting - XGBoost.pdf>) | [MD](<teoria/Introducción a Boosting - XGBoost.md>) |
 | Fundamentos de SVM | [PDF](<teoria/Fundamentos de SVM.pdf>) | [MD](<teoria/Fundamentos de SVM.md>) |
+| Introducción a los Kernels | [PDF](<teoria/Introducción a los Kernels.pdf>) | [MD](<teoria/Introducción a los Kernels.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`

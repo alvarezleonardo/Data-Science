@@ -99,7 +99,12 @@ Algoritmo supervisado (clasificación y regresión) que busca el **hiperplano qu
 
 - **Función de costo:** `L(w,b) = ½‖w‖² + C·Σ max(0, 1 − yᵢ(w·xᵢ + b))`. El término `½‖w‖²` maximiza el margen; `C` regula el trade-off entre margen y errores. Se resuelve como optimización cuadrática (multiplicadores de Lagrange).
 - **SVM lineal:** hiperplano lineal; sirve cuando las clases son linealmente separables.
-- **SVM no lineal (kernel trick):** transforma los datos a un espacio de mayor dimensión **sin calcular las coordenadas**, permitiendo fronteras no lineales. Kernels comunes: **polinomial** y **RBF** (`K(xᵢ,xⱼ) = exp(−γ‖xᵢ−xⱼ‖²)`; `γ` define el alcance).
+- **SVM no lineal (kernel trick):** un **kernel** calcula el producto escalar en un espacio de mayor dimensión **sin transformar explícitamente los datos**, permitiendo fronteras no lineales. Kernels comunes:
+  - Lineal: `K = xᵢ·xⱼ` (datos linealmente separables).
+  - Polinomial: `K = (xᵢ·xⱼ + c)^d` (interacciones polinómicas).
+  - RBF: `K = exp(−γ‖xᵢ−xⱼ‖²)` (relaciones complejas; `γ` define el alcance).
+  - Sigmoidal: `K = tanh(α·xᵢ·xⱼ + c)` (similar a redes neuronales).
+- Los kernels también se usan fuera de SVM: **SVR** (regresión) y **KPCA** (reducción de dimensionalidad no lineal). Contra: elegir kernel/parámetros es delicado y es costoso en datasets grandes.
 - **Escala:** estandarizar siempre (SVM trabaja con distancias). En sklearn: `SVC` / `SVR`.
 
 ## 10. Buenas prácticas del módulo

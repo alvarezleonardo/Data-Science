@@ -21,7 +21,7 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 |---|--------|:--------:|:------:|--------|
 | 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | ✅ Aprobado (7/7) |
 | 02 | [Desafío Profesional DS — Etapa 1](02-desafio-profesional-etapa-1/) | 1 | 3 | ✅ Aprobado (1/1) |
-| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | 🔄 En curso (16% · 1/7) |
+| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | 🔄 En curso (71% · 5/7) |
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | ⬜ 0% |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | ⬜ 0% |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | ⬜ 0% |
