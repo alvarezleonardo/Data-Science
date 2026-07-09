@@ -43,5 +43,8 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [regresion_polinomial.ipynb](notebooks/regresion_polinomial.ipynb) | Regresión polinómica con `PolynomialFeatures` + `Pipeline`; underfitting/overfitting y curva bias-variance (RMSE vs grado). Datos sintéticos. |
 | [regularizacion_ridge_lasso.ipynb](notebooks/regularizacion_ridge_lasso.ipynb) | Regularización Ridge (L2) y Lasso (L1) con `RidgeCV`/`LassoCV`; estandarización, elección de `alpha` por CV y selección de variables ante colinealidad. Dataset `Credit`. |
 | [ensambles_bagging_random_forest.ipynb](notebooks/ensambles_bagging_random_forest.ipynb) | Ensambles de averaging: `BaggingRegressor`, `RandomForestRegressor` y `ExtraTreesRegressor`; comparación de MSE vs. regresión lineal base. Dataset `Hitters`. |
+| [adaboost.ipynb](notebooks/adaboost.ipynb) | Boosting con `AdaBoostRegressor` (base lineal) vs. regresión lineal. Dataset `Hitters`. |
+| [gradient_boosting.ipynb](notebooks/gradient_boosting.ipynb) | Boosting con `GradientBoostingRegressor` (árboles); MSE vs. base lineal. Dataset `Hitters`. |
+| [xgboost.ipynb](notebooks/xgboost.ipynb) | `XGBRegressor` sobre precios de viviendas; dummies para categóricas, nulos manejados por XGBoost, evaluación R²/MSE/RMSE. Dataset `housing` (California). |
 
 [← Volver al índice](../README.md)
