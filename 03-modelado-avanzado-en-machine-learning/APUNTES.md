@@ -107,7 +107,22 @@ Algoritmo supervisado (clasificación y regresión) que busca el **hiperplano qu
 - Los kernels también se usan fuera de SVM: **SVR** (regresión) y **KPCA** (reducción de dimensionalidad no lineal). Contra: elegir kernel/parámetros es delicado y es costoso en datasets grandes.
 - **Escala:** estandarizar siempre (SVM trabaja con distancias). En sklearn: `SVC` / `SVR`.
 
-## 10. Buenas prácticas del módulo
+### Hiperparámetros clave en SVM
+- **C:** penalización de los errores. `C` alto ⇒ intenta clasificar/ajustar todo (riesgo de overfitting); `C` bajo ⇒ más margen y regularización (riesgo de underfitting).
+- **γ (gamma, kernel RBF):** influencia de cada observación. `γ` alto ⇒ función muy flexible (overfitting).
+- **kernel:** lineal / polinomial / RBF / sigmoidal. Cambia drásticamente el resultado (p. ej. en SVR sobre Hitters, RBF ≈ 0.65 de R² vs. sigmoidal negativo).
+
+## 10. Ajuste de hiperparámetros (tuning)
+
+Buscar la combinación de hiperparámetros que mejor generaliza, balanceando **overfitting** y **underfitting**. Se evalúa con validación cruzada.
+
+| Método | Idea | Pros / Contras | sklearn |
+|--------|------|----------------|---------|
+| **Grid Search** | Prueba **todas** las combinaciones de una grilla. | Exhaustivo y simple / muy costoso, no escala. | `GridSearchCV` |
+| **Random Search** | Muestrea combinaciones **al azar**. | Rápido, buena cobertura / no garantiza el óptimo. | `RandomizedSearchCV` |
+| **Bayesian Optimization** | Modelo **probabilístico** que usa iteraciones previas para elegir las próximas. | Eficiente en evaluaciones, dirigido / más complejo. | `optuna`, `skopt` |
+
+## 11. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).
 - Estandarizar variables cuando se comparan coeficientes o se usa regularización.
