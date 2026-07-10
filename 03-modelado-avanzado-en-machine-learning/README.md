@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 28 | 🔄 En curso (71% · 5/7) |
+| 7 | 28 | 🔄 En curso (86% · 6/7) |
 
 Profundización en modelos de regresión y técnicas avanzadas de modelado supervisado.
 
