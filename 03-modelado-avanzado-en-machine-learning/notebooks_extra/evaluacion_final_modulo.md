@@ -129,3 +129,17 @@ Crear un bosque aleatorio con `max_depth=15` y `random_state=20`. El modelo ajus
 Valores obtenidos: **R² ≈ 0.8126**, **MAE ≈ 0.2797**, **MSE ≈ 0.1844**.
 Las opciones "0.81 a MSE" (el MSE es 0.18) y "0.34 a R²" (el R² es 0.81) son falsas, por lo
 que "Todas las anteriores" tampoco corresponde.
+
+### Pregunta 8 — Random Forest sin latitud/longitud
+
+Siguiendo con el punto anterior, si se entrena el modelo quitando `latitude` y `longitude`,
+¿qué pasa con el rendimiento?
+- Empeora en un 36%
+- Se mantiene igual
+- Mejora en un 15%
+- Ninguna de las opciones
+
+**Respuesta: Empeora en un 36%.** El "36%" corresponde al aumento del **MAE**, que sube de
+0.2797 a 0.3789 (**+35.4% ≈ 36%**). En las otras métricas también empeora: R² baja de 0.8126
+a 0.6944 (−14.6%) y el MSE sube +63.1%. `latitude` y `longitude` son features muy
+informativas para el precio, así que quitarlas degrada el modelo.
