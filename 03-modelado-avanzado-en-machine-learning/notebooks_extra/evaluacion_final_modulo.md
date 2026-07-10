@@ -61,3 +61,15 @@ modelo: ¿empeoraría, no tendría cambios o mejoraría?
 **Respuesta: Mejoraría.** El R² sube de **0.6098** (`max_depth=5`) a **0.7193**
 (`max_depth=10`). Con más profundidad el árbol captura relaciones más finas y mejora la
 performance en test (todavía sin sobreajustar respecto de test en este caso).
+
+### Pregunta 3 — Regresión lineal (por defecto)
+
+Crear un regresor lineal (`LinearRegression()`) con valores por defecto para aproximar el
+valor de la vivienda. Luego de entrenar y evaluar, el R² es:
+- Mayor a 70%
+- Menor al 35%
+- Entre el 40% y 50%
+- Ninguno de los anteriores
+
+**Respuesta: Ninguno de los anteriores.** R² ≈ **0.6257** (62.57%), que no cae en ninguno
+de los rangos ofrecidos.
