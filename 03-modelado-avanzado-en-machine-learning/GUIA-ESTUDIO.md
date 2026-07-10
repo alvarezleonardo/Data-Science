@@ -300,7 +300,164 @@ El flujo típico antes de entrenar, tal como se pide en la práctica del módulo
 
 ---
 
-## 14. Glosario y errores típicos (repaso rápido)
+## 14. Cómo se evalúa un modelo en la práctica (código)
+
+**Flujo estándar en scikit-learn** (idéntico para casi todos los modelos: `fit` → `predict` → métricas):
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+import numpy as np
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+modelo.fit(X_train, y_train)            # 1. entrena (aprende los parámetros)
+preds = modelo.predict(X_test)          # 2. predice sobre datos NO vistos
+
+r2   = r2_score(y_test, preds)          # 3. evalúa en TEST
+mae  = mean_absolute_error(y_test, preds)
+mse  = mean_squared_error(y_test, preds)
+rmse = np.sqrt(mse)
+```
+
+> **Concepto clave.** La API de sklearn es uniforme: **todo estimador** tiene `.fit(X, y)` y `.predict(X)`. Lo único que cambia entre modelos es la clase que instanciás y sus **hiperparámetros**. Por eso comparar modelos es cambiar una línea.
+
+**Métricas en `sklearn.metrics`:**
+
+| Función | Qué devuelve | Mejor cuando |
+|---------|--------------|--------------|
+| `r2_score(y, ŷ)` | R² (varianza explicada) | **↑** más alto (máx 1) |
+| `mean_absolute_error(y, ŷ)` | MAE | **↓** más bajo |
+| `mean_squared_error(y, ŷ)` | MSE | **↓** más bajo |
+| `mean_squared_error(y, ŷ, squared=False)` | RMSE directo | **↓** más bajo |
+
+Para **clasificación**: `accuracy_score`, `confusion_matrix`, `classification_report` (precision/recall/f1), `roc_auc_score`.
+
+⚠️ **Ojo.** Evaluar **siempre sobre `X_test`/`y_test`**, nunca sobre train. Y usar el mismo split (misma `random_state`) para que la comparación entre modelos sea justa.
+
+---
+
+## 15. Cross-validation en código
+
+Un único `train_test_split` puede caer en una partición "afortunada". La CV promedia sobre varias particiones:
+
+```python
+from sklearn.model_selection import cross_val_score, cross_validate, KFold
+
+kf = KFold(n_splits=10, shuffle=True, random_state=42)
+
+# Una métrica, varios folds
+scores = cross_val_score(modelo, X, y, cv=kf, scoring='r2')
+print(scores.mean(), scores.std())     # R² promedio ± dispersión entre folds
+
+# Varias métricas a la vez
+res = cross_validate(modelo, X, y, cv=kf,
+                     scoring=['r2', 'neg_mean_squared_error', 'neg_mean_absolute_error'])
+print(res['test_r2'].mean())
+```
+
+> **Concepto clave — el `neg_` de sklearn.** El convenio de sklearn es que **mayor score = mejor**, así que las métricas de error se pasan **negadas** (`neg_mean_squared_error`). El MSE real es `-res['test_neg_mean_squared_error']`.
+
+**Evitar data leakage con `Pipeline`** — el scaler se ajusta **dentro** de cada fold, no antes de partir:
+
+```python
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVR
+
+pipe = make_pipeline(StandardScaler(), SVR())        # scaler + modelo como una unidad
+scores = cross_val_score(pipe, X, y, cv=kf, scoring='r2')
+```
+
+Valores típicos de `k`: **5 o 10**. Variantes: `StratifiedKFold` (clasificación desbalanceada), `LeaveOneOut` (`k = n`), `TimeSeriesSplit` (series temporales, sin barajar).
+
+⚠️ **Ojo.** Si escalás/imputás **antes** del `cross_val_score`, filtrás información de los folds de validación → métricas infladas. Encapsular en `Pipeline` lo resuelve.
+
+---
+
+## 16. Hiperparámetros por modelo (referencia)
+
+Qué tocar en cada modelo y en qué dirección empuja el trade-off sesgo-varianza.
+
+### Árbol de decisión (`DecisionTreeRegressor`)
+| Hiperparámetro | Qué hace | Efecto |
+|----------------|----------|--------|
+| `max_depth` | Profundidad máxima | ↑ ⇒ más complejo (menos sesgo, más varianza / overfitting) |
+| `min_samples_split` | Mín. muestras para dividir un nodo | ↑ ⇒ más simple (regulariza) |
+| `min_samples_leaf` | Mín. muestras por hoja | ↑ ⇒ más simple |
+| `max_features` | Features consideradas por corte | ↓ ⇒ más aleatoriedad |
+| `random_state` | Semilla (reproducibilidad) | fija el resultado |
+
+### Random Forest (`RandomForestRegressor`)
+| Hiperparámetro | Qué hace | Efecto |
+|----------------|----------|--------|
+| `n_estimators` | Nº de árboles | ↑ ⇒ más estable (más cómputo); no sobreajusta por subir |
+| `max_depth` | Profundidad de cada árbol | ↑ ⇒ árboles más complejos |
+| `max_features` | Features candidatas por nodo | Clave para **descorrelacionar** (`P/3` regresión, `√P` clasif.) |
+| `min_samples_leaf` | Mín. por hoja | ↑ ⇒ regulariza |
+| `bootstrap` | Muestreo con reemplazo | `True` = bagging |
+
+### Boosting / XGBoost
+| Hiperparámetro | Qué hace | Efecto |
+|----------------|----------|--------|
+| `n_estimators` | Nº de árboles secuenciales | ↑ ⇒ menos sesgo, riesgo de overfitting |
+| `learning_rate` (`η`) | Peso de cada árbol | ↓ ⇒ mejor generalización pero exige más árboles |
+| `max_depth` | Profundidad de cada weak learner | Chico (3-6) suele bastar |
+| `subsample` / `colsample_bytree` | Submuestreo de filas/columnas | < 1 ⇒ regulariza (XGBoost) |
+| `reg_alpha` / `reg_lambda` | Regularización L1 / L2 | ↑ ⇒ regulariza (XGBoost) |
+
+> **Concepto clave — el par `learning_rate` ↔ `n_estimators`.** En boosting van de la mano: bajar el learning rate mejora la generalización pero necesita **más** estimadores para converger.
+
+### SVM / SVR (`SVC` / `SVR`)
+| Hiperparámetro | Qué hace | Efecto |
+|----------------|----------|--------|
+| `C` | Penalización de errores | ↑ ⇒ ajusta todo (overfitting); ↓ ⇒ más margen (underfitting) |
+| `kernel` | `linear` / `poly` / `rbf` / `sigmoid` | Cambia drásticamente la frontera |
+| `gamma` | Alcance de cada punto (RBF) | ↑ ⇒ muy flexible (overfitting) |
+| `degree` | Grado (kernel `poly`) | ↑ ⇒ más complejo |
+| `epsilon` | Ancho del tubo sin penalización (SVR) | ↑ ⇒ más tolerante al error |
+
+> Recordar: **escalar siempre** antes de SVM/SVR.
+
+### Regularización lineal (`Ridge` / `Lasso` / `ElasticNet`)
+| Hiperparámetro | Qué hace | Efecto |
+|----------------|----------|--------|
+| `alpha` (`α`/`λ`) | Fuerza de la penalidad | ↑ ⇒ más regularización (β→0); ↓ ⇒ tiende a OLS |
+| `l1_ratio` | Mezcla L1/L2 (ElasticNet) | 1 = Lasso puro, 0 = Ridge puro |
+
+> Elegir `alpha` por CV con `RidgeCV` / `LassoCV`. Estandarizar antes.
+
+---
+
+## 17. Búsqueda de hiperparámetros en código
+
+```python
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from sklearn.ensemble import RandomForestRegressor
+from scipy.stats import randint
+
+# Grid Search: prueba TODAS las combinaciones de la grilla
+grid = {'max_depth': [10, 15, 20], 'n_estimators': [100, 300]}
+gs = GridSearchCV(RandomForestRegressor(random_state=20), grid,
+                  cv=5, scoring='r2', n_jobs=-1)
+gs.fit(X_train, y_train)
+print(gs.best_params_, gs.best_score_)      # mejor combo y su R² promedio en CV
+mejor = gs.best_estimator_                  # modelo ya reentrenado con los mejores params
+
+# Random Search: muestrea al azar del espacio (más barato con muchos hiperparámetros)
+dist = {'max_depth': randint(5, 25), 'n_estimators': randint(100, 500)}
+rs = RandomizedSearchCV(RandomForestRegressor(random_state=20), dist,
+                        n_iter=20, cv=5, scoring='r2', n_jobs=-1, random_state=42)
+rs.fit(X_train, y_train)
+```
+
+> **Concepto clave.** Ambos usan **CV internamente** (`cv=5`) para puntuar cada combinación, y al terminar **reentrenan** el mejor modelo sobre todo el train (`best_estimator_`). Grid es exhaustivo (crece de forma multiplicativa); Random muestrea `n_iter` combinaciones y suele encontrar buenas soluciones mucho más rápido.
+
+⚠️ **Ojo.** Tunear mirando el **test** filtra información y sobreestima la performance. Lo correcto: tunear con CV **sobre train** y usar test solo al final, una vez, para reportar.
+
+---
+
+## 18. Glosario y errores típicos (repaso rápido)
 
 **Conceptos clave para tener frescos:**
 
