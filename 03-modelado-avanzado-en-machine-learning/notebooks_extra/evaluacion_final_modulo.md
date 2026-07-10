@@ -167,3 +167,13 @@ los no supervisados el algoritmo no tiene un dataset con un label, **lo crea asi
 observación a un grupo**." (clustering). Las demás opciones son incorrectas: no se crea el
 label promediando variables numéricas, el supervisado no usa "dos labels", y el supervisado
 **aprende** de labels existentes (no los "genera" él mismo).
+
+### Pregunta 11 — Clasificación vs Regresión (conceptual)
+
+¿Cuál es la diferencia entre los modelos de Clasificación y Regresión?
+
+**Respuesta:** "Clasificación son los modelos **supervisados** que tienen como variable target
+una variable **categórica**. Regresión son los modelos **supervisados** que tienen como
+variable target una variable **continua**." Ambos son supervisados; se diferencian por el tipo
+de target (categórico vs continuo). Las otras opciones invierten los tipos de target o dicen
+—incorrectamente— que la clasificación es no supervisada.
