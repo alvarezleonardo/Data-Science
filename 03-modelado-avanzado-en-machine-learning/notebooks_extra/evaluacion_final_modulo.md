@@ -96,3 +96,18 @@ El coeficiente más grande del regresor lineal del punto anterior, ¿es mayor a 
 
 **Respuesta: Verdadero.** El coeficiente más grande es el de `ocean_proximity_ISLAND` ≈
 **1.0156**, que es mayor a 1 (el resto está por debajo; le sigue `median_income` ≈ 0.65).
+
+### Pregunta 6 — SVR (por defecto)
+
+Crear un `SVR()` con valores por defecto. Luego de entrenar y testear, hasta este punto,
+una máquina de Soporte Vectorial es la que… (comparar con los modelos anteriores).
+
+**Respuesta: es la que mejor performance obtiene hasta este punto.** El SVR por defecto
+da **R² ≈ 0.7502**, el más alto de todos los modelos probados hasta ahora:
+
+| Modelo | R² |
+|--------|-----|
+| **SVR (default)** | **0.7502** |
+| Árbol (`max_depth=10`) | 0.7193 |
+| Regresión lineal | 0.6257 |
+| Árbol (`max_depth=5`) | 0.6098 |
