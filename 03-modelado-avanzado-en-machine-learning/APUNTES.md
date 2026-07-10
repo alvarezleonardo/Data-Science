@@ -107,7 +107,36 @@ Algoritmo supervisado (clasificación y regresión) que busca el **hiperplano qu
 - Los kernels también se usan fuera de SVM: **SVR** (regresión) y **KPCA** (reducción de dimensionalidad no lineal). Contra: elegir kernel/parámetros es delicado y es costoso en datasets grandes.
 - **Escala:** estandarizar siempre (SVM trabaja con distancias). En sklearn: `SVC` / `SVR`.
 
-## 10. Buenas prácticas del módulo
+### Hiperparámetros clave en SVM
+- **C:** penalización de los errores. `C` alto ⇒ intenta clasificar/ajustar todo (riesgo de overfitting); `C` bajo ⇒ más margen y regularización (riesgo de underfitting).
+- **γ (gamma, kernel RBF):** influencia de cada observación. `γ` alto ⇒ función muy flexible (overfitting).
+- **kernel:** lineal / polinomial / RBF / sigmoidal. Cambia drásticamente el resultado (p. ej. en SVR sobre Hitters, RBF ≈ 0.65 de R² vs. sigmoidal negativo).
+
+## 10. Ajuste de hiperparámetros (tuning)
+
+Buscar la combinación de hiperparámetros que mejor generaliza, balanceando **overfitting** y **underfitting**. Se evalúa con validación cruzada.
+
+| Método | Idea | Pros / Contras | sklearn |
+|--------|------|----------------|---------|
+| **Grid Search** | Prueba **todas** las combinaciones de una grilla. | Exhaustivo y simple / muy costoso, no escala. | `GridSearchCV` |
+| **Random Search** | Muestrea combinaciones **al azar**. | Rápido, buena cobertura / no garantiza el óptimo. | `RandomizedSearchCV` |
+| **Bayesian Optimization** | Modelo **probabilístico** que usa iteraciones previas para elegir las próximas. | Eficiente en evaluaciones, dirigido / más complejo. | `optuna`, `skopt` |
+
+**Optimización convexa vs no convexa** (de la función objetivo del modelo, no de los hiperparámetros):
+- **Convexa:** un único **mínimo global**, fácil y garantizado de alcanzar. Ej.: regresión lineal, SVM lineal.
+- **No convexa:** múltiples **mínimos locales**; más flexible pero difícil de optimizar (heurísticas). Ej.: redes neuronales profundas, SVM no lineal.
+
+## 11. Descenso del gradiente
+
+Algoritmo de optimización **iterativo** para minimizar la función de costo cuando no hay solución analítica (regresión logística, redes neuronales). Se arranca en un punto y se avanza en la **dirección negativa del gradiente**:
+
+`βⱼ ← βⱼ − α · ∂J/∂βⱼ`
+
+- **Gradiente:** vector de derivadas; apunta al mayor aumento y vale 0 en un mínimo/máximo.
+- **Learning rate (α):** hiperparámetro clave. Muy grande ⇒ oscila y no converge; muy chico ⇒ converge lento. Conviene **normalizar** las variables para acelerar la convergencia.
+- **Convexidad:** si la función de costo es convexa (regresión lineal) converge al **mínimo global**; si no (logística, redes), conviene reiniciar desde distintos puntos para no quedar en un mínimo local.
+
+## 12. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).
 - Estandarizar variables cuando se comparan coeficientes o se usa regularización.
