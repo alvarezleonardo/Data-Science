@@ -157,3 +157,13 @@ reales".** El **RMSE = √MSE = √4 = 2**, y el RMSE está en las mismas unidad
 objetivo, por lo que representa el error promedio (≈2 unidades). Las otras opciones confunden
 el MSE con un porcentaje, con el R² (variabilidad explicada) o con una comparación relativa,
 que no se derivan del valor del MSE.
+
+### Pregunta 10 — Supervisado vs no supervisado (conceptual)
+
+¿Cuál es la diferencia principal entre el aprendizaje supervisado y el no supervisado?
+
+**Respuesta:** "En modelos supervisados, el algoritmo aprende de un dataset con un label; en
+los no supervisados el algoritmo no tiene un dataset con un label, **lo crea asignando cada
+observación a un grupo**." (clustering). Las demás opciones son incorrectas: no se crea el
+label promediando variables numéricas, el supervisado no usa "dos labels", y el supervisado
+**aprende** de labels existentes (no los "genera" él mismo).
