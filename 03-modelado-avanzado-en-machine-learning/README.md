@@ -60,4 +60,12 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [mas_practica_1_bikes.ipynb](notebooks/mas_practica_1_bikes.ipynb) | Resolución de *Más Práctica 1*: feature engineering de `hora` (numérica vs 23 dummies) y `día`; comparación de modelos por CV. `hora` categórica es la que más mejora (R² 0.33→0.61). Dataset `bikes`. |
 | [Más Práctica 2.ipynb](<notebooks/Más Práctica 2.ipynb>) | Resolución de *Más Práctica 2*: regularización **Lasso** (`LassoCV` para elegir α) con `OneHotEncoder` + `MinMaxScaler`; comparación de coeficientes y métricas entre `statsmodels` y `scikit-learn`. Dataset `diamonds`. |
 
+### `notebooks_extra/`
+Práctica adicional no evaluada — ver [notebooks_extra/README.md](notebooks_extra/README.md).
+
+| Notebook | Tema |
+|----------|------|
+| [Ejercicio_Incremental.ipynb](notebooks_extra/Ejercicio_Incremental.ipynb) | Ejercicio integrador sobre California `housing`: EDA + limpieza + progresión de modelos (LinearRegression → DecisionTree → SVR → RandomForest → XGBoost) + validación cruzada + `GridSearchCV`/`RandomizedSearchCV`. |
+| [evaluacion_final_modulo.ipynb](notebooks_extra/evaluacion_final_modulo.ipynb) | Evaluación final del módulo sobre California `housing`: preprocesamiento (imputación + `StandardScaler` + `OneHotEncoder`) y cuestionario de 12 preguntas (árbol, regresión lineal, SVR, Random Forest y conceptuales). Consignas y respuestas en [evaluacion_final_modulo.md](notebooks_extra/evaluacion_final_modulo.md). |
+
 [← Volver al índice](../README.md)
