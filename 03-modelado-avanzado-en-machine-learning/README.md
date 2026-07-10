@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 28 | 🔄 En curso (86% · 6/7) |
+| 7 | 28 | ✅ Aprobado (7/7) |
 
 Profundización en modelos de regresión y técnicas avanzadas de modelado supervisado.
 
@@ -36,6 +36,7 @@ Slides del curso (PDF + conversión `.md`):
 | Introducción al Descenso del Gradiente | [PDF](<teoria/Introducción al Descenso del Gradiente.pdf>) | [MD](<teoria/Introducción al Descenso del Gradiente.md>) |
 | Optimización de Hiperparámetros | [PDF](<teoria/Optimización de Hiperparámetros.pdf>) | [MD](<teoria/Optimización de Hiperparámetros.md>) |
 | Más Práctica 1 (ejercicio — Bikes) | [PDF](<teoria/Más Práctica 1.pdf>) | [MD](<teoria/Más Práctica 1.md>) |
+| Más Práctica 2 (ejercicio — Diamonds) | [PDF](<teoria/Más Práctica 2.pdf>) | [MD](<teoria/Más Práctica 2.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
@@ -57,5 +58,6 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [svr.ipynb](notebooks/svr.ipynb) | Regresión con `SVR`: comparación de kernels (RBF/sigmoid/poly) y de `C`; R²/MSE/RMSE. Dataset `Hitters` (log Salary). |
 | [descenso_gradiente.ipynb](notebooks/descenso_gradiente.ipynb) | Descenso del gradiente **desde cero** (clase propia) para regresión lineal; curva de pérdida y comparación con `LinearRegression`. Dataset `boston_data`. |
 | [mas_practica_1_bikes.ipynb](notebooks/mas_practica_1_bikes.ipynb) | Resolución de *Más Práctica 1*: feature engineering de `hora` (numérica vs 23 dummies) y `día`; comparación de modelos por CV. `hora` categórica es la que más mejora (R² 0.33→0.61). Dataset `bikes`. |
+| [Más Práctica 2.ipynb](<notebooks/Más Práctica 2.ipynb>) | Resolución de *Más Práctica 2*: regularización **Lasso** (`LassoCV` para elegir α) con `OneHotEncoder` + `MinMaxScaler`; comparación de coeficientes y métricas entre `statsmodels` y `scikit-learn`. Dataset `diamonds`. |
 
 [← Volver al índice](../README.md)
