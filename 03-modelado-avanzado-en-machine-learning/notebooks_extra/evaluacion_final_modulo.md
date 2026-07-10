@@ -40,3 +40,15 @@ valor 42** para la aleatoriedad.
 
 A medida que se avance en el cuestionario se pedirá realizar más cosas (creación y
 evaluación de modelos), y en base a ello resolver las distintas consignas.
+
+## Cuestionario
+
+### Pregunta 1 — Árbol de decisión
+
+Crear un árbol de decisión que permita realizar una regresión con como máximo **5 de
+profundidad** (`max_depth=5`) y que el número mínimo de muestras necesarias para
+dividir un nodo interno sea de **20** (`min_samples_split=20`), con **semilla de
+aleatoriedad 20** (`random_state=20`). Luego de entrenar y evaluar el modelo, ¿cuál es
+el valor de **R²**?
+
+**Respuesta:** R² ≈ **0.6098** (0.60975).
