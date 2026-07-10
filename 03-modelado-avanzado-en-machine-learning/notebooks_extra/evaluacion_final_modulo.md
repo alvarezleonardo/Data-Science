@@ -143,3 +143,17 @@ Siguiendo con el punto anterior, si se entrena el modelo quitando `latitude` y `
 0.2797 a 0.3789 (**+35.4% ≈ 36%**). En las otras métricas también empeora: R² baja de 0.8126
 a 0.6944 (−14.6%) y el MSE sube +63.1%. `latitude` y `longitude` son features muy
 informativas para el precio, así que quitarlas degrada el modelo.
+
+### Pregunta 9 — Interpretación de un MSE de 4.0 (conceptual)
+
+Después de entrenar un modelo, recibís un MSE de 4.0. ¿Cómo interpretarías este resultado?
+- El modelo es 4.0 veces más preciso que un modelo sin entrenar.
+- El modelo tiene un 4.0% de error en la predicción.
+- En promedio, las predicciones del modelo están a 2 unidades de distancia de los valores reales.
+- Las características del modelo pueden explicar el 4.0% de la variabilidad de la respuesta.
+
+**Respuesta: "En promedio, las predicciones están a 2 unidades de distancia de los valores
+reales".** El **RMSE = √MSE = √4 = 2**, y el RMSE está en las mismas unidades que la variable
+objetivo, por lo que representa el error promedio (≈2 unidades). Las otras opciones confunden
+el MSE con un porcentaje, con el R² (variabilidad explicada) o con una comparación relativa,
+que no se derivan del valor del MSE.
