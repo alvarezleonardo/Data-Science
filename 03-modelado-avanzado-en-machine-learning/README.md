@@ -66,5 +66,6 @@ Práctica adicional no evaluada — ver [notebooks_extra/README.md](notebooks_ex
 | Notebook | Tema |
 |----------|------|
 | [Ejercicio_Incremental.ipynb](notebooks_extra/Ejercicio_Incremental.ipynb) | Ejercicio integrador sobre California `housing`: EDA + limpieza + progresión de modelos (LinearRegression → DecisionTree → SVR → RandomForest → XGBoost) + validación cruzada + `GridSearchCV`/`RandomizedSearchCV`. |
+| [evaluacion_final_modulo.ipynb](notebooks_extra/evaluacion_final_modulo.ipynb) | Evaluación final del módulo sobre California `housing`: preprocesamiento (imputación + `StandardScaler` + `OneHotEncoder`) y cuestionario de 12 preguntas (árbol, regresión lineal, SVR, Random Forest y conceptuales). Consignas y respuestas en [evaluacion_final_modulo.md](notebooks_extra/evaluacion_final_modulo.md). |
 
 [← Volver al índice](../README.md)

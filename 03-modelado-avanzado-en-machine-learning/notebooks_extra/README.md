@@ -32,8 +32,10 @@ Verificado: corre de punta a punta sin errores (las secciones de GridSearch son 
 
 ## `evaluacion_final_modulo.ipynb`
 
-Evaluación final del módulo sobre **California housing** (`../datasets/housing.csv`). Consignas en [`evaluacion_final_modulo.md`](evaluacion_final_modulo.md).
+Evaluación final del módulo sobre **California housing** (`../datasets/housing.csv`). Consignas y respuestas en [`evaluacion_final_modulo.md`](evaluacion_final_modulo.md).
 
-Deja armado el **preprocesamiento pedido** (imputación de nulos con la media, `StandardScaler` en las features numéricas, `OneHotEncoder` en `ocean_proximity`, unificación en un dataframe nuevo) y el **split** (20% test, `random_state=42`), listo para resolver el cuestionario (modelos y evaluación) que se irá agregando.
+Arranca con el **preprocesamiento pedido** (imputación de nulos con la media, `StandardScaler` sobre todas las variables numéricas —incluido el target, según la consigna literal—, `OneHotEncoder` en `ocean_proximity`, unificación en un dataframe nuevo) y el **split** (20% test, `random_state=42`).
+
+Sobre esa base resuelve el **cuestionario completo (12 preguntas)**: árbol de decisión (`max_depth` 5 y 10), regresión lineal (R², intercepto, coeficientes), `SVR`, `RandomForestRegressor` (`max_depth=15`, con y sin `latitude`/`longitude`) y preguntas conceptuales (interpretación de MSE/RMSE, supervisado vs no supervisado, clasificación vs regresión, correlación). Cada pregunta tiene su celda de código o su justificación y la respuesta queda registrada en el `.md`.
 
 [← Volver al módulo](../README.md)
