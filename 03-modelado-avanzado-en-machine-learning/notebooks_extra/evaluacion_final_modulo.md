@@ -87,3 +87,12 @@ Luego de crear el regresor lineal del punto anterior, el término independiente
 consigna, que estandariza **todas** las variables numéricas incluido el target; por eso el
 intercepto es un número chico. Si el target quedara sin escalar, el intercepto sería
 ≈ 238.401 y la respuesta "Ninguno".)
+
+### Pregunta 5 — ¿El coeficiente más grande es mayor a 1?
+
+El coeficiente más grande del regresor lineal del punto anterior, ¿es mayor a 1?
+- Verdadero
+- Falso
+
+**Respuesta: Verdadero.** El coeficiente más grande es el de `ocean_proximity_ISLAND` ≈
+**1.0156**, que es mayor a 1 (el resto está por debajo; le sigue `median_income` ≈ 0.65).
