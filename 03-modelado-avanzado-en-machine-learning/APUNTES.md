@@ -126,7 +126,17 @@ Buscar la combinación de hiperparámetros que mejor generaliza, balanceando **o
 - **Convexa:** un único **mínimo global**, fácil y garantizado de alcanzar. Ej.: regresión lineal, SVM lineal.
 - **No convexa:** múltiples **mínimos locales**; más flexible pero difícil de optimizar (heurísticas). Ej.: redes neuronales profundas, SVM no lineal.
 
-## 11. Buenas prácticas del módulo
+## 11. Descenso del gradiente
+
+Algoritmo de optimización **iterativo** para minimizar la función de costo cuando no hay solución analítica (regresión logística, redes neuronales). Se arranca en un punto y se avanza en la **dirección negativa del gradiente**:
+
+`βⱼ ← βⱼ − α · ∂J/∂βⱼ`
+
+- **Gradiente:** vector de derivadas; apunta al mayor aumento y vale 0 en un mínimo/máximo.
+- **Learning rate (α):** hiperparámetro clave. Muy grande ⇒ oscila y no converge; muy chico ⇒ converge lento. Conviene **normalizar** las variables para acelerar la convergencia.
+- **Convexidad:** si la función de costo es convexa (regresión lineal) converge al **mínimo global**; si no (logística, redes), conviene reiniciar desde distintos puntos para no quedar en un mínimo local.
+
+## 12. Buenas prácticas del módulo
 
 - Verificar supuestos de la regresión lineal (linealidad, homocedasticidad, normalidad de residuos, independencia).
 - Estandarizar variables cuando se comparan coeficientes o se usa regularización.
