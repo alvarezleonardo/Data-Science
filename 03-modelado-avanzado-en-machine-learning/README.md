@@ -56,5 +56,6 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [svm.ipynb](notebooks/svm.ipynb) | Clasificación con `SVC` (kernel lineal): margen máximo, estandarización, accuracy + matriz de confusión. Dataset `iris`. |
 | [svr.ipynb](notebooks/svr.ipynb) | Regresión con `SVR`: comparación de kernels (RBF/sigmoid/poly) y de `C`; R²/MSE/RMSE. Dataset `Hitters` (log Salary). |
 | [descenso_gradiente.ipynb](notebooks/descenso_gradiente.ipynb) | Descenso del gradiente **desde cero** (clase propia) para regresión lineal; curva de pérdida y comparación con `LinearRegression`. Dataset `boston_data`. |
+| [mas_practica_1_bikes.ipynb](notebooks/mas_practica_1_bikes.ipynb) | Resolución de *Más Práctica 1*: feature engineering de `hora` (numérica vs 23 dummies) y `día`; comparación de modelos por CV. `hora` categórica es la que más mejora (R² 0.33→0.61). Dataset `bikes`. |
 
 [← Volver al índice](../README.md)
