@@ -177,3 +177,17 @@ una variable **categórica**. Regresión son los modelos **supervisados** que ti
 variable target una variable **continua**." Ambos son supervisados; se diferencian por el tipo
 de target (categórico vs continuo). Las otras opciones invierten los tipos de target o dicen
 —incorrectamente— que la clasificación es no supervisada.
+
+### Pregunta 12 — Correlación de -0.30 (conceptual)
+
+Suponiendo una relación lineal entre X e Y, ¿cuál afirmación es verdadera si el coeficiente de
+correlación es **-0.30**?
+- No existe correlación.
+- La varianza de X es negativa.
+- La variable X es más grande que la variable Y.
+- La pendiente es negativa.
+
+**Respuesta: La pendiente es negativa.** El signo del coeficiente de correlación coincide con el
+signo de la pendiente de la recta de regresión: `r = -0.30` (negativo) implica pendiente negativa.
+Sí existe correlación (débil, |r|=0.30, pero no nula); la varianza nunca puede ser negativa; y `r`
+no informa sobre la magnitud relativa de X frente a Y.
