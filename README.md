@@ -1,6 +1,6 @@
 # Data Science
 
-![Progreso](https://img.shields.io/badge/progreso-2%2F9%20m%C3%B3dulos-blue)
+![Progreso](https://img.shields.io/badge/progreso-3%2F9%20m%C3%B3dulos-blue)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -21,7 +21,7 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 |---|--------|:--------:|:------:|--------|
 | 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | ✅ Aprobado (7/7) |
 | 02 | [Desafío Profesional DS — Etapa 1](02-desafio-profesional-etapa-1/) | 1 | 3 | ✅ Aprobado (1/1) |
-| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | 🔄 En curso (86% · 6/7) |
+| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | ✅ Aprobado (7/7) |
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | ⬜ 0% |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | ⬜ 0% |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | ⬜ 0% |
