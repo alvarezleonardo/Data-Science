@@ -100,10 +100,14 @@ El coeficiente más grande del regresor lineal del punto anterior, ¿es mayor a 
 ### Pregunta 6 — SVR (por defecto)
 
 Crear un `SVR()` con valores por defecto. Luego de entrenar y testear, hasta este punto,
-una máquina de Soporte Vectorial es la que… (comparar con los modelos anteriores).
+una máquina de Soporte Vectorial es la que:
+- Peor resultado da.
+- Da igual que un árbol de decisión.
+- No se puede utilizar una máquina de Soporte Vectorial.
+- Mejor resultado da.
 
-**Respuesta: es la que mejor performance obtiene hasta este punto.** El SVR por defecto
-da **R² ≈ 0.7502**, el más alto de todos los modelos probados hasta ahora:
+**Respuesta: Mejor resultado da.** El SVR por defecto da **R² ≈ 0.7502**, el más alto de
+todos los modelos probados hasta ahora:
 
 | Modelo | R² |
 |--------|-----|
