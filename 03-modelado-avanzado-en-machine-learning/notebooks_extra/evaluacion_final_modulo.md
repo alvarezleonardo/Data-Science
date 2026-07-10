@@ -115,3 +115,17 @@ todos los modelos probados hasta ahora:
 | Árbol (`max_depth=10`) | 0.7193 |
 | Regresión lineal | 0.6257 |
 | Árbol (`max_depth=5`) | 0.6098 |
+
+### Pregunta 7 — Random Forest (`max_depth=15`)
+
+Crear un bosque aleatorio con `max_depth=15` y `random_state=20`. El modelo ajusta en:
+- 0.81 a la métrica de R²
+- 0.28 a la métrica de MAE
+- 0.81 a la métrica de MSE
+- 0.34 a la métrica de R²
+- Todas las anteriores
+
+**Respuesta: `0.81 a la métrica de R²` y `0.28 a la métrica de MAE`** (ambas correctas).
+Valores obtenidos: **R² ≈ 0.8126**, **MAE ≈ 0.2797**, **MSE ≈ 0.1844**.
+Las opciones "0.81 a MSE" (el MSE es 0.18) y "0.34 a R²" (el R² es 0.81) son falsas, por lo
+que "Todas las anteriores" tampoco corresponde.
