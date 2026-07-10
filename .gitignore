@@ -32,3 +32,7 @@ __pycache__/
 # Config de workflow local (no versionar)
 CLAUDE.md
 .claude/
+
+# Paginas web guardadas (playgrounds interactivos, con su carpeta _files)
+*Playground.html
+*Playground_files/

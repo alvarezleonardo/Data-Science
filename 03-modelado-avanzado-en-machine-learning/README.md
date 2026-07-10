@@ -35,6 +35,7 @@ Slides del curso (PDF + conversión `.md`):
 | Métodos de Optimización (convexa vs no convexa) | [PDF](<teoria/Métodos de optimización.pdf>) | [MD](<teoria/Métodos de optimización.md>) |
 | Introducción al Descenso del Gradiente | [PDF](<teoria/Introducción al Descenso del Gradiente.pdf>) | [MD](<teoria/Introducción al Descenso del Gradiente.md>) |
 | Optimización de Hiperparámetros | [PDF](<teoria/Optimización de Hiperparámetros.pdf>) | [MD](<teoria/Optimización de Hiperparámetros.md>) |
+| Más Práctica 1 (ejercicio — Bikes) | [PDF](<teoria/Más Práctica 1.pdf>) | [MD](<teoria/Más Práctica 1.md>) |
 | Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
