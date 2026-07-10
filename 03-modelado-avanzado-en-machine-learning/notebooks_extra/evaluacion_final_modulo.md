@@ -52,3 +52,12 @@ aleatoriedad 20** (`random_state=20`). Luego de entrenar y evaluar el modelo, ¿
 el valor de **R²**?
 
 **Respuesta:** R² ≈ **0.6098** (0.60975).
+
+### Pregunta 2 — Duplicar la profundidad
+
+Si se duplica la profundidad del árbol creado en el punto anterior (`max_depth=10`), el
+modelo: ¿empeoraría, no tendría cambios o mejoraría?
+
+**Respuesta: Mejoraría.** El R² sube de **0.6098** (`max_depth=5`) a **0.7193**
+(`max_depth=10`). Con más profundidad el árbol captura relaciones más finas y mejora la
+performance en test (todavía sin sobreajustar respecto de test en este caso).
