@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 6 | 31 | 🔄 En curso (10% · 3/31 clases) |
+| 6 | 31 | 🔄 En curso (23% · 7/31 clases) |
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
 
@@ -16,11 +16,18 @@ Slides del curso (PDF + conversión `.md`):
 | 3 | Principios del Aprendizaje no Supervisado | [PDF](<teoria/Principios del Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Principios del Aprendizaje no Supervisado.md>) |
 | 4 | Aplicaciones del Aprendizaje no Supervisado | [PDF](<teoria/Aplicaciones del Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Aplicaciones del Aprendizaje no Supervisado.md>) |
 | 5 | Técnicas Comunes en Aprendizaje no Supervisado | [PDF](<teoria/Técnicas Comunes en Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Técnicas Comunes en Aprendizaje no Supervisado.md>) |
+| 6 | Preparación de Datos para Aprendizaje no Supervisado | [PDF](<teoria/Preparación de Datos para Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Preparación de Datos para Aprendizaje no Supervisado.md>) |
+| 7 | Evaluación de Modelos No Supervisados | [PDF](<teoria/Evaluación de Modelos No Supervisados.pdf>) | [MD](<teoria/Evaluación de Modelos No Supervisados.md>) |
+| 9 | Fundamentos de Clustering | [PDF](<teoria/Fundamentos de Clustering.pdf>) | [MD](<teoria/Fundamentos de Clustering.md>) |
+| 10 | Clustering Jerárquico | [PDF](<teoria/Clustering Jerárquico.pdf>) | [MD](<teoria/Clustering Jerárquico.md>) |
 
 Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cuestionario de Autoevaluación](<teoria/Cuestionario de Autoevaluación.pdf>).
 
 ### `notebooks/`
-Ejercicios y prácticas (se agregarán a medida que avance el módulo).
+
+| Notebook | Tema |
+|----------|------|
+| [clustering_jerarquico_practica.ipynb](notebooks/clustering_jerarquico_practica.ipynb) | Práctica de la Clase 10: clustering jerárquico aglomerativo con `scipy` (`linkage`, `dendrogram`, `fcluster`); dendrogramas variando el número de clusters y los métodos de enlace (simple, completo, promedio, centroide, Ward) con distancia euclidiana. |
 
 ### `datasets/`
 Datasets del módulo (se agregarán a medida que avance el módulo).
@@ -37,13 +44,13 @@ Leyenda: ✅ material disponible · ⬜ pendiente.
 - Clase 3 — Principios del Aprendizaje no Supervisado. ✅
 - Clase 4 — Aplicaciones del Aprendizaje no Supervisado. ✅
 - Clase 5 — Técnicas Comunes en Aprendizaje no Supervisado. ✅
-- Clase 6 — Preparación de Datos para Aprendizaje no Supervisado. ⬜
-- Clase 7 — Evaluación de Modelos No Supervisados. ⬜
+- Clase 6 — Preparación de Datos para Aprendizaje no Supervisado. ✅
+- Clase 7 — Evaluación de Modelos No Supervisados. ✅
 - Clase 8 — Checkpoint de contenidos. ⬜
 
 ### Módulo 3 — Clustering y K-means
-- Clase 9 — Fundamentos de Clustering. ⬜
-- Clase 10 — Clustering Jerárquico (dendrogramas). ⬜
+- Clase 9 — Fundamentos de Clustering. ✅
+- Clase 10 — Clustering Jerárquico (dendrogramas). ✅ + [práctica](notebooks/clustering_jerarquico_practica.ipynb)
 - Clase 11 — Algoritmo de K-means. ⬜
 - Clase 12 — Evaluación de Clusters (nº óptimo de clusters). ⬜
 - Clase 13 — DBSCAN y clustering basado en densidad. ⬜
