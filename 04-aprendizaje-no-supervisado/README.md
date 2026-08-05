@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 6 | 31 | 🔄 En curso (42% · 13/31 clases) |
+| 6 | 31 | 🔄 En curso (52% · 16/31 clases) |
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
 
@@ -26,6 +26,8 @@ Slides del curso (PDF + conversión `.md`):
 | 14 | Aplicaciones Prácticas del Clustering | [PDF](<teoria/Aplicaciones Prácticas del Clustering.pdf>) | [MD](<teoria/Aplicaciones Prácticas del Clustering.md>) |
 | 16 | Comprender la Maldición de la Dimensión | [PDF](<teoria/Comprender la Maldición de la Dimensión.pdf>) | [MD](<teoria/Comprender la Maldición de la Dimensión.md>) |
 | 17 | Estrategias de Selección de Variables | [PDF](<teoria/Estrategias de Selección de Variables.pdf>) | [MD](<teoria/Estrategias de Selección de Variables.md>) |
+| 18 | Criterios de Selección de Modelos | [PDF](<teoria/Criterios de Selección de Modelos.pdf>) | [MD](<teoria/Criterios de Selección de Modelos.md>) |
+| 19 | Selección de Variables con Regularización | [PDF](<teoria/Selección de Variables con Regularización.pdf>) | [MD](<teoria/Selección de Variables con Regularización.md>) |
 
 Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cuestionario de Autoevaluación](<teoria/Cuestionario de Autoevaluación.pdf>).
 
@@ -38,6 +40,7 @@ Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cu
 | [evaluacion_clusters_practica.ipynb](notebooks/evaluacion_clusters_practica.ipynb) | Práctica de la Clase 12: elección del nº óptimo de clusters con el método del codo (inercia) y silueta. |
 | [dbscan_practica.ipynb](notebooks/dbscan_practica.ipynb) | Práctica de la Clase 13: `DBSCAN`; ajuste de `eps` y `min_samples`, comparación con K-means. |
 | [clustering_practica_complementaria.ipynb](notebooks/clustering_practica_complementaria.ipynb) | Práctica complementaria (Clase 14): K-means con `KFold` y `GridSearchCV`, imputación y escalado sobre el dataset `wine`. |
+| [seleccion_variables_embedded_practica.ipynb](notebooks/seleccion_variables_embedded_practica.ipynb) | Práctica de la Clase 20 (métodos embedded): sobre el dataset `Iris`, análisis de dimensionalidad y correlación, K-means como línea base, elección del nº de clusters (codo vs. silueta) y selección de variables con `feature_importances` de `RandomForest`. |
 
 ### `datasets/`
 Datasets del módulo (se agregarán a medida que avance el módulo).
@@ -70,9 +73,9 @@ Leyenda: ✅ material disponible · ⬜ pendiente.
 ### Módulo 4 — La Maldición de la Dimensión y Selección de Variables
 - Clase 16 — Comprender la Maldición de la Dimensión. ✅
 - Clase 17 — Estrategias de Selección de Variables (filtros, RFE). ✅
-- Clase 18 — Criterios de Selección de Modelos (AIC, BIC). ⬜
-- Clase 19 — Selección de Variables con Regularización (Lasso, Ridge). ⬜
-- Clase 20 — Selección de Variables con Métodos Embedded (árboles, Random Forest). ⬜
+- Clase 18 — Criterios de Selección de Modelos (AIC, BIC). ✅
+- Clase 19 — Selección de Variables con Regularización (Lasso, Ridge). ✅
+- Clase 20 — Selección de Variables con Métodos Embedded (árboles, Random Forest). ✅ + [práctica](notebooks/seleccion_variables_embedded_practica.ipynb)
 - Clase 21 — Checkpoint de contenidos. ⬜
 
 ### Módulo 5 — Reducción de la Dimensionalidad
