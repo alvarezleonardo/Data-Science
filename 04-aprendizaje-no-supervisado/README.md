@@ -2,9 +2,11 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 6 | 31 | 🔄 En curso (52% · 16/31 clases) |
+| 6 | 31 | 🔄 En curso (65% · 20/31 clases) |
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
+
+> **[REFERENCIA-TECNICA.md](REFERENCIA-TECNICA.md)** — manual de consulta rápida con los temas clave del módulo: qué es cada técnica, cuándo aplicarla, para qué, hiperparámetros, cómo se evalúa y snippets de `scikit-learn`. Pensado para repaso de examen.
 
 ## Contenido
 
@@ -28,6 +30,10 @@ Slides del curso (PDF + conversión `.md`):
 | 17 | Estrategias de Selección de Variables | [PDF](<teoria/Estrategias de Selección de Variables.pdf>) | [MD](<teoria/Estrategias de Selección de Variables.md>) |
 | 18 | Criterios de Selección de Modelos | [PDF](<teoria/Criterios de Selección de Modelos.pdf>) | [MD](<teoria/Criterios de Selección de Modelos.md>) |
 | 19 | Selección de Variables con Regularización | [PDF](<teoria/Selección de Variables con Regularización.pdf>) | [MD](<teoria/Selección de Variables con Regularización.md>) |
+| 22 | Principios de Reducción de la Dimensionalidad | [PDF](<teoria/Principios de Reducción de la Dimensionalidad.pdf>) | [MD](<teoria/Principios de Reducción de la Dimensionalidad.md>) |
+| 23 | Análisis de Componentes Principales (PCA) | [PDF](<teoria/Análisis de Componentes Principales (PCA).pdf>) | [MD](<teoria/Análisis de Componentes Principales (PCA).md>) |
+| 24 | Aplicaciones de PCA | [PDF](<teoria/Aplicaciones de PCA.pdf>) | [MD](<teoria/Aplicaciones de PCA.md>) |
+| 25 | Análisis Discriminante Lineal (LDA) | [PDF](<teoria/Análisis Discriminante Lineal (LDA).pdf>) | [MD](<teoria/Análisis Discriminante Lineal (LDA).md>) |
 
 Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cuestionario de Autoevaluación](<teoria/Cuestionario de Autoevaluación.pdf>).
 
@@ -41,6 +47,7 @@ Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cu
 | [dbscan_practica.ipynb](notebooks/dbscan_practica.ipynb) | Práctica de la Clase 13: `DBSCAN`; ajuste de `eps` y `min_samples`, comparación con K-means. |
 | [clustering_practica_complementaria.ipynb](notebooks/clustering_practica_complementaria.ipynb) | Práctica complementaria (Clase 14): K-means con `KFold` y `GridSearchCV`, imputación y escalado sobre el dataset `wine`. |
 | [seleccion_variables_embedded_practica.ipynb](notebooks/seleccion_variables_embedded_practica.ipynb) | Práctica de la Clase 20 (métodos embedded): sobre el dataset `Iris`, análisis de dimensionalidad y correlación, K-means como línea base, elección del nº de clusters (codo vs. silueta) y selección de variables con `feature_importances` de `RandomForest`. |
+| [aplicaciones_pca_practica.ipynb](notebooks/aplicaciones_pca_practica.ipynb) | Práctica de la Clase 24: `PCA` de sklearn sobre el dataset `wine`; estandarización con `StandardScaler`, varianza explicada por componente (`explained_variance_ratio_`), elección de `n_components` y clasificación comparando el rendimiento con y sin reducción. |
 
 ### `datasets/`
 Datasets del módulo (se agregarán a medida que avance el módulo).
@@ -79,10 +86,10 @@ Leyenda: ✅ material disponible · ⬜ pendiente.
 - Clase 21 — Checkpoint de contenidos. ⬜
 
 ### Módulo 5 — Reducción de la Dimensionalidad
-- Clase 22 — Principios de Reducción de la Dimensionalidad. ⬜
-- Clase 23 — Análisis de Componentes Principales (PCA). ⬜
-- Clase 24 — Aplicaciones de PCA. ⬜
-- Clase 25 — Análisis Discriminante Lineal (LDA). ⬜
+- Clase 22 — Principios de Reducción de la Dimensionalidad. ✅
+- Clase 23 — Análisis de Componentes Principales (PCA). ✅
+- Clase 24 — Aplicaciones de PCA. ✅ + [práctica](notebooks/aplicaciones_pca_practica.ipynb)
+- Clase 25 — Análisis Discriminante Lineal (LDA). ✅
 - Clase 26 — T-SNE para Visualización. ⬜
 - Clase 27 — UMAP para Reducción de Dimensionalidad. ⬜
 - Clase 28 — Comparación de Técnicas de Reducción. ⬜
