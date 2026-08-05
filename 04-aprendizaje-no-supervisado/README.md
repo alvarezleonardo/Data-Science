@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 6 | 31 | 🔄 En curso (39% · 12/31 clases) |
+| 6 | 31 | 🔄 En curso (42% · 13/31 clases) |
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
 
@@ -25,6 +25,7 @@ Slides del curso (PDF + conversión `.md`):
 | 13 | DBSCAN y Algoritmos de Clustering Basados en Densidad | [PDF](<teoria/DBSCAN y Algoritmos de Clustering Basados en Densidad.pdf>) | [MD](<teoria/DBSCAN y Algoritmos de Clustering Basados en Densidad.md>) |
 | 14 | Aplicaciones Prácticas del Clustering | [PDF](<teoria/Aplicaciones Prácticas del Clustering.pdf>) | [MD](<teoria/Aplicaciones Prácticas del Clustering.md>) |
 | 16 | Comprender la Maldición de la Dimensión | [PDF](<teoria/Comprender la Maldición de la Dimensión.pdf>) | [MD](<teoria/Comprender la Maldición de la Dimensión.md>) |
+| 17 | Estrategias de Selección de Variables | [PDF](<teoria/Estrategias de Selección de Variables.pdf>) | [MD](<teoria/Estrategias de Selección de Variables.md>) |
 
 Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cuestionario de Autoevaluación](<teoria/Cuestionario de Autoevaluación.pdf>).
 
@@ -68,7 +69,7 @@ Leyenda: ✅ material disponible · ⬜ pendiente.
 
 ### Módulo 4 — La Maldición de la Dimensión y Selección de Variables
 - Clase 16 — Comprender la Maldición de la Dimensión. ✅
-- Clase 17 — Estrategias de Selección de Variables (filtros, RFE). ⬜
+- Clase 17 — Estrategias de Selección de Variables (filtros, RFE). ✅
 - Clase 18 — Criterios de Selección de Modelos (AIC, BIC). ⬜
 - Clase 19 — Selección de Variables con Regularización (Lasso, Ridge). ⬜
 - Clase 20 — Selección de Variables con Métodos Embedded (árboles, Random Forest). ⬜
