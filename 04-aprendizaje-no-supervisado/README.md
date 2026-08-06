@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 6 | 31 | 🔄 En curso (65% · 20/31 clases) |
+| 6 | 31 | 🔄 En curso (74% · 23/31 clases) |
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
 
@@ -34,6 +34,9 @@ Slides del curso (PDF + conversión `.md`):
 | 23 | Análisis de Componentes Principales (PCA) | [PDF](<teoria/Análisis de Componentes Principales (PCA).pdf>) | [MD](<teoria/Análisis de Componentes Principales (PCA).md>) |
 | 24 | Aplicaciones de PCA | [PDF](<teoria/Aplicaciones de PCA.pdf>) | [MD](<teoria/Aplicaciones de PCA.md>) |
 | 25 | Análisis Discriminante Lineal (LDA) | [PDF](<teoria/Análisis Discriminante Lineal (LDA).pdf>) | [MD](<teoria/Análisis Discriminante Lineal (LDA).md>) |
+| 26 | T-SNE para Visualización | [PDF](<teoria/T-SNE para Visualización.pdf>) | [MD](<teoria/T-SNE para Visualización.md>) |
+| 27 | UMAP para Reducción de Dimensionalidad | [PDF](<teoria/UMAP para Reducción de Dimensionalidad.pdf>) | [MD](<teoria/UMAP para Reducción de Dimensionalidad.md>) |
+| 28 | Comparación de Técnicas de Reducción de Dimensionalidad | [PDF](<teoria/Comparación de Técnicas de Reducción de Dimensionalidad.pdf>) | [MD](<teoria/Comparación de Técnicas de Reducción de Dimensionalidad.md>) |
 
 Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cuestionario de Autoevaluación](<teoria/Cuestionario de Autoevaluación.pdf>).
 
@@ -48,6 +51,9 @@ Material del curso: [Programa del Curso](<teoria/Programa del Curso.pdf>) · [Cu
 | [clustering_practica_complementaria.ipynb](notebooks/clustering_practica_complementaria.ipynb) | Práctica complementaria (Clase 14): K-means con `KFold` y `GridSearchCV`, imputación y escalado sobre el dataset `wine`. |
 | [seleccion_variables_embedded_practica.ipynb](notebooks/seleccion_variables_embedded_practica.ipynb) | Práctica de la Clase 20 (métodos embedded): sobre el dataset `Iris`, análisis de dimensionalidad y correlación, K-means como línea base, elección del nº de clusters (codo vs. silueta) y selección de variables con `feature_importances` de `RandomForest`. |
 | [aplicaciones_pca_practica.ipynb](notebooks/aplicaciones_pca_practica.ipynb) | Práctica de la Clase 24: `PCA` de sklearn sobre el dataset `wine`; estandarización con `StandardScaler`, varianza explicada por componente (`explained_variance_ratio_`), elección de `n_components` y clasificación comparando el rendimiento con y sin reducción. |
+| [lda_practica.ipynb](notebooks/lda_practica.ipynb) | Práctica de la Clase 25: `LinearDiscriminantAnalysis` de sklearn; proyección supervisada que maximiza la separación entre clases y comparación con la proyección de PCA. |
+| [tsne_practica.ipynb](notebooks/tsne_practica.ipynb) | Práctica de la Clase 26: `TSNE` de sklearn (`sklearn.manifold`); visualización en 2D de datos de alta dimensión, efecto de `perplexity` y exploración de clusters. |
+| [umap_practica.ipynb](notebooks/umap_practica.ipynb) | Práctica de la Clase 27: `UMAP` (paquete `umap-learn`); proyección a 2D preservando estructura local y global, ajuste de `n_neighbors` y `min_dist`. Requiere `pip install umap-learn`. |
 
 ### `datasets/`
 Datasets del módulo (se agregarán a medida que avance el módulo).
@@ -89,10 +95,10 @@ Leyenda: ✅ material disponible · ⬜ pendiente.
 - Clase 22 — Principios de Reducción de la Dimensionalidad. ✅
 - Clase 23 — Análisis de Componentes Principales (PCA). ✅
 - Clase 24 — Aplicaciones de PCA. ✅ + [práctica](notebooks/aplicaciones_pca_practica.ipynb)
-- Clase 25 — Análisis Discriminante Lineal (LDA). ✅
-- Clase 26 — T-SNE para Visualización. ⬜
-- Clase 27 — UMAP para Reducción de Dimensionalidad. ⬜
-- Clase 28 — Comparación de Técnicas de Reducción. ⬜
+- Clase 25 — Análisis Discriminante Lineal (LDA). ✅ + [práctica](notebooks/lda_practica.ipynb)
+- Clase 26 — T-SNE para Visualización. ✅ + [práctica](notebooks/tsne_practica.ipynb)
+- Clase 27 — UMAP para Reducción de Dimensionalidad. ✅ + [práctica](notebooks/umap_practica.ipynb)
+- Clase 28 — Comparación de Técnicas de Reducción. ✅
 - Clase 29 — Checkpoint de contenidos. ⬜
 
 ### Módulo 6 — Cierre de Curso

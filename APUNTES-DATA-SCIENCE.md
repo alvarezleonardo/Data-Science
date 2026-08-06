@@ -427,16 +427,21 @@ Problemas en **alta dimensión**: los datos se **dispersan**, las distancias se 
 
 **LDA (Análisis Discriminante Lineal)** — lineal, **supervisado**. Busca la proyección que **maximiza la separación entre clases**. Genera hasta **(nº clases − 1)** componentes.
 
-**t-SNE** — no lineal; preserva la **estructura de vecinos locales**. Ideal para **visualización** en 2-3D (no para preprocesar).
+**t-SNE** — no lineal; preserva la **estructura de vecinos locales** minimizando la divergencia **KL**. Ideal para **visualización** en 2-3D (no para preprocesar). Costoso en datasets grandes; la estructura **global** (distancias entre clusters) puede no ser fiable.
+
+**UMAP** — no lineal (geometría/topología); construye un **grafo de vecindad** y preserva estructura **local y global**. **Más rápido y escalable que t-SNE**; ajustable con `n_neighbors` / `min_dist`. No viene en sklearn: `pip install umap-learn`.
 
 **ICA** — separa componentes **estadísticamente independientes** (ej. separación de fuentes de audio).
 
-| Técnica | Lineal | Supervisada | Maximiza | Uso principal |
+| Técnica | Lineal | Supervisada | Maximiza / preserva | Uso principal |
 |---------|:------:|:-----------:|----------|---------------|
 | **PCA** | Sí | No | Varianza | Compresión / preprocesamiento |
 | **LDA** | Sí | **Sí** | Separación entre clases | Preproc. para clasificación |
-| **t-SNE** | No | No | Estructura local | **Visualización** |
-| **ICA** | Sí | No | Independencia | Separación de fuentes |
+| **t-SNE** | No | No | Estructura **local** | **Visualización** (datasets chicos/medianos) |
+| **UMAP** | No | No | Estructura **local y global** | **Visualización** (datasets grandes) |
+| **ICA** | Sí | No | Independencia estadística | Separación de fuentes |
+
+**Elección rápida:** preprocesar/comprimir → **PCA**; separar clases con etiquetas → **LDA**; visualizar estructura local (dataset chico) → **t-SNE**; visualizar dataset grande preservando local + global → **UMAP**.
 
 ```python
 from sklearn.decomposition import PCA
@@ -446,6 +451,12 @@ pca.explained_variance_ratio_
 
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 X_lda = LDA(n_components=2).fit_transform(X, y)   # supervisado (usa y)
+
+from sklearn.manifold import TSNE
+X_tsne = TSNE(n_components=2, perplexity=30).fit_transform(X_scaled)  # visualización
+
+import umap                                   # pip install umap-learn
+X_umap = umap.UMAP(n_neighbors=15, min_dist=0.1).fit_transform(X_scaled)
 ```
 
 **Tabla maestra — ¿qué técnica uso?**
@@ -461,7 +472,8 @@ X_lda = LDA(n_components=2).fit_transform(X, y)   # supervisado (usa y)
 | Selección automática en un lineal | Lasso / Elastic Net | 21 |
 | Reducir dimensión conservando varianza | PCA | 24 |
 | Reducir dimensión separando clases | LDA | 24 |
-| Visualizar alta dimensión en 2D | t-SNE | 24 |
+| Visualizar alta dimensión en 2D (dataset chico) | t-SNE | 24 |
+| Visualizar alta dimensión en 2D (dataset grande) | UMAP | 24 |
 | Comparar modelos ajuste/complejidad | AIC / BIC | 22 |
 
 ---
