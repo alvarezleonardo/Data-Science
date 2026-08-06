@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 6 | 31 | 🔄 En curso (74% · 23/31 clases) |
+| 6 | 31 | 🔄 En curso — contenido completo (23/23 clases con material) · restan checkpoints y evaluación integral |
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
 
@@ -61,6 +61,8 @@ Datasets del módulo (se agregarán a medida que avance el módulo).
 ## Temario (plan de estudio)
 
 Leyenda: ✅ material disponible · ⬜ pendiente.
+
+> **Cierre de contenido:** todas las clases con material teórico/práctico del curso (23) están procesadas y consolidadas. Las clases restantes son de **entorno** (C2), **checkpoints** de contenidos (C8, C15, C21, C29) y **cierre** (C30 despedida/resumen, C31 evaluación integral): no tienen slides propias, por eso figuran como ⬜. El módulo pasará a ✅ Aprobado al rendir la evaluación integral.
 
 ### Módulo 1 — Bienvenida
 - Clase 1 — Bienvenida: programa del curso, presentación, cuestionario de autoevaluación. ✅

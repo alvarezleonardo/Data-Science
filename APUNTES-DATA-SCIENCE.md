@@ -6,15 +6,15 @@
 >
 > Los títulos de módulo usan la **numeración del programa** (carpetas `NN-...`). Cada PDF del curso tiene además su conversión 1:1 en un `.md` al lado del archivo. Donde el material de origen tenía errores, se corrigen y se marcan con **Nota**.
 >
-> Estado de cobertura: Módulo 01 y 03 (apuntes); Módulo 04 (apuntes + referencia completa). Se completará la referencia del resto de módulos de forma incremental.
+> Estado de cobertura: Módulos 01, 03 y 04 con **ambos criterios** (apuntes + referencia técnica). El resto se completará a medida que avance el programa.
 
 ## Índice
 
 - [Módulo 01 — Introducción a Machine Learning](#módulo-01--introducción-a-machine-learning)
-  - [1. ¿Qué es Machine Learning?](#1-qué-es-machine-learning) · [2. Datasets, features y labels](#2-datasets-features-y-labels) · [3. Tipos de aprendizaje](#3-tipos-de-aprendizaje) · [4. Ciclo de vida de un proyecto de ML](#4-ciclo-de-vida-de-un-proyecto-de-ml) · [5. Preparación de datos y EDA](#5-preparación-de-datos-y-eda) · [6. Clasificadores lineales](#6-clasificadores-lineales) · [7. Árboles de decisión](#7-árboles-de-decisión) · [8. Métricas de clasificación](#8-métricas-de-clasificación) · [9. Aprendizaje no supervisado (panorama)](#9-aprendizaje-no-supervisado-panorama) · [10. Evaluación de modelos](#10-evaluación-de-modelos) · [11. XGBoost y ensambles](#11-xgboost-y-ensambles)
+  - [1. ¿Qué es Machine Learning?](#1-qué-es-machine-learning) · [2. Datasets, features y labels](#2-datasets-features-y-labels) · [3. Tipos de aprendizaje](#3-tipos-de-aprendizaje) · [4. Ciclo de vida de un proyecto de ML](#4-ciclo-de-vida-de-un-proyecto-de-ml) · [5. Preparación de datos y EDA](#5-preparación-de-datos-y-eda) · [6. Clasificadores lineales](#6-clasificadores-lineales) · [7. Árboles de decisión](#7-árboles-de-decisión) · [8. Métricas de clasificación](#8-métricas-de-clasificación) · [9. Aprendizaje no supervisado (panorama)](#9-aprendizaje-no-supervisado-panorama) · [10. Evaluación de modelos](#10-evaluación-de-modelos) · [11. XGBoost y ensambles](#11-xgboost-y-ensambles) · [Referencia técnica](#referencia-técnica--módulo-01)
 - [Módulo 02 — Desafío Profesional DS (Etapa 1)](#módulo-02--desafío-profesional-ds-etapa-1)
 - [Módulo 03 — Modelado avanzado en Machine Learning](#módulo-03--modelado-avanzado-en-machine-learning)
-  - [12. Regresión lineal](#12-regresión-lineal) · [13. Métricas de regresión](#13-métricas-de-regresión) · [14. Inferencia sobre los coeficientes](#14-inferencia-sobre-los-coeficientes)
+  - [12. Regresión lineal](#12-regresión-lineal) · [13. Métricas de regresión](#13-métricas-de-regresión) · [14. Inferencia sobre los coeficientes](#14-inferencia-sobre-los-coeficientes) · [Referencia técnica](#referencia-técnica--módulo-03)
 - [Módulo 04 — Aprendizaje no supervisado](#módulo-04--aprendizaje-no-supervisado)
   - [15. Panorama del no supervisado](#15-panorama-del-no-supervisado) · [16. Clustering: K-means](#16-clustering-k-means) · [17. Clustering jerárquico](#17-clustering-jerárquico) · [18. DBSCAN](#18-dbscan-clustering-por-densidad) · [19. Evaluación de clusters](#19-evaluación-de-clusters) · [20. Selección de variables](#20-selección-de-variables) · [21. Regularización](#21-regularización-ridge-lasso-elastic-net) · [22. Criterios de selección de modelos (AIC/BIC)](#22-criterios-de-selección-de-modelos-aic--bic) · [23. Maldición de la dimensión](#23-la-maldición-de-la-dimensión) · [24. Reducción de dimensionalidad](#24-reducción-de-dimensionalidad-pca-lda-t-sne-ica)
 - [Glosario rápido](#glosario-rápido)
@@ -172,6 +172,33 @@ Sin etiquetas: el objetivo es **descubrir patrones/estructura**. (Se desarrolla 
 
 **XGBoost** (Extreme Gradient Boosting): implementación optimizada de gradient boosting; alto rendimiento, regularización incorporada y manejo eficiente de datos. Estándar de facto en problemas tabulares.
 
+### Referencia técnica — Módulo 01
+
+**Modelos supervisados: cuándo usar cada uno + hiperparámetros clave**
+
+| Modelo | Cuándo usar | Hiperparámetros clave |
+|--------|-------------|-----------------------|
+| **Regresión logística** | Baseline de clasificación; interpretable; querés probabilidades | `C` (inverso de la regularización), `penalty` (l1/l2), `class_weight` |
+| **SVM** (`SVC`) | Márgenes claros; fronteras no lineales (kernels); datasets chicos/medianos | `C`, `kernel` (linear/rbf), `gamma` |
+| **Árbol de decisión** | Interpretabilidad, no linealidad, EDA de importancia | `max_depth`, `min_samples_leaf`, `min_samples_split`, `criterion` |
+| **Random Forest** | Robusto, poca config, da importancia de features | `n_estimators`, `max_depth`, `max_features` |
+| **XGBoost** | Máxima performance en datos tabulares | `n_estimators`, `learning_rate`, `max_depth`, `subsample` |
+
+**Cómo se evalúa** (ver §8): matriz de confusión, `accuracy` / `precision` / `recall` / `F1`, `ROC-AUC`. Con clases desbalanceadas priorizar F1/AUC/recall. Estimar el desempeño real con **split train/test** + **validación cruzada** (§10).
+
+```python
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, roc_auc_score
+
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
+clf = RandomForestClassifier(n_estimators=300, max_depth=None, random_state=42).fit(X_tr, y_tr)
+print(classification_report(y_te, clf.predict(X_te)))
+cross_val_score(clf, X, y, cv=5, scoring="f1_macro")     # desempeño robusto
+clf.feature_importances_                                  # importancia de variables
+```
+
 ---
 
 ## Módulo 02 — Desafío Profesional DS (Etapa 1)
@@ -241,6 +268,38 @@ Si `β₁ = 0`, el modelo se reduce a `Y = β₀ + ε` y `X` no aporta. Se eval�
 - También se usan **intervalos de confianza** para los coeficientes.
 
 > Este módulo cubre además validación cruzada, sesgo-varianza, regularización, ensambles, SVM/kernels y tuning. Ver la [guía de estudio del módulo 03](03-modelado-avanzado-en-machine-learning/GUIA-ESTUDIO.md) para el detalle con diagramas y tablas de hiperparámetros.
+
+### Referencia técnica — Módulo 03
+
+**Flujo de trabajo típico + herramientas**
+
+| Necesito… | Herramienta | Notas |
+|-----------|-------------|-------|
+| Ajustar una regresión | `LinearRegression` (OLS) | Sin hiperparámetros; base de comparación |
+| Evaluar regresión | `mean_absolute_error`, `mean_squared_error`, `r2_score` | RMSE = `√MSE`; R² invariante a escala de `y` (§13) |
+| Estimar desempeño real | `cross_val_score`, `KFold` | Promediar métricas sobre los folds; evita sobreestimar |
+| Buscar hiperparámetros | `GridSearchCV` (exhaustivo) / `RandomizedSearchCV` (muestreo) | Combinar con CV; `scoring` acorde al problema |
+| Encadenar preproceso + modelo | `Pipeline` | Evita fuga de datos (el `fit` del scaler queda dentro de cada fold) |
+| Regularizar / seleccionar variables | `RidgeCV`, `LassoCV`, `ElasticNetCV` | Ver §21 (Módulo 04) para el detalle |
+
+**Cómo se evalúa:** para regresión, **RMSE** (interpretable, en la unidad de `y`) y **R²** (varianza explicada). Vigilar el **trade-off sesgo-varianza** (§10): comparar error de train vs test para detectar over/underfitting.
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import GridSearchCV, KFold
+from sklearn.metrics import mean_squared_error, r2_score
+import numpy as np
+
+pipe = Pipeline([("scaler", StandardScaler()), ("model", Ridge())])
+grid = GridSearchCV(pipe, {"model__alpha": [0.1, 1, 10]},
+                    cv=KFold(5, shuffle=True, random_state=42),
+                    scoring="neg_root_mean_squared_error")
+grid.fit(X_tr, y_tr)
+pred = grid.predict(X_te)
+print("RMSE:", np.sqrt(mean_squared_error(y_te, pred)), "R2:", r2_score(y_te, pred))
+```
 
 ---
 
