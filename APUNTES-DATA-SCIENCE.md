@@ -6,7 +6,7 @@
 >
 > Los títulos de módulo usan la **numeración del programa** (carpetas `NN-...`). Cada PDF del curso tiene además su conversión 1:1 en un `.md` al lado del archivo. Donde el material de origen tenía errores, se corrigen y se marcan con **Nota**.
 >
-> Estado de cobertura: Módulos 01, 03 y 04 con **ambos criterios** (apuntes + referencia técnica). El resto se completará a medida que avance el programa.
+> Estado de cobertura: Módulos 01, 03 y 04 con **ambos criterios** (apuntes + referencia técnica). Módulo 06 con las primeras clases documentadas (fundamentos biológicos, historia, perceptrón y su entrenamiento, limitaciones); el módulo sigue en curso y se irá completando con funciones de activación, MLP, backpropagation y el resto del programa. El resto se completará a medida que avance el programa.
 
 ## Índice
 
@@ -17,6 +17,8 @@
   - [12. Regresión lineal](#12-regresión-lineal) · [13. Métricas de regresión](#13-métricas-de-regresión) · [14. Inferencia sobre los coeficientes](#14-inferencia-sobre-los-coeficientes) · [Referencia técnica](#referencia-técnica--módulo-03)
 - [Módulo 04 — Aprendizaje no supervisado](#módulo-04--aprendizaje-no-supervisado)
   - [15. Panorama del no supervisado](#15-panorama-del-no-supervisado) · [16. Clustering: K-means](#16-clustering-k-means) · [17. Clustering jerárquico](#17-clustering-jerárquico) · [18. DBSCAN](#18-dbscan-clustering-por-densidad) · [19. Evaluación de clusters](#19-evaluación-de-clusters) · [20. Selección de variables](#20-selección-de-variables) · [21. Regularización](#21-regularización-ridge-lasso-elastic-net) · [22. Criterios de selección de modelos (AIC/BIC)](#22-criterios-de-selección-de-modelos-aic--bic) · [23. Maldición de la dimensión](#23-la-maldición-de-la-dimensión) · [24. Reducción de dimensionalidad](#24-reducción-de-dimensionalidad-pca-lda-t-sne-ica)
+- [Módulo 06 — Fundamentos de redes neuronales](#módulo-06--fundamentos-de-redes-neuronales)
+  - [25. Fundamentos biológicos](#25-fundamentos-biológicos) · [26. Historia de las redes neuronales](#26-historia-de-las-redes-neuronales) · [27. El perceptrón: estructura y fórmulas](#27-el-perceptrón-estructura-y-fórmulas) · [28. Entrenamiento del perceptrón: ejemplo compuerta AND](#28-entrenamiento-del-perceptrón-ejemplo-compuerta-and) · [29. Limitaciones del perceptrón](#29-limitaciones-del-perceptrón) · [Referencia técnica](#referencia-técnica--módulo-06)
 - [Glosario rápido](#glosario-rápido)
 
 ---
@@ -534,6 +536,136 @@ X_umap = umap.UMAP(n_neighbors=15, min_dist=0.1).fit_transform(X_scaled)
 | Visualizar alta dimensión en 2D (dataset chico) | t-SNE | 24 |
 | Visualizar alta dimensión en 2D (dataset grande) | UMAP | 24 |
 | Comparar modelos ajuste/complejidad | AIC / BIC | 22 |
+
+---
+
+## Módulo 06 — Fundamentos de redes neuronales
+
+> Curso de redes neuronales. Documentado hasta la Clase 5 del programa (perceptrón y su entrenamiento manual con la compuerta AND). El módulo sigue en curso: falta scikit-learn (`Perceptron`, `MLPClassifier`, `MLPRegressor`), funciones de activación, grafos/capa densa, funciones de pérdida, regularización, optimización/descenso por gradiente y backpropagation. Ver el [programa completo del módulo](06-fundamentos-de-redes-neuronales/teoria/0%20-%20Programa%20del%20módulo.md).
+
+### 25. Fundamentos biológicos
+
+**Apuntes.** Las **redes neuronales artificiales (RNA)** están inspiradas en el cerebro humano (~86 mil millones de neuronas conectadas por **sinapsis**). Cada neurona biológica **recibe** señales por las **dendritas**, las **procesa** en el **cuerpo celular (soma)** y las **transmite** por el **axón**.
+
+Paralelismo biológico → artificial:
+
+| Elemento biológico | Elemento artificial |
+|---|---|
+| Dendritas | Entradas (x₁, x₂, …, xₙ) |
+| Fuerza de la sinapsis | Pesos (w₁, w₂, …, wₙ) |
+| Cuerpo celular (integración) | Sumatoria ponderada (Σ) |
+| Umbral de disparo | Función de activación (Φ) |
+| Axón (señal transmitida) | Salida (y) |
+
+Las neuronas artificiales se organizan en **capas**: capa de entrada, una o más **capas ocultas**, y capa de salida. El aprendizaje biológico fortalece/debilita sinapsis; el de una RNA **ajusta pesos** — analogía conceptual, no una réplica: el mecanismo real (backpropagation + optimización numérica) es matemáticamente distinto, y una RNA profunda consume muchísima más energía que el cerebro para tareas equivalentes.
+
+### 26. Historia de las redes neuronales
+
+**Apuntes.** Recorrido por décadas, con avances y un freno prolongado:
+
+| Período | Hito | Impacto |
+|---|---|---|
+| 1940 (1943) | Modelo matemático de neurona (**McCulloch-Pitts**) | Sienta las bases teóricas: neuronas que hacen cálculos lógicos con entradas binarias |
+| 1950 (1958) | **Perceptrón** (Rosenblatt) | Primer modelo capaz de aprender a clasificar datos linealmente separables |
+| 1960 (1969) | Libro *"Perceptrons"* (**Minsky y Papert**) | Expone las limitaciones del perceptrón simple ante problemas no lineales → **invierno de la IA** (cae el financiamiento e interés) |
+| 1980 | **Backpropagation** | Reactiva el campo: permite entrenar redes multicapa ajustando pesos para minimizar el error |
+| 1990-2000 | **CNN** (datos con estructura espacial, imágenes) y **RNN** (datos secuenciales) | Especialización de arquitecturas según el tipo de dato |
+| Era moderna | **Deep learning** | Datos masivos + poder de cómputo + mejores algoritmos → redes de decenas/cientos de capas |
+
+> **Nota:** las etiquetas de década (1940, 1950, 1960) son aproximaciones del material original; los años puntuales son 1943 (McCulloch-Pitts), 1958 (Rosenblatt) y 1969 (Minsky y Papert).
+
+### 27. El perceptrón: estructura y fórmulas
+
+**Apuntes.** El **perceptrón** (Rosenblatt, 1957/58) es un algoritmo de **aprendizaje supervisado** para **clasificación binaria**, el modelo más simple de red neuronal. Es un **clasificador lineal**: solo puede aprender correctamente cuando las clases son **linealmente separables** (se pueden dividir con una única recta/hiperplano).
+
+**Estructura:**
+
+- **Entradas** `x1, x2, …, xn`.
+- **Pesos** `w1, w2, …, wn`: importancia relativa de cada entrada.
+- **Umbral / bias** `θ`: término independiente.
+- **Suma ponderada** `Σ`, **función de activación** `Φ` y **salida** `y`.
+
+Flujo: `x1…xn` (con pesos `w1…wn`) y `θ` → suma ponderada `z` → activación `Φ` → salida `y`.
+
+**Fórmulas:**
+
+```
+Suma ponderada:         z = w1*x1 + w2*x2 + ... + wn*xn + θ   =   Σ (i=1 a n) wi*xi + θ
+
+Función de activación (escalón):
+Φ(z) = 1  si z > 0
+Φ(z) = 0  en caso contrario
+
+Salida:                 y = Φ(z)
+
+Actualización de pesos:  Δwi = n * (y_real - y) * xi     →  wi_nuevo = wi_anterior + Δwi
+Actualización del umbral: Δθ = n * (y_real - y)          →  θ_nuevo  = θ_anterior + Δθ
+```
+
+`n` (eta) es la **tasa de aprendizaje**: regula cuánto se ajusta cada peso en cada actualización. Ambas actualizaciones (pesos y umbral) se aplican en cada iteración en la que la predicción `y` difiere del valor real `y_real`; si coinciden, el ajuste es nulo (`Δw = Δθ = 0`).
+
+**Ejemplo canónico — compuerta lógica AND** (`x1 AND x2`, tabla de verdad con un único caso positivo en `(1,1)`): al graficar los 4 puntos, `(1,1)` queda separado del resto por una recta → es **linealmente separable**, condición necesaria para que el perceptrón la aprenda.
+
+### 28. Entrenamiento del perceptrón: ejemplo compuerta AND
+
+**Apuntes.** Entrenamiento manual, paso a paso, de un perceptrón para aprender `x1 AND x2`.
+
+**Parámetros iniciales:** `w1 = 0.381`, `w2 = 0.245`, `θ = 0.196`, tasa de aprendizaje `n = 0.045`.
+
+El procedimiento se repite en cada iteración recorriendo las 4 filas de la tabla de verdad `(0,0)→0`, `(0,1)→0`, `(1,0)→0`, `(1,1)→1`, calculando `z`, aplicando la función escalón para obtener `y`, y actualizando `wi` y `θ` cuando `y ≠ y_real`.
+
+**Resumen de las 6 iteraciones hasta la convergencia:**
+
+| Iteración | Parámetros al cierre | ¿Hubo error en alguna fila? |
+|:--:|---|---|
+| Inicio | `w1=0.381`, `w2=0.245`, `θ=0.196` | — |
+| 1ª | `w1=0.336`, `w2=0.2`, `θ=0.061` | Sí (filas 1, 2 y 3) |
+| 2ª | `w1=0.291`, `w2=0.155`, `θ=-0.074` | Sí (filas 1, 2 y 3) |
+| 3ª | `w1=0.246`, `w2=0.11`, `θ=-0.164` | Sí (filas 2 y 3) |
+| 4ª | `w1=0.201`, `w2=0.11`, `θ=-0.209` | Sí (solo fila 3) |
+| 5ª | `w1=0.201`, `w2=0.11`, `θ=-0.209` (sin cambios) | No — el perceptrón ya clasifica bien las 4 filas |
+| 6ª (verificación) | `w1=0.201`, `w2=0.11`, `θ=-0.209` | No — error `0` confirmado en las 4 filas; converge |
+
+**Pesos finales:** `w1 = 0.201`, `w2 = 0.11`, `θ (bias) = -0.209`. Con estos valores, `y = Φ(w1*x1 + w2*x2 + θ)` da `0` para `(0,0)`, `(0,1)` y `(1,0)`, y `1` para `(1,1)` — reproduce exactamente la compuerta AND.
+
+> **Nota:** en la 5ª iteración ya no hubo ningún error, pero recién se confirma la convergencia con una 6ª pasada de verificación (error `e = y_real - y = 0` en las 4 filas) antes de dar por finalizado el entrenamiento.
+
+### 29. Limitaciones del perceptrón
+
+**Apuntes.**
+
+- **Separabilidad lineal:** el perceptrón simple **solo** resuelve problemas **linealmente separables**. El caso clásico que no puede resolver es el **XOR**, cuyas clases no se pueden separar con una única recta/hiperplano.
+- **Convergencia no garantizada:** si los datos no son linealmente separables, el algoritmo puede no converger nunca en un número finito de pasos.
+- **Capacidad limitada:** poca capacidad para capturar relaciones y patrones complejos (al ser un modelo lineal de una sola capa).
+- **Ajuste de hiperparámetros:** aunque tiene menos hiperparámetros que modelos más complejos, calibrar la tasa de aprendizaje sigue siendo un desafío (muy alta → inestabilidad/oscilación; muy baja → convergencia lenta).
+
+Esta limitación (XOR) es históricamente la que originó el "invierno de la IA" (§26): se resuelve con perceptrones **multicapa** (MLP) y **backpropagation**, contenido posterior del módulo.
+
+### Referencia técnica — Módulo 06
+
+**Cuándo aplica un perceptrón simple:** problema de **clasificación binaria** con clases **linealmente separables**; sirve como bloque base para entender MLP, pero en la práctica rara vez se usa solo (no resuelve XOR ni problemas no lineales).
+
+**Hiperparámetros clave:**
+
+| Hiperparámetro | Rol | Notas |
+|---|---|---|
+| Tasa de aprendizaje (`eta0` en sklearn) | Magnitud del ajuste de pesos en cada actualización | Muy alta → oscila sin converger; muy baja → converge lento |
+| Inicialización de pesos/bias | Punto de partida del entrenamiento | En el ejemplo manual se parte de valores pequeños no nulos (`w1=0.381`, `w2=0.245`, `θ=0.196`); en la práctica suele inicializarse en 0 o con valores aleatorios chicos |
+| Número máximo de iteraciones (`max_iter`) | Corte si no converge | Relevante cuando los datos no son linealmente separables (§29) |
+
+```python
+from sklearn.linear_model import Perceptron
+import numpy as np
+
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])   # x1, x2
+y = np.array([0, 0, 0, 1])                        # x1 AND x2
+
+clf = Perceptron(max_iter=1000, eta0=0.045, random_state=42)
+clf.fit(X, y)
+
+clf.predict(X)        # array([0, 0, 0, 1]) → aprende la compuerta AND
+clf.coef_, clf.intercept_   # pesos (w1, w2) y bias (equivalente a -θ)
+```
 
 ---
 
