@@ -6,7 +6,7 @@
 >
 > Los títulos de módulo usan la **numeración del programa** (carpetas `NN-...`). Cada PDF del curso tiene además su conversión 1:1 en un `.md` al lado del archivo. Donde el material de origen tenía errores, se corrigen y se marcan con **Nota**.
 >
-> Estado de cobertura: Módulos 01, 03 y 04 con **ambos criterios** (apuntes + referencia técnica). Módulo 06 con las primeras clases documentadas (fundamentos biológicos, historia, perceptrón y su entrenamiento, limitaciones); el módulo sigue en curso y se irá completando con funciones de activación, MLP, backpropagation y el resto del programa. El resto se completará a medida que avance el programa.
+> Estado de cobertura: Módulos 01, 03 y 04 con **ambos criterios** (apuntes + referencia técnica). Módulo 06 con las primeras clases documentadas (fundamentos biológicos, historia, perceptrón y su entrenamiento, limitaciones e implementación con scikit-learn); el módulo sigue en curso y se irá completando con funciones de activación, MLP, backpropagation y el resto del programa. El resto se completará a medida que avance el programa.
 
 ## Índice
 
@@ -640,6 +640,16 @@ El procedimiento se repite en cada iteración recorriendo las 4 filas de la tabl
 - **Ajuste de hiperparámetros:** aunque tiene menos hiperparámetros que modelos más complejos, calibrar la tasa de aprendizaje sigue siendo un desafío (muy alta → inestabilidad/oscilación; muy baja → convergencia lenta).
 
 Esta limitación (XOR) es históricamente la que originó el "invierno de la IA" (§26): se resuelve con perceptrones **multicapa** (MLP) y **backpropagation**, contenido posterior del módulo.
+
+### 30. Implementación con scikit-learn
+
+**Apuntes.**
+
+- **Scikit-Learn** es una de las librerías más usadas del ecosistema Python para **aprendizaje automático**.
+- Ofrece una **amplia gama de algoritmos y utilidades** que cubren **todo el flujo de trabajo**: desde la preparación de los datos hasta la evaluación del modelo.
+- **Se integra** con el resto del ecosistema Python, incluidas las librerías de aprendizaje profundo como **TensorFlow** y **PyTorch**.
+
+Aplicado a este módulo: el entrenamiento manual de la compuerta AND (§28) queda encapsulado en `sklearn.linear_model.Perceptron`, que implementa la misma regla delta detrás de la API uniforme `fit` / `predict` (ver ejemplo en la referencia técnica de más abajo). La implementación manual sirve para entender la mecánica; scikit-learn, para trabajar en la práctica con validación, métricas y preprocesamiento integrados. Para redes profundas (varias capas, backpropagation) se pasa a TensorFlow o PyTorch.
 
 ### Referencia técnica — Módulo 06
 
