@@ -677,6 +677,39 @@ clf.predict(X)        # array([0, 0, 0, 1]) → aprende la compuerta AND
 clf.coef_, clf.intercept_   # pesos (w1, w2) y bias (equivalente a -θ)
 ```
 
+**Flujo completo sobre un dataset real (Iris, setosa vs versicolor):**
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Perceptron
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+iris = load_iris()
+mask = iris.target < 2                       # solo clases 0 y 1 (binario)
+X = iris.data[mask][:, [0, 2]]               # sepal length, petal length
+y = iris.target[mask]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y)
+
+clf = Perceptron(max_iter=10, eta0=0.05, random_state=42).fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+accuracy_score(y_test, y_pred)               # 1.00 (clases linealmente separables)
+clf.n_iter_                                  # 7 → convergió antes de max_iter
+```
+
+**Puntos de atención del flujo:**
+
+- `random_state` en el split **y** en el modelo: sin eso cada corrida da pesos y métricas distintos y los resultados no son comparables.
+- `stratify=y` mantiene la proporción de clases en train y test; importa con particiones chicas.
+- `accuracy_score(y_verdadero, y_predicho)` — ese orden. Invertirlo no cambia la exactitud pero sí transpone la matriz de confusión.
+- `n_iter_ < max_iter` significa que **convergió**: dejó de haber errores y el algoritmo cortó solo.
+- **Frontera de decisión** en 2D: de `w1·x1 + w2·x2 + b = 0` se despeja `x2 = -(w1/w2)·x1 - b/w2`. El perceptrón se queda con la primera recta sin errores, **no** con la de mayor margen (esa es la diferencia con SVM).
+- Comparar magnitudes de pesos solo tiene sentido si los atributos están en escalas parecidas; si no, estandarizar antes (`StandardScaler`).
+- `decision_function(X)` devuelve `z` **antes** del escalón: el signo da la clase y la magnitud, la distancia relativa a la frontera.
+
 ---
 
 ## Glosario rápido
