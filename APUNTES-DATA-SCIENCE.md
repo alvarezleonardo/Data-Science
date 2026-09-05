@@ -6,7 +6,7 @@
 >
 > Los títulos de módulo usan la **numeración del programa** (carpetas `NN-...`). Cada PDF del curso tiene además su conversión 1:1 en un `.md` al lado del archivo. Donde el material de origen tenía errores, se corrigen y se marcan con **Nota**.
 >
-> Estado de cobertura: Módulos 01, 03 y 04 con **ambos criterios** (apuntes + referencia técnica). Módulo 06 con las primeras clases documentadas (fundamentos biológicos, historia, perceptrón y su entrenamiento, limitaciones e implementación con scikit-learn); el módulo sigue en curso y se irá completando con funciones de activación, MLP, backpropagation y el resto del programa. El resto se completará a medida que avance el programa.
+> Estado de cobertura: Módulos 01, 03 y 04 con **ambos criterios** (apuntes + referencia técnica). Módulo 06 con las primeras clases documentadas (fundamentos biológicos, historia, perceptrón y su entrenamiento, limitaciones, implementación con scikit-learn y perceptrón multicapa); el módulo sigue en curso y se irá completando con funciones de activación, funciones de pérdida, regularización, optimización y el detalle de backpropagation. El resto se completará a medida que avance el programa.
 
 ## Índice
 
@@ -18,7 +18,7 @@
 - [Módulo 04 — Aprendizaje no supervisado](#módulo-04--aprendizaje-no-supervisado)
   - [15. Panorama del no supervisado](#15-panorama-del-no-supervisado) · [16. Clustering: K-means](#16-clustering-k-means) · [17. Clustering jerárquico](#17-clustering-jerárquico) · [18. DBSCAN](#18-dbscan-clustering-por-densidad) · [19. Evaluación de clusters](#19-evaluación-de-clusters) · [20. Selección de variables](#20-selección-de-variables) · [21. Regularización](#21-regularización-ridge-lasso-elastic-net) · [22. Criterios de selección de modelos (AIC/BIC)](#22-criterios-de-selección-de-modelos-aic--bic) · [23. Maldición de la dimensión](#23-la-maldición-de-la-dimensión) · [24. Reducción de dimensionalidad](#24-reducción-de-dimensionalidad-pca-lda-t-sne-ica)
 - [Módulo 06 — Fundamentos de redes neuronales](#módulo-06--fundamentos-de-redes-neuronales)
-  - [25. Fundamentos biológicos](#25-fundamentos-biológicos) · [26. Historia de las redes neuronales](#26-historia-de-las-redes-neuronales) · [27. El perceptrón: estructura y fórmulas](#27-el-perceptrón-estructura-y-fórmulas) · [28. Entrenamiento del perceptrón: ejemplo compuerta AND](#28-entrenamiento-del-perceptrón-ejemplo-compuerta-and) · [29. Limitaciones del perceptrón](#29-limitaciones-del-perceptrón) · [Referencia técnica](#referencia-técnica--módulo-06)
+  - [25. Fundamentos biológicos](#25-fundamentos-biológicos) · [26. Historia de las redes neuronales](#26-historia-de-las-redes-neuronales) · [27. El perceptrón: estructura y fórmulas](#27-el-perceptrón-estructura-y-fórmulas) · [28. Entrenamiento del perceptrón: ejemplo compuerta AND](#28-entrenamiento-del-perceptrón-ejemplo-compuerta-and) · [29. Limitaciones del perceptrón](#29-limitaciones-del-perceptrón) · [30. Implementación con scikit-learn](#30-implementación-con-scikit-learn) · [31. Perceptrón multicapa (MLP)](#31-perceptrón-multicapa-mlp) · [Referencia técnica](#referencia-técnica--módulo-06)
 - [Glosario rápido](#glosario-rápido)
 
 ---
@@ -541,7 +541,7 @@ X_umap = umap.UMAP(n_neighbors=15, min_dist=0.1).fit_transform(X_scaled)
 
 ## Módulo 06 — Fundamentos de redes neuronales
 
-> Curso de redes neuronales. Documentado hasta la Clase 5 del programa (perceptrón y su entrenamiento manual con la compuerta AND). El módulo sigue en curso: falta scikit-learn (`Perceptron`, `MLPClassifier`, `MLPRegressor`), funciones de activación, grafos/capa densa, funciones de pérdida, regularización, optimización/descenso por gradiente y backpropagation. Ver el [programa completo del módulo](06-fundamentos-de-redes-neuronales/teoria/0%20-%20Programa%20del%20módulo.md).
+> Curso de redes neuronales. Documentado hasta la Clase 11 del programa: perceptrón, su entrenamiento manual con la compuerta AND, limitaciones, implementación con scikit-learn (`Perceptron`) y perceptrón multicapa (`MLPClassifier`, `MLPRegressor`). El módulo sigue en curso: faltan funciones de activación, grafos/capa densa, funciones de pérdida, regularización, optimización/descenso por gradiente y el detalle interno de backpropagation. Ver el [programa completo del módulo](06-fundamentos-de-redes-neuronales/teoria/0%20-%20Programa%20del%20módulo.md).
 
 ### 25. Fundamentos biológicos
 
@@ -651,6 +651,47 @@ Esta limitación (XOR) es históricamente la que originó el "invierno de la IA"
 
 Aplicado a este módulo: el entrenamiento manual de la compuerta AND (§28) queda encapsulado en `sklearn.linear_model.Perceptron`, que implementa la misma regla delta detrás de la API uniforme `fit` / `predict` (ver ejemplo en la referencia técnica de más abajo). La implementación manual sirve para entender la mecánica; scikit-learn, para trabajar en la práctica con validación, métricas y preprocesamiento integrados. Para redes profundas (varias capas, backpropagation) se pasa a TensorFlow o PyTorch.
 
+### 31. Perceptrón multicapa (MLP)
+
+**Apuntes.**
+
+Un **perceptrón multicapa (MLP)** es una red neuronal artificial que aborda problemas complejos de **clasificación** y **regresión**. A diferencia del perceptrón simple, que solo resuelve problemas **linealmente separables** (§29), el MLP maneja **relaciones no lineales** entre las características de entrada y la salida.
+
+Los cuatro puntos de la slide:
+
+- El entrenamiento se realiza mediante el algoritmo de **retropropagación** (backpropagation).
+- Su capacidad para aprender relaciones complejas viene de la **estructura de capas** y de las **funciones de activación no lineales**.
+- Las redes multicapa son **sensibles a la calidad y la naturaleza de los datos** de entrada.
+- Necesitan **muchos datos** para entrenar eficazmente y tienen **riesgo de sobreajuste**.
+
+**Arquitectura.**
+
+| Capa | Rol |
+|---|---|
+| **Entrada** | una neurona por característica; no calcula, solo recibe |
+| **Ocultas** (1 o más) | dan la capacidad de representar relaciones no lineales; cada neurona hace `z = Σ wᵢ·xᵢ + b` y le aplica una activación no lineal |
+| **Salida** | una neurona en regresión; una por clase en clasificación |
+
+Sobre esa arquitectura corren dos procesos:
+
+- **Forward propagation:** los datos de entrada se transforman a través de las capas hasta producir la **salida final**.
+- **Backpropagation:** ajuste de **pesos y sesgos** para **minimizar la función de pérdida**. Es la generalización a varias capas de la regla delta del entrenamiento manual (§28).
+
+**Por qué la activación oculta debe ser no lineal.** Es el punto que justifica toda la arquitectura: si las capas ocultas solo hicieran la suma ponderada, la composición de varias capas lineales **seguiría siendo lineal** y la red colapsaría al equivalente de un perceptrón simple, con la misma limitación. La no linealidad (ReLU, tanh, logística) es lo que hace que apilar capas agregue capacidad real, y con eso resolver el **XOR**.
+
+**Qué se paga respecto del perceptrón simple.**
+
+| | Perceptrón simple | MLP |
+|---|---|---|
+| Problemas | solo linealmente separables | también no lineales |
+| Interpretabilidad | alta: 2 pesos y un sesgo legibles | baja: miles de pesos sin lectura directa |
+| Datos necesarios | pocos | muchos |
+| Sobreajuste | bajo (modelo rígido) | alto: requiere regularización (`alpha`) y validación |
+| Escalado de entradas | tolerable | **necesario** |
+| Costo de entrenamiento | trivial | significativo |
+
+> **Nota (verificado en notebook):** sobre Iris con 2 atributos y las 3 clases, el perceptrón simple llega a **76,7%** de exactitud y el MLP a **93,3%** — la diferencia es exactamente el solapamiento entre *versicolor* y *virginica*, que ninguna recta separa. En el mismo experimento, una red de **20** neuronas iguala a una de **250** usando dos órdenes de magnitud menos parámetros, mientras que una de **5** se queda corta (80%): el tamaño de la red es un hiperparámetro **a buscar**, no a maximizar.
+
 ### Referencia técnica — Módulo 06
 
 **Cuándo aplica un perceptrón simple:** problema de **clasificación binaria** con clases **linealmente separables**; sirve como bloque base para entender MLP, pero en la práctica rara vez se usa solo (no resuelve XOR ni problemas no lineales).
@@ -676,6 +717,93 @@ clf.fit(X, y)
 clf.predict(X)        # array([0, 0, 0, 1]) → aprende la compuerta AND
 clf.coef_, clf.intercept_   # pesos (w1, w2) y bias (equivalente a -θ)
 ```
+
+**Flujo completo sobre un dataset real (Iris, setosa vs versicolor):**
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Perceptron
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+iris = load_iris()
+mask = iris.target < 2                       # solo clases 0 y 1 (binario)
+X = iris.data[mask][:, [0, 2]]               # sepal length, petal length
+y = iris.target[mask]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y)
+
+clf = Perceptron(max_iter=10, eta0=0.05, random_state=42).fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+accuracy_score(y_test, y_pred)               # 1.00 (clases linealmente separables)
+clf.n_iter_                                  # 7 → convergió antes de max_iter
+```
+
+**Puntos de atención del flujo:**
+
+- `random_state` en el split **y** en el modelo: sin eso cada corrida da pesos y métricas distintos y los resultados no son comparables.
+- `stratify=y` mantiene la proporción de clases en train y test; importa con particiones chicas.
+- `accuracy_score(y_verdadero, y_predicho)` — ese orden. Invertirlo no cambia la exactitud pero sí transpone la matriz de confusión.
+- `n_iter_ < max_iter` significa que **convergió**: dejó de haber errores y el algoritmo cortó solo.
+- **Frontera de decisión** en 2D: de `w1·x1 + w2·x2 + b = 0` se despeja `x2 = -(w1/w2)·x1 - b/w2`. El perceptrón se queda con la primera recta sin errores, **no** con la de mayor margen (esa es la diferencia con SVM).
+- Comparar magnitudes de pesos solo tiene sentido si los atributos están en escalas parecidas; si no, estandarizar antes (`StandardScaler`).
+- `decision_function(X)` devuelve `z` **antes** del escalón: el signo da la clase y la magnitud, la distancia relativa a la frontera.
+
+#### Perceptrón multicapa — `MLPClassifier` / `MLPRegressor`
+
+**Cuándo aplica:** relaciones **no lineales** entre atributos y salida, con suficientes datos. Si el problema es linealmente separable o hay pocas muestras, un modelo lineal es preferible: más barato, interpretable y con menos riesgo de sobreajuste.
+
+**Diferencias entre los dos estimadores:**
+
+| | `MLPClassifier` | `MLPRegressor` |
+|---|---|---|
+| Predice | clase discreta | valor continuo |
+| Capa de salida | una neurona por clase | una sola, sin activación |
+| Pérdida | log-loss | error cuadrático medio |
+| Métricas | exactitud, precision, recall, F1 | MSE, RMSE, MAE, R² |
+
+Todo lo demás —capas ocultas, activación no lineal, backpropagation— es idéntico.
+
+**Hiperparámetros clave (comunes a ambos):**
+
+| Hiperparámetro | Rol | Notas |
+|---|---|---|
+| `hidden_layer_sizes` | arquitectura, ej. `(100, 150)` = dos capas ocultas | **a buscar, no a maximizar**: hay un mínimo por debajo del cual subajusta, y a partir de cierto punto solo suma costo y sobreajuste |
+| `activation` | no linealidad de las ocultas: `relu` (default), `tanh`, `logistic`, `identity` | con `identity` la red colapsa a un modelo lineal — las fronteras vuelven a ser rectas |
+| `alpha` | regularización L2 | subirlo suaviza las fronteras y contiene el sobreajuste |
+| `max_iter` | tope de épocas | si salta `ConvergenceWarning`, el modelo sirve pero podría mejorar con más épocas |
+| `early_stopping` | corta cuando deja de mejorar sobre un split de validación | evita gastar épocas de más |
+
+**Diagnóstico del entrenamiento** (no omitirlo): `n_iter_` dice si realmente convergió o si se cortó por `max_iter`; `loss_curve_` debe **bajar y aplanarse** (estancada alto = poca capacidad; cayendo aún al final = faltaron épocas; oscilando = tasa de aprendizaje alta). Ojo: esa curva es la pérdida **de entrenamiento** — que baje a cero puede ser justamente la señal de que memorizó.
+
+```python
+from sklearn.neural_network import MLPClassifier, MLPRegressor
+from sklearn.preprocessing import StandardScaler
+
+# El escalado NO es opcional: fit_transform en train, solo transform en test
+scaler = StandardScaler()
+X_train_s = scaler.fit_transform(X_train)
+X_test_s  = scaler.transform(X_test)          # nunca fit sobre test -> data leakage
+
+# Clasificación
+clf = MLPClassifier(hidden_layer_sizes=(20,), activation="relu",
+                    max_iter=2000, random_state=42).fit(X_train_s, y_train)
+clf.n_iter_, clf.loss_curve_[-1]
+
+# Regresión
+reg = MLPRegressor(hidden_layer_sizes=(100, 100), alpha=0.001,
+                   max_iter=1000, random_state=42).fit(X_train_s, y_train)
+```
+
+**Evaluación en regresión:** el **RMSE** es la métrica interpretable, porque vuelve a las unidades del objetivo; el **MSE** sirve para comparar modelos entre sí; el **MAE** es más robusto a valores extremos; el **R²** dice qué proporción de la varianza se explica (0 = equivale a predecir la media, negativo = peor que la media).
+
+**Una métrica sola no alcanza:** compararla siempre contra un **baseline** (predecir la media, y un modelo lineal). Si el MLP no le gana a una regresión lineal, su complejidad no se justifica.
+
+> **Nota (verificado en notebook, California Housing):** predecir la media da R² = 0; la regresión lineal, 0,576; el `MLPRegressor`, **0,799** (RMSE 0,513 ≈ 51.000 dólares). El MLP se justifica porque las relaciones del dataset no son lineales.
+
+**Antes de culpar al modelo, mirar los datos.** En California Housing el objetivo está **truncado** artificialmente en 5.00001 (500.000 dólares): 992 distritos —casi el 5% del dataset— comparten ese valor. Eso pone un techo al rendimiento alcanzable y aparece como una banda vertical en el gráfico de reales vs predicciones. No se descubre mirando métricas agregadas; se descubre mirando los datos. Los gráficos de **reales vs predicciones** y de **residuos** muestran *dónde* falla el modelo, cosa que un número agregado nunca dice.
 
 ---
 
