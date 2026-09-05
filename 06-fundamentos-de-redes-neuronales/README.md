@@ -2,9 +2,9 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 8 | 28 | 🔄 En curso — teoría hasta el perceptrón multicapa + 3 notebooks propios y 3 recursos de clase |
+| 8 | 28 | 🔄 En curso — teoría hasta funciones de pérdida + 4 notebooks propios y 4 recursos de clase |
 
-> Módulo en curso. Documentado hasta la Clase 11 del programa (fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn y perceptrón multicapa). El resto del material (teoría, notebooks y datasets) se irá agregando a medida que avance.
+> Módulo en curso. Documentado hasta la unidad de optimización y regularización (fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn, perceptrón multicapa, funciones de activación, grafos y capa densa, diseño de la arquitectura y funciones de pérdida). El resto del material (teoría, notebooks y datasets) se irá agregando a medida que avance.
 
 ## Teoría
 
@@ -19,6 +19,10 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Limitaciones.md`](teoria/Limitaciones.md)
 - [`Implementación con Scikit-Learn.md`](<teoria/Implementación con Scikit-Learn.md>)
 - [`Perceptrón Multicapa.md`](<teoria/Perceptrón Multicapa.md>)
+- [`Introducción a las funciones de activación.md`](<teoria/Introducción a las funciones de activación.md>)
+- [`Grafos y capa densa.md`](<teoria/Grafos y capa densa.md>)
+- [`Diseño de la arquitectura de la red.md`](<teoria/Diseño de la arquitectura de la red.md>)
+- [`Funciones de Pérdida.md`](<teoria/Funciones de Pérdida.md>)
 
 ## Notebooks
 
@@ -27,8 +31,10 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`mlp_clasificacion_iris.ipynb`](<notebooks/mlp_clasificacion_iris.ipynb>) — **perceptrón multicapa** aplicado a las 3 clases de Iris con `MLPClassifier`: escalado, diagnóstico del entrenamiento (`n_iter_`, `loss_curve_`), inspección de la arquitectura real, regiones de decisión no lineales, efecto del tamaño de la red y comparación directa contra el perceptrón simple. Amplía el recurso de clase `OD_RN1_ESP_M03_S10`.
 - [`mlp_regresion_california.ipynb`](<notebooks/mlp_regresion_california.ipynb>) — **MLP para regresión** sobre California Housing con `MLPRegressor`: exploración del dataset, por qué el escalado es obligatorio, MSE/RMSE/MAE/R² y cómo leerlas, comparación contra la media y una regresión lineal, análisis de residuos y del techo artificial del dataset. Amplía el recurso de clase `OD_RN1_ESP_M03_S11`.
 
+- [`funciones_activacion.ipynb`](<notebooks/funciones_activacion.ipynb>) — **funciones de activación** en detalle: sigmoide, tanh y ReLU graficadas desde cero con sus derivadas, la saturación medida numéricamente (derivada ~0,0025 y ~0,00002 en `x = 6`, contra 1 de ReLU), la demostración empírica de que con `activation='identity'` un MLP no resuelve el XOR y con `tanh`/`relu` sí, la comparación de las tres activaciones sobre Iris **con y sin escalado** contra el recurso de clase, y el efecto de la arquitectura (de `(2,)` a `(100,100)`) sobre capacidad, sobreajuste y cantidad de parámetros. Amplía el recurso de clase `OD_RN1_ESP_M03_S10`.
+
 Los recursos descargables originales de la clase se conservan sin modificar en [`notebooks/`](notebooks/), con su nombre `OD_RN1_ESP_*`.
 
-Apuntes consolidados también en el [documento maestro](../APUNTES-DATA-SCIENCE.md#módulo-06--fundamentos-de-redes-neuronales), secciones 25 a 31.
+Apuntes consolidados también en el [documento maestro](../APUNTES-DATA-SCIENCE.md#módulo-06--fundamentos-de-redes-neuronales), secciones 25 a 35.
 
 [← Volver al índice](../README.md)
