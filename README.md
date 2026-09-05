@@ -1,6 +1,7 @@
 # Data Science
 
-![Progreso](https://img.shields.io/badge/progreso-3%2F9%20m%C3%B3dulos-blue)
+![Progreso](https://img.shields.io/badge/aprobados-3%2F9%20m%C3%B3dulos-blue)
+![En curso](https://img.shields.io/badge/en%20curso-m%C3%B3dulos%2004%20y%2006-orange)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -17,20 +18,22 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 
 ## Programa y avance
 
-| # | Módulo | Unidades | Clases | Estado |
-|---|--------|:--------:|:------:|--------|
-| 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | ✅ Aprobado (7/7) |
-| 02 | [Desafío Profesional DS — Etapa 1](02-desafio-profesional-etapa-1/) | 1 | 3 | ✅ Aprobado (1/1) |
-| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | ✅ Aprobado (7/7) |
-| 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | 🔄 Contenido completo (resta evaluación) |
-| 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | ⬜ 0% |
-| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | ⬜ 0% |
-| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 32 | ⬜ 0% |
-| 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | ⬜ 1% |
-| 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | ⬜ 0% |
-| | **Total** | **45** | **163** | |
+| # | Módulo | Unidades | Clases | Apuntes | Estado |
+|---|--------|:--------:|:------:|:-------:|--------|
+| 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | [§1-11](APUNTES-DATA-SCIENCE.md#módulo-01--introducción-a-machine-learning) | ✅ Aprobado (7/7) |
+| 02 | [Desafío Profesional DS — Etapa 1](02-desafio-profesional-etapa-1/) | 1 | 3 | — | ✅ Aprobado (1/1) |
+| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [§12-14](APUNTES-DATA-SCIENCE.md#módulo-03--modelado-avanzado-en-machine-learning) | ✅ Aprobado (7/7) |
+| 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [§15-24](APUNTES-DATA-SCIENCE.md#módulo-04--aprendizaje-no-supervisado) | 🔄 Contenido completo (23/23 clases con material) · restan checkpoints y evaluación |
+| 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
+| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [§25-31](APUNTES-DATA-SCIENCE.md#módulo-06--fundamentos-de-redes-neuronales) | 🔄 En curso — teoría hasta la Clase 11 (perceptrón multicapa) · 3 notebooks propios |
+| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 32 | — | ⬜ Sin cursar |
+| 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
+| 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar |
+| | **Total** | **45** | **163** | | **3 aprobados · 2 en curso · 4 pendientes** |
 
 Leyenda: ✅ Aprobado · 🔄 En curso · ⬜ Pendiente
+
+> El estado de cada módulo es el que declara su propio `README.md`; esta tabla lo resume.
 
 ## Estructura del repositorio
 
@@ -47,7 +50,12 @@ Leyenda: ✅ Aprobado · 🔄 En curso · ⬜ Pendiente
 │   ├── introduccion/  consigna/  casos-de-negocio/
 ├── 03-modelado-avanzado-en-machine-learning/
 │   ├── teoria/  notebooks/  datasets/
-└── 04..09/                       ← módulos siguientes (placeholders)
+├── 04-aprendizaje-no-supervisado/
+│   ├── teoria/  notebooks/  datasets/
+├── 05-desafio-profesional-etapa-2/   ← material recibido, sin procesar
+├── 06-fundamentos-de-redes-neuronales/
+│   ├── teoria/  notebooks/       ← módulo en curso
+└── 07..09/                       ← módulos siguientes (placeholders)
 ```
 
 Cada módulo con contenido tiene su propio `README.md` con el detalle de clases y materiales.
