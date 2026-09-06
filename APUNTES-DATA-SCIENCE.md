@@ -27,7 +27,7 @@
 [18. Clustering con K-means](#18-clustering-con-k-means) · [19. Clustering jerárquico](#19-clustering-jerárquico) · [20. DBSCAN](#20-dbscan-clustering-por-densidad) · [21. Evaluación de clusters](#21-evaluación-de-clusters) · [22. La maldición de la dimensión](#22-la-maldición-de-la-dimensión) · [23. Reducción de dimensionalidad](#23-reducción-de-dimensionalidad)
 
 **[Parte VII — Redes neuronales](#parte-vii--redes-neuronales)**
-[24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation)
+[24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -42,11 +42,11 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **03** — Modelado avanzado en ML | 9, 11, 12 |
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
-| **06** — Fundamentos de redes neuronales | 24-37 |
+| **06** — Fundamentos de redes neuronales | 24-38 |
 | **07** — Fundamentos de deep learning | pendiente |
 | **08** — Gestión de proyectos de IA | pendiente |
 
-> **Capítulos que no vienen de una slide.** El 7 (sobreajuste y sesgo-varianza) y el 37 (backpropagation) son ampliaciones propias: el material del curso los da por sabidos o todavía no publicó esa clase. Los capítulos 5, 6, 10 y 14 están ampliados bastante más allá de lo que cubren las slides.
+> **Capítulos que no vienen de una slide.** El 7 (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los capítulos 5, 6, 10 y 14 están ampliados bastante más allá de lo que cubren las slides.
 
 ---
 
@@ -1096,7 +1096,7 @@ La explicación canónica de regularización —qué es la norma L1 y L2, y qué
 
 ### 37. Backpropagation
 
-> **Nota:** este capítulo es una ampliación propia del manual. El material del curso todavía no publicó la clase que desarrolla backpropagation en detalle; hasta acá solo aparecía mencionado de pasada (cap. 30 y cap. 35). Lo que sigue completa esa pieza para que el mecanismo de entrenamiento del MLP quede cerrado.
+
 
 **La idea.** Entrenar una red es encontrar los pesos que minimizan la función de pérdida (cap. 34). Para eso hace falta el gradiente de la pérdida respecto de *cada* peso de *cada* capa (cap. 35). El problema es que la salida de la red es una composición de funciones —capa tras capa— y un peso de una capa temprana afecta la pérdida solo indirectamente, a través de todas las capas que vienen después. **Backpropagation** es el algoritmo que calcula ese gradiente completo de forma eficiente, propagando el error desde la salida hacia atrás, capa por capa, hasta la entrada.
 
@@ -1132,9 +1132,84 @@ flowchart LR
     O -.-> O2
 ```
 
+**La derivación del curso, sobre una red concreta.** El material desarrolla el cálculo sobre una red de 2 entradas (`x₁`, `x₂`), 2 neuronas ocultas (`O₁`, `O₂`) y 1 salida (`S`), con **sigmoide** en todas las activaciones y **error cuadrático** como pérdida. De esos dos supuestos salen los dos factores que se repiten en todas las fórmulas: la derivada del error, `(ŷ − y)`, y la de la sigmoide, `ŷ(1 − ŷ)`.
+
+Para un peso de la **capa de salida**, la cadena tiene tres factores:
+
+```
+∂E/∂p₂₁ = (∂E/∂ŷ) · (∂ŷ/∂sumaₛ) · (∂sumaₛ/∂p₂₁) = (ŷ − y) · ŷ(1 − ŷ) · salida₀₁ = δₛ · salida₀₁
+```
+
+Los dos primeros factores se agrupan bajo el nombre **`δₛ`**, y ese agrupamiento es el corazón del algoritmo: sirve para todos los parámetros de esa capa (`∂E/∂p₂₂ = δₛ·salida₀₂`, `∂E/∂sesgo₂₁ = δₛ·1`) y se **reutiliza** para las capas de más atrás. El sesgo se deriva como un peso cuya entrada vale siempre 1.
+
+Para un peso de la **capa oculta**, la cadena se alarga a cinco factores:
+
+```
+∂E/∂p₁₁ = (ŷ − y) · ŷ(1 − ŷ) · p₂₁ · salida₀₁(1 − salida₀₁) · x₁
+           └────── δₛ ──────┘   └── cruza el peso ──┘  └─ activación de O₁ ─┘  └ entrada
+```
+
+Leída de izquierda a derecha, la fórmula **es** el recorrido del error hacia atrás: sale del error, atraviesa la activación de salida, cruza el peso `p₂₁` hacia la capa oculta, atraviesa la activación de `O₁` y termina en la entrada `x₁`. Los demás pesos siguen el mismo patrón cambiando qué neurona oculta y qué entrada intervienen.
+
+Con los gradientes calculados, cada parámetro se actualiza con la regla del descenso de gradiente (cap. 35):
+
+```
+p₁₁^nuevo = p₁₁^viejo − η · (∂E/∂p₁₁)
+```
+
+> **De dónde sale el 0,25.** La derivada de la sigmoide, `salida(1 − salida)`, vale **como máximo 0,25** (en `salida = 0,5`). Cada capa que el error atraviesa hacia atrás multiplica por un factor de ese tipo, así que el gradiente se achica al menos a la cuarta parte por capa aunque ninguna neurona esté saturada. Ese es el mecanismo exacto del gradiente desvaneciente.
+
 **Por qué es eficiente.** La alternativa ingenua sería derivar la pérdida respecto de cada peso por separado, desde cero, recorriendo toda la red cada vez. Backpropagation evita ese trabajo repetido: calcula el gradiente de la última capa una sola vez y lo **reutiliza** para calcular el de la capa anterior, y así sucesivamente. Cada capa reaprovecha el resultado ya calculado de la capa siguiente en lugar de recomputar la cadena completa desde la salida. Esa reutilización es lo que hace viable entrenar redes de muchas capas: el costo crece linealmente con la cantidad de capas, no exponencialmente.
 
 **Por qué la saturación lo rompe.** El gradiente que llega a una capa temprana es un **producto** de todas las derivadas locales de las capas posteriores (esa es justamente la regla de la cadena). Si la activación usada es sigmoide o tanh (cap. 32), su derivada es casi 0 en los extremos donde la neurona satura. Multiplicar varios números casi nulos entre sí da un número todavía más chico: el gradiente que llega a las primeras capas se **desvanece**, y esas capas dejan de actualizarse aunque el error en la salida siga siendo grande. Es la misma razón por la que ReLU —que no satura del lado positivo— se volvió la activación por defecto en redes con varias capas ocultas.
+
+
+### 38. Persistencia de modelos
+
+Entrenar es caro; predecir es barato. **Persistir** un modelo es guardarlo entrenado en disco para poder usarlo después sin volver a entrenarlo. Lo que la slide destaca:
+
+- **Evita reentrenar** cada vez, ahorrando tiempo y recursos.
+- Permite **servirlo desde un servidor**, procesando datos en tiempo real.
+- Permite **desplegar varias instancias** en distintos nodos, bajando la latencia.
+- Permite **versionar** el modelo y **revertir** si una actualización rompe algo.
+
+**Las dos librerías.**
+
+| | `joblib` | `pickle` |
+|---|---|---|
+| Origen | externa (viene con scikit-learn) | estándar de Python |
+| Fuerte en | **objetos grandes** con arrays de NumPy | objetos Python en general |
+| Compresión | sí, `compress=0..9` | no directamente |
+| Recomendada para sklearn | **sí** | funciona, pero es la segunda opción |
+
+```python
+import joblib
+joblib.dump(mlp, 'mi_modelo.joblib')                        # guardar
+mlp = joblib.load('mi_modelo.joblib')                       # cargar
+joblib.dump(mlp, 'comprimido.joblib', compress=3)           # guardar comprimido
+
+import pickle
+with open('mi_modelo.pkl', 'wb') as f:                      # 'wb' = escritura binaria
+    pickle.dump(mlp, f)
+with open('mi_modelo.pkl', 'rb') as f:                      # 'rb' = lectura binaria
+    mlp = pickle.load(f)
+```
+
+> **Nota (medido con el modelo del notebook de clase):** el `.joblib` sin comprimir pesa 392.276 bytes y el comprimido 375.378 — un **4% menos**. Con un MLP chico la compresión casi no aporta y agrega tiempo de guardado y carga; rinde en modelos grandes.
+
+**Tres cosas que el material no menciona y que importan más que la sintaxis.**
+
+- **Seguridad.** Deserializar un pickle **ejecuta código arbitrario**: un archivo malicioso corre lo que quiera al abrirse. Nunca cargar un modelo de origen desconocido. `joblib` usa pickle por debajo, así que hereda el riesgo. Para modelos que viajan entre organizaciones existen formatos de intercambio como **ONNX** o **PMML**, que describen el modelo sin serializar objetos de Python.
+- **Compatibilidad de versiones.** Un modelo guardado con una versión de scikit-learn puede fallar al cargarse con otra o, peor, cargar sin error y comportarse distinto. Guardar junto al modelo la versión de scikit-learn, de Python y de las dependencias.
+- **Guardar el `Pipeline`, no el estimador suelto.** `joblib.dump(mlp, ...)` serializa solo los pesos e hiperparámetros del estimador: **no** guarda el `StandardScaler` (cap. 5). Si el modelo se entrenó con datos escalados y al cargarlo recibe datos crudos, las predicciones salen mal **sin ningún error visible**.
+
+```python
+from sklearn.pipeline import make_pipeline
+pipe = make_pipeline(StandardScaler(), MLPClassifier(random_state=42)).fit(X_train, y_train)
+joblib.dump(pipe, 'modelo_completo.joblib')   # el escalado viaja con la red
+```
+
+Del mismo modo, el **orden de los atributos** al predecir debe ser el mismo del entrenamiento: el modelo recibe posiciones, no nombres de columna. Y la entrada va como matriz 2D — de ahí el `.reshape(1, -1)` para predecir sobre una sola muestra.
 
 ## Parte VIII — Referencia técnica
 
