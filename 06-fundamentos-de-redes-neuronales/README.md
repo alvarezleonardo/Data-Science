@@ -2,9 +2,9 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 8 | 28 | 🔄 En curso — teoría hasta optimización y regularización + 4 notebooks propios y 4 recursos de clase |
+| 8 | 28 | 🔄 En curso — teoría hasta backpropagation y persistencia de modelos + 4 notebooks propios y 7 recursos de clase |
 
-> Módulo en curso. Documentado hasta la unidad de optimización y regularización (fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn, perceptrón multicapa, funciones de activación, grafos y capa densa, diseño de la arquitectura y funciones de pérdida). El resto del material (teoría, notebooks y datasets) se irá agregando a medida que avance.
+> Módulo en curso. Documentado hasta la unidad de backpropagation y gestión de modelos (fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn, perceptrón multicapa, funciones de activación, grafos y capa densa, diseño de la arquitectura, funciones de pérdida, optimización, regularización, backpropagation y persistencia de modelos). El resto del material (teoría, notebooks y datasets) se irá agregando a medida que avance.
 
 ## Teoría
 
@@ -25,6 +25,8 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Funciones de Pérdida.md`](<teoria/Funciones de Pérdida.md>)
 - [`Optimización.md`](<teoria/Optimización.md>)
 - [`Regularización.md`](<teoria/Regularización.md>)
+- [`Backpropagation.md`](<teoria/Backpropagation.md>)
+- [`Gestión de modelos.md`](<teoria/Gestión de modelos.md>)
 
 ## Notebooks
 
@@ -40,6 +42,12 @@ Los recursos descargables de la clase se conservan en [`notebooks/`](notebooks/)
 - **`OD_RN1_ESP_M03_S10` acumula tres clases**: el `MLPClassifier` básico, la comparación de funciones de activación y el bloque de optimización y regularización (curva de pérdida, barrido de `alpha`, solvers y `GridSearchCV`). Se le agregaron celdas markdown explicando cada bloque; el código y los outputs originales quedaron intactos. Sus outputs de las celdas 14 a 18 corresponden a una red `(50,50,50)` con `tanh` y no al código `(100,200,300)` con `relu` que figura, así que reejecutarlo da resultados distintos.
 - **`OD_RN1_ESP_M04_S15`** se descarga con extensión `.json`, pero es un notebook `nbformat`; se guarda como `.ipynb`.
 
-Apuntes consolidados también en el [manual del programa](../APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales), capítulos 24 a 37.
+Apuntes consolidados también en el [manual del programa](../APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales), capítulos 24 a 38.
+
+### Persistencia de modelos
+
+Los notebooks `guardar_modelo_joblib_pickle.ipynb`, `cargar_modelo_joblib.ipynb` y `cargar_modelo_pickle.ipynb` son los recursos de las clases 23-24. Se les agregaron celdas markdown explicativas, sin tocar el código ni los outputs.
+
+> Los archivos de modelo que generan (`.joblib`, `.pkl`) **no se versionan** — están en el `.gitignore` como todo artefacto binario. Para correr los dos notebooks de carga hay que ejecutar antes `guardar_modelo_joblib_pickle.ipynb`.
 
 [← Volver al índice](../README.md)
