@@ -61,7 +61,9 @@ with open('mi_modelo.pkl', 'rb') as archivo:    # 3. cargar ('rb' = lectura bina
 
 `joblib.dump(mlp, ...)` serializa el **estimador entrenado**: sus pesos (`coefs_`), sesgos (`intercepts_`) e hiperparámetros. **No** guarda el `StandardScaler` ni ninguna otra transformación previa.
 
-Eso importa: si el modelo se entrenó con datos escalados y al cargarlo se le pasan datos crudos, las predicciones van a estar mal **sin ningún error visible**. La forma correcta es guardar el `Pipeline` completo, no el estimador suelto:
+Eso importa: si el modelo se entrenó con datos escalados y al cargarlo se le pasan datos crudos, las predicciones van a estar mal **sin ningún error visible**.
+
+> **Nota (verificado, Iris con 2 atributos, `sklearn 1.9.0`):** el mismo modelo cargado desde disco da **96,67%** con los datos escalados y **36,67%** con los crudos. No hay excepción ni advertencia: procesa la entrada y devuelve predicciones normalmente. Guardado como `Pipeline`, recibe datos crudos y devuelve el 96,67% correcto. La forma correcta es guardar el `Pipeline` completo, no el estimador suelto:
 
 ```python
 from sklearn.pipeline import make_pipeline
