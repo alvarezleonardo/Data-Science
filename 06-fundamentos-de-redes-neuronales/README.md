@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 8 | 28 | 🔄 En curso — teoría hasta funciones de pérdida + 4 notebooks propios y 4 recursos de clase |
+| 8 | 28 | 🔄 En curso — teoría hasta optimización y regularización + 4 notebooks propios y 4 recursos de clase |
 
 > Módulo en curso. Documentado hasta la unidad de optimización y regularización (fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn, perceptrón multicapa, funciones de activación, grafos y capa densa, diseño de la arquitectura y funciones de pérdida). El resto del material (teoría, notebooks y datasets) se irá agregando a medida que avance.
 
@@ -23,6 +23,8 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Grafos y capa densa.md`](<teoria/Grafos y capa densa.md>)
 - [`Diseño de la arquitectura de la red.md`](<teoria/Diseño de la arquitectura de la red.md>)
 - [`Funciones de Pérdida.md`](<teoria/Funciones de Pérdida.md>)
+- [`Optimización.md`](<teoria/Optimización.md>)
+- [`Regularización.md`](<teoria/Regularización.md>)
 
 ## Notebooks
 
@@ -33,8 +35,11 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
 - [`funciones_activacion.ipynb`](<notebooks/funciones_activacion.ipynb>) — **funciones de activación** en detalle: sigmoide, tanh y ReLU graficadas desde cero con sus derivadas, la saturación medida numéricamente (derivada ~0,0025 y ~0,00002 en `x = 6`, contra 1 de ReLU), la demostración empírica de que con `activation='identity'` un MLP no resuelve el XOR y con `tanh`/`relu` sí, la comparación de las tres activaciones sobre Iris **con y sin escalado** contra el recurso de clase, y el efecto de la arquitectura (de `(2,)` a `(100,100)`) sobre capacidad, sobreajuste y cantidad de parámetros. Amplía el recurso de clase `OD_RN1_ESP_M03_S10`.
 
-Los recursos descargables originales de la clase se conservan sin modificar en [`notebooks/`](notebooks/), con su nombre `OD_RN1_ESP_*`.
+Los recursos descargables de la clase se conservan en [`notebooks/`](notebooks/) con su nombre `OD_RN1_ESP_*`. Dos aclaraciones sobre ellos:
 
-Apuntes consolidados también en el [documento maestro](../APUNTES-DATA-SCIENCE.md#módulo-06--fundamentos-de-redes-neuronales), secciones 25 a 35.
+- **`OD_RN1_ESP_M03_S10` acumula tres clases**: el `MLPClassifier` básico, la comparación de funciones de activación y el bloque de optimización y regularización (curva de pérdida, barrido de `alpha`, solvers y `GridSearchCV`). Se le agregaron celdas markdown explicando cada bloque; el código y los outputs originales quedaron intactos. Sus outputs de las celdas 14 a 18 corresponden a una red `(50,50,50)` con `tanh` y no al código `(100,200,300)` con `relu` que figura, así que reejecutarlo da resultados distintos.
+- **`OD_RN1_ESP_M04_S15`** se descarga con extensión `.json`, pero es un notebook `nbformat`; se guarda como `.ipynb`.
+
+Apuntes consolidados también en el [documento maestro](../APUNTES-DATA-SCIENCE.md#módulo-06--fundamentos-de-redes-neuronales), secciones 25 a 37.
 
 [← Volver al índice](../README.md)
