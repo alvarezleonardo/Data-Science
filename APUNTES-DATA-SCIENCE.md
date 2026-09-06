@@ -769,7 +769,76 @@ X_umap = umap.UMAP(n_neighbors=15, min_dist=0.1).fit_transform(X_scaled)
 
 Esta parte deja atrás los modelos clásicos (regresión, árboles, clustering) para entrar en redes neuronales, que necesitan del resto del manual como base: los clasificadores lineales (cap. 10) para entender qué es exactamente el perceptrón y por qué es un caso particular de ellos, la regularización Ridge/Lasso (cap. 15) porque reaparece igual en las redes, y el sobreajuste (cap. 7) porque es el riesgo central de un MLP. El recorrido va de lo biológico y lo histórico hasta el mecanismo interno de entrenamiento — backpropagation y descenso de gradiente — pasando por el perceptrón simple, sus límites, y el perceptrón multicapa que los supera.
 
-> **Nota:** curso de redes neuronales documentado hasta la Clase 11 del programa: perceptrón, su entrenamiento manual con la compuerta AND, limitaciones, implementación con scikit-learn (`Perceptron`) y perceptrón multicapa (`MLPClassifier`, `MLPRegressor`). El material del curso sigue en curso de publicación.
+> **Nota:** la teoría del curso está documentada hasta la Clase 24 del programa (backpropagation y persistencia de modelos). Solo restan los checkpoints y la evaluación integral.
+
+### Mapa de la parte
+
+Todo lo que sigue, en orden, y cómo se encadena: de los datos crudos al modelo guardado y servido.
+
+```mermaid
+flowchart TD
+    D["<b>1 . Datos</b><br/>split train / test<br/>StandardScaler ajustado solo con train<br/><i>en redes el escalado no es opcional</i>"]
+    A["<b>2 . Arquitectura</b><br/>entrada: una neurona por atributo<br/>ocultas densas: hidden_layer_sizes<br/>salida: una neurona, o una por clase"]
+    F["<b>3 . Activaciones</b><br/>ocultas: relu por defecto, tanh, logistic<br/>salida: identidad, sigmoide o softmax<br/><i>sin no linealidad la red colapsa a un modelo lineal</i>"]
+    L["<b>4 . Funcion de perdida</b><br/>MSE si es regresion<br/>BCE si es binaria<br/>CCE si es multiclase"]
+
+    subgraph EPOCA["<b>5 . Entrenamiento &mdash; se repite en cada epoca</b>"]
+        E1["Forward propagation<br/>suma ponderada mas activacion"]
+        E2["Error de la prediccion<br/>contra el valor real"]
+        E3["Backpropagation<br/>regla de la cadena hacia atras"]
+        E4["Optimizador: adam, sgd o lbfgs<br/>theta = theta menos eta por gradiente"]
+        E1 --> E2 --> E3 --> E4
+        E4 -- "hasta max_iter o parada temprana" --> E1
+    end
+
+    G["<b>6 . Diagnostico</b><br/>loss_curve_ tiene que bajar y aplanarse<br/>n_iter_ dice si convergio o corto por max_iter<br/>train contra test: sobreajuste o subajuste"]
+    R["<b>7 . Palancas de ajuste</b><br/>alpha: penalizacion L2 contra el sobreajuste<br/>early_stopping<br/>mas o menos neuronas y capas<br/>dropout solo en Keras o PyTorch<br/><i>vuelve al paso 2</i>"]
+    H["<b>8 . Busqueda de hiperparametros</b><br/>GridSearchCV con cv=5<br/>siempre con random_state<br/>y el escalador dentro del Pipeline"]
+    P["<b>9 . Persistencia</b><br/>guardar el Pipeline entero, no la red sola<br/>joblib.dump o pickle.dump<br/>servir respetando el orden de atributos"]
+
+    D --> A --> F --> L --> EPOCA --> G
+    G -- "no convence" --> R
+    R --> H
+    G -- "modelo aceptable" --> P
+
+    classDef paso fill:#eef2ff,stroke:#4f46e5,stroke-width:1px,color:#111
+    classDef ciclo fill:#ecfdf5,stroke:#059669,stroke-width:1px,color:#111
+    classDef fin fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#111
+    class D,A,F,L,G,R,H paso
+    class E1,E2,E3,E4 ciclo
+    class P fin
+```
+
+Los capítulos 24 a 30 recorren **cómo se llegó hasta acá** —la neurona biológica, el perceptrón, sus límites— y los capítulos 31 a 38, **cada casillero de ese mapa**: la estructura (31), las activaciones (32), la arquitectura (33), la pérdida (34), la optimización (35), la regularización (36), backpropagation (37) y la persistencia (38).
+
+### Qué función va en cada problema
+
+Las tres decisiones que dependen del tipo de problema —activación de salida, función de pérdida y métrica— se resuelven juntas, porque van atadas. La activación de las capas ocultas, en cambio, no depende del problema.
+
+```mermaid
+flowchart TD
+    Q{"Que tipo de<br/>problema es"}
+    Q -- "predecir un numero" --> RG["<b>Regresion</b>"]
+    Q -- "dos clases" --> BIN["<b>Clasificacion binaria</b>"]
+    Q -- "tres o mas clases" --> MUL["<b>Clasificacion multiclase</b>"]
+
+    RG --> RG1["salida: sin activacion<br/>perdida: MSE<br/>metrica: RMSE y R2<br/>MLPRegressor"]
+    BIN --> BIN1["salida: sigmoide<br/>perdida: BCE<br/>metrica: exactitud, F1<br/>MLPClassifier"]
+    MUL --> MUL1["salida: softmax<br/>perdida: CCE<br/>metrica: exactitud, matriz de confusion<br/>MLPClassifier"]
+
+    RG1 --> OC["<b>En las capas ocultas, siempre igual</b><br/>relu por defecto<br/>tanh si la red es chica o los datos estan centrados<br/>nunca identity: colapsa la red a un modelo lineal"]
+    BIN1 --> OC
+    MUL1 --> OC
+
+    classDef q fill:#fef3c7,stroke:#d97706,color:#111
+    classDef tipo fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef det fill:#f8fafc,stroke:#94a3b8,color:#111
+    classDef oc fill:#ecfdf5,stroke:#059669,color:#111
+    class Q q
+    class RG,BIN,MUL tipo
+    class RG1,BIN1,MUL1 det
+    class OC oc
+```
 
 ### 24. Fundamentos biológicos
 
