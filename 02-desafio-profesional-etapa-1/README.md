@@ -6,7 +6,7 @@
 
 Primera etapa del proyecto integrador: elección de un caso de negocio, exploración visual de los datos (EDA) y limpieza/transformación.
 
-Guía de la etapa: **[APUNTES.md](APUNTES.md)** · repaso global: [../APUNTES-DATA-SCIENCE.md](../APUNTES-DATA-SCIENCE.md#módulo-3--desafío-profesional).
+Guía de la etapa: **[APUNTES.md](APUNTES.md)** · repaso global: [../APUNTES-DATA-SCIENCE.md](../APUNTES-DATA-SCIENCE.md#desafíos-profesionales).
 
 ## Contenido
 

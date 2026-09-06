@@ -14,18 +14,18 @@ Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning 
 ## Apuntes consolidados
 
 Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo documento:
-**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)**
+**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo (37 capítulos en 8 partes)
 
 ## Programa y avance
 
 | # | Módulo | Unidades | Clases | Apuntes | Estado |
 |---|--------|:--------:|:------:|:-------:|--------|
-| 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | [§1-11](APUNTES-DATA-SCIENCE.md#módulo-01--introducción-a-machine-learning) | ✅ Aprobado (7/7) |
+| 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | [caps. 1-8, 10, 13-14](APUNTES-DATA-SCIENCE.md#parte-i--fundamentos) | ✅ Aprobado (7/7) |
 | 02 | [Desafío Profesional DS — Etapa 1](02-desafio-profesional-etapa-1/) | 1 | 3 | — | ✅ Aprobado (1/1) |
-| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [§12-14](APUNTES-DATA-SCIENCE.md#módulo-03--modelado-avanzado-en-machine-learning) | ✅ Aprobado (7/7) |
-| 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [§15-24](APUNTES-DATA-SCIENCE.md#módulo-04--aprendizaje-no-supervisado) | 🔄 Contenido completo (23/23 clases con material) · restan checkpoints y evaluación |
+| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [caps. 9, 11-12](APUNTES-DATA-SCIENCE.md#parte-iii--modelos-lineales) | ✅ Aprobado (7/7) |
+| 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado) | 🔄 Contenido completo (23/23 clases con material) · restan checkpoints y evaluación |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
-| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [§25-37](APUNTES-DATA-SCIENCE.md#módulo-06--fundamentos-de-redes-neuronales) | 🔄 En curso — teoría hasta optimización y regularización · 4 notebooks propios |
+| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-37](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | 🔄 En curso — teoría hasta optimización y regularización · 4 notebooks propios |
 | 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 32 | — | ⬜ Sin cursar |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
 | 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar |
@@ -40,7 +40,7 @@ Leyenda: ✅ Aprobado · 🔄 En curso · ⬜ Pendiente
 ```
 .
 ├── README.md                     ← este índice
-├── APUNTES-DATA-SCIENCE.md       ← apuntes teóricos consolidados
+├── APUNTES-DATA-SCIENCE.md       ← manual del programa (37 capítulos)
 ├── requirements.txt              ← dependencias para reproducir el entorno
 ├── 01-introduccion-a-machine-learning/
 │   ├── teoria/                   ← slides del curso (PDF + conversión .md)
