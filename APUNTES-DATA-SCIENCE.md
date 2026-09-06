@@ -764,6 +764,66 @@ La **entropía binaria cruzada (BCE)** se usa en clasificación **binaria**; la 
 
 **Pérdida ≠ métrica de evaluación.** La pérdida es lo que se **minimiza** durante el entrenamiento y debe ser derivable; la métrica (exactitud, R², RMSE) es lo que se **reporta**. A veces coinciden (MSE) y a veces no: nadie entrena minimizando exactitud, porque no es derivable.
 
+### 36. Optimización y descenso de gradiente
+
+**Apuntes.**
+
+**Optimizar** es ajustar pesos y sesgos para **minimizar la función de pérdida** (§35). El método es el **descenso de gradiente**: se calcula el **gradiente** —la derivada de la función de error respecto de *todos* los parámetros de la red— y se avanza en sentido contrario.
+
+**La regla de actualización**, que es toda la idea en una línea:
+
+```
+θ = θ − η · ∇θ J(θ)
+```
+
+donde `θ` son los parámetros (pesos y sesgos), `η` la **tasa de aprendizaje** y `∇θ J(θ)` el gradiente de la pérdida respecto de `θ`. El **signo menos** es el punto: el gradiente apunta hacia donde la pérdida *crece*, así que minimizar es moverse al revés. Visualmente, la pérdida es una superficie con forma de cuenco y entrenar es bajar hasta el fondo.
+
+**La tasa de aprendizaje es el hiperparámetro más sensible.**
+
+| `η` | Qué pasa |
+|---|---|
+| **Muy chica** | converge, pero lento: puede agotar `max_iter` sin llegar |
+| **Adecuada** | pocos pasos, convergencia estable |
+| **Muy grande** | salta de un lado al otro del valle y **diverge**: la pérdida oscila o explota |
+
+**Tres modos de descenso**, según cada cuánto se actualizan los pesos:
+
+| Modo | Actualiza | Característica |
+|---|---|---|
+| **Estocástico (SGD)** | cada vez que se evalúa **una muestra** | muy frecuente y ruidoso |
+| **En lotes (batch)** | al terminar **una época** (todo el train) | estable, pero pocas actualizaciones y caro en memoria |
+| **En mini-lotes** | al terminar cada **minilote**, con la media del gradiente del lote | el compromiso: es lo que se usa en la práctica |
+
+> **Ojo con el nombre:** `solver='sgd'` en `scikit-learn` trabaja en **mini-lotes** (`batch_size`), no de a una muestra. El nombre es histórico.
+
+**Dónde encaja:** la **regla delta** del perceptrón (§28) es este mismo mecanismo en su versión mínima; **backpropagation** (§31) es el algoritmo que calcula ese gradiente para todas las capas aplicando la regla de la cadena hacia atrás; y la **saturación** de las activaciones (§32) es lo que lo rompe, porque multiplica el gradiente por números casi nulos.
+
+### 37. Regularización
+
+**Apuntes.**
+
+La **regularización** es el conjunto de técnicas para **prevenir el sobreajuste** y mejorar la **generalización**, controlando la complejidad del modelo y evitando que los pesos se vuelvan **demasiado grandes o especializados** en el train. Dos advertencias de la propia slide: **no hay una técnica universalmente superior**, y **aumenta el tiempo de entrenamiento**.
+
+| Técnica | Penalización | Efecto sobre los pesos |
+|---|---|---|
+| **L1** | `L(X, w) + λ · Σ \|wᵢ\|` — suma de **valores absolutos** | lleva pesos **a cero**: selecciona variables, red rala |
+| **L2** | `L(X, w) + λ · Σ wᵢ²` — suma de **cuadrados** | los **encoge** hacia cero sin anularlos |
+| **Dropout** | — | **apaga neuronas al azar** durante el entrenamiento |
+
+Es la misma distinción L1/L2 que Lasso y Ridge en regresión lineal (§21). **Dropout** es de otra naturaleza: no toca la pérdida sino la arquitectura durante el entrenamiento, y al apagar neuronas al azar impide que la red dependa de una neurona en particular.
+
+| Ventajas | Desventajas |
+|---|---|
+| previene el sobreajuste | más costo computacional |
+| controla la complejidad | suma hiperparámetros que hay que elegir |
+| puede acelerar la convergencia | posible pérdida parcial de información |
+
+**En `scikit-learn` solo hay L2**, vía `alpha` (la `λ` de la fórmula), con default `0.0001`. **No hay L1 ni dropout** para redes: eso requiere Keras o PyTorch. Sí está disponible la **parada temprana** (`early_stopping=True`), que es regularización de hecho: cortar cuando la validación deja de mejorar evita seguir ajustando ruido.
+
+**Cómo se busca `alpha`:** con validación cruzada, graficando exactitud de **train y de validación** contra `alpha`. La señal de sobreajuste es la **brecha** entre las dos curvas; el buen `alpha` la cierra sin hundir las dos.
+
+> **Nota (verificado en el recurso de clase):** un barrido de `alpha` sobre un problema demasiado fácil **no muestra nada**. En `OD_RN1_ESP_M03_S10`, cinco valores de `alpha` que cubren cinco órdenes de magnitud (de 0,00001 a 1,0) dan **todos la misma exactitud, 0,97**, y los tres solvers también. Con Iris de 2 atributos y 30 muestras de test, la exactitud solo puede valer 29/30 o 30/30: no hay resolución para distinguir configuraciones. Para ver el efecto de la regularización hace falta un problema que efectivamente sobreajuste.
+
 ### Referencia técnica — Módulo 06
 
 **Cuándo aplica un perceptrón simple:** problema de **clasificación binaria** con clases **linealmente separables**; sirve como bloque base para entender MLP, pero en la práctica rara vez se usa solo (no resuelve XOR ni problemas no lineales).
@@ -877,6 +937,70 @@ reg = MLPRegressor(hidden_layer_sizes=(100, 100), alpha=0.001,
 
 **Antes de culpar al modelo, mirar los datos.** En California Housing el objetivo está **truncado** artificialmente en 5.00001 (500.000 dólares): 992 distritos —casi el 5% del dataset— comparten ese valor. Eso pone un techo al rendimiento alcanzable y aparece como una banda vertical en el gráfico de reales vs predicciones. No se descubre mirando métricas agregadas; se descubre mirando los datos. Los gráficos de **reales vs predicciones** y de **residuos** muestran *dónde* falla el modelo, cosa que un número agregado nunca dice.
 
+#### Optimización: solvers y tasa de aprendizaje
+
+| `solver` | Qué es | Cuándo conviene |
+|---|---|---|
+| `adam` (default) | SGD con tasa de aprendizaje **adaptativa por parámetro** | opción por defecto en datasets chicos y medianos |
+| `sgd` | descenso por gradiente en mini-lotes, con `momentum` | cuando se quiere control fino; **requiere ajustar `learning_rate_init`** |
+| `lbfgs` | método cuasi-Newton (segundo orden), sin mini-lotes | **datasets chicos**: converge en pocas iteraciones y suele ganar; no escala a datos grandes |
+
+**Parámetros que solo aplican a `sgd` / `adam`** (con `lbfgs` se ignoran):
+
+| Parámetro | Rol |
+|---|---|
+| `learning_rate_init` | la `η` de la fórmula: tamaño del paso inicial |
+| `learning_rate` | `'constant'`, `'invscaling'` o `'adaptive'` — cómo evoluciona `η` (solo `sgd`) |
+| `momentum` | inercia que acelera en la dirección sostenida y amortigua el zigzag (solo `sgd`) |
+| `batch_size` | tamaño del mini-lote; default `min(200, n_muestras)` |
+| `n_iter_no_change` + `tol` | parada temprana: cuántas épocas sin mejorar mayor a `tol` se toleran |
+
+```python
+MLPClassifier(hidden_layer_sizes=(100,), solver='sgd', learning_rate='adaptive',
+              learning_rate_init=0.01, momentum=0.9, batch_size=50,
+              n_iter_no_change=20, tol=1e-4, random_state=42)
+```
+
+#### Búsqueda de hiperparámetros
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+grid = {
+    'hidden_layer_sizes': [(50, 50, 50), (50, 100, 50), (100,)],
+    'activation': ['tanh', 'relu'],
+    'solver': ['adam', 'sgd'],
+    'alpha': [0.0001, 0.05],
+    'learning_rate': ['constant', 'adaptive'],
+}
+gs = GridSearchCV(MLPClassifier(max_iter=1000), grid, cv=5, n_jobs=-1)
+gs.fit(X_train_s, y_train)
+gs.best_params_, gs.best_score_
+```
+
+**Tres trampas de esta celda:**
+
+- **Sin `random_state`, el resultado no es reproducible.** Es el error más costoso, porque no avisa: el estimador devuelve una combinación ganadora con toda seriedad y a la corrida siguiente devuelve otra.
+- **`max_iter` bajo invalida la comparación.** Si los candidatos no convergen (`ConvergenceWarning`), el "mejor" resultado dice cuál **arranca más rápido**, no cuál es mejor. Darle margen a `max_iter` o el ranking es ruido.
+- **La grilla explota.** El ejemplo son 3 × 2 × 2 × 2 × 2 = **48 combinaciones**, por `cv=5` = **240 entrenamientos**. Para grillas grandes, `RandomizedSearchCV` cubre más espacio con el mismo presupuesto.
+- **Escalar dentro del CV, no antes.** Si se estandariza sobre todo el train antes de partirlo, cada pliegue de validación ve estadísticas calculadas con sus propios datos: eso es **fuga de información** y el score sale optimista. La forma correcta es un `Pipeline(StandardScaler(), MLPClassifier())` como estimador del grid.
+
+#### Diagnóstico: qué mirar cuando el resultado no cierra
+
+| Síntoma | Causa probable | Qué hacer |
+|---|---|---|
+| `ConvergenceWarning`, `n_iter_ == max_iter` | no terminó de entrenar | subir `max_iter`; revisar escalado |
+| `loss_curve_` estancada alto | capacidad insuficiente o `η` muy chica | más neuronas/capas; subir `learning_rate_init` |
+| `loss_curve_` oscilando | `η` demasiado grande | bajar `learning_rate_init`; `learning_rate='adaptive'` |
+| Pérdida de train cae a ~0 y el test empeora | **sobreajuste** | subir `alpha`, achicar la red, `early_stopping=True` |
+| Train y test igual de malos | **subajuste** | agrandar la red, bajar `alpha`, más atributos |
+| Resultados que cambian en cada corrida | falta `random_state` | fijarlo en el split **y** en el estimador |
+| Métricas raras con clases desbalanceadas | la exactitud engaña | mirar matriz de confusión, precision/recall, F1 |
+
+> **Nota (verificado, recurso `OD_RN1_ESP_M03_S10`):** el `GridSearchCV` de ese notebook usa `MLPClassifier(max_iter=100)` sin `random_state`. Ejecutado **cuatro veces seguidas** devuelve **cuatro combinaciones ganadoras distintas**, con scores entre 0,950 y 0,967, y ninguna coincide con la que quedó guardada en el notebook. Lo único estable es `solver='adam'`. Cuando los candidatos empatan dentro del ruido, la búsqueda no está eligiendo hiperparámetros: está sorteando semillas.
+
+**Antes de creerle a una comparación**, revisar dos cosas: que el conjunto de test tenga **tamaño suficiente** —con 30 muestras, un acierto vale 3,3 puntos y casi nada es concluyente— y que todas las configuraciones hayan **convergido**. Sin eso, la tabla de resultados mide ruido.
+
 ---
 
 ## Glosario rápido
@@ -903,3 +1027,18 @@ reg = MLPRegressor(hidden_layer_sizes=(100, 100), alpha=0.001,
 | **Norma L1 / L2** | `Σ\|β\|` / `√Σβ²`; base de Lasso / Ridge. |
 | **AIC / BIC** | Criterios de selección de modelo (ajuste vs complejidad); menor = mejor. |
 | **Maldición de la dimensión** | Degradación de distancias y algoritmos en alta dimensión. |
+| **Función de activación** | No linealidad que aplica cada neurona tras la suma ponderada (ReLU, tanh, sigmoide). |
+| **Saturación** | Zona plana de una activación donde su derivada tiende a 0 y el aprendizaje se frena. |
+| **Gradiente desvaneciente** | Gradiente que se apaga al propagarse hacia atrás por multiplicar derivadas chicas. |
+| **Capa densa** | Capa totalmente conectada: cada neurona se conecta a todas las de la capa anterior. |
+| **Función de pérdida / costo** | Valor único que cuantifica el error de las predicciones; es lo que se minimiza. |
+| **BCE / CCE** | Entropía cruzada binaria / categórica; pérdidas de clasificación. |
+| **Descenso de gradiente** | `θ = θ − η·∇θJ(θ)`: mover los parámetros en contra del gradiente. |
+| **Tasa de aprendizaje (η)** | Tamaño del paso en cada actualización; muy alta diverge, muy baja va lenta. |
+| **Época** | Una pasada completa por todo el conjunto de entrenamiento. |
+| **Mini-lote (batch)** | Subconjunto de muestras tras el cual se actualizan los pesos. |
+| **Solver** | Algoritmo que optimiza los pesos: `adam`, `sgd`, `lbfgs`. |
+| **Momentum** | Inercia que acumula dirección entre pasos para acelerar y estabilizar el SGD. |
+| **Dropout** | Regularización que apaga neuronas al azar durante el entrenamiento. |
+| **Parada temprana** | Cortar el entrenamiento cuando la validación deja de mejorar. |
+| **alpha (sklearn)** | Coeficiente de regularización L2 en `MLPClassifier`/`MLPRegressor`. |
