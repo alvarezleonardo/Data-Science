@@ -39,6 +39,7 @@ La notebook cubre la preparación completa que pide el enunciado:
 | 6 | R² del `MLPRegressor` sobre `data_imputados` | **Ninguno de los anteriores** — da 0,0415 |
 | 7 | Accuracy "del modelo anterior" | **96%** si se refiere al `MLPClassifier` (100, 200) — ver la nota: un regresor no tiene accuracy |
 | 8 | Regresor `(100, 250)`, `max_iter=100`, `alpha=0.0001` | **Mejora** + **MSE 2140** + **R² 0,10** (las tres) |
+| 9 | Qué hacer antes del split | **Preparar el dataset** (limpieza, data wrangling) |
 
 La notebook está **ejecutada con el dataset real** y con los outputs guardados.
 
