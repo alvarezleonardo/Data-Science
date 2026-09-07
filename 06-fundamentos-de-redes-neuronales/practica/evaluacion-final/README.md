@@ -27,6 +27,20 @@ La notebook cubre la preparación completa que pide el enunciado:
 
 La sección de modelos y evaluación queda abierta, para completar con cada consigna del cuestionario.
 
-> Verificado ejecutando la notebook de punta a punta contra un dataset sintético con la misma estructura y columnas que el original: corre sin errores ni advertencias. Los números reales van a salir al correrla con el CSV verdadero.
+La notebook está **ejecutada con el dataset real** y con los outputs guardados.
+
+### Números que salen de la preparación
+
+| Concepto | Valor |
+|---|---|
+| Filas del dataset original | 129.971 |
+| Mediana de `points` (imputación) | 88,0 |
+| Media de `price` (imputación) | 35,3634 |
+| `data_eliminados` | 77.267 filas (se descarta el 40,55%) |
+| `data_imputados` | 82.847 filas |
+| Train / test eliminados | 54.086 / 23.181 |
+| Train / test imputados | 57.992 / 24.855 |
+
+> **Hallazgo a tener en cuenta.** El `dropna` no descarta solo filas: baja los países de **43 a 7**. La causa es `region_1`, que solo está poblada para esos 7. Además quedan muy desbalanceados — US aporta 37.255 filas y Canadá 253 —, así que la exactitud sola va a estar dominada por US.
 
 [← Volver al módulo](../../README.md)
