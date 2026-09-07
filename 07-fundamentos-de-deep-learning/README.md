@@ -13,14 +13,20 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`0 - Programa del módulo.md`](<teoria/0 - Programa del módulo.md>) — las 33 clases en 7 módulos
 - [`Configuración del entorno.md`](<teoria/Configuración del entorno.md>) — Clase 2: instalaciones requeridas, con el equivalente para macOS y Apple Silicon
 
-## Estado del entorno
+## Entorno
 
-Verificado sobre `/opt/anaconda3/bin/python3` (Python 3.12.13, macOS arm64):
+Las librerías de deep learning viven en un **entorno dedicado**, `~/.venvs/dl-env`, porque TensorFlow no se puede instalar sobre el Anaconda base (conflicto con el numpy que instaló conda). Los notebooks de este módulo usan el kernel **`Python 3.12 (dl-env)`**.
 
-- ✅ numpy, pandas, matplotlib, seaborn, scikit-learn
-- ⬜ **tensorflow, torch, torchvision, torchaudio, torchsummary** — pendientes de instalar
+| | Versión |
+|---|---|
+| TensorFlow | 2.21.0 (Keras 3.15.1) |
+| PyTorch | 2.14.0 · **MPS disponible** |
+| torchvision / torchaudio | 0.29.0 / 2.11.0 |
+| numpy / pandas / matplotlib / seaborn / scikit-learn | 2.5.3 / 3.0.5 / 3.11.1 / 0.13.2 / 1.9.0 |
 
-Los comandos de instalación están en [`Configuración del entorno.md`](<teoria/Configuración del entorno.md#3-estado-del-entorno-de-este-repositorio>).
+> **No instalar `tensorflow-metal`**: rompe la importación de TensorFlow con la versión 2.21. Detalle en [`Configuración del entorno.md`](<teoria/Configuración del entorno.md>).
+
+Todo el procedimiento y las diferencias con las instrucciones del curso (que son para Windows) están en [`Configuración del entorno.md`](<teoria/Configuración del entorno.md>).
 
 ## Qué viene
 
