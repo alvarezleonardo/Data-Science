@@ -41,6 +41,8 @@ La notebook cubre la preparación completa que pide el enunciado:
 | 8 | Regresor `(100, 250)`, `max_iter=100`, `alpha=0.0001` | **Mejora** + **MSE 2140** + **R² 0,10** (las tres) |
 | 9 | Qué hacer antes del split | **Preparar el dataset** (limpieza, data wrangling) |
 | 10 | Alta performance en train y baja en test | **Overfitting** |
+| 11 | ¿El perceptrón es un modelo de regresión? | **Falso** — es un clasificador binario lineal |
+| 12 | Propósito del dropout | **Evitar el sobreajuste** |
 
 La notebook está **ejecutada con el dataset real** y con los outputs guardados.
 
