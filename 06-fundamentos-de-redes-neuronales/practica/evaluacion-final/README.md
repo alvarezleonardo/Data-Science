@@ -36,6 +36,7 @@ La notebook cubre la preparación completa que pide el enunciado:
 | 3 | País con la precision más alta | **Italy** (0,84) |
 | 4 | Diferencia de Accuracy al pasar a `(100, 200)` | **≈ 38%** (37,89 puntos: 58,56% → 96,45%) |
 | 5 | F1 más bajo y Recall más alto con `(100, 200)` | **Ninguna de las anteriores** — es Canada (0,5946) y US (0,9898) |
+| 6 | R² del `MLPRegressor` sobre `data_imputados` | **Ninguno de los anteriores** — da 0,0415 |
 
 La notebook está **ejecutada con el dataset real** y con los outputs guardados.
 
