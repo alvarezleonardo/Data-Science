@@ -34,6 +34,8 @@ La notebook cubre la preparación completa que pide el enunciado:
 | 1 | MLP `(6, 12)`, `max_iter=100`, `random_state=17` sobre `data_eliminados` — Accuracy | **0,5856 (58,56%)** |
 | 2 | ¿Cuántos clasificó como Argentina? | **Solo a 1** (y esa única predicción fue un error) |
 | 3 | País con la precision más alta | **Italy** (0,84) |
+| 4 | Diferencia de Accuracy al pasar a `(100, 200)` | **≈ 38%** (37,89 puntos: 58,56% → 96,45%) |
+| 5 | F1 más bajo y Recall más alto con `(100, 200)` | **Ninguna de las anteriores** — es Canada (0,5946) y US (0,9898) |
 
 La notebook está **ejecutada con el dataset real** y con los outputs guardados.
 
