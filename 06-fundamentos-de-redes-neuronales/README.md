@@ -50,4 +50,8 @@ Los notebooks `guardar_modelo_joblib_pickle.ipynb`, `cargar_modelo_joblib.ipynb`
 
 > Los archivos de modelo que generan (`.joblib`, `.pkl`) **no se versionan** — están en el `.gitignore` como todo artefacto binario. Para correr los dos notebooks de carga hay que ejecutar antes `guardar_modelo_joblib_pickle.ipynb`.
 
+## Práctica
+
+- [`practica/evaluacion-final/`](<practica/evaluacion-final/>) — trabajo de la **evaluación final** sobre el dataset `winemag-data-130k-v2.csv`: enunciado y notebook de resolución. El dataset no se versiona; ver el README de esa carpeta.
+
 [← Volver al índice](../README.md)
