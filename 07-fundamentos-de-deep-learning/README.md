@@ -25,6 +25,7 @@ Las slides de las Clases 3 y 4 ya están en `teoria/` como PDF; falta pasarlas a
 | 4 | `Introducción a PyTorch - Parte 1` | Qué es PyTorch, grafo dinámico, GPU, tensores |
 | 4 | `Introducción a PyTorch - Parte 2` | `torchvision`, transformaciones (`ToTensor`, `Resize`, `Normalize`) y `DataLoader` |
 | 4 | `Introducción a PyTorch - Parte 3` | Modelos con `nn.Module`, funciones de pérdida de `torch.nn` y optimizadores de `torch.optim` |
+| 4 | `Introducción a PyTorch - Parte 4` | Bucle de entrenamiento paso a paso (`zero_grad`, `backward`, `step`) y evaluación con `model.eval()` y `torch.no_grad()` |
 
 Entre las dos clases queda cubierto el mismo flujo en los dos frameworks: **acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar**.
 
