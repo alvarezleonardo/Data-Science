@@ -1,7 +1,7 @@
 # Data Science
 
 ![Progreso](https://img.shields.io/badge/completados-4%2F9%20m%C3%B3dulos-blue)
-![En curso](https://img.shields.io/badge/en%20curso-m%C3%B3dulo%2004-orange)
+![En curso](https://img.shields.io/badge/en%20curso-m%C3%B3dulos%2004%20y%2007-orange)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -26,10 +26,10 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado) | 🔄 Contenido completo (23/23 clases con material) · restan checkpoints y evaluación |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
-| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 32 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
+| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | — | 🔄 En curso — programa y configuración del entorno documentados |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
 | 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar |
-| | **Total** | **45** | **163** | | **4 completados · 1 en curso · 4 pendientes** |
+| | **Total** | **45** | **164** | | **4 completados · 2 en curso · 3 pendientes** |
 
 Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
 
@@ -56,7 +56,8 @@ Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
 ├── 06-fundamentos-de-redes-neuronales/
 │   ├── teoria/  notebooks/
 │   └── practica/evaluacion-final/    ← enunciado + notebook resuelta
-├── 07-fundamentos-de-deep-learning/  ← solo el programa, sin procesar
+├── 07-fundamentos-de-deep-learning/
+│   ├── teoria/  notebooks/  datasets/   ← módulo en curso
 └── 08..09/                       ← módulos siguientes (placeholders)
 ```
 
