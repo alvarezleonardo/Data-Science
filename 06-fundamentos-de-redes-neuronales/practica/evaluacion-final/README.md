@@ -25,7 +25,13 @@ La notebook cubre la preparación completa que pide el enunciado:
 4. `data_imputados` — `points` con la mediana, `price` con la media, descarte del resto, codificación, `X`/`y` con target `price` (regresión).
 5. División 70/30 con `random_state=17` en ambos conjuntos.
 
-La sección de modelos y evaluación queda abierta, para completar con cada consigna del cuestionario.
+6. **Consignas del cuestionario**, cada una con su enunciado textual, el código que la resuelve y la respuesta.
+
+### Respuestas
+
+| # | Consigna | Respuesta |
+|---|---|---|
+| 1 | MLP `(6, 12)`, `max_iter=100`, `random_state=17` sobre `data_eliminados` — Accuracy | **0,5856 (58,56%)** |
 
 La notebook está **ejecutada con el dataset real** y con los outputs guardados.
 
