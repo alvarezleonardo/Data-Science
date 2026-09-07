@@ -32,6 +32,7 @@ La notebook cubre la preparación completa que pide el enunciado:
 | # | Consigna | Respuesta |
 |---|---|---|
 | 1 | MLP `(6, 12)`, `max_iter=100`, `random_state=17` sobre `data_eliminados` — Accuracy | **0,5856 (58,56%)** |
+| 2 | ¿Cuántos clasificó como Argentina? | **Solo a 1** (y esa única predicción fue un error) |
 
 La notebook está **ejecutada con el dataset real** y con los outputs guardados.
 
