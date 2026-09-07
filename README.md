@@ -1,7 +1,7 @@
 # Data Science
 
-![Progreso](https://img.shields.io/badge/aprobados-3%2F9%20m%C3%B3dulos-blue)
-![En curso](https://img.shields.io/badge/en%20curso-m%C3%B3dulos%2004%20y%2006-orange)
+![Progreso](https://img.shields.io/badge/completados-4%2F9%20m%C3%B3dulos-blue)
+![En curso](https://img.shields.io/badge/en%20curso-m%C3%B3dulo%2004-orange)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -14,7 +14,7 @@ Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning 
 ## Apuntes consolidados
 
 Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo documento:
-**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo (37 capítulos en 8 partes)
+**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **38 capítulos en 8 partes**, con 14 diagramas y una referencia técnica de consulta.
 
 ## Programa y avance
 
@@ -26,12 +26,12 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado) | 🔄 Contenido completo (23/23 clases con material) · restan checkpoints y evaluación |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
-| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 32 | — | ⬜ Sin cursar |
+| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 32 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
 | 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar |
 | | **Total** | **45** | **163** | | **4 completados · 1 en curso · 4 pendientes** |
 
-Leyenda: ✅ Aprobado · 🔄 En curso · ⬜ Pendiente
+Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
 
 > El estado de cada módulo es el que declara su propio `README.md`; esta tabla lo resume.
 
@@ -40,7 +40,7 @@ Leyenda: ✅ Aprobado · 🔄 En curso · ⬜ Pendiente
 ```
 .
 ├── README.md                     ← este índice
-├── APUNTES-DATA-SCIENCE.md       ← manual del programa (37 capítulos)
+├── APUNTES-DATA-SCIENCE.md       ← manual del programa (38 capítulos, 8 partes)
 ├── requirements.txt              ← dependencias para reproducir el entorno
 ├── 01-introduccion-a-machine-learning/
 │   ├── teoria/                   ← slides del curso (PDF + conversión .md)
@@ -54,8 +54,10 @@ Leyenda: ✅ Aprobado · 🔄 En curso · ⬜ Pendiente
 │   ├── teoria/  notebooks/  datasets/
 ├── 05-desafio-profesional-etapa-2/   ← material recibido, sin procesar
 ├── 06-fundamentos-de-redes-neuronales/
-│   ├── teoria/  notebooks/       ← módulo en curso
-└── 07..09/                       ← módulos siguientes (placeholders)
+│   ├── teoria/  notebooks/
+│   └── practica/evaluacion-final/    ← enunciado + notebook resuelta
+├── 07-fundamentos-de-deep-learning/  ← solo el programa, sin procesar
+└── 08..09/                       ← módulos siguientes (placeholders)
 ```
 
 Cada módulo con contenido tiene su propio `README.md` con el detalle de clases y materiales.
