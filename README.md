@@ -25,11 +25,11 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [caps. 9, 11-12](APUNTES-DATA-SCIENCE.md#parte-iii--modelos-lineales) | ✅ Aprobado (7/7) |
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado) | 🔄 Contenido completo (23/23 clases con material) · restan checkpoints y evaluación |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
-| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | 🔄 En curso — teoría hasta backpropagation y persistencia de modelos · 4 notebooks propios |
+| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
 | 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 32 | — | ⬜ Sin cursar |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
 | 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar |
-| | **Total** | **45** | **163** | | **3 aprobados · 2 en curso · 4 pendientes** |
+| | **Total** | **45** | **163** | | **4 completados · 1 en curso · 4 pendientes** |
 
 Leyenda: ✅ Aprobado · 🔄 En curso · ⬜ Pendiente
 

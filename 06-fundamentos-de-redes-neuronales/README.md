@@ -2,9 +2,9 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 8 | 28 | 🔄 En curso — teoría hasta backpropagation y persistencia de modelos + 4 notebooks propios y 7 recursos de clase |
+| 8 | 28 | ✅ Completado — teoría de las 8 unidades + 4 notebooks propios, 7 recursos de clase y la evaluación final |
 
-> Módulo en curso. Documentado hasta la unidad de backpropagation y gestión de modelos (fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn, perceptrón multicapa, funciones de activación, grafos y capa densa, diseño de la arquitectura, funciones de pérdida, optimización, regularización, backpropagation y persistencia de modelos). El resto del material (teoría, notebooks y datasets) se irá agregando a medida que avance.
+> Módulo terminado. Toda la teoría del programa está documentada: fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn, perceptrón multicapa, funciones de activación, grafos y capa densa, diseño de la arquitectura, funciones de pérdida, optimización, regularización, backpropagation y persistencia de modelos. La evaluación final está resuelta en [`practica/evaluacion-final/`](<practica/evaluacion-final/>).
 
 ## Teoría
 
