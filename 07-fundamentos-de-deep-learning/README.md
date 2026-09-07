@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — configuración del entorno documentada |
+| 7 | 33 | 🔄 En curso — entorno instalado · material de las Clases 3 y 4 recibido |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -12,6 +12,21 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
 - [`0 - Programa del módulo.md`](<teoria/0 - Programa del módulo.md>) — las 33 clases en 7 módulos
 - [`Configuración del entorno.md`](<teoria/Configuración del entorno.md>) — Clase 2: instalaciones requeridas, con el equivalente para macOS y Apple Silicon
+
+### Material recibido, pendiente de convertir
+
+Las slides de las Clases 3 y 4 ya están en `teoria/` como PDF; falta pasarlas a Markdown.
+
+| Clase | PDF | Contenido |
+|:--:|---|---|
+| 3 | `Introducción a TensorFlow - Parte 1` | Qué es TensorFlow, tensores, grafo estático, Keras |
+| 3 | `Introducción a TensorFlow - Parte 2` | Acceso a datos con `keras.datasets`, modelo `Sequential` y API funcional, `compile` con optimizador, pérdida y métricas |
+| 3 | `Introducción a TensorFlow - Parte 3` | Entrenamiento con `model.fit` y evaluación con `model.evaluate` |
+| 4 | `Introducción a PyTorch - Parte 1` | Qué es PyTorch, grafo dinámico, GPU, tensores |
+| 4 | `Introducción a PyTorch - Parte 2` | `torchvision`, transformaciones (`ToTensor`, `Resize`, `Normalize`) y `DataLoader` |
+| 4 | `Introducción a PyTorch - Parte 3` | Modelos con `nn.Module`, funciones de pérdida de `torch.nn` y optimizadores de `torch.optim` |
+
+Entre las dos clases queda cubierto el mismo flujo en los dos frameworks: **acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar**.
 
 ## Entorno
 

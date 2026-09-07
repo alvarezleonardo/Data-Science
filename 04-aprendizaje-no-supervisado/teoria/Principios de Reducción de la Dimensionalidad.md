@@ -26,4 +26,4 @@ La **reducción de dimensionalidad** es una técnica esencial en el análisis de
 - **Extracción de características** (PCA, t-SNE, ICA, LDA): **crea nuevas** variables combinando las originales.
 - **Selección de características** (filtros, embedded): **elige** un subconjunto de las variables originales sin transformarlas.
 
-> Ver también la [Referencia Técnica del módulo](../REFERENCIA-TECNICA.md) para la comparativa PCA vs LDA vs t-SNE y cuándo usar cada una.
+> Ver también la [referencia técnica del manual](../../APUNTES-DATA-SCIENCE.md#parte-viii--referencia-técnica) para la comparativa PCA vs LDA vs t-SNE y cuándo usar cada una.
