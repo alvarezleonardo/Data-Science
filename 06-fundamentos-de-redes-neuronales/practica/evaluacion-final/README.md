@@ -40,6 +40,7 @@ La notebook cubre la preparación completa que pide el enunciado:
 | 7 | Accuracy "del modelo anterior" | **96%** si se refiere al `MLPClassifier` (100, 200) — ver la nota: un regresor no tiene accuracy |
 | 8 | Regresor `(100, 250)`, `max_iter=100`, `alpha=0.0001` | **Mejora** + **MSE 2140** + **R² 0,10** (las tres) |
 | 9 | Qué hacer antes del split | **Preparar el dataset** (limpieza, data wrangling) |
+| 10 | Alta performance en train y baja en test | **Overfitting** |
 
 La notebook está **ejecutada con el dataset real** y con los outputs guardados.
 
