@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — Clases 1 a 6 documentadas (TensorFlow y PyTorch) |
+| 7 | 33 | 🔄 En curso — Clases 1 a 6 y 8 documentadas · arrancan las CNNs |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -20,6 +20,7 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Introducción a PyTorch - Parte 2.md`](<teoria/Introducción a PyTorch - Parte 2.md>) — Clase 4: `torchvision`, transformaciones y `DataLoader`
 - [`Introducción a PyTorch - Parte 3.md`](<teoria/Introducción a PyTorch - Parte 3.md>) — Clase 4: `nn.Module`, pérdidas y optimizadores
 - [`Introducción a PyTorch - Parte 4.md`](<teoria/Introducción a PyTorch - Parte 4.md>) — Clase 4: el bucle de entrenamiento línea por línea y la evaluación
+- [`01 - Introducción a las redes neuronales convolucionales - Parte 1.md`](<teoria/01 - Introducción a las redes neuronales convolucionales - Parte 1.md>) — Clase 8: qué son las CNNs, la arquitectura completa de imagen a predicción
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
 
