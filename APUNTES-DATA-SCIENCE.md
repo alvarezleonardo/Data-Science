@@ -29,6 +29,9 @@
 **[Parte VII — Redes neuronales](#parte-vii--redes-neuronales)**
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
+**[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado)
+
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
 ## Equivalencia con los módulos del programa
@@ -43,7 +46,7 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
 | **06** — Fundamentos de redes neuronales | 24-38 |
-| **07** — Fundamentos de deep learning | pendiente |
+| **07** — Fundamentos de deep learning | 39-42 (en curso) |
 | **08** — Gestión de proyectos de IA | pendiente |
 
 > **Capítulos que no vienen de una slide.** El 7 (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los capítulos 5, 6, 10 y 14 están ampliados bastante más allá de lo que cubren las slides.
@@ -1281,6 +1284,227 @@ joblib.dump(pipe, 'modelo_completo.joblib')   # el escalado viaja con la red
 ```
 
 Del mismo modo, el **orden de los atributos** al predecir debe ser el mismo del entrenamiento: el modelo recibe posiciones, no nombres de columna. Y la entrada va como matriz 2D — de ahí el `.reshape(1, -1)` para predecir sobre una sola muestra.
+
+## Parte IX — Deep Learning con frameworks
+
+Hasta acá las redes se construyeron con `scikit-learn`, que las resuelve en tres líneas pero no deja tocar nada por dentro. Esta parte pasa a **TensorFlow** y **PyTorch**, los dos frameworks con los que se construye deep learning de verdad: permiten redes profundas, entrenamiento en GPU y arquitecturas que `MLPClassifier` no puede expresar. Requiere la Parte VII entera, porque los conceptos son los mismos —capas, activaciones, pérdida, optimizador, backpropagation— y lo que cambia es quién los escribe: acá, uno.
+
+### Mapa de la parte
+
+Los dos frameworks recorren exactamente los mismos cinco pasos. Lo que cambia es cuánto código hay que escribir en cada uno.
+
+```mermaid
+flowchart LR
+    subgraph COMUN["<b>El flujo es el mismo en los dos frameworks</b>"]
+        direction LR
+        A["1 . Datos<br/>cargar, partir, escalar"] --> B["2 . Modelo<br/>capas y activaciones"]
+        B --> C["3 . Configurar<br/>perdida y optimizador"]
+        C --> D["4 . Entrenar<br/>epocas y lotes"]
+        D --> E["5 . Evaluar<br/>metricas sobre test"]
+    end
+    K["<b>Keras</b><br/>Sequential mas add<br/>compile<br/>fit<br/>evaluate"]
+    P["<b>PyTorch</b><br/>clase nn.Module<br/>criterion y optimizer<br/>bucle de 5 pasos<br/>eval mas no_grad"]
+    COMUN -.-> K
+    COMUN -.-> P
+    classDef paso fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef fw fill:#ecfdf5,stroke:#059669,color:#111
+    class A,B,C,D,E paso
+    class K,P fw
+```
+
+### 39. Por qué hacen falta TensorFlow y PyTorch
+
+`MLPClassifier` alcanza para un MLP sobre datos tabulares y nada más. Lo que no puede hacer:
+
+| Limitación de scikit-learn | Qué habilita un framework |
+|---|---|
+| Solo capas densas | **Convolucionales** para imágenes, **recurrentes** para secuencias, atención para texto |
+| Solo CPU | Entrenamiento en **GPU**, uno o dos órdenes de magnitud más rápido |
+| Pérdidas y optimizadores fijos | Funciones de pérdida a medida, optimizadores configurables |
+| `fit()` cerrado | Control del bucle: entrenamiento adversario, múltiples modelos, pasos personalizados |
+| Sin autograd expuesto | Derivadas automáticas de cualquier expresión |
+
+La pieza común es el **tensor**: un arreglo multidimensional, como un `ndarray` de NumPy, pero con dos capacidades que lo cambian todo — puede vivir en la GPU y registra las operaciones que se le aplican para poder derivarlas después (*autograd*). Sobre esa estructura se apoyan los dos frameworks.
+
+**La diferencia histórica entre ambos** fue cómo construyen el grafo de cómputo:
+
+```mermaid
+flowchart TD
+    subgraph EST["<b>Grafo estatico &mdash; TensorFlow 1.x</b>"]
+        direction TB
+        E1[Definir el grafo completo] --> E2[Compilarlo y optimizarlo]
+        E2 --> E3[Recien ahi correr los datos]
+        E3 --> E4["Rapido en produccion<br/>dificil de depurar"]
+    end
+    subgraph DIN["<b>Grafo dinamico &mdash; PyTorch y TF 2.x</b>"]
+        direction TB
+        D1[Cada operacion se ejecuta al escribirla] --> D2[El grafo se arma sobre la marcha]
+        D2 --> D3["Se puede usar print y debugger<br/>se puede cambiar la red segun los datos"]
+    end
+    classDef est fill:#fef3c7,stroke:#d97706,color:#111
+    classDef din fill:#ecfdf5,stroke:#059669,color:#111
+    class E1,E2,E3,E4 est
+    class D1,D2,D3 din
+```
+
+TensorFlow 1.x obligaba a definir el grafo completo antes de correr nada: rápido para producción, incómodo para depurar. PyTorch nació con grafo **dinámico** y eso explica su adopción en investigación. Hoy la distinción se diluyó: **TensorFlow 2.x usa modo dinámico (*eager*) por defecto**, y el grafo estático es opcional con `@tf.function`.
+
+> Ojo con el material del curso, que describe el grafo estático de TF como si fuera la única forma. Corresponde a TensorFlow 1.x.
+
+### 40. TensorFlow y Keras
+
+**TensorFlow** es el framework de Google: flexible, escalable, con un ecosistema grande y herramientas de despliegue en producción. **Keras** es su API de alto nivel — desde TF 2.0 dejó de ser un proyecto externo para integrarse como `tf.keras`, y con Keras 3 volvió a ser multi-backend (TensorFlow, PyTorch o JAX).
+
+En la práctica, escribir TensorFlow es escribir Keras.
+
+```python
+from tensorflow.keras import layers, models
+
+# 1. Definir: una pila lineal de capas
+model = models.Sequential()
+model.add(layers.Dense(64, activation='relu', input_shape=(4,)))
+model.add(layers.Dense(128, activation='relu'))
+model.add(layers.Dense(3, activation='softmax'))
+
+model.summary()          # arquitectura y cantidad de parametros
+
+# 2. Configurar como se entrena
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# 3. Entrenar
+history = model.fit(X_train, y_train, epochs=10, batch_size=16,
+                    validation_data=(X_test, y_test))
+
+# 4. Evaluar
+test_loss, test_acc = model.evaluate(X_test, y_test)
+```
+
+**`Sequential` vs API funcional.** `Sequential` es una pila lineal: cada capa recibe la salida de la anterior. Cuando la red tiene varias entradas, varias salidas o conexiones que saltean capas, hace falta la **API funcional**: `Model(inputs, outputs)`.
+
+**Las tres pérdidas de clasificación**, y cuál usar:
+
+| Pérdida | Etiquetas | Cuándo |
+|---|---|---|
+| `binary_crossentropy` | 0 o 1 | dos clases |
+| `categorical_crossentropy` | **one-hot** | multiclase, con `to_categorical` |
+| `sparse_categorical_crossentropy` | **enteros** | multiclase, sin convertir |
+
+Las dos últimas son matemáticamente idénticas; cambia solo el formato de entrada.
+
+**`history`** es lo que devuelve `fit`, y guarda la evolución de cada métrica por época en `history.history`, con las claves `loss`, `accuracy`, `val_loss` y `val_accuracy`. Es lo que se grafica para ver si el modelo sobreajusta (cap. 7).
+
+### 41. PyTorch
+
+**PyTorch** es el framework de Meta, abierto en 2017 y bajo la PyTorch Foundation desde 2022. Su marca registrada es el grafo dinámico y un estilo más explícito: nada ocurre por detrás.
+
+Un modelo es una **clase que hereda de `nn.Module`**, con dos métodos:
+
+```python
+import torch.nn as nn
+
+class MLP(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.layer1 = nn.Linear(4, 64)      # las capas
+        self.layer2 = nn.Linear(64, 128)
+        self.layer3 = nn.Linear(128, 3)
+
+    def forward(self, x):                    # como fluyen los datos
+        x = torch.relu(self.layer1(x))
+        x = torch.relu(self.layer2(x))
+        return self.layer3(x)                # sin activacion final
+
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+```
+
+**Los datos** pasan por dos objetos: `TensorDataset`, que empareja features con etiquetas, y `DataLoader`, que los sirve por lotes con `batch_size` y `shuffle`. Para imágenes, `torchvision` agrega datasets y transformaciones (`ToTensor`, `Resize`, `Normalize`), encadenables con `transforms.Compose`.
+
+**El entrenamiento se escribe a mano**, y ahí está la diferencia visible con Keras:
+
+```mermaid
+flowchart LR
+    subgraph KERAS["<b>Keras</b>"]
+        K1["model.fit(X, y, epochs=10)"]
+        K2["Keras resuelve todo por dentro"]
+        K1 --> K2
+    end
+    subgraph TORCH["<b>PyTorch &mdash; el mismo trabajo, explicito</b>"]
+        direction TB
+        T1["optimizer.zero_grad()<br/>limpiar gradientes"] --> T2["outputs = model(x)<br/>forward"]
+        T2 --> T3["loss = criterion(outputs, y)<br/>calcular el error"]
+        T3 --> T4["loss.backward()<br/>backpropagation"]
+        T4 --> T5["optimizer.step()<br/>actualizar pesos"]
+        T5 -->|siguiente lote| T1
+    end
+    KERAS -.->|es lo mismo que| TORCH
+    classDef k fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef t fill:#ecfdf5,stroke:#059669,color:#111
+    class K1,K2 k
+    class T1,T2,T3,T4,T5 t
+```
+
+Los cinco pasos, con lo que pasa si falta cada uno:
+
+| Paso | Qué hace | Si falta |
+|---|---|---|
+| `optimizer.zero_grad()` | Limpia los gradientes | PyTorch los **acumula** entre lotes: el entrenamiento se rompe |
+| `outputs = model(x)` | Forward | — |
+| `loss = criterion(outputs, y)` | Calcula el error | — |
+| `loss.backward()` | Backpropagation (cap. 37) | No hay gradientes que aplicar |
+| `optimizer.step()` | Actualiza los pesos | Se calculan gradientes pero **la red nunca aprende** |
+
+Ninguno de los cinco lanza una excepción si se omite: el modelo entrena mal y ya.
+
+**Para evaluar**, tres piezas: `model.eval()` cambia el modo (importa con `Dropout` o `BatchNorm`), `torch.no_grad()` desactiva el registro de gradientes, y `torch.max(outputs, 1)` convierte los logits en la clase predicha quedándose con el índice del máximo.
+
+### 42. Keras y PyTorch lado a lado
+
+Las tres decisiones que **van encadenadas** y que son la fuente de error más común al pasar de un framework al otro:
+
+```mermaid
+flowchart TD
+    Q{"Que framework"}
+    Q -->|Keras| K1["Etiquetas en one-hot<br/>to_categorical"]
+    K1 --> K2["Ultima capa CON softmax"]
+    K2 --> K3["Perdida categorical_crossentropy"]
+    Q -->|PyTorch| P1["Etiquetas enteras<br/>dtype long"]
+    P1 --> P2["Ultima capa SIN activacion<br/>devuelve logits"]
+    P2 --> P3["Perdida CrossEntropyLoss<br/>aplica log_softmax por dentro"]
+    K3 --> W["<b>Las tres decisiones van juntas</b><br/>mezclar convenciones de los dos<br/>no da error, entrena mal y ya"]
+    P3 --> W
+    classDef k fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef p fill:#ecfdf5,stroke:#059669,color:#111
+    classDef w fill:#fee2e2,stroke:#dc2626,color:#111
+    class K1,K2,K3 k
+    class P1,P2,P3 p
+    class W w
+```
+
+La comparación completa, sobre el mismo problema:
+
+| | Keras | PyTorch |
+|---|---|---|
+| Definir el modelo | `Sequential()` + `.add()` | clase que hereda de `nn.Module` |
+| Etiquetas | one-hot (`to_categorical`) | enteros (`long`) |
+| Última capa | **con** `softmax` | **sin** activación (logits) |
+| Pérdida | `categorical_crossentropy` | `CrossEntropyLoss` |
+| Datos | arrays de NumPy directo | `TensorDataset` + `DataLoader` |
+| Entrenar | `model.fit()` | bucle de 5 pasos |
+| Métricas por época | automáticas en `history` | hay que acumularlas a mano |
+| Ver la arquitectura | `model.summary()` | `torchsummary` / `torchinfo`, aparte |
+| Líneas de código | ~15 | ~30 |
+
+> **Nota (verificado en los recursos de clase, Iris con 4 atributos):** la **misma** arquitectura 4 → 64 → 128 → 3 da **9.027 parámetros** en los dos frameworks. Keras llegó a **93,33%** de exactitud y PyTorch a **96,67%** — un acierto de diferencia sobre 30 muestras de test. Ninguno de los dos notebooks fija la semilla de inicialización, así que esa diferencia es ruido, no evidencia de que un framework aprenda mejor.
+
+**Cuál conviene.** Sobre un problema tabular como Iris, ninguno de los dos aporta nada frente a `MLPClassifier`, que lo resuelve en tres líneas. La diferencia aparece después:
+
+- **Keras** es más rápido de escribir y trae resuelto lo repetitivo. Conviene para arquitecturas estándar y para prototipar.
+- **PyTorch** obliga a escribir el bucle, y esa verbosidad es lo que permite intervenir en cada paso: pérdidas a medida, entrenamiento adversario, arquitecturas que no son una pila de capas. Es el estándar en investigación.
+
+El curso enseña los dos a propósito, y el resto del módulo —CNNs, RNNs, Transformadores, autoencoders y GANs— los va alternando.
 
 ## Parte VIII — Referencia técnica
 

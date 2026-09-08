@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — entorno instalado · material de las Clases 3 y 4 recibido |
+| 7 | 33 | 🔄 En curso — Clases 1 a 6 documentadas (TensorFlow y PyTorch) |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -13,27 +13,23 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`0 - Programa del módulo.md`](<teoria/0 - Programa del módulo.md>) — las 33 clases en 7 módulos
 - [`Configuración del entorno.md`](<teoria/Configuración del entorno.md>) — Clase 2: instalaciones requeridas, con el equivalente para macOS y Apple Silicon
 
-### Material recibido, pendiente de convertir
+- [`Introducción a TensorFlow - Parte 1.md`](<teoria/Introducción a TensorFlow - Parte 1.md>) — Clase 3: qué es TensorFlow, tensores, grafo de cómputo, Keras
+- [`Introducción a TensorFlow - Parte 2.md`](<teoria/Introducción a TensorFlow - Parte 2.md>) — Clase 3: `keras.datasets`, `Sequential` vs API funcional, `compile`
+- [`Introducción a TensorFlow - Parte 3.md`](<teoria/Introducción a TensorFlow - Parte 3.md>) — Clase 3: `model.fit`, `model.evaluate` y el objeto `history`
+- [`Introducción a PyTorch - Parte 1.md`](<teoria/Introducción a PyTorch - Parte 1.md>) — Clase 4: qué es PyTorch, grafo dinámico, tensores
+- [`Introducción a PyTorch - Parte 2.md`](<teoria/Introducción a PyTorch - Parte 2.md>) — Clase 4: `torchvision`, transformaciones y `DataLoader`
+- [`Introducción a PyTorch - Parte 3.md`](<teoria/Introducción a PyTorch - Parte 3.md>) — Clase 4: `nn.Module`, pérdidas y optimizadores
+- [`Introducción a PyTorch - Parte 4.md`](<teoria/Introducción a PyTorch - Parte 4.md>) — Clase 4: el bucle de entrenamiento línea por línea y la evaluación
 
-Las slides de las Clases 3 y 4 ya están en `teoria/` como PDF; falta pasarlas a Markdown.
-
-| Clase | PDF | Contenido |
-|:--:|---|---|
-| 3 | `Introducción a TensorFlow - Parte 1` | Qué es TensorFlow, tensores, grafo estático, Keras |
-| 3 | `Introducción a TensorFlow - Parte 2` | Acceso a datos con `keras.datasets`, modelo `Sequential` y API funcional, `compile` con optimizador, pérdida y métricas |
-| 3 | `Introducción a TensorFlow - Parte 3` | Entrenamiento con `model.fit` y evaluación con `model.evaluate` |
-| 4 | `Introducción a PyTorch - Parte 1` | Qué es PyTorch, grafo dinámico, GPU, tensores |
-| 4 | `Introducción a PyTorch - Parte 2` | `torchvision`, transformaciones (`ToTensor`, `Resize`, `Normalize`) y `DataLoader` |
-| 4 | `Introducción a PyTorch - Parte 3` | Modelos con `nn.Module`, funciones de pérdida de `torch.nn` y optimizadores de `torch.optim` |
-| 4 | `Introducción a PyTorch - Parte 4` | Bucle de entrenamiento paso a paso (`zero_grad`, `backward`, `step`) y evaluación con `model.eval()` y `torch.no_grad()` |
-
-Entre las dos clases queda cubierto el mismo flujo en los dos frameworks: **acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar**.
+Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
 
 ## Notebooks
 
 - [`OD_RN2_ESP_M02_S05_Implementación en PyTorch - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M02_S05_Implementación en PyTorch - Recurso descargable.ipynb>) — Clase 5: una red que clasifica Iris con PyTorch, del dataset a la evaluación. Recurso de clase, documentado celda por celda sin tocar el código ni los outputs. Llega a **96,67%** de exactitud.
 
-> ⚠️ **El recurso tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
+- [`OD_RN2_ESP_M02_S06_Implementación en TensorFlow - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M02_S06_Implementación en TensorFlow - Recurso descargable.ipynb>) — Clase 6: **la misma red, en Keras**. Espejo exacto del anterior, pensado para comparar. Llega a **93,33%**.
+
+> ⚠️ **El recurso de PyTorch tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
 
 ## Entorno
 
