@@ -29,6 +29,12 @@ Las slides de las Clases 3 y 4 ya están en `teoria/` como PDF; falta pasarlas a
 
 Entre las dos clases queda cubierto el mismo flujo en los dos frameworks: **acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar**.
 
+## Notebooks
+
+- [`OD_RN2_ESP_M02_S05_Implementación en PyTorch - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M02_S05_Implementación en PyTorch - Recurso descargable.ipynb>) — Clase 5: una red que clasifica Iris con PyTorch, del dataset a la evaluación. Recurso de clase, documentado celda por celda sin tocar el código ni los outputs. Llega a **96,67%** de exactitud.
+
+> ⚠️ **El recurso tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
+
 ## Entorno
 
 Las librerías de deep learning viven en un **entorno dedicado**, `~/.venvs/dl-env`, porque TensorFlow no se puede instalar sobre el Anaconda base (conflicto con el numpy que instaló conda). Los notebooks de este módulo usan el kernel **`Python 3.12 (dl-env)`**.
