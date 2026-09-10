@@ -30,7 +30,7 @@
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
-[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado)
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -46,7 +46,7 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
 | **06** — Fundamentos de redes neuronales | 24-38 |
-| **07** — Fundamentos de deep learning | 39-42 (en curso) |
+| **07** — Fundamentos de deep learning | 39-46 (en curso) |
 | **08** — Gestión de proyectos de IA | pendiente |
 
 > **Capítulos que no vienen de una slide.** El 7 (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los capítulos 5, 6, 10 y 14 están ampliados bastante más allá de lo que cubren las slides.
@@ -1505,6 +1505,165 @@ La comparación completa, sobre el mismo problema:
 - **PyTorch** obliga a escribir el bucle, y esa verbosidad es lo que permite intervenir en cada paso: pérdidas a medida, entrenamiento adversario, arquitecturas que no son una pila de capas. Es el estándar en investigación.
 
 El curso enseña los dos a propósito, y el resto del módulo —CNNs, RNNs, Transformadores, autoencoders y GANs— los va alternando.
+
+### 43. Redes convolucionales (CNNs)
+
+Una imagen de 32×32 en color son **3.072 valores**; una de 224×224, más de 150.000. Conectar eso a una capa densa da millones de pesos en una sola capa, y además el modelo tendría que aprender cada objeto **en cada posición por separado**, porque un MLP recibe los píxeles como una lista plana sin noción de vecindad.
+
+Las **CNN** resuelven las dos cosas con una idea: aplicar el **mismo filtro** a toda la imagen. Los pesos se reutilizan en cada posición —así que son pocos— y el patrón se detecta esté donde esté.
+
+La red se parte en dos mitades con roles distintos:
+
+```mermaid
+flowchart LR
+    IM["<b>Imagen</b><br/>32x32x3<br/>3.072 valores"]
+    subgraph EXT["<b>Extraccion de caracteristicas</b> &mdash; aprende QUE mirar"]
+        direction LR
+        C1["conv 32 filtros<br/>+ pool"] --> C2["conv 64 filtros<br/>+ pool"]
+        C2 --> C3["conv 128 filtros<br/>+ pool"]
+    end
+    FL["<b>Aplanamiento</b><br/>128 x 4 x 4 = 2.048"]
+    subgraph CLA["<b>Clasificacion</b> &mdash; el MLP de siempre"]
+        direction LR
+        D1["densa 512"] --> D2["densa 256"] --> D3["densa 10"]
+    end
+    OUT["<b>softmax</b><br/>una probabilidad<br/>por clase"]
+    IM --> EXT --> FL --> CLA --> OUT
+    classDef img fill:#fef3c7,stroke:#d97706,color:#111
+    classDef conv fill:#ecfdf5,stroke:#059669,color:#111
+    classDef dense fill:#eef2ff,stroke:#4f46e5,color:#111
+    class IM,OUT img
+    class C1,C2,C3,FL conv
+    class D1,D2,D3 dense
+```
+
+La primera mitad **aprende qué mirar**; la segunda **decide**, y es exactamente el MLP del capítulo 30. Lo nuevo es todo lo que pasa antes.
+
+### 44. La capa convolucional
+
+Un **filtro** (o *kernel*) es una matriz chica de pesos que se desliza sobre la imagen. En cada posición se multiplica elemento a elemento con la región que tiene debajo y se suma todo en un único valor. El resultado de recorrer la imagen entera es un **mapa de características**.
+
+El ejemplo del curso, con una imagen de 4×4 y un filtro de 3×3 detector de bordes verticales:
+
+| Filtro | | |
+|---|---|---|
+| 1 | 0 | −1 |
+| 1 | 0 | −1 |
+| 1 | 0 | −1 |
+
+Ese filtro resta la columna derecha de la izquierda: da valores altos donde hay un cambio brusco de intensidad y cerca de cero donde la región es uniforme. **Los pesos del filtro no se diseñan a mano: se aprenden durante el entrenamiento**, igual que cualquier otro peso de la red.
+
+**Los tres parámetros que controlan la operación:**
+
+| Parámetro | Qué hace |
+|---|---|
+| **Kernel** (`K`) | tamaño de la ventana, típicamente 3×3 |
+| **Stride** (`S`) | cuántos píxeles se desplaza por paso |
+| **Padding** (`P`) | borde de ceros que se agrega alrededor |
+
+El padding tiene tres variantes: **valid** (ninguno, la salida se achica), **same** (el justo para conservar el tamaño) y **full** (la salida crece).
+
+**La fórmula que resume todo**, y que conviene tener a mano:
+
+```
+tamaño_salida = (W − K + 2P) / S + 1
+```
+
+> **Nota (verificado contra los notebooks del curso):** `Conv2d(kernel_size=3, padding=1)` con stride 1 sobre una entrada de 32×32 da `(32 − 3 + 2)/1 + 1 = 32` — **conserva el tamaño**. Es la razón por la que en la CNN del curso el tamaño va 32 → 16 → 8 → 4: las convoluciones no achican nada, **el que divide por dos es el pooling**.
+
+**Cuántos pesos tiene un filtro:** `kernel × kernel × canales_de_entrada + 1` (el sesgo). Para la primera capa de la CNN del curso: 3×3×3+1 = 28 por filtro, por 32 filtros = **896 parámetros**, que es exactamente lo que reporta el `summary`.
+
+### 45. Agrupamiento, aplanamiento y capas densas
+
+**El agrupamiento** (*pooling*) reduce el tamaño espacial tomando un valor por ventana. Con `MaxPool2d(2, 2)` cada ventana de 2×2 se reemplaza por su máximo, así que alto y ancho se dividen por dos.
+
+| | Qué conserva |
+|---|---|
+| **Max pooling** | la activación **más fuerte** de la región: si el filtro detectó un rasgo, sobrevive |
+| **Average pooling** | el promedio, que **diluye** el rasgo entre los valores vecinos |
+
+Por eso el max pooling es el habitual en clasificación. Y algo que conviene notar: **el pooling no tiene parámetros**. Es una operación fija, no algo que se aprenda.
+
+El recorrido completo de tamaños, que es donde se traba todo el mundo la primera vez:
+
+```mermaid
+flowchart TD
+    A["Entrada 32x32<br/>3 canales"]
+    A -->|"conv 3x3 padding 1<br/>NO cambia el tamano"| B["32x32<br/>32 canales"]
+    B -->|"maxpool 2x2<br/>divide por dos"| C["16x16<br/>32 canales"]
+    C -->|conv| D["16x16<br/>64 canales"]
+    D -->|pool| E["8x8<br/>64 canales"]
+    E -->|conv| F["8x8<br/>128 canales"]
+    F -->|pool| G["4x4<br/>128 canales"]
+    G --> H["<b>128 x 4 x 4 = 2.048</b><br/>este es el numero que hay que<br/>escribir a mano en PyTorch"]
+    classDef sz fill:#ecfdf5,stroke:#059669,color:#111
+    classDef fin fill:#fee2e2,stroke:#dc2626,color:#111
+    class A,B,C,D,E,F,G sz
+    class H fin
+```
+
+**El aplanamiento** (*flattening*) convierte los mapas en un vector para que puedan entrar a las capas densas. En Keras es `Flatten()` y lo calcula solo; en PyTorch hay que escribir `x.view(-1, 128*4*4)` **a mano**, y recalcularlo si cambia la arquitectura. Es el error más frecuente al armar una CNN en PyTorch, y falla sin dar un mensaje claro.
+
+**Dónde terminan los parámetros**, medido sobre la CNN del curso (1.276.234 en total):
+
+| Bloque | Parámetros | % |
+|---|---:|---:|
+| Las 3 convoluciones | 93.248 | 7% |
+| Las 3 densas | 1.182.986 | **93%** |
+| — solo la primera densa | 1.049.088 | **82%** |
+
+**Es el argumento entero de las CNNs en un número.** Un filtro de 3×3 tiene 9 pesos que se reutilizan sobre toda la imagen; una capa densa necesita un peso por cada conexión. Las convoluciones hacen el trabajo pesado con el 7% de los parámetros.
+
+> **Nota (verificado en los notebooks, CIFAR-10, 2 épocas):** la misma arquitectura da **1.276.234 parámetros** en PyTorch y en Keras — la cantidad depende de la arquitectura, no del framework. Las exactitudes fueron 58,85% y 63,03%, pero la diferencia viene del optimizador (SGD con momentum contra Adam) y de la normalización ([−1, 1] contra [0, 1]), no del framework. La exactitud por clase va de **76,9%** en avión a **38,7%** en ciervo: los objetos artificiales tienen formas rígidas y fondos característicos, los animales aparecen en poses variadas y se parecen entre sí en 32×32 píxeles.
+
+### 46. Redes recurrentes (RNNs)
+
+Una CNN explota la estructura **espacial** —píxeles vecinos tienen que ver entre sí—. Una **RNN** explota la estructura **temporal**: cada paso de una secuencia depende de los anteriores. Las dos son formas de meterle al modelo una suposición sobre la forma de los datos, en lugar de tratar todo como un vector plano.
+
+**La idea central es el estado oculto.** La red mantiene un vector `h` que se pasa de un paso al siguiente, así que la salida no depende solo de la entrada actual sino de todo lo visto antes. Eso le permite procesar secuencias de **largo variable** con la misma cantidad de pesos.
+
+```mermaid
+flowchart LR
+    subgraph COMPACTA["<b>Vista compacta</b>"]
+        X["entrada x"] --> H["estado oculto h"] --> Y["salida y"]
+        H -.->|"se realimenta"| H
+    end
+    subgraph DESPLEGADA["<b>Desplegada en el tiempo</b>"]
+        direction LR
+        H0["h inicial"] --> H1["h en t=1"]
+        X1["x en t=1"] --> H1
+        H1 --> H2["h en t=2"]
+        X2["x en t=2"] --> H2
+        H2 --> H3["h en t=3"]
+        X3["x en t=3"] --> H3
+        H1 --> Y1["y en t=1"]
+        H2 --> Y2["y en t=2"]
+        H3 --> Y3["y en t=3"]
+    end
+    COMPACTA -.->|"es lo mismo que"| DESPLEGADA
+    classDef e fill:#fef3c7,stroke:#d97706,color:#111
+    classDef h fill:#ecfdf5,stroke:#059669,color:#111
+    classDef s fill:#eef2ff,stroke:#4f46e5,color:#111
+    class X,X1,X2,X3 e
+    class H,H0,H1,H2,H3 h
+    class Y,Y1,Y2,Y3 s
+```
+
+Las dos vistas son el mismo objeto: la compacta tiene un bucle, la desplegada lo estira en el tiempo. **Los pesos son los mismos en todos los pasos** — no hay un juego de parámetros por instante.
+
+Las ecuaciones de la celda básica:
+
+```
+a_t = V·h_{t-1} + U·x_t + b        # combina el estado previo con la entrada actual
+h_t = tanh(a_t)                    # nuevo estado oculto
+o_t = softmax(c + W·h_t)           # salida
+```
+
+**Por qué `tanh` y no ReLU.** El estado oculto se realimenta en cada paso, así que se multiplica por los mismos pesos una y otra vez. Con una activación no acotada como ReLU los valores pueden **explotar** al cabo de varios pasos; `tanh` los mantiene en (−1, 1).
+
+**El problema que define el tema.** Al retropropagar a través de muchos pasos temporales, el gradiente se multiplica una vez por paso — el mismo mecanismo del cap. 37, ahora en el eje del tiempo. Con derivadas menores a 1 el gradiente **se apaga** antes de llegar a los primeros pasos, así que la red no aprende dependencias largas: no relaciona el final de un párrafo con su comienzo.
+
+Eso es exactamente lo que vienen a resolver **GRU** y **LSTM**, que son las dos clases siguientes del programa.
 
 ## Parte VIII — Referencia técnica
 

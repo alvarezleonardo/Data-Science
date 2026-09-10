@@ -14,7 +14,7 @@ Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning 
 ## Apuntes consolidados
 
 Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo documento:
-**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **42 capítulos en 9 partes**, con 14 diagramas y una referencia técnica de consulta.
+**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **46 capítulos en 9 partes**, con 21 diagramas y una referencia técnica de consulta.
 
 ## Programa y avance
 
@@ -26,7 +26,7 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado) | 🔄 Contenido completo (23/23 clases con material) · restan checkpoints y evaluación |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
-| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-42](APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks) | 🔄 En curso — CNNs completas en los dos frameworks · arrancan las RNNs |
+| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-46](APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks) | 🔄 En curso — CNNs completas en los dos frameworks · arrancan las RNNs |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
 | 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar |
 | | **Total** | **45** | **164** | | **4 completados · 2 en curso · 3 pendientes** |
@@ -40,7 +40,7 @@ Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
 ```
 .
 ├── README.md                     ← este índice
-├── APUNTES-DATA-SCIENCE.md       ← manual del programa (42 capítulos, 9 partes)
+├── APUNTES-DATA-SCIENCE.md       ← manual del programa (46 capítulos, 9 partes)
 ├── requirements.txt              ← dependencias para reproducir el entorno
 ├── 01-introduccion-a-machine-learning/
 │   ├── teoria/                   ← slides del curso (PDF + conversión .md)
