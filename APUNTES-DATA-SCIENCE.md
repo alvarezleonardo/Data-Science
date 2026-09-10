@@ -30,7 +30,7 @@
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
-[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns) · [47. GRU](#47-gru-unidades-recurrentes-con-compuertas)
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns) · [47. GRU](#47-gru-unidades-recurrentes-con-compuertas) · [48. LSTM](#48-lstm-memoria-a-largo-plazo) · [49. RNNs en la práctica](#49-rnns-en-la-práctica-trabajar-con-texto)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -46,7 +46,7 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
 | **06** — Fundamentos de redes neuronales | 24-38 |
-| **07** — Fundamentos de deep learning | 39-47 (en curso) |
+| **07** — Fundamentos de deep learning | 39-49 (en curso) |
 | **08** — Gestión de proyectos de IA | pendiente |
 
 > **Capítulos que no vienen de una slide.** El 7 (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los capítulos 5, 6, 10 y 14 están ampliados bastante más allá de lo que cubren las slides.
@@ -2030,6 +2030,169 @@ lstm = nn.LSTM(input_size=10, hidden_size=64, num_layers=2, batch_first=True)
 ```
 
 > **Nota (inconsistencia en el material):** la tabla de ecuaciones de la slide del curso **omite el `r_t` multiplicando a `h_{t-1}`** dentro del cálculo del candidato, aunque el diagrama de la misma slide sí lo muestra. Sin esa multiplicación, la compuerta de reinicio no cumpliría ninguna función. La versión correcta es la de arriba. La slide además escribe `x̄_t` con barra en la ecuación de `z_t`, que parece un error tipográfico.
+
+### 48. LSTM: memoria a largo plazo
+
+La **LSTM** (*Long Short-Term Memory*) ataca el mismo problema que la GRU —el gradiente que se apaga al retropropagar en el tiempo— con más maquinaria. Es **anterior**: la propusieron Hochreiter y Schmidhuber en **1997**, casi veinte años antes que la GRU (2014), aunque el curso la presente después.
+
+**Su diferencia estructural es tener dos estados separados**, donde la GRU tiene uno:
+
+| Estado | Rol |
+|---|---|
+| **`c`** — estado de celda | la **memoria de largo plazo**. Fluye a lo largo de la secuencia con modificaciones mínimas |
+| **`h`** — estado oculto | lo que la celda **expone hacia afuera** en cada paso |
+
+El estado de celda es lo que le da el nombre a la red. Funciona como una **cinta transportadora**: la información puede viajar muchos pasos casi sin tocarse, y por esa vía el gradiente llega hasta el principio de la secuencia sin apagarse. Es el mismo mecanismo que en GRU logra la compuerta de actualización cuando `z` es chico (cap. 47), pero con un canal dedicado.
+
+#### Las tres compuertas
+
+```mermaid
+flowchart TD
+    CIN["<b>estado de celda anterior c</b><br/>la memoria de largo plazo"]
+    HIN["estado oculto anterior h"]
+    X["entrada x en t"]
+    X --> F{"<b>1 . compuerta de olvido</b><br/>sigmoide<br/>que borro de la memoria"}
+    HIN --> F
+    X --> I{"<b>2 . compuerta de entrada</b><br/>sigmoide<br/>que informacion nueva guardo"}
+    HIN --> I
+    X --> G["<b>candidato</b><br/>tanh<br/>que podria guardarse"]
+    HIN --> G
+    CIN --> MUL["c viejo por la compuerta de olvido"]
+    F --> MUL
+    I --> ADD["mas el candidato filtrado por la de entrada"]
+    G --> ADD
+    MUL --> C2["<b>estado de celda nuevo c</b>"]
+    ADD --> C2
+    X --> O{"<b>3 . compuerta de salida</b><br/>sigmoide<br/>que parte de la memoria expongo"}
+    HIN --> O
+    C2 --> H2["<b>estado oculto nuevo h</b><br/>tanh de c, filtrado por la de salida"]
+    O --> H2
+    classDef mem fill:#fef3c7,stroke:#d97706,color:#111
+    classDef gate fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef op fill:#ecfdf5,stroke:#059669,color:#111
+    class CIN,C2 mem
+    class F,I,O gate
+    class G,MUL,ADD,H2,HIN,X op
+```
+
+| Compuerta | Decide |
+|---|---|
+| **Olvido** (*forget*) | qué se **borra** del estado de celda |
+| **Entrada** (*input*) | qué información nueva se **guarda** |
+| **Salida** (*output*) | qué parte del estado de celda se **expone** como estado oculto |
+
+Las tres son sigmoides, o sea vectores entre 0 y 1 que se multiplican elemento a elemento, y sus valores **se aprenden**. La red aprende cuándo conviene recordar, cuándo olvidar y cuánto mostrar.
+
+Las ecuaciones, en el orden en que se calculan:
+
+```
+f_t = σ(W_f · [h_{t-1}, x_t])        # olvido
+i_t = σ(W_i · [h_{t-1}, x_t])        # entrada
+g_t = tanh(W_g · [h_{t-1}, x_t])     # candidato
+o_t = σ(W_o · [h_{t-1}, x_t])        # salida
+
+c_t = f_t * c_{t-1} + i_t * g_t      # la memoria: se borra un poco y se agrega un poco
+h_t = o_t * tanh(c_t)                # lo que se expone
+```
+
+La línea de `c_t` es el corazón: **el estado viejo se multiplica por la compuerta de olvido y se le suma el candidato filtrado por la de entrada**. Si `f_t ≈ 1` e `i_t ≈ 0`, la memoria pasa intacta.
+
+#### Las tres celdas, lado a lado
+
+```mermaid
+flowchart LR
+    A["<b>RNN simple</b><br/>1 estado: h<br/>0 compuertas<br/>reescribe todo en cada paso"]
+    B["<b>GRU</b> &mdash; 2014<br/>1 estado: h<br/>2 compuertas: reinicio, actualizacion<br/>menos parametros, entrena rapido"]
+    C["<b>LSTM</b> &mdash; 1997<br/>2 estados: h y c<br/>3 compuertas: olvido, entrada, salida<br/>mas parametros, mejor en secuencias largas"]
+    A -->|"no aprende<br/>dependencias largas"| B
+    B -->|"mas control:<br/>memoria separada"| C
+    A -.->|"historicamente<br/>LSTM vino antes"| C
+    classDef mala fill:#fee2e2,stroke:#dc2626,color:#111
+    classDef buena fill:#ecfdf5,stroke:#059669,color:#111
+    class A mala
+    class B,C buena
+```
+
+| | RNN simple | GRU | LSTM |
+|---|---|---|---|
+| Estados | `h` | `h` | **`h` y `c`** |
+| Compuertas | ninguna | 2 | 3 |
+| Parámetros | pocos | intermedio | más (~33% sobre GRU) |
+| Dependencias largas | no aprende | bien | **mejor** |
+| Velocidad | la más rápida | rápida | la más lenta |
+
+**Cuál elegir.** En la práctica GRU y LSTM rinden parecido en la mayoría de las tareas. La recomendación es empezar por **GRU** —menos parámetros, entrena más rápido— y probar LSTM si las secuencias son muy largas o el resultado no alcanza.
+
+> **Nota (inconsistencia del material):** el diagrama de la slide numera las compuertas (2), (1), (3) sin seguir el orden espacial ni el de cómputo, y la lista de ecuaciones las presenta en un cuarto orden distinto. Las fórmulas en sí son correctas — a diferencia de la slide de GRU, donde faltaba un término.
+
+### 49. RNNs en la práctica: trabajar con texto
+
+Los notebooks de las Clases 18 y 19 resuelven el mismo problema —clasificar el sentimiento de reseñas de IMDb— en los dos frameworks, y traen los tres pasos propios del texto que no aparecían con tablas ni imágenes.
+
+```mermaid
+flowchart LR
+    T["<b>texto crudo</b><br/>esta pelicula fue excelente"]
+    T --> ID["<b>IDs de palabra</b><br/>segun un vocabulario fijo<br/>14, 20, 16, 777"]
+    ID --> PAD["<b>padding</b><br/>todas al mismo largo<br/>ceros adelante, trunca adelante"]
+    PAD --> EMB["<b>Embedding</b><br/>cada ID a un vector denso<br/>que se aprende"]
+    EMB --> RNN["<b>LSTM o GRU</b><br/>recorre la secuencia<br/>guarda estado"]
+    RNN --> OUT["<b>Dense</b><br/>una probabilidad"]
+    ID -.->|"<b>el paso critico</b><br/>al predecir hay que usar<br/>EL MISMO vocabulario<br/>del entrenamiento"| ID
+    classDef t fill:#fef3c7,stroke:#d97706,color:#111
+    classDef p fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef r fill:#ecfdf5,stroke:#059669,color:#111
+    class T,OUT t
+    class ID,PAD p
+    class EMB,RNN r
+```
+
+#### 1. De texto a números
+
+Una red no procesa palabras: procesa números. Hace falta un **vocabulario** que asigne un entero a cada palabra, típicamente **ordenado por frecuencia** y recortado a las N más comunes.
+
+IMDb viene con eso resuelto: `load_data(num_words=10000)` devuelve las reseñas ya como listas de enteros.
+
+> **El detalle que rompe todo:** ese vocabulario es **parte del modelo**. Al predecir sobre texto nuevo hay que usar exactamente el mismo, o los números que entran significan otras palabras.
+
+#### 2. Padding: emparejar los largos
+
+Las secuencias tienen largos distintos y la red necesita entradas uniformes. `pad_sequences(maxlen=N)` rellena las cortas y trunca las largas — por defecto **por adelante** en ambos casos.
+
+Que el relleno vaya adelante no es casual: así lo último que la red procesa es el final real del texto, no una fila de ceros.
+
+**`maxlen` es un hiperparámetro con consecuencias grandes.** Truncar a 50 tokens conserva solo las últimas 50 palabras de cada reseña.
+
+> **Nota (verificado en los notebooks del curso):** las dos versiones del mismo problema difieren en `max_len` — **1.000** en TensorFlow contra **50** en PyTorch — y sus exactitudes son **86,64%** y **74,65%**. Los doce puntos salen mayormente de ese recorte, no del framework. (El notebook de PyTorch además tiene el output de una sola época pese a pedir 20 en el código.)
+
+#### 3. Embeddings
+
+La capa **`Embedding`** convierte cada ID en un **vector denso** que se aprende durante el entrenamiento. Es la alternativa al *one-hot*: con 10.000 palabras, one-hot da vectores de 10.000 posiciones casi todas en cero; un embedding de 128 dimensiones las representa con 128 números que además **codifican similitud** — palabras que aparecen en contextos parecidos terminan cerca en ese espacio.
+
+```python
+# Keras
+model.add(Embedding(10000, 128))
+model.add(LSTM(128))                       # return_sequences=False: solo el estado final
+model.add(Dense(1, activation='sigmoid'))
+
+# PyTorch
+self.embedding = nn.Embedding(vocab_size, 100)
+self.lstm = nn.LSTM(100, 128, num_layers=2, batch_first=True)
+# ...
+lstm_out, (hidden, cell) = self.lstm(embedded)
+hidden = hidden[-1, :, :]                  # el estado de la ultima capa apilada
+```
+
+**Dos detalles de PyTorch que cuestan:** `batch_first=True` cambia el orden de las dimensiones a `(lote, tiempo, features)` —el default es `(tiempo, lote, features)`—, y la LSTM devuelve **los dos estados** (`hidden` y `cell`), a diferencia de una GRU que devuelve uno solo.
+
+#### El error silencioso que hay que conocer
+
+> **Nota (verificado ejecutando el recurso de clase):** el notebook de TensorFlow, al predecir sobre frases nuevas, crea un **`Tokenizer` nuevo ajustado solo con esas frases** en lugar de usar el vocabulario de IMDb. El resultado: al modelo le entran los IDs `[1, 2, 3, 4]` donde correspondería `[14, 20, 16, 777]`. La palabra *"fantastic"* es el **4** para el tokenizer nuevo y el **777** para el modelo.
+>
+> Dos de las tres predicciones salen invertidas —dice que *"worst mistake of my life"* es positiva— **en un modelo con 86,6% de exactitud**. Y no lanza ninguna excepción: corre, imprime con formato prolijo y cuatro decimales, y todo parece funcionar.
+
+Es el mismo patrón que persistir un modelo sin su escalador (cap. 38), y deja una regla general:
+
+**Toda transformación aprendida de los datos —tokenizer, escalador, encoder, vocabulario— es parte del modelo. Se guarda con él y se reusa idéntica al predecir.**
 
 ## Parte VIII — Referencia técnica
 
