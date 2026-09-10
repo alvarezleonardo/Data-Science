@@ -27,6 +27,8 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Capas totalmente conectadas.md`](<teoria/Capas totalmente conectadas.md>) — Clase 11: aplanamiento, capas densas, softmax y aplicaciones
 - [`Introducción a las redes neuronales recurrentes - P1.md`](<teoria/Introducción a las redes neuronales recurrentes - P1.md>) — Clase 15: **arrancan las RNNs** — estado oculto, despliegue temporal, por qué tanh
 
+La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 46 (TensorFlow, PyTorch, CNNs y RNNs).
+
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
 
 ## Notebooks
