@@ -14,7 +14,7 @@ Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning 
 ## Apuntes consolidados
 
 Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo documento:
-**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **46 capítulos en 9 partes**, con 21 diagramas y una referencia técnica de consulta.
+**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **46 capítulos en 9 partes**, con 24 diagramas y una referencia técnica de consulta.
 
 ## Programa y avance
 
