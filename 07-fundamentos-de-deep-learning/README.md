@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — Clases 1 a 8, 12 y 13 documentadas · CNNs en los dos frameworks |
+| 7 | 33 | 🔄 En curso — Módulos 1 a 3 completos (CNNs) · arrancan las RNNs |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -21,6 +21,11 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Introducción a PyTorch - Parte 3.md`](<teoria/Introducción a PyTorch - Parte 3.md>) — Clase 4: `nn.Module`, pérdidas y optimizadores
 - [`Introducción a PyTorch - Parte 4.md`](<teoria/Introducción a PyTorch - Parte 4.md>) — Clase 4: el bucle de entrenamiento línea por línea y la evaluación
 - [`01 - Introducción a las redes neuronales convolucionales - Parte 1.md`](<teoria/01 - Introducción a las redes neuronales convolucionales - Parte 1.md>) — Clase 8: qué son las CNNs, la arquitectura completa de imagen a predicción
+- [`02 - Introducción a las redes neuronales convolucionales - Parte 2.md`](<teoria/02 - Introducción a las redes neuronales convolucionales - Parte 2.md>) — Clase 8: las CNNs y la corteza visual, qué es una imagen para la computadora, canales RGB
+- [`Capa convolucional - P1.md`](<teoria/Capa convolucional - P1.md>) — Clase 9: filtros, la convolución paso a paso, filtros en volumen
+- [`Capa convolucional - P2.md`](<teoria/Capa convolucional - P2.md>) — Clase 9: padding, stride y ReLU, con la fórmula del tamaño de salida
+- [`Capas totalmente conectadas.md`](<teoria/Capas totalmente conectadas.md>) — Clase 11: aplanamiento, capas densas, softmax y aplicaciones
+- [`Introducción a las redes neuronales recurrentes - P1.md`](<teoria/Introducción a las redes neuronales recurrentes - P1.md>) — Clase 15: **arrancan las RNNs** — estado oculto, despliegue temporal, por qué tanh
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
 
