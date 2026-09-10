@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — Módulos 1 a 3 completos (CNNs) · arrancan las RNNs |
+| 7 | 33 | 🔄 En curso — Módulos 1 a 3 completos · RNNs y GRU documentadas |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -26,8 +26,10 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Capa convolucional - P2.md`](<teoria/Capa convolucional - P2.md>) — Clase 9: padding, stride y ReLU, con la fórmula del tamaño de salida
 - [`Capas totalmente conectadas.md`](<teoria/Capas totalmente conectadas.md>) — Clase 11: aplanamiento, capas densas, softmax y aplicaciones
 - [`Introducción a las redes neuronales recurrentes - P1.md`](<teoria/Introducción a las redes neuronales recurrentes - P1.md>) — Clase 15: **arrancan las RNNs** — estado oculto, despliegue temporal, por qué tanh
+- [`Introducción a las redes neuronales recurrentes - P2.md`](<teoria/Introducción a las redes neuronales recurrentes - P2.md>) — Clase 15: los cuatro tipos de RNN, funciones de activación y gradient clipping
+- [`Unidades Recurrentes con Compuertas (GRU).md`](<teoria/Unidades Recurrentes con Compuertas (GRU).md>) — Clase 16: compuertas de reinicio y actualización, y por qué resuelven el gradiente desvaneciente
 
-La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 46 (TensorFlow, PyTorch, CNNs y RNNs).
+La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 47 (TensorFlow, PyTorch, CNNs, RNNs y GRU).
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
 
