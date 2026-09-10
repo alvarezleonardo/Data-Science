@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 6 | 31 | 🔄 En curso — contenido completo (23/23 clases con material) · restan checkpoints y evaluación integral |
+| 6 | 31 | ✅ Aprobado (6/6) |
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
 
