@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — Clases 1 a 6 y 8 documentadas · arrancan las CNNs |
+| 7 | 33 | 🔄 En curso — Clases 1 a 6 y 8 a 13 documentadas · resta la Clase 10 (pooling) |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -21,6 +21,14 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Introducción a PyTorch - Parte 3.md`](<teoria/Introducción a PyTorch - Parte 3.md>) — Clase 4: `nn.Module`, pérdidas y optimizadores
 - [`Introducción a PyTorch - Parte 4.md`](<teoria/Introducción a PyTorch - Parte 4.md>) — Clase 4: el bucle de entrenamiento línea por línea y la evaluación
 - [`01 - Introducción a las redes neuronales convolucionales - Parte 1.md`](<teoria/01 - Introducción a las redes neuronales convolucionales - Parte 1.md>) — Clase 8: qué son las CNNs, la arquitectura completa de imagen a predicción
+- [`02 - Introducción a las redes neuronales convolucionales - Parte 2.md`](<teoria/02 - Introducción a las redes neuronales convolucionales - Parte 2.md>) — Clase 8: la corteza visual, qué es una imagen para la red, píxeles y canales RGB
+- [`03 - Capa convolucional - Parte 1.md`](<teoria/03 - Capa convolucional - Parte 1.md>) — Clase 9: filtros, la convolución paso a paso sobre un ejemplo de 4×4, entradas multicanal
+- [`04 - Capa convolucional - Parte 2.md`](<teoria/04 - Capa convolucional - Parte 2.md>) — Clase 9: padding (valid, same, full), stride y activación ReLU
+- [`06 - Capas totalmente conectadas.md`](<teoria/06 - Capas totalmente conectadas.md>) — Clase 11: capas densas, softmax, aplicaciones de las CNNs y la arquitectura completa armada
+
+> **Falta el bloque 05, capa de agrupamiento (Clase 10).** Es el único hueco de la secuencia de CNNs: max pooling, average pooling y aplanamiento. El resto del Módulo 3 está documentado.
+>
+> **Erratas detectadas en las slides de la Clase 9**, marcadas en el propio documento: el ejemplo multicanal del bloque 03 muestra el filtro con un signo cambiado y repite el resultado del caso de un solo canal.
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
 
@@ -32,7 +40,13 @@ Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a dato
 
 - [`mlp_iris_pytorch.ipynb`](<notebooks/mlp_iris_pytorch.ipynb>) — **notebook propio**: parte del recurso de la Clase 5 y le agrega lo que le falta — el `append` que arregla la curva de pérdida, semilla fija, seguimiento de train y test por época, matriz de confusión y detección de dispositivo (corre en **MPS**, la GPU del Mac). 96,67% con 50 épocas.
 
-> ⚠️ **El recurso de PyTorch tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
+- [`cnn_cifar10_pytorch.ipynb`](notebooks/cnn_cifar10_pytorch.ipynb) — Clase 12: **la primera CNN**, sobre CIFAR-10 en PyTorch. Tres bloques `Conv2d + MaxPool` (3→32→64→128 canales, 32×32 → 16×16 → 8×8 → 4×4), aplanado a 2.048 y tres capas densas. Documentado celda por celda sin tocar el código ni los outputs. Llega a **58,85%** en test con 2 épocas y SGD.
+
+- [`OD_RN2_ESP_M03_S13_CNNs_en_TensorFlow_Recurso_descargable.ipynb`](notebooks/OD_RN2_ESP_M03_S13_CNNs_en_TensorFlow_Recurso_descargable.ipynb) — Clase 13: **la misma red en Keras**, igual que el par de las clases 5 y 6. Llega a **63,03%**, con Adam en lugar de SGD. Incluye una tabla comparativa de las dos implementaciones.
+
+> Las dos redes quedan lejos del techo de CIFAR-10 porque entrenan **solo 2 épocas** y no usan normalización por lotes, dropout ni aumento de datos. La lectura crítica y qué habría que cambiar están al final de cada notebook.
+
+> ⚠️ **El recurso de PyTorch de la Clase 5 tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
 
 ## Entorno
 
