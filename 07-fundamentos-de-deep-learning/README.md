@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — Clases 1 a 6 y 8 documentadas · arrancan las CNNs |
+| 7 | 33 | 🔄 En curso — Clases 1 a 8, 12 y 13 documentadas · CNNs en los dos frameworks |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -30,6 +30,8 @@ Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a dato
 
 - [`OD_RN2_ESP_M02_S06_Implementación en TensorFlow - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M02_S06_Implementación en TensorFlow - Recurso descargable.ipynb>) — Clase 6: **la misma red, en Keras**. Espejo exacto del anterior, pensado para comparar. Llega a **93,33%**.
 
+- [`CNN_pytorch.ipynb`](<notebooks/CNN_pytorch.ipynb>) — Clase 12: **primera red convolucional**, sobre CIFAR-10 con PyTorch. 1.276.234 parámetros, 58,85% en 2 épocas.
+- [`OD_RN2_ESP_M03_S13_CNNs_en_TensorFlow_Recurso_descargable.ipynb`](<notebooks/OD_RN2_ESP_M03_S13_CNNs_en_TensorFlow_Recurso_descargable.ipynb>) — Clase 13: **la misma CNN en Keras**. Mismos 1.276.234 parámetros, 63,03%. La diferencia es el optimizador (Adam vs SGD) y la normalización, no el framework.
 - [`mlp_iris_pytorch.ipynb`](<notebooks/mlp_iris_pytorch.ipynb>) — **notebook propio**: parte del recurso de la Clase 5 y le agrega lo que le falta — el `append` que arregla la curva de pérdida, semilla fija, seguimiento de train y test por época, matriz de confusión y detección de dispositivo (corre en **MPS**, la GPU del Mac). 96,67% con 50 épocas.
 
 > ⚠️ **El recurso de PyTorch tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
