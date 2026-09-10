@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — Módulos 1 a 3 completos · RNNs y GRU documentadas |
+| 7 | 33 | 🔄 En curso — **Módulos 1 a 4 completos** (TensorFlow, PyTorch, CNNs y RNNs) |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
@@ -28,8 +28,9 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Introducción a las redes neuronales recurrentes - P1.md`](<teoria/Introducción a las redes neuronales recurrentes - P1.md>) — Clase 15: **arrancan las RNNs** — estado oculto, despliegue temporal, por qué tanh
 - [`Introducción a las redes neuronales recurrentes - P2.md`](<teoria/Introducción a las redes neuronales recurrentes - P2.md>) — Clase 15: los cuatro tipos de RNN, funciones de activación y gradient clipping
 - [`Unidades Recurrentes con Compuertas (GRU).md`](<teoria/Unidades Recurrentes con Compuertas (GRU).md>) — Clase 16: compuertas de reinicio y actualización, y por qué resuelven el gradiente desvaneciente
+- [`Memoria a Largo Plazo (LSTM).md`](<teoria/Memoria a Largo Plazo (LSTM).md>) — Clase 17: las tres compuertas, el estado de celda como memoria de largo plazo, y la comparación de las tres celdas
 
-La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 47 (TensorFlow, PyTorch, CNNs, RNNs y GRU).
+La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 49 (TensorFlow, PyTorch, CNNs, RNNs, GRU, LSTM y texto).
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
 
@@ -41,9 +42,13 @@ Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a dato
 
 - [`CNN_pytorch.ipynb`](<notebooks/CNN_pytorch.ipynb>) — Clase 12: **primera red convolucional**, sobre CIFAR-10 con PyTorch. 1.276.234 parámetros, 58,85% en 2 épocas.
 - [`OD_RN2_ESP_M03_S13_CNNs_en_TensorFlow_Recurso_descargable.ipynb`](<notebooks/OD_RN2_ESP_M03_S13_CNNs_en_TensorFlow_Recurso_descargable.ipynb>) — Clase 13: **la misma CNN en Keras**. Mismos 1.276.234 parámetros, 63,03%. La diferencia es el optimizador (Adam vs SGD) y la normalización, no el framework.
+- [`OD_RN2_ESP_M04_S18_RNNs en TensorFlow - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M04_S18_RNNs en TensorFlow - Recurso descargable.ipynb>) — Clase 18: **primera red recurrente**, sentimiento de reseñas de IMDb con LSTM. 86,64% en test.
+- [`OD_RN2_ESP_M04_S19_RNNs en PyTorch - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M04_S19_RNNs en PyTorch - Recurso descargable.ipynb>) — Clase 19: el mismo problema en PyTorch. 74,65%, y la diferencia es `max_len` (50 contra 1.000), no el framework.
 - [`mlp_iris_pytorch.ipynb`](<notebooks/mlp_iris_pytorch.ipynb>) — **notebook propio**: parte del recurso de la Clase 5 y le agrega lo que le falta — el `append` que arregla la curva de pérdida, semilla fija, seguimiento de train y test por época, matriz de confusión y detección de dispositivo (corre en **MPS**, la GPU del Mac). 96,67% con 50 épocas.
 
-> ⚠️ **El recurso de PyTorch tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
+> ⚠️ **Dos recursos de RNN tienen fallas silenciosas.** El de TensorFlow crea un `Tokenizer` nuevo al predecir en vez de usar el vocabulario de IMDb, así que las predicciones sobre frases nuevas salen invertidas pese al 86,6% de exactitud. El de PyTorch tiene el output de una sola época aunque el código pide 20. Ninguno lanza error; ambos están explicados en los propios notebooks.
+
+> ⚠️ **El recurso de PyTorch de la Clase 5 tiene un bug.** La celda del gráfico falla con `ValueError: x and y must have same first dimension, but have shapes (10,) and (0,)`, porque el bucle de entrenamiento nunca hace `append` a `epoch_losses`. El gráfico que aparece guardado viene de otra versión del código. El arreglo —una línea— está explicado en el propio notebook.
 
 ## Entorno
 
