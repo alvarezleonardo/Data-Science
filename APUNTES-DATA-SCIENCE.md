@@ -30,7 +30,7 @@
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
-[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns) · [47. GRU](#47-gru-unidades-recurrentes-con-compuertas) · [48. LSTM](#48-lstm-memoria-a-largo-plazo) · [49. RNNs en la práctica](#49-rnns-en-la-práctica-trabajar-con-texto)
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns) · [47. GRU](#47-gru-unidades-recurrentes-con-compuertas) · [48. LSTM](#48-lstm-memoria-a-largo-plazo) · [49. RNNs en la práctica](#49-rnns-en-la-práctica-trabajar-con-texto) · [50. Procesamiento de lenguaje natural](#50-procesamiento-de-lenguaje-natural) · [51. Seq2Seq](#51-seq2seq-y-el-problema-del-cuello-de-botella) · [52. Mecanismos de atención](#52-mecanismos-de-atención) · [53. Transformadores](#53-transformadores)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -46,7 +46,7 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
 | **06** — Fundamentos de redes neuronales | 24-38 |
-| **07** — Fundamentos de deep learning | 39-49 (en curso) |
+| **07** — Fundamentos de deep learning | 39-53 (en curso) |
 | **08** — Gestión de proyectos de IA | pendiente |
 
 > **Capítulos que no vienen de una slide.** El 7 (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los capítulos 5, 6, 10 y 14 están ampliados bastante más allá de lo que cubren las slides.
@@ -2193,6 +2193,213 @@ hidden = hidden[-1, :, :]                  # el estado de la ultima capa apilada
 Es el mismo patrón que persistir un modelo sin su escalador (cap. 38), y deja una regla general:
 
 **Toda transformación aprendida de los datos —tokenizer, escalador, encoder, vocabulario— es parte del modelo. Se guarda con él y se reusa idéntica al predecir.**
+
+### 50. Procesamiento de lenguaje natural
+
+El **PLN** es la rama del aprendizaje automático que busca que las computadoras comprendan y manipulen el lenguaje humano. Es uno de los campos que más se desarrolló en los últimos años, y el cap. 49 ya mostró su pieza central: los **embeddings**.
+
+Antes de los embeddings hay un paso previo que decide mucho: **cómo se parte el texto**.
+
+#### Tokenización: las tres estrategias
+
+| Estrategia | Vocabulario | Secuencias | Problema |
+|---|---|---|---|
+| **Por palabra** | enorme (100.000+) | cortas | toda palabra no vista es `<UNK>`; "correr" y "corriendo" son símbolos sin relación |
+| **Por carácter** | mínimo (~100) | larguísimas | el modelo tiene que aprender qué es una palabra desde cero |
+| **Por subpalabra** | intermedio (~30.000) | intermedias | — |
+
+La **subpalabra** es lo que usan todos los modelos modernos. Algoritmos como **BPE** (*Byte Pair Encoding*) y **WordPiece** parten de caracteres y van fusionando los pares más frecuentes hasta llegar al tamaño de vocabulario deseado. El resultado: las palabras comunes quedan enteras y las raras se parten en piezas conocidas — `tokenización` puede quedar como `token` + `##ización`.
+
+Eso resuelve el problema del **fuera de vocabulario** (OOV): ya no hace falta un `<UNK>` que descarta información, porque cualquier palabra nueva se puede armar con piezas.
+
+#### Embeddings: estáticos y contextuales
+
+Un **embedding** es un vector denso que representa una palabra, y la distancia entre vectores captura similitud de significado.
+
+| Tipo | Ejemplos | Característica |
+|---|---|---|
+| **Estáticos** | Word2Vec, GloVe | una palabra, **un** vector, siempre el mismo |
+| **Contextuales** | BERT, GPT | una palabra, **un vector distinto según el contexto** |
+
+La diferencia se ve en una frase: en *"el banco de la plaza"* y *"el banco me cobró comisión"*, un embedding estático le da a "banco" exactamente el mismo vector. Uno contextual le da dos vectores distintos, porque mira las palabras que la rodean.
+
+Esa es, en una línea, la razón de ser de los Transformadores.
+
+### 51. Seq2Seq y el problema del cuello de botella
+
+Una RNN sola no resuelve el caso donde **la entrada y la salida tienen largos distintos** — traducir una frase de 8 palabras a uno de 12, por ejemplo. Es el cuarto tipo de RNN del cap. 46, y necesita una estructura propia.
+
+**Seq2Seq** la resuelve con dos redes:
+
+- El **encoder** lee toda la entrada y la comprime en un **vector de contexto**.
+- El **decoder** genera la salida a partir de ese vector, token por token.
+
+```
+h_t = f(x_t, h_{t-1})              # encoder: acumula la entrada
+s_t = g(y_{t-1}, s_{t-1}, C)       # decoder: genera usando el contexto C
+```
+
+Durante el entrenamiento se usa **teacher forcing**: en lugar de alimentar al decoder con lo que él mismo predijo —que al principio es ruido—, se le da la palabra correcta del ejemplo. Acelera la convergencia, a costa de una diferencia entre cómo se entrena y cómo se usa después.
+
+#### El cuello de botella
+
+**Todo lo que el decoder sabe de la entrada está en un único vector de tamaño fijo.** Con una frase de cinco palabras alcanza; con un párrafo de cincuenta, no. La información del principio se diluye antes de llegar al final.
+
+```mermaid
+flowchart TD
+    subgraph S2S["<b>Seq2Seq clasico</b> &mdash; el cuello de botella"]
+        direction LR
+        E1["el"] --> E2["perro"] --> E3["ladro"] --> C["<b>vector de contexto</b><br/>toda la frase comprimida<br/>en un vector de tamano fijo"]
+        C --> D1["the"] --> D2["dog"] --> D3["barked"]
+    end
+    subgraph ATT["<b>Con atencion</b> &mdash; el decoder mira todo"]
+        direction LR
+        A1["el"] --> H["<b>todos los estados<br/>del encoder quedan disponibles</b>"]
+        A2["perro"] --> H
+        A3["ladro"] --> H
+        H --> B1["en cada palabra que genera,<br/>el decoder <b>pondera</b><br/>cuales estados importan"]
+    end
+    S2S -->|"problema: una frase larga<br/>no entra en un vector fijo"| ATT
+    classDef n fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef mal fill:#fee2e2,stroke:#dc2626,color:#111
+    classDef bien fill:#ecfdf5,stroke:#059669,color:#111
+    class E1,E2,E3,D1,D2,D3,A1,A2,A3 n
+    class C mal
+    class H,B1 bien
+```
+
+### 52. Mecanismos de atención
+
+La **atención** elimina ese cuello de botella con una idea directa: en vez de comprimir todo en un vector, **conservar todos los estados del encoder** y dejar que el decoder decida, en cada palabra que genera, cuáles mirar.
+
+El mecanismo, en tres pasos:
+
+1. **Scores** — se compara el estado actual del decoder contra cada estado del encoder.
+2. **Softmax** — esos scores se normalizan en pesos que suman 1.
+3. **Contexto dinámico** — se promedian los estados del encoder ponderados por esos pesos.
+
+La diferencia con seq2seq es que ahora el contexto **cambia en cada paso** de la generación: al traducir "gato" el modelo mira la palabra "cat"; al traducir "negro", mira "black".
+
+**Y hay un beneficio extra: interpretabilidad.** Los pesos de atención se pueden graficar, y muestran a qué parte de la entrada miró el modelo para producir cada parte de la salida. Es una ventana poco común en deep learning, donde casi todo es opaco.
+
+### 53. Transformadores
+
+El paso siguiente fue radical: **si la atención resuelve el problema, ¿hace falta la recurrencia?** La respuesta —el paper *Attention is All You Need*, 2017— fue que no.
+
+#### Autoatención: Q, K y V
+
+En lugar de que el decoder atienda al encoder, en la **autoatención** cada token de una secuencia atiende a **todos los tokens de esa misma secuencia**, incluido él mismo. De cada token se derivan tres vectores:
+
+| | Nombre | Analogía de búsqueda |
+|---|---|---|
+| **Q** | *Query* | lo que este token **pregunta** |
+| **K** | *Key* | lo que cada token **ofrece** como etiqueta |
+| **V** | *Value* | la **información** que aporta si resulta relevante |
+
+```mermaid
+flowchart TD
+    X["<b>cada token</b> genera tres vectores"]
+    X --> Q["<b>Query</b><br/>lo que este token pregunta"]
+    X --> K["<b>Key</b><br/>lo que cada token ofrece"]
+    X --> V["<b>Value</b><br/>la informacion que aporta"]
+    Q --> S["<b>score</b> = Q por K transpuesta<br/>cuanto le importa cada token a cada token"]
+    K --> S
+    S --> D["<b>dividir por raiz de d_k</b><br/>sin esto el softmax satura<br/>y el gradiente se apaga"]
+    D --> SM["<b>softmax</b><br/>pesos que suman 1"]
+    SM --> O["<b>salida</b> = promedio de los Value<br/>ponderado por esos pesos"]
+    V --> O
+    classDef x fill:#fef3c7,stroke:#d97706,color:#111
+    classDef qkv fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef op fill:#ecfdf5,stroke:#059669,color:#111
+    classDef warn fill:#fee2e2,stroke:#dc2626,color:#111
+    class X x
+    class Q,K,V qkv
+    class S,SM,O op
+    class D warn
+```
+
+La fórmula completa:
+
+```
+Atención(Q, K, V) = softmax( Q·Kᵀ / √d_k ) · V
+```
+
+> **Por qué se divide por `√d_k`.** Sin esa división, con dimensiones grandes el producto punto `Q·Kᵀ` da valores de magnitud creciente. El softmax de valores grandes **satura**: concentra casi todo el peso en un único token y deja gradientes prácticamente nulos para el resto. Es el mismo problema de saturación de la sigmoide del cap. 32, en otro contexto. La raíz de `d_k` normaliza esa escala.
+
+#### Múltiples cabezas
+
+Una sola atención aprende **un** tipo de relación. La **atención multi-cabeza** corre varias en paralelo, cada una con sus propias matrices Q/K/V, y concatena los resultados.
+
+Cada cabeza termina especializándose: una sigue relaciones sintácticas, otra correferencias, otra proximidad posicional. **Es exactamente la misma idea que los múltiples filtros de una capa convolucional** (cap. 44): en vez de un detector, muchos, cada uno atento a algo distinto.
+
+#### Codificación posicional
+
+Acá aparece el precio de haber eliminado la recurrencia. Una RNN conoce el orden porque procesa token por token; **la autoatención es invariante a permutaciones** — para ella, "el perro mordió al hombre" y "el hombre mordió al perro" son el mismo conjunto.
+
+La solución es **sumar al embedding de cada palabra un vector que codifica su posición**. El paper usa senos y cosenos de distintas frecuencias; BERT y GPT usan posiciones aprendidas. Las dos funcionan.
+
+#### Residuales y normalización
+
+Cada sub-capa va envuelta en el patrón **`Add & Normalize`**:
+
+```
+salida = LayerNorm( entrada + SubCapa(entrada) )
+```
+
+La **conexión residual** (`entrada + ...`) le da al gradiente un camino directo que saltea la sub-capa, y es lo que permite apilar seis o doce bloques sin que se pierda. **Es el mismo mecanismo que el estado de celda de la LSTM** (cap. 48) y que la compuerta de actualización de la GRU cuando deja pasar el estado casi intacto.
+
+`LayerNorm` normaliza cada vector de token por separado y estabiliza el entrenamiento.
+
+#### El decoder
+
+Genera la salida **token a token** (autorregresivamente), con dos diferencias respecto del encoder:
+
+- **Atención enmascarada**: al predecir la palabra *i* no puede mirar las posiciones posteriores, porque en inferencia todavía no existen. La máscara lo fuerza durante el entrenamiento.
+- **Atención cruzada**: una segunda capa de atención donde las Q vienen del decoder y las K/V del **encoder**. Es la atención del cap. 52, ahora como una pieza más dentro de la arquitectura.
+
+#### La ventaja decisiva: paralelismo
+
+```mermaid
+flowchart LR
+    subgraph RNN["<b>RNN o LSTM</b> &mdash; secuencial"]
+        direction LR
+        R1["token 1"] --> R2["token 2"] --> R3["token 3"] --> R4["token 4"]
+        R4 --> RT["cada paso espera al anterior<br/><b>no se puede paralelizar</b><br/>9 minutos por epoca en el notebook<br/>de la Clase 18"]
+    end
+    subgraph TR["<b>Transformer</b> &mdash; paralelo"]
+        direction TB
+        T1["token 1"]
+        T2["token 2"]
+        T3["token 3"]
+        T4["token 4"]
+        TA["<b>todos a la vez</b><br/>cada uno mira a todos<br/>via autoatencion"]
+        T1 --> TA
+        T2 --> TA
+        T3 --> TA
+        T4 --> TA
+        TA --> TP["se paraleliza en GPU<br/>pero el costo crece con el<br/><b>cuadrado</b> de la longitud<br/>y hay que inyectar el orden a mano"]
+    end
+    classDef r fill:#fef3c7,stroke:#d97706,color:#111
+    classDef t fill:#ecfdf5,stroke:#059669,color:#111
+    class R1,R2,R3,R4,RT r
+    class T1,T2,T3,T4,TA,TP t
+```
+
+Una LSTM **no puede paralelizar** el recorrido temporal: el paso *t* necesita el estado del *t−1*. El Transformer procesa todos los tokens a la vez, lo que aprovecha la GPU por completo. Es lo que hizo posible entrenar modelos de miles de millones de parámetros.
+
+A cambio paga dos cosas: **el costo de la atención crece con el cuadrado de la longitud** —cada token se compara con todos— y hay que inyectar el orden a mano.
+
+> **Nota (verificado en los notebooks del curso, todos sobre IMDb):**
+>
+> | Clase | Arquitectura | `maxlen` | Épocas | Exactitud |
+> |---|---|---|---|---|
+> | 18 | LSTM (Keras) | 1.000 | 10 | **86,64%** |
+> | 19 | LSTM (PyTorch) | 50 | 1 | 74,65% |
+> | 25 | **Transformer** | 250 | 100 | **82,84%** |
+>
+> El Transformer queda **por debajo** de la LSTM, y no por la arquitectura: entrenó 100 épocas sin *early stopping* y se sobreajustó hasta exactitud **1,0000** en entrenamiento con pérdida 0,0000079, mientras la de validación subía de 0,29 a **3,08**. Su mejor época fue la **primera**. Cortando ahí habría dado ~88,6%, el mejor de los tres, en dos minutos en lugar de dos horas.
+>
+> **Una arquitectura mejor, mal entrenada, rinde menos que una más simple bien entrenada.**
 
 ## Parte VIII — Referencia técnica
 
