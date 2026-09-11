@@ -30,7 +30,7 @@
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
-[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns) · [47. GRU](#47-gru-unidades-recurrentes-con-compuertas) · [48. LSTM](#48-lstm-memoria-a-largo-plazo) · [49. RNNs en la práctica](#49-rnns-en-la-práctica-trabajar-con-texto) · [50. Procesamiento de lenguaje natural](#50-procesamiento-de-lenguaje-natural) · [51. Seq2Seq](#51-seq2seq-y-el-problema-del-cuello-de-botella) · [52. Mecanismos de atención](#52-mecanismos-de-atención) · [53. Transformadores](#53-transformadores)
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns) · [47. GRU](#47-gru-unidades-recurrentes-con-compuertas) · [48. LSTM](#48-lstm-memoria-a-largo-plazo) · [49. RNNs en la práctica](#49-rnns-en-la-práctica-trabajar-con-texto) · [50. Procesamiento de lenguaje natural](#50-procesamiento-de-lenguaje-natural) · [51. Seq2Seq](#51-seq2seq-y-el-problema-del-cuello-de-botella) · [52. Mecanismos de atención](#52-mecanismos-de-atención) · [53. Transformadores](#53-transformadores) · [54. De los Transformadores a los LLMs](#54-de-los-transformadores-a-los-llms)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -48,8 +48,9 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **06** — Fundamentos de redes neuronales | 24-38 |
 | **07** — Fundamentos de deep learning | 39-53 (en curso) |
 | **08** — Gestión de proyectos de IA | pendiente |
+| *fuera del programa* | 54 (LLMs y RAG) |
 
-> **Capítulos que no vienen de una slide.** El 7 (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los capítulos 5, 6, 10 y 14 están ampliados bastante más allá de lo que cubren las slides.
+> **Capítulos que no vienen de una slide.** El **7** (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. El **54** (LLMs y RAG) está **fuera del programa** — el curso termina en autoencoders y modelos generativos — y se agrega porque es la continuación directa de los Transformadores y lo que se encuentra hoy en el trabajo real. Los capítulos 5, 6, 10, 14, 19, 21 y los del módulo 07 están ampliados bastante más allá de lo que cubren las slides.
 
 ---
 
@@ -2400,6 +2401,108 @@ A cambio paga dos cosas: **el costo de la atención crece con el cuadrado de la 
 > El Transformer queda **por debajo** de la LSTM, y no por la arquitectura: entrenó 100 épocas sin *early stopping* y se sobreajustó hasta exactitud **1,0000** en entrenamiento con pérdida 0,0000079, mientras la de validación subía de 0,29 a **3,08**. Su mejor época fue la **primera**. Cortando ahí habría dado ~88,6%, el mejor de los tres, en dos minutos en lugar de dos horas.
 >
 > **Una arquitectura mejor, mal entrenada, rinde menos que una más simple bien entrenada.**
+
+### 54. De los Transformadores a los LLMs
+
+> **Nota:** este capítulo **no forma parte del programa del curso**, que termina en autoencoders y modelos generativos. Se agrega porque es la continuación directa del cap. 53 y porque es lo que hoy se encuentra en el trabajo real. Fuente principal: la documentación de [IBM Think](https://www.ibm.com/mx-es/think/topics/large-language-models).
+
+Un **LLM** (*Large Language Model*) no es una arquitectura nueva: es **el Transformer del capítulo anterior, escalado**. Lo que cambió fue la magnitud —miles de millones de parámetros, corpus de billones de tokens— y el descubrimiento de que a partir de cierta escala aparecen capacidades que no estaban programadas.
+
+En el fondo sigue siendo una **máquina predictiva**: genera texto **token por token**, eligiendo cada vez el siguiente según los patrones aprendidos. Todo lo demás es consecuencia de hacer eso muy bien y a escala enorme.
+
+#### Las tres fases de entrenamiento
+
+```mermaid
+flowchart TD
+    A["<b>1 . Preentrenamiento</b><br/>miles de millones de palabras<br/>autosupervisado: predecir el token siguiente<br/><i>no hace falta etiquetar nada</i>"]
+    A --> B["<b>Modelo base</b><br/>sabe mucho de lenguaje<br/>pero no sigue instrucciones"]
+    B --> C["<b>2 . Fine-tuning supervisado</b><br/>dataset chico y etiquetado<br/>de pares instruccion-respuesta"]
+    C --> D["<b>3 . RLHF</b><br/>humanos comparan respuestas<br/>y el modelo aprende sus preferencias"]
+    D --> E["<b>Modelo alineado</b><br/>util, sigue instrucciones<br/>y se ajusta al estilo esperado"]
+    A -.->|"es el 99% del costo<br/>de computo"| A
+    classDef pre fill:#fef3c7,stroke:#d97706,color:#111
+    classDef ft fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef fin fill:#ecfdf5,stroke:#059669,color:#111
+    class A,B pre
+    class C,D ft
+    class E fin
+```
+
+**1. Preentrenamiento.** Es donde se va prácticamente todo el costo de cómputo. El modelo lee miles de millones de palabras y aprende a predecir el token siguiente.
+
+Lo notable es que es **autosupervisado**: no hace falta etiquetar nada. El texto es a la vez la entrada y la etiqueta — dada la frase "el gato se subió al", la respuesta correcta "techo" ya está en el propio corpus. Eso es lo que permitió entrenar con todo internet, algo imposible si hubiera hecho falta anotación humana.
+
+Es el mismo truco que hace funcionar a los autoencoders, que el curso ve en el módulo siguiente: la señal de entrenamiento sale de los datos mismos.
+
+**2. Fine-tuning supervisado.** El modelo base sabe mucho de lenguaje pero **no sigue instrucciones**: si se le escribe una pregunta, es tan probable que la continúe con otra pregunta como que la responda. Acá se lo entrena con un dataset chico de pares instrucción-respuesta (*instruction tuning*) para que aprenda el formato de diálogo.
+
+**3. RLHF** (*Reinforcement Learning from Human Feedback*). Personas comparan respuestas del modelo y marcan cuál prefieren. Con esas comparaciones se entrena un modelo de recompensa, y con él se ajusta el LLM. Es la fase de **alineación**: no le agrega conocimiento, le ajusta el comportamiento y el estilo.
+
+#### Las tres familias, según qué mitad del Transformer usan
+
+| Familia | Usa | Ejemplos | Fuerte en |
+|---|---|---|---|
+| **Solo encoder** | la mitad izquierda | BERT | **comprensión**: clasificar, extraer entidades, buscar |
+| **Solo decoder** | la mitad derecha, con atención enmascarada | GPT, Llama | **generación**: escribir, conversar, completar |
+| **Encoder-decoder** | las dos | T5, BART | **transformación**: traducir, resumir |
+
+La distinción se entiende directo desde el cap. 53: el **encoder** ve toda la secuencia de una vez y por eso sirve para comprender; el **decoder** tiene atención enmascarada —no puede mirar el futuro— y por eso sirve para generar.
+
+#### Las limitaciones, que son estructurales
+
+| Limitación | Por qué ocurre |
+|---|---|
+| **Alucinaciones** | El modelo optimiza *plausibilidad*, no *verdad*. Genera el token más probable, y una afirmación falsa bien construida es estadísticamente plausible. No "sabe" que no sabe. |
+| **Sesgo** | Aprende de texto humano, con sus prejuicios incluidos, y puede amplificarlos. |
+| **Costo** | El preentrenamiento consume una cantidad enorme de energía y cómputo. |
+| **Corte de conocimiento** | Solo sabe lo que había en su corpus hasta una fecha. |
+
+La primera es la más importante de entender: **las alucinaciones no son un bug que se pueda parchear**, son consecuencia directa de cómo funciona el modelo. Por eso la mitigación no es "arreglar el modelo" sino darle acceso a fuentes verificables — que es de lo que trata la sección siguiente.
+
+#### RAG: darle fuentes al modelo
+
+**RAG** (*Retrieval-Augmented Generation*) ataca el corte de conocimiento y las alucinaciones sin tocar el modelo: antes de responder, **busca información relevante** en una base propia y se la pasa como contexto.
+
+```mermaid
+flowchart LR
+    Q["<b>pregunta del usuario</b>"] --> EMB["se convierte en embedding"]
+    EMB --> BUS["<b>busqueda semantica</b><br/>en la base vectorial"]
+    DOC["documentos propios<br/>manuales, politicas, tickets"] -.->|"indexados una vez<br/>como embeddings"| BUS
+    BUS --> FRAG["fragmentos relevantes"]
+    FRAG --> PROMPT["<b>prompt aumentado</b><br/>pregunta mas contexto recuperado"]
+    Q --> PROMPT
+    PROMPT --> LLM["<b>el LLM responde</b><br/>usando ese contexto"]
+    LLM --> R["respuesta con fuentes<br/>y datos actualizados"]
+    classDef u fill:#fef3c7,stroke:#d97706,color:#111
+    classDef p fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef f fill:#ecfdf5,stroke:#059669,color:#111
+    class Q,R u
+    class EMB,BUS,FRAG,PROMPT p
+    class DOC,LLM f
+```
+
+La pieza que lo hace posible son los **embeddings** del cap. 50, ahora aplicados a documentos enteros: cada fragmento se convierte en un vector y se guarda en una **base vectorial**. Cuando llega una pregunta, se vectoriza y se buscan los fragmentos más cercanos — es **búsqueda semántica**, por significado y no por coincidencia de palabras.
+
+**RAG contra fine-tuning**, que resuelven cosas distintas y suelen confundirse:
+
+| | **Fine-tuning** | **RAG** |
+|---|---|---|
+| Qué cambia | los **parámetros** del modelo | el **contexto** que recibe |
+| Para qué sirve | enseñarle un **formato**, un estilo, una tarea | darle **información** que no tiene |
+| Actualizar datos | hay que reentrenar | se actualiza la base, listo |
+| Costo | alto | bajo |
+| Trazabilidad | ninguna | se puede citar la fuente |
+
+La regla práctica: **si el problema es que el modelo no sabe algo, RAG. Si es que no sabe comportarse como querés, fine-tuning.** Son complementarios, no alternativos.
+
+#### Qué del manual se recicla acá
+
+Nada de esto es una ruptura con lo anterior:
+
+- **Tokenización y embeddings** (cap. 50) son la entrada de todo LLM, y los embeddings son además el motor de la búsqueda en RAG.
+- **La arquitectura Transformer** (cap. 53) es literalmente el modelo.
+- **Sobreajuste y regularización** (caps. 7 y 15) siguen aplicando en el fine-tuning, donde el dataset es chico.
+- **El principio del cap. 49** —toda transformación aprendida es parte del modelo— vale igual: el tokenizador de un LLM va con el modelo.
 
 ## Parte VIII — Referencia técnica
 
