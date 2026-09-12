@@ -1,6 +1,6 @@
 # Regularización
 
-> Conversión a Markdown de las slides del curso (unidad "Optimización y regularización", bloque 02). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (unidad "Optimización y regularización", bloque 02). El PDF original está en [`material/`](material/).
 
 > **Nota sobre el PDF:** el archivo tiene 75 páginas, pero el contenido de la clase son solo las **8 primeras**. De la página 9 en adelante quedó adjunta por error la **plantilla de slides institucional** de Digital House (texto *lorem ipsum*, ejemplos de SQL y JavaScript, guías de estilo, assets). Se ignora todo eso. El deck también repite la misma slide agregando un ítem por página; se consolidó.
 

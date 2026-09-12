@@ -1,6 +1,6 @@
 # Análisis de Componentes Principales (PCA)
 
-> Conversión a Markdown de la slide del curso (Clase 23, Módulo 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 23, Módulo 5). El PDF original está en [`material/`](material/).
 
 El **Análisis de Componentes Principales (PCA)** es una técnica estadística que **reduce la dimensionalidad** de los datos manteniendo la **mayor cantidad de variabilidad** del conjunto original. Transforma los datos a un **nuevo sistema de coordenadas** donde las nuevas variables (**componentes principales**) capturan la mayor varianza posible.
 

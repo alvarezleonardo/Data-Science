@@ -1,6 +1,6 @@
 # t-SNE para Visualización
 
-> Conversión a Markdown de la slide del curso (Clase 26, Módulo 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 26, Módulo 5). El PDF original está en [`material/`](material/).
 
 **t-SNE** (t-Distributed Stochastic Neighbor Embedding) es una técnica de reducción de dimensionalidad **no lineal** que se utiliza principalmente para la **visualización** de datos de alta dimensión. Es especialmente eficaz para proyectar datos complejos a un espacio de **2D o 3D**, facilitando ver estructuras subyacentes, clusters y patrones.
 

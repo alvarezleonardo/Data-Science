@@ -1,6 +1,6 @@
 # UMAP para Reducción de Dimensionalidad
 
-> Conversión a Markdown de la slide del curso (Clase 27, Módulo 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 27, Módulo 5). El PDF original está en [`material/`](material/).
 
 **UMAP** (Uniform Manifold Approximation and Projection) es una técnica **moderna** de reducción de dimensionalidad que ganó popularidad por preservar **tanto la estructura local como la global** de los datos, con una **eficiencia computacional** notable. Fue introducida por Leland McInnes, John Healy y James Melville en **2018**.
 

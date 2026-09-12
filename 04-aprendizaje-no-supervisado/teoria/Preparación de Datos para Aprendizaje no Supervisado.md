@@ -1,6 +1,6 @@
 # Preparación de Datos para Aprendizaje no Supervisado
 
-> Conversión a Markdown de la slide del curso (Clase 6). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 6). El PDF original está en [`material/`](material/).
 
 ## 1. Limpieza y preparación de datos
 

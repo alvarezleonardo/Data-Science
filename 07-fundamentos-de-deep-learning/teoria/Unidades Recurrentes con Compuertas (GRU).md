@@ -1,6 +1,6 @@
 # Unidades Recurrentes con Compuertas (GRU)
 
-> Conversión a Markdown de las slides del curso (Clase 16 — Unidades Recurrentes con Compuertas, GRU). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 16 — Unidades Recurrentes con Compuertas, GRU). El PDF original está en [`material/`](material/).
 
 ## 1. El problema que resuelven las compuertas
 

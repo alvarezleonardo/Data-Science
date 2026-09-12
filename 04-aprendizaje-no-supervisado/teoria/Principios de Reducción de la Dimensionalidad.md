@@ -1,6 +1,6 @@
 # Principios de Reducción de la Dimensionalidad
 
-> Conversión a Markdown de la slide del curso (Clase 22, Módulo 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 22, Módulo 5). El PDF original está en [`material/`](material/).
 
 La **reducción de dimensionalidad** es una técnica esencial en el análisis de datos: busca **disminuir el número de variables (dimensiones)** de un conjunto de datos **preservando la mayor cantidad de información relevante** posible. Mejora la eficiencia de los algoritmos, facilita la interpretación de los datos y optimiza la calidad de los modelos, especialmente en contextos de **alta dimensión**.
 

@@ -1,6 +1,6 @@
 # Funciones de pérdida
 
-> Conversión a Markdown de las slides del curso (unidad "Optimización y regularización", bloque 01). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (unidad "Optimización y regularización", bloque 01). El PDF original está en [`material/`](material/).
 
 ## 1. Qué es una función de pérdida
 

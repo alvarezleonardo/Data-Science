@@ -1,6 +1,6 @@
 # Diseño de la arquitectura de la red
 
-> Conversión a Markdown de las slides del curso (unidad "Funciones de activación y estructura de la red", bloque 03). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (unidad "Funciones de activación y estructura de la red", bloque 03). El PDF original está en [`material/`](material/).
 
 ## 1. Por qué importa
 

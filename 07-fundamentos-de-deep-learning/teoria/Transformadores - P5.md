@@ -1,6 +1,6 @@
 # Transformadores — Parte 5
 
-> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 5). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 5). El PDF original está en [`material/`](material/).
 
 ## 1. Las conexiones residuales: un atajo alrededor de cada sub-capa
 

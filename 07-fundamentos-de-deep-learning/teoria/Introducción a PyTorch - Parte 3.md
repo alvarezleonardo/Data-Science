@@ -1,6 +1,6 @@
 # Introducción a PyTorch - Parte 3
 
-> Conversión a Markdown de las slides del curso (Clase 4 — Introducción a PyTorch, bloque 3). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 4 — Introducción a PyTorch, bloque 3). El PDF original está en [`material/`](material/).
 
 ## 1. Definir un modelo
 

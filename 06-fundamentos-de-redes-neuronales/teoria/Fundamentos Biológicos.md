@@ -1,6 +1,6 @@
 # Fundamentos Biológicos
 
-> Conversión a Markdown de la slide del curso. El PDF original está al lado.
+> Conversión a Markdown de la slide del curso. El PDF original está en [`material/`](material/).
 
 ## 1. Inspiración biológica de las redes neuronales artificiales
 

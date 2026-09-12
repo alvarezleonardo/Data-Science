@@ -1,6 +1,6 @@
 # Memoria a Largo Plazo (LSTM)
 
-> Conversión a Markdown de las slides del curso (Clase 17 — Memoria a Largo Plazo, LSTM). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 17 — Memoria a Largo Plazo, LSTM). El PDF original está en [`material/`](material/).
 
 ## 1. Qué agrega la LSTM frente a la GRU
 

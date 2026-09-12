@@ -1,6 +1,6 @@
 # Capas totalmente conectadas
 
-> Conversión a Markdown de las slides del curso (Clase 8 — Introducción a las CNNs, bloque 06). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 8 — Introducción a las CNNs, bloque 06). El PDF original está en [`material/`](material/).
 
 ## 1. Qué son y dónde van
 

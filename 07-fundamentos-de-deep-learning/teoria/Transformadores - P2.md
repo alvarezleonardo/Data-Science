@@ -1,6 +1,6 @@
 # Transformadores — Parte 2
 
-> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 2). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 2). El PDF original está en [`material/`](material/).
 
 ## 1. AutoAtención (Self-Attention)
 

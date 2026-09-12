@@ -1,6 +1,6 @@
 # Principios del Aprendizaje no Supervisado
 
-> Conversión a Markdown de la slide del curso (Clase 3). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 3). El PDF original está en [`material/`](material/).
 
 ## 1. ¿Qué es el Aprendizaje Automático?
 

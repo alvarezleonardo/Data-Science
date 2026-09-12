@@ -1,6 +1,6 @@
 # Perceptrón AND — Parte 4: Validación de la convergencia (6.ª iteración)
 
-> Conversión a Markdown de la slide del curso. El PDF original está al lado.
+> Conversión a Markdown de la slide del curso. El PDF original está en [`material/`](material/).
 
 > **Nota:** el PDF de origen es un deck de slides con animaciones tipo "build": la slide "Ejemplo: 6° Iteración" se repite 4 veces, agregando en cada página una fila más de la verificación del error. Se consolidó el contenido en una sola sección con las 4 filas, evitando duplicar la tabla y las fórmulas que se repiten idénticas en cada página.
 

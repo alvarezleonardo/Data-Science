@@ -1,6 +1,6 @@
 # Implementación con Scikit-Learn
 
-> Conversión a Markdown de la slide del curso. El PDF original está al lado.
+> Conversión a Markdown de la slide del curso. El PDF original está en [`material/`](material/).
 
 > **Nota:** el PDF de origen es un deck con animaciones tipo "build": la slide "Introducción a Scikit-Learn" se repite 4 veces, agregando un párrafo por página. Se consolidó en una sola sección con los tres puntos, evitando duplicar el texto repetido.
 

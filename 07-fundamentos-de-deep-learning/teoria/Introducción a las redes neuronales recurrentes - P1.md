@@ -1,6 +1,6 @@
 # Introducción a las redes neuronales recurrentes
 
-> Conversión a Markdown de las slides del curso (Clase 15 — Introducción a las redes neuronales recurrentes). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 15 — Introducción a las redes neuronales recurrentes). El PDF original está en [`material/`](material/).
 
 ## 1. Qué son
 

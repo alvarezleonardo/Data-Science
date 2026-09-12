@@ -1,6 +1,6 @@
 # Evaluación de Modelos No Supervisados
 
-> Conversión a Markdown de la slide del curso (Clase 7). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 7). El PDF original está en [`material/`](material/).
 
 ## 1. Introducción a las métricas de evaluación
 

@@ -1,6 +1,6 @@
 # Introducción a las redes neuronales recurrentes (Parte 2)
 
-> Conversión a Markdown de las slides del curso (Clase 15 — Introducción a las redes neuronales recurrentes, Parte 2). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 15 — Introducción a las redes neuronales recurrentes, Parte 2). El PDF original está en [`material/`](material/).
 
 ## 1. RNN frente a otras arquitecturas
 

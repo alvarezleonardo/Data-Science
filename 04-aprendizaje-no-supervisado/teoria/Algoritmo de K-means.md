@@ -1,6 +1,6 @@
 # Algoritmo de K-means
 
-> Conversión a Markdown de la slide del curso (Clase 11). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 11). El PDF original está en [`material/`](material/).
 
 ## 1. ¿Qué es el algoritmo k-means?
 

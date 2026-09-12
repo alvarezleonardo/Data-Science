@@ -1,6 +1,6 @@
 # Estrategias de Selección de Variables
 
-> Conversión a Markdown de la slide del curso (Clase 17, Módulo 4). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 17, Módulo 4). El PDF original está en [`material/`](material/).
 
 La **selección de variables** es fundamental en el análisis de datos y la creación de modelos: permite **reducir el número de características** y enfocarse en las que aportan mayor valor. Esto mejora el rendimiento del modelo, facilita su **interpretación**, reduce el riesgo de **sobreajuste** y acelera los tiempos de entrenamiento.
 

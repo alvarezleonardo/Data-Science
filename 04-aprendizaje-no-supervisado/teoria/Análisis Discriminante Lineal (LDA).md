@@ -1,6 +1,6 @@
 # Análisis Discriminante Lineal (LDA)
 
-> Conversión a Markdown de la slide del curso (Clase 25, Módulo 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 25, Módulo 5). El PDF original está en [`material/`](material/).
 
 El **Análisis Discriminante Lineal (LDA)** es una técnica de **reducción de dimensionalidad** y **clasificación supervisada** utilizada para la **separación de clases** en un conjunto de datos. A diferencia de PCA, LDA busca la proyección que **maximiza la separación entre clases** (no la varianza total).
 

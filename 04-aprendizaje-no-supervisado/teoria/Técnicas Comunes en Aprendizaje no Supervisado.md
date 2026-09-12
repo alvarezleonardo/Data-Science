@@ -1,6 +1,6 @@
 # Técnicas Comunes en Aprendizaje no Supervisado
 
-> Conversión a Markdown de la slide del curso (Clase 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 5). El PDF original está en [`material/`](material/).
 
 ## 1. Principales técnicas utilizadas
 

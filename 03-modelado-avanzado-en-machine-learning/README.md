@@ -15,29 +15,29 @@ Slides del curso (PDF + conversión `.md`):
 
 | Tema | PDF | Markdown |
 |------|-----|----------|
-| Introducción al Aprendizaje Supervisado | [PDF](<teoria/Introducción al Aprendizaje Supervisado.pdf>) | [MD](<teoria/Introducción al Aprendizaje Supervisado.md>) |
-| Principios de Regresión Lineal | [PDF](<teoria/Principios de Regresión Lienal.pdf>) | [MD](<teoria/Principios de Regresión Lienal.md>) |
-| Modelos de Regresión | [PDF](<teoria/Modelos de Regresión.pdf>) | [MD](<teoria/Modelos de Regresión.md>) |
-| Funciones de Costo y Mínimos Cuadrados | [PDF](<teoria/Funciones de Costo.pdf>) | [MD](<teoria/Funciones de Costo.md>) |
-| Regresión Lineal Múltiple | [PDF](<teoria/Regresión Lineal Múltiple.pdf>) | [MD](<teoria/Regresión Lineal Múltiple.md>) |
-| Validación Cruzada | [PDF](<teoria/Validación Cruzada.pdf>) | [MD](<teoria/Validación Cruzada.md>) |
-| Dilema Sesgo - Varianza | [PDF](<teoria/Dilema Sesgo - Varianza.pdf>) | [MD](<teoria/Dilema Sesgo - Varianza.md>) |
-| Regularización: Ridge y Lasso | [PDF](<teoria/Regularización - Ridge y Lasso.pdf>) | [MD](<teoria/Regularización - Ridge y Lasso.md>) |
-| Introducción a Modelos de Ensamble | [PDF](<teoria/Introducción a Modelos de Ensamble.pdf>) | [MD](<teoria/Introducción a Modelos de Ensamble.md>) |
-| Introducción a Random Forest | [PDF](<teoria/Introducción a Random Forest.pdf>) | [MD](<teoria/Introducción a Random Forest.md>) |
-| Introducción a Boosting | [PDF](<teoria/Introducción a Boosting.pdf>) | [MD](<teoria/Introducción a Boosting.md>) |
-| Boosting - ADA Boosting | [PDF](<teoria/Introducción a Boosting - ADA Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - ADA Boosting.md>) |
-| Boosting - Gradient Boosting | [PDF](<teoria/Introducción a Boosting - Gradient Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - Gradient Boosting.md>) |
-| Boosting - XGBoost | [PDF](<teoria/Introducción a Boosting - XGBoost.pdf>) | [MD](<teoria/Introducción a Boosting - XGBoost.md>) |
-| Fundamentos de SVM | [PDF](<teoria/Fundamentos de SVM.pdf>) | [MD](<teoria/Fundamentos de SVM.md>) |
-| Introducción a los Kernels | [PDF](<teoria/Introducción a los Kernels.pdf>) | [MD](<teoria/Introducción a los Kernels.md>) |
-| Técnicas de Optimización de SVM e Hiperparámetros | [PDF](<teoria/Técnicas de Optimización de SVM y Ajuste de Hiperparámetros.pdf>) | [MD](<teoria/Técnicas de Optimización de SVM y Ajuste de Hiperparámetros.md>) |
-| Métodos de Optimización (convexa vs no convexa) | [PDF](<teoria/Métodos de optimización.pdf>) | [MD](<teoria/Métodos de optimización.md>) |
-| Introducción al Descenso del Gradiente | [PDF](<teoria/Introducción al Descenso del Gradiente.pdf>) | [MD](<teoria/Introducción al Descenso del Gradiente.md>) |
-| Optimización de Hiperparámetros | [PDF](<teoria/Optimización de Hiperparámetros.pdf>) | [MD](<teoria/Optimización de Hiperparámetros.md>) |
-| Más Práctica 1 (ejercicio — Bikes) | [PDF](<teoria/Más Práctica 1.pdf>) | [MD](<teoria/Más Práctica 1.md>) |
-| Más Práctica 2 (ejercicio — Diamonds) | [PDF](<teoria/Más Práctica 2.pdf>) | [MD](<teoria/Más Práctica 2.md>) |
-| Recursos del Curso | [PDF](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
+| Introducción al Aprendizaje Supervisado | [PDF](<teoria/material/Introducción al Aprendizaje Supervisado.pdf>) | [MD](<teoria/Introducción al Aprendizaje Supervisado.md>) |
+| Principios de Regresión Lineal | [PDF](<teoria/material/Principios de Regresión Lienal.pdf>) | [MD](<teoria/Principios de Regresión Lienal.md>) |
+| Modelos de Regresión | [PDF](<teoria/material/Modelos de Regresión.pdf>) | [MD](<teoria/Modelos de Regresión.md>) |
+| Funciones de Costo y Mínimos Cuadrados | [PDF](<teoria/material/Funciones de Costo.pdf>) | [MD](<teoria/Funciones de Costo.md>) |
+| Regresión Lineal Múltiple | [PDF](<teoria/material/Regresión Lineal Múltiple.pdf>) | [MD](<teoria/Regresión Lineal Múltiple.md>) |
+| Validación Cruzada | [PDF](<teoria/material/Validación Cruzada.pdf>) | [MD](<teoria/Validación Cruzada.md>) |
+| Dilema Sesgo - Varianza | [PDF](<teoria/material/Dilema Sesgo - Varianza.pdf>) | [MD](<teoria/Dilema Sesgo - Varianza.md>) |
+| Regularización: Ridge y Lasso | [PDF](<teoria/material/Regularización - Ridge y Lasso.pdf>) | [MD](<teoria/Regularización - Ridge y Lasso.md>) |
+| Introducción a Modelos de Ensamble | [PDF](<teoria/material/Introducción a Modelos de Ensamble.pdf>) | [MD](<teoria/Introducción a Modelos de Ensamble.md>) |
+| Introducción a Random Forest | [PDF](<teoria/material/Introducción a Random Forest.pdf>) | [MD](<teoria/Introducción a Random Forest.md>) |
+| Introducción a Boosting | [PDF](<teoria/material/Introducción a Boosting.pdf>) | [MD](<teoria/Introducción a Boosting.md>) |
+| Boosting - ADA Boosting | [PDF](<teoria/material/Introducción a Boosting - ADA Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - ADA Boosting.md>) |
+| Boosting - Gradient Boosting | [PDF](<teoria/material/Introducción a Boosting - Gradient Boosting.pdf>) | [MD](<teoria/Introducción a Boosting - Gradient Boosting.md>) |
+| Boosting - XGBoost | [PDF](<teoria/material/Introducción a Boosting - XGBoost.pdf>) | [MD](<teoria/Introducción a Boosting - XGBoost.md>) |
+| Fundamentos de SVM | [PDF](<teoria/material/Fundamentos de SVM.pdf>) | [MD](<teoria/Fundamentos de SVM.md>) |
+| Introducción a los Kernels | [PDF](<teoria/material/Introducción a los Kernels.pdf>) | [MD](<teoria/Introducción a los Kernels.md>) |
+| Técnicas de Optimización de SVM e Hiperparámetros | [PDF](<teoria/material/Técnicas de Optimización de SVM y Ajuste de Hiperparámetros.pdf>) | [MD](<teoria/Técnicas de Optimización de SVM y Ajuste de Hiperparámetros.md>) |
+| Métodos de Optimización (convexa vs no convexa) | [PDF](<teoria/material/Métodos de optimización.pdf>) | [MD](<teoria/Métodos de optimización.md>) |
+| Introducción al Descenso del Gradiente | [PDF](<teoria/material/Introducción al Descenso del Gradiente.pdf>) | [MD](<teoria/Introducción al Descenso del Gradiente.md>) |
+| Optimización de Hiperparámetros | [PDF](<teoria/material/Optimización de Hiperparámetros.pdf>) | [MD](<teoria/Optimización de Hiperparámetros.md>) |
+| Más Práctica 1 (ejercicio — Bikes) | [PDF](<teoria/material/Más Práctica 1.pdf>) | [MD](<teoria/Más Práctica 1.md>) |
+| Más Práctica 2 (ejercicio — Diamonds) | [PDF](<teoria/material/Más Práctica 2.pdf>) | [MD](<teoria/Más Práctica 2.md>) |
+| Recursos del Curso | [PDF](<teoria/material/OD_ML2_ESP_M02_S02_Recursos del Curso .pdf>) | [MD](<teoria/OD_ML2_ESP_M02_S02_Recursos del Curso .md>) |
 
 ### `datasets/`
 advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_classification.
