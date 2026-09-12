@@ -30,7 +30,7 @@
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
-[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Transfer learning](#46-transfer-learning-reutilizar-una-red-ya-entrenada) · [47. Data augmentation](#47-data-augmentation-más-datos-sin-salir-a-buscarlos) · [48. Redes recurrentes](#48-redes-recurrentes-rnns) · [49. GRU](#49-gru-unidades-recurrentes-con-compuertas) · [50. LSTM](#50-lstm-memoria-a-largo-plazo) · [51. RNNs en la práctica](#51-rnns-en-la-práctica-trabajar-con-texto) · [52. Procesamiento de lenguaje natural](#52-procesamiento-de-lenguaje-natural) · [53. Seq2Seq](#53-seq2seq-y-el-problema-del-cuello-de-botella) · [54. Mecanismos de atención](#54-mecanismos-de-atención) · [55. Transformadores](#55-transformadores) · [56. Autoencoders](#56-autoencoders) · [57. De los Transformadores a los LLMs](#57-de-los-transformadores-a-los-llms)
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Transfer learning](#46-transfer-learning-reutilizar-una-red-ya-entrenada) · [47. Data augmentation](#47-data-augmentation-más-datos-sin-salir-a-buscarlos) · [48. Redes recurrentes](#48-redes-recurrentes-rnns) · [49. GRU](#49-gru-unidades-recurrentes-con-compuertas) · [50. LSTM](#50-lstm-memoria-a-largo-plazo) · [51. RNNs en la práctica](#51-rnns-en-la-práctica-trabajar-con-texto) · [52. Procesamiento de lenguaje natural](#52-procesamiento-de-lenguaje-natural) · [53. Seq2Seq](#53-seq2seq-y-el-problema-del-cuello-de-botella) · [54. Mecanismos de atención](#54-mecanismos-de-atención) · [55. Transformadores](#55-transformadores) · [56. Autoencoders](#56-autoencoders) · [57. Redes Adversarias Generativas (GANs)](#57-redes-adversarias-generativas-gans) · [58. De los Transformadores a los LLMs](#58-de-los-transformadores-a-los-llms)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -46,11 +46,11 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
 | **06** — Fundamentos de redes neuronales | 24-38 |
-| **07** — Fundamentos de deep learning | 39-45, 48-56 (en curso) |
+| **07** — Fundamentos de deep learning | 39-57 |
 | **08** — Gestión de proyectos de IA | pendiente |
-| *fuera del programa* | 46, 47 (transfer learning y data augmentation) · 57 (LLMs y RAG) |
+| *fuera del programa* | 46, 47 (transfer learning y data augmentation) · 58 (LLMs y RAG) |
 
-> **Capítulos que no vienen de una slide.** El **7** (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los **46** y **47** (transfer learning y data augmentation) tampoco están en el programa, pero son de uso constante en la práctica con CNNs y se agregan junto al bloque de convolucionales. El **57** (LLMs y RAG) está **fuera del programa** — el curso termina en autoencoders y modelos generativos, capítulo **56** — y se agrega porque es la continuación directa de los Transformadores y lo que se encuentra hoy en el trabajo real. Los capítulos 5, 6, 10, 14, 19, 21 y los del módulo 07 están ampliados bastante más allá de lo que cubren las slides.
+> **Capítulos que no vienen de una slide.** El **7** (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los **46** y **47** (transfer learning y data augmentation) tampoco están en el programa, pero son de uso constante en la práctica con CNNs y se agregan junto al bloque de convolucionales. El **58** (LLMs y RAG) está **fuera del programa** — el curso termina en autoencoders y GANs, capítulos **56** y **57** — y se agrega porque es la continuación directa de los Transformadores y lo que se encuentra hoy en el trabajo real. Los capítulos 5, 6, 10, 14, 19, 21 y los del módulo 07 están ampliados bastante más allá de lo que cubren las slides.
 
 ---
 
@@ -2782,7 +2782,193 @@ optimizador = torch.optim.Adam(modelo.parameters(), lr=1e-3)
 
 > **Nota (verificado corriendo el código):** la clase `Autoencoder` de arriba, con `dim_entrada=784` y `dim_latente=32`, corre un `forward` y un `backward` completos sobre un lote de 8 muestras aleatorias sin errores — la arquitectura y las formas de los tensores son consistentes.
 
-### 57. De los Transformadores a los LLMs
+### 57. Redes Adversarias Generativas (GANs)
+
+> Esta es la Clase 28 del curso, la segunda del **Módulo 6 — Autoencoders y Modelos Generativos**, y con ella se cierra el bloque de contenidos nuevos del programa. Fuente: [Redes Adversarias Generativas (GANs)](<07-fundamentos-de-deep-learning/teoria/Redes Adversarias Generativas (GANs).md>). Continúa del capítulo anterior.
+
+El VAE del capítulo anterior resuelve la generación de datos optimizando **una única función de pérdida**: reconstrucción más divergencia KL. Las **GAN** (*Generative Adversarial Networks*, Redes Adversarias Generativas) plantean el problema de otra forma — en vez de una pérdida fija, entrenan **dos redes enfrentadas** en un juego, y es la competencia entre ambas la que empuja a que los datos generados se vuelvan realistas.
+
+#### Generador y discriminador: la intuición del juego
+
+```mermaid
+flowchart TD
+    Z["ruido z<br/>espacio latente de baja dimensión"]
+    G["<b>Generador</b><br/>produce datos sintéticos"]
+    R["dato real<br/>del conjunto de entrenamiento"]
+    D["<b>Discriminador</b><br/>clasificador binario"]
+    O["¿Real o Falso?"]
+    Z --> G --> D
+    R --> D
+    D --> O
+    classDef lat fill:#fee2e2,stroke:#dc2626,color:#111
+    classDef gen fill:#eef2ff,stroke:#4f46e5,color:#111
+    classDef real fill:#fef3c7,stroke:#d97706,color:#111
+    classDef disc fill:#ecfdf5,stroke:#059669,color:#111
+    class Z lat
+    class G gen
+    class R real
+    class D disc
+```
+
+- **Generador (`G`)**: toma un vector de ruido aleatorio del espacio latente y produce un dato sintético (una imagen, por ejemplo).
+- **Discriminador (`D`)**: un clasificador binario que recibe una muestra —real o generada— y decide si es real o falsa.
+
+Las dos redes se entrenan **a la vez**, pero con objetivos opuestos: el generador intenta engañar al discriminador, y el discriminador intenta no dejarse engañar. Ambas mejoran empujadas por el progreso de la otra — de ahí "adversarias".
+
+> **Por qué esto produce datos realistas.** El discriminador actúa como una función de pérdida **aprendida y cambiante**, en vez de una métrica fija como el MSE del autoencoder. En lugar de decirle al generador "así de lejos estás del dato real" con una distancia numérica, le da una señal binaria (te descubrí / no te descubrí) que se vuelve cada vez más exigente a medida que el propio discriminador mejora distinguiendo lo real de lo falso. El generador se ve forzado a producir muestras cada vez más convincentes para seguir pasando una evaluación cada vez más estricta.
+
+A diferencia del VAE, la GAN **no tiene encoder**: no hay forma directa de averiguar qué vector latente `z` corresponde a un dato real dado. Solo genera hacia adelante, a partir de ruido.
+
+#### El juego minimax
+
+El entrenamiento de una GAN se formula como un juego de suma cero entre `D` y `G`, con la siguiente función de valor:
+
+```
+min_G max_D  V(D, G) = E[log D(x)] + E[log(1 - D(G(z)))]
+```
+
+donde `x` es una muestra real, `z` es ruido del espacio latente, `G(z)` es la muestra generada, y `D(·)` es la probabilidad que asigna el discriminador de que su entrada sea real.
+
+- El **discriminador** quiere **maximizar** `V`: que `D(x)` esté cerca de 1 (acierta con lo real) y que `D(G(z))` esté cerca de 0 (acierta con lo falso).
+- El **generador** quiere **minimizar** `V`: quiere que `D(G(z))` esté cerca de 1, es decir, que el discriminador confunda su salida con un dato real.
+
+En el equilibrio teórico de este juego, el generador reproduce tan bien la distribución real de los datos que el discriminador ya no puede distinguir mejor que al azar (`D(x) = 0,5` para cualquier entrada).
+
+**Por qué se usa la pérdida no saturante.** Con la formulación de arriba, el generador tendría que **minimizar** `log(1 - D(G(z)))`. Al principio del entrenamiento el generador es malo y el discriminador lo rechaza con confianza (`D(G(z))` cerca de 0) — y justo ahí la función `log(1 - D(G(z)))` tiene **gradiente casi plano**: el generador recibe una señal débil justo cuando más la necesita (**saturación del gradiente**). En la práctica se entrena al generador para **maximizar** `log(D(G(z)))` en su lugar — la **pérdida no saturante**. El punto de equilibrio teórico no cambia, pero el gradiente es mucho más fuerte cuando `D(G(z))` está cerca de 0, que es exactamente la situación típica del arranque del entrenamiento. Es el ajuste que usa la implementación práctica de casi cualquier GAN.
+
+#### Entrenamiento alternado
+
+Cada iteración de entrenamiento tiene dos pasos separados:
+
+1. **Paso del discriminador**: se le muestra un lote de datos reales y un lote generados por `G` (con los pesos de `G` congelados). Se actualizan solo los pesos de `D`.
+2. **Paso del generador**: se generan nuevas muestras con `G` y se le pide la predicción a `D` (con los pesos de `D` congelados). Se actualizan solo los pesos de `G`, con la pérdida no saturante de arriba.
+
+El discriminador tiene que estar **congelado** mientras se entrena el generador porque el gradiente de la pérdida necesita fluir hacia atrás *a través* de `D` (para saber en qué dirección mover a `G`), pero sin que ese mismo paso también actualice los pesos de `D` — si `D` se moviera al mismo tiempo, el generador estaría persiguiendo un objetivo que cambia con cada paso, y el juego dejaría de tener un adversario estable contra el cual medirse en esa iteración.
+
+#### Modos de falla
+
+Al ser un juego entre dos redes que se entrenan simultáneamente —y no la optimización de una única función convexa—, el entrenamiento de una GAN falla de formas sin equivalente en el entrenamiento supervisado:
+
+- **Mode collapse (colapso de modos)**: el generador descubre que un puñado de muestras (o una sola) engañan sistemáticamente al discriminador, y deja de explorar el resto de la diversidad del conjunto de entrenamiento. Produce siempre variaciones de lo mismo, en vez de cubrir la distribución real completa.
+- **Inestabilidad de entrenamiento**: como `G` y `D` se actualizan uno en función del otro, es fácil entrar en una dinámica oscilante donde ninguno converge: el discriminador mejora, el generador se adapta, el discriminador vuelve a mejorar contra ese nuevo generador, y así sin estabilizarse. Las pérdidas de ambas redes oscilan en vez de bajar de forma monótona.
+- **No convergencia / desequilibrio discriminador-generador**: si el discriminador se vuelve demasiado bueno demasiado rápido, rechaza con total confianza cualquier muestra generada (`D(G(z))` cerca de 0 de forma sostenida) y reaparece la saturación del gradiente: el generador deja de recibir señal útil y el entrenamiento se estanca.
+
+Qué se hace al respecto, en la práctica: `learning rate` bajo y `beta_1=0,5` en Adam (en vez del default 0,9, que puede hacer oscilar el entrenamiento adversarial), `Dropout` en el discriminador para no dejarlo aprender demasiado rápido, *label smoothing* en las etiquetas reales (0,9 en vez de 1) para que el discriminador no se vuelva excesivamente confiado, y —el punto que el notebook de la clase demuestra por accidente— **suficiente variedad de datos de entrenamiento**, sin la cual el mode collapse es prácticamente garantizado.
+
+#### VAE vs. GAN: dos familias generativas distintas
+
+El VAE (cap. 56) y la GAN son las dos familias clásicas de modelos generativos que se enseñan antes de los modelos de difusión. Ambas aprenden a producir datos nuevos, pero por mecanismos muy distintos:
+
+| | VAE | GAN |
+|---|---|---|
+| **Objetivo de entrenamiento** | Una única función de pérdida (reconstrucción + KL) | Un juego entre dos redes, sin pérdida única |
+| **Distribución latente** | Explícita: `N(μ, σ²)` aprendida por el encoder | Implícita: solo el ruido de entrada del generador |
+| **Encoder** | Sí — permite inferir el `z` de un dato real dado | No — solo genera hacia adelante, desde ruido |
+| **Verosimilitud de los datos** | Explícita (vía el término de reconstrucción) | Implícita (no hay una densidad de probabilidad de los datos que el modelo optimice directamente) |
+| **Calidad típica de las muestras** | Tienden a ser borrosas — el MSE promedia soluciones plausibles | Tienden a ser nítidas — el discriminador castiga el promediado |
+| **Estabilidad de entrenamiento** | Estable — es descenso de gradiente sobre una pérdida convexa por partes | Inestable — sujeta a mode collapse, oscilación y no convergencia |
+
+Ninguna domina a la otra: son dos formas distintas de resolver "generar datos nuevos", con trade-offs opuestos entre estabilidad de entrenamiento y nitidez de las muestras.
+
+#### Aplicaciones
+
+1. **Generación de nuevos ejemplos para conjuntos de datos**: datos sintéticos adicionales, lo bastante realistas como para complementar el conjunto de entrenamiento original.
+2. **Generación de imágenes realistas**: producir imágenes que parecen tomadas del mundo real (ej. **StyleGAN**).
+3. **Superresolución de imágenes**: mejorar la calidad de una imagen de baja resolución sin perder detalle (ej. **SRGAN**).
+4. **Traducción de texto a imagen**: crear imágenes a partir de descripciones textuales.
+
+> **Nota:** el material del curso cita **DALL-E** como ejemplo de GAN para la aplicación de texto a imagen. Es impreciso: DALL-E 2 y posteriores son modelos de **difusión**, y el DALL-E original era un **transformador autoregresivo** — ninguno de los dos es una GAN. La aplicación (texto a imagen) es correcta; el linaje arquitectónico citado, no.
+
+#### Práctica: los bugs medidos del notebook del curso
+
+El notebook de la clase (`OD_RN2_ESP_M06_S30`) entrena una GAN simple —MLPs sin convolución, `100 → 256 → 512 → 1024 → 784` para el generador y el camino inverso para el discriminador— sobre MNIST. Es el recurso con más bugs reales de todo el módulo, y vale la pena documentarlos porque son un ejemplo directo de la regla de este manual sobre **verificar midiendo, no confiar en que el código "se ve bien"**.
+
+**Bug 1 — el dataset recortado a 128 imágenes causa mode collapse real.** La celda de datos aplica `X_train = X_train[:128]`, que recorta el set de entrenamiento de 60.000 imágenes a apenas 128. Corriendo el entrenamiento completo tal cual está escrito (100 épocas), a partir de la época 25 el generador produce trazos reconocibles como dígitos, pero con **colapso de modo fuerte y medido**: casi todo lo generado son variantes de "1" y "7", nunca la variedad 0-9 de MNIST real. Es el ejemplo de manual de mode collapse causado por falta de datos — con 128 ejemplos la red no tiene margen para aprender diez modos distintos.
+
+**Bug 2 — el bucle interno ata los lotes por época al tamaño de lote, no a la cantidad de datos.** El entrenamiento usa `for _ in range(batch_size):` en vez de `for _ in range(n_imagenes // batch_size):`. El número de lotes procesados por época queda fijo en `batch_size` (16), sin importar cuántas imágenes tenga el dataset. Medido directamente: con `batch_size=16`, cada época procesa siempre `16 × 16 = 256` imágenes reales (con reemplazo) — sea que el dataset tenga 128 imágenes o 60.000 completas.
+
+**Los dos bugs se compensan entre sí, y por eso pasan desapercibidos.** Si el bug 2 no existiera, entrenar con 128 imágenes también sería obviamente insuficiente (128 imágenes por época durante 100 épocas). Y si el bug 1 no existiera, el bug 2 seguiría limitando cada época a 256 imágenes con reemplazo — un pool chico igual, aunque el dataset completo tenga 60.000. El resultado observado (mode collapse hacia "1" y "7") es consistente con ambos bugs actuando juntos: 256 muestras con reemplazo de un pool de apenas 128 cubren ese pool completo casi dos veces por época, así que en la práctica la red nunca ve más que esas 128 imágenes, sin importar cuántas épocas corran.
+
+**Lo que se verificó y estaba bien** — los sospechosos habituales en cualquier GAN, confirmados midiendo en vez de asumidos:
+
+- El `tanh` de la capa de salida del generador sí coincide con la normalización de los datos a `[-1, 1]`: generando imágenes con el modelo ya entrenado, la salida cae en ese rango (aproximadamente `[-0,9; 0,9]`).
+- El congelamiento del discriminador en el modelo combinado (`discriminator.trainable = False` antes de compilar `gan`) sí funciona en la versión de Keras usada (2.21): comparando los pesos del discriminador antes y después de un `gan.train_on_batch(...)`, no cambian. En versiones viejas de Keras este patrón tiene una trampa conocida (cambiar `.trainable` después de compilar no siempre se refleja sin recompilar), pero acá no se manifestó.
+- El *label smoothing* a 0,9 en las etiquetas reales del discriminador es deliberado, no un error de tipeo — es la técnica estándar para evitar que el discriminador se vuelva demasiado confiado.
+
+La lección general: **`success=true` no implica resultado útil**. El notebook corre sin errores, entrena sin excepciones y produce imágenes — pero sin correrlo completo y sin comparar los pesos antes/después de cada paso, ninguno de los dos bugs reales se habría detectado, y las partes que sí estaban bien (`tanh`, congelamiento, label smoothing) se habrían quedado como sospecha en vez de verificación.
+
+#### GAN simple, en código
+
+```python
+# Keras — GAN mínima para MNIST (28x28 = 784), MLPs sin convolución
+from tensorflow.keras.layers import Dense, Dropout, Input, LeakyReLU
+from tensorflow.keras.models import Model, Sequential
+from tensorflow.keras.optimizers import Adam
+
+def adam_optimizer():
+    return Adam(learning_rate=0.0002, beta_1=0.5)  # config recomendada por DCGAN (Radford et al., 2015)
+
+def create_generator():
+    generator = Sequential()
+    generator.add(Dense(units=256, input_dim=100))
+    generator.add(LeakyReLU(0.2))
+    generator.add(Dense(units=512))
+    generator.add(LeakyReLU(0.2))
+    generator.add(Dense(units=1024))
+    generator.add(LeakyReLU(0.2))
+    generator.add(Dense(units=784, activation='tanh'))  # rango [-1,1], igual que los datos normalizados
+    generator.compile(loss='binary_crossentropy', optimizer=adam_optimizer())
+    return generator
+
+def create_discriminator():
+    discriminator = Sequential()
+    discriminator.add(Dense(units=1024, input_dim=784))
+    discriminator.add(LeakyReLU(0.2))
+    discriminator.add(Dropout(0.3))  # frena al discriminador para no desbalancear el juego
+    discriminator.add(Dense(units=512))
+    discriminator.add(LeakyReLU(0.2))
+    discriminator.add(Dropout(0.3))
+    discriminator.add(Dense(units=256))
+    discriminator.add(LeakyReLU(0.2))
+    discriminator.add(Dense(units=1, activation='sigmoid'))
+    discriminator.compile(loss='binary_crossentropy', optimizer=adam_optimizer())
+    return discriminator
+
+def create_gan(discriminator, generator):
+    discriminator.trainable = False  # congelado antes de compilar el combinado
+    gan_input = Input(shape=(100,))
+    x = generator(gan_input)
+    gan_output = discriminator(x)
+    gan = Model(inputs=gan_input, outputs=gan_output)
+    gan.compile(loss='binary_crossentropy', optimizer=adam_optimizer())
+    return gan
+
+g, d = create_generator(), create_discriminator()
+gan = create_gan(d, g)
+
+def training(epochs, batch_size, n_imagenes):
+    n_lotes = n_imagenes // batch_size  # corrección del bug 2: lotes por época según el dataset, no el batch_size
+    for e in range(1, epochs + 1):
+        for _ in range(n_lotes):
+            # paso del discriminador
+            noise = np.random.normal(0, 1, [batch_size, 100])
+            generated_images = g.predict(noise)
+            image_batch = X_train[np.random.randint(0, X_train.shape[0], size=batch_size)]
+            X = np.concatenate([image_batch, generated_images])
+            y_dis = np.zeros(2 * batch_size)
+            y_dis[:batch_size] = 0.9  # label smoothing deliberado
+
+            d.trainable = True
+            d.train_on_batch(X, y_dis)
+
+            # paso del generador — discriminador congelado
+            noise = np.random.normal(0, 1, [batch_size, 100])
+            y_gen = np.ones(batch_size)
+            d.trainable = False
+            gan.train_on_batch(noise, y_gen)
+```
+
+### 58. De los Transformadores a los LLMs
 
 > **Nota:** este capítulo **no forma parte del programa del curso**, que termina en autoencoders y modelos generativos. Se agrega porque es la continuación directa del cap. 53 y porque es lo que hoy se encuentra en el trabajo real. Fuente principal: la documentación de [IBM Think](https://www.ibm.com/mx-es/think/topics/large-language-models).
 
