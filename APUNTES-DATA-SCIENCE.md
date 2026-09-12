@@ -1552,7 +1552,7 @@ modelo = sio.load('modelo.skops', trusted=untrusted)  # cargar sin ejecutar nada
 
 La diferencia con `pickle.load` no es cosmética: `skops.load` no ejecuta el `__reduce__` de cada objeto. En cambio, guarda el árbol del modelo como un `schema.json` (tipos, parámetros, arrays de NumPy) dentro de un `.zip`, y al cargar **reconstruye** cada nodo del árbol comparando su tipo contra una lista de tipos conocidos de scikit-learn/NumPy/SciPy (`NODE_TYPE_MAPPING`, verificado en `skops/io/_audit.py`). Si aparece un tipo que no está en esa lista —por ejemplo, un objeto Python cualquiera pegado al modelo—, `load` no lo ejecuta de una: lo reporta como **no confiable**, y hay que pasarlo explícitamente en `trusted=[...]` para que se cargue. `get_untrusted_types` es el paso previo obligatorio: lista qué tipos aparecen en el archivo para poder revisarlos antes de decidir confiar en ellos.
 
-> **Nota de versión.** Hasta la 0.9, `trusted` aceptaba `True` para "confiar en todo". Se sacó tras el CVE-2024-37065: pasar `trusted=True` hoy tira `TypeError` a propósito. La API actual obliga a pasar la lista puntual de tipos (o el resultado de `get_untrusted_types` ya revisado), nunca un blanqueo total.
+> **Nota de versión.** Hasta la 0.9, `trusted` aceptaba `True` para "confiar en todo". Se removió en la 0.10 para forzar a inspeccionar los datos antes de cargarlos: pasar `trusted=True` hoy tira `TypeError` a propósito. La API actual obliga a pasar la lista puntual de tipos (o el resultado de `get_untrusted_types` ya revisado), nunca un blanqueo total.
 
 **Sus límites, para no venderlo de más:**
 
