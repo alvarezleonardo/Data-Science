@@ -30,7 +30,7 @@
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
-[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Redes recurrentes](#46-redes-recurrentes-rnns) · [47. GRU](#47-gru-unidades-recurrentes-con-compuertas) · [48. LSTM](#48-lstm-memoria-a-largo-plazo) · [49. RNNs en la práctica](#49-rnns-en-la-práctica-trabajar-con-texto) · [50. Procesamiento de lenguaje natural](#50-procesamiento-de-lenguaje-natural) · [51. Seq2Seq](#51-seq2seq-y-el-problema-del-cuello-de-botella) · [52. Mecanismos de atención](#52-mecanismos-de-atención) · [53. Transformadores](#53-transformadores) · [54. De los Transformadores a los LLMs](#54-de-los-transformadores-a-los-llms)
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Transfer learning](#46-transfer-learning-reutilizar-una-red-ya-entrenada) · [47. Data augmentation](#47-data-augmentation-más-datos-sin-salir-a-buscarlos) · [48. Redes recurrentes](#48-redes-recurrentes-rnns) · [49. GRU](#49-gru-unidades-recurrentes-con-compuertas) · [50. LSTM](#50-lstm-memoria-a-largo-plazo) · [51. RNNs en la práctica](#51-rnns-en-la-práctica-trabajar-con-texto) · [52. Procesamiento de lenguaje natural](#52-procesamiento-de-lenguaje-natural) · [53. Seq2Seq](#53-seq2seq-y-el-problema-del-cuello-de-botella) · [54. Mecanismos de atención](#54-mecanismos-de-atención) · [55. Transformadores](#55-transformadores) · [56. De los Transformadores a los LLMs](#56-de-los-transformadores-a-los-llms)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -46,11 +46,11 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
 | **06** — Fundamentos de redes neuronales | 24-38 |
-| **07** — Fundamentos de deep learning | 39-53 (en curso) |
+| **07** — Fundamentos de deep learning | 39-45, 48-55 (en curso) |
 | **08** — Gestión de proyectos de IA | pendiente |
-| *fuera del programa* | 54 (LLMs y RAG) |
+| *fuera del programa* | 46, 47 (transfer learning y data augmentation) · 56 (LLMs y RAG) |
 
-> **Capítulos que no vienen de una slide.** El **7** (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. El **54** (LLMs y RAG) está **fuera del programa** — el curso termina en autoencoders y modelos generativos — y se agrega porque es la continuación directa de los Transformadores y lo que se encuentra hoy en el trabajo real. Los capítulos 5, 6, 10, 14, 19, 21 y los del módulo 07 están ampliados bastante más allá de lo que cubren las slides.
+> **Capítulos que no vienen de una slide.** El **7** (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los **46** y **47** (transfer learning y data augmentation) tampoco están en el programa, pero son de uso constante en la práctica con CNNs y se agregan junto al bloque de convolucionales. El **56** (LLMs y RAG) está **fuera del programa** — el curso termina en autoencoders y modelos generativos — y se agrega porque es la continuación directa de los Transformadores y lo que se encuentra hoy en el trabajo real. Los capítulos 5, 6, 10, 14, 19, 21 y los del módulo 07 están ampliados bastante más allá de lo que cubren las slides.
 
 ---
 
@@ -1531,6 +1531,43 @@ joblib.dump(pipe, 'modelo_completo.joblib')   # el escalado viaja con la red
 
 Del mismo modo, el **orden de los atributos** al predecir debe ser el mismo del entrenamiento: el modelo recibe posiciones, no nombres de columna. Y la entrada va como matriz 2D — de ahí el `.reshape(1, -1)` para predecir sobre una sola muestra.
 
+**`skops`: el formato que scikit-learn recomienda por sobre pickle.**
+
+El problema de fondo no es de sintaxis: es que **deserializar un pickle ejecuta código arbitrario**. El formato de pickle no solo guarda datos — guarda instrucciones de cómo reconstruir objetos, y el `Unpickler` las ejecuta al leerlas. Un archivo `.pkl` (o `.joblib`, que usa pickle por debajo) armado a mano puede, al cargarse, borrar archivos, abrir una conexión de red o instalar lo que sea, sin que la víctima haga nada más que `pickle.load(f)`. No es una vulnerabilidad teórica: es el comportamiento documentado del formato. Por eso scikit-learn advierte desde su propia documentación que nunca hay que cargar un pickle de origen no confiable, y por eso el proyecto mantiene [`skops`](https://skops.readthedocs.io/), pensado específicamente para no tener ese problema.
+
+> **Verificado (`pip index versions skops`, `sklearn.__version__`):** al momento de escribir esto, `skops` está en la versión **0.14.0** y scikit-learn en **1.9.0** — la misma versión de sklearn ya citada en la nota de compatibilidad de este capítulo. La API que sigue se confirmó leyendo el código fuente de `skops/io/_persist.py` de esa versión, no de memoria.
+
+`skops.io` reemplaza `pickle`/`joblib` solo para la parte de **serializar el modelo**, con la misma forma de uso:
+
+```python
+import skops.io as sio
+
+sio.dump(pipe, 'modelo.skops')                       # guardar (pipe = Pipeline con scaler + modelo)
+
+untrusted = sio.get_untrusted_types(file='modelo.skops')   # ANTES de cargar: qué tipos no son de confianza
+print(untrusted)                                      # lista vacía si el modelo es 100% sklearn/numpy/scipy
+
+modelo = sio.load('modelo.skops', trusted=untrusted)  # cargar sin ejecutar nada más que reconstruir el árbol
+```
+
+La diferencia con `pickle.load` no es cosmética: `skops.load` no ejecuta el `__reduce__` de cada objeto. En cambio, guarda el árbol del modelo como un `schema.json` (tipos, parámetros, arrays de NumPy) dentro de un `.zip`, y al cargar **reconstruye** cada nodo del árbol comparando su tipo contra una lista de tipos conocidos de scikit-learn/NumPy/SciPy (`NODE_TYPE_MAPPING`, verificado en `skops/io/_audit.py`). Si aparece un tipo que no está en esa lista —por ejemplo, un objeto Python cualquiera pegado al modelo—, `load` no lo ejecuta de una: lo reporta como **no confiable**, y hay que pasarlo explícitamente en `trusted=[...]` para que se cargue. `get_untrusted_types` es el paso previo obligatorio: lista qué tipos aparecen en el archivo para poder revisarlos antes de decidir confiar en ellos.
+
+> **Nota de versión.** Hasta la 0.9, `trusted` aceptaba `True` para "confiar en todo". Se sacó tras el CVE-2024-37065: pasar `trusted=True` hoy tira `TypeError` a propósito. La API actual obliga a pasar la lista puntual de tipos (o el resultado de `get_untrusted_types` ya revisado), nunca un blanqueo total.
+
+**Sus límites, para no venderlo de más:**
+
+- **No sirve para objetos Python arbitrarios.** `skops` reconoce los tipos de scikit-learn, NumPy, SciPy y algunas librerías compatibles (como `quantile-forest`). Un objeto propio, una función lambda o una clase custom sin registrar caen en "no confiable" y hay que auditarlos a mano con `trusted=`, o simplemente no se pueden reconstruir de forma segura. No es un reemplazo general de pickle: es un formato **acotado a lo que scikit-learn necesita**.
+- **No reemplaza a ONNX (ni a PMML)** para producción multi-lenguaje. `skops` sigue siendo Python: el archivo se carga con la misma versión conceptual de scikit-learn/NumPy que lo generó y se consume desde Python. ONNX describe el modelo en un formato independiente del lenguaje, pensado para servir desde C++, Java o un runtime embebido sin depender del intérprete de Python. Si el consumidor del modelo no es Python, `skops` no resuelve ese problema.
+- Sigue aplicando todo lo demás de este capítulo: guardar el `Pipeline` completo (no el estimador suelto) y anotar las versiones de las dependencias.
+
+**Cuándo usar cada uno:**
+
+| Escenario | Formato |
+|---|---|
+| Prototipo propio, mismo entorno que entrena y sirve | `joblib` (más simple, ya integrado) |
+| Modelo que puede llegar de otra persona/repo, o se publica para terceros | `skops` (deserialización sin ejecución de código) |
+| Servir el modelo desde otro lenguaje o un runtime sin Python | `ONNX` / `PMML` |
+
 ## Parte IX — Deep Learning con frameworks
 
 Hasta acá las redes se construyeron con `scikit-learn`, que las resuelve en tres líneas pero no deja tocar nada por dentro. Esta parte pasa a **TensorFlow** y **PyTorch**, los dos frameworks con los que se construye deep learning de verdad: permiten redes profundas, entrenamiento en GPU y arquitecturas que `MLPClassifier` no puede expresar. Requiere la Parte VII entera, porque los conceptos son los mismos —capas, activaciones, pérdida, optimizador, backpropagation— y lo que cambia es quién los escribe: acá, uno.
@@ -1862,7 +1899,182 @@ flowchart TD
 
 > **Nota (verificado en los notebooks, CIFAR-10, 2 épocas):** la misma arquitectura da **1.276.234 parámetros** en PyTorch y en Keras — la cantidad depende de la arquitectura, no del framework. Las exactitudes fueron 58,85% y 63,03%, pero la diferencia viene del optimizador (SGD con momentum contra Adam) y de la normalización ([−1, 1] contra [0, 1]), no del framework. La exactitud por clase va de **76,9%** en avión a **38,7%** en ciervo: los objetos artificiales tienen formas rígidas y fondos característicos, los animales aparecen en poses variadas y se parecen entre sí en 32×32 píxeles.
 
-### 46. Redes recurrentes (RNNs)
+### 46. Transfer learning: reutilizar una red ya entrenada
+
+> **Fuera del programa del curso, pero de uso constante en la práctica:** entrenar una CNN desde cero como la del capítulo 45 requiere miles de imágenes por clase. La mayoría de los proyectos reales no las tiene. **Transfer learning** es la respuesta: partir de una red ya entrenada sobre un dataset enorme (típicamente ImageNet, 1,2 millones de imágenes y 1.000 clases) y adaptarla al problema propio con una fracción de los datos y del tiempo de entrenamiento.
+
+**Por qué funciona.** La mitad de extracción de características del capítulo 43 aprende, capa tras capa, una jerarquía de patrones cada vez más específicos:
+
+```mermaid
+flowchart TD
+    A["Capas tempranas<br/>bordes, colores, texturas"]
+    B["Capas intermedias<br/>formas, patrones locales"]
+    C["Capas finales<br/>partes de objeto especificas<br/>del dataset de origen"]
+    A --> B --> C
+    classDef gen fill:#ecfdf5,stroke:#059669,color:#111
+    classDef esp fill:#fef3c7,stroke:#d97706,color:#111
+    class A,B gen
+    class C esp
+```
+
+Los bordes y las texturas que detectan las primeras capas no son propios de "gatos" o "autos": son **genéricos**, aparecen en cualquier imagen natural. Lo específico del dataset de origen se concentra en las últimas capas convolucionales y, sobre todo, en el clasificador denso final. Esa jerarquía es la que permite reaprovechar la red: lo genérico sirve tal cual, lo específico hay que reemplazarlo o reajustarlo.
+
+**Las dos estrategias.**
+
+| | Feature extraction | Fine-tuning |
+|---|---|---|
+| Qué se congela | toda la base convolucional | solo las primeras capas (o nada) |
+| Qué se entrena | únicamente el clasificador nuevo | clasificador nuevo + parte de la base |
+| Cuándo conviene | dataset propio chico, parecido al de origen | dataset propio grande, o distinto al de origen |
+| Riesgo | ninguno (los pesos preentrenados no se tocan) | sobreajuste u "olvido" de lo aprendido, si se hace mal |
+
+**Feature extraction** trata la red preentrenada como un extractor de vectores fijo: se le saca el clasificador original, se **congelan** todos los pesos de la base (`layer.trainable = False` en Keras; en PyTorch, `param.requires_grad = False` en cada parámetro) y se apila un clasificador nuevo y chico —una o dos capas densas terminadas en la cantidad de clases del problema propio— que es lo único que se entrena.
+
+```python
+# Keras
+from tensorflow import keras
+
+base = keras.applications.ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+base.trainable = False                                # congela toda la base
+
+modelo = keras.Sequential([
+    base,
+    keras.layers.GlobalAveragePooling2D(),
+    keras.layers.Dense(128, activation='relu'),
+    keras.layers.Dense(n_clases, activation='softmax'),
+])
+modelo.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+```
+
+```python
+# PyTorch / torchvision — el equivalente conceptual
+import torch
+from torchvision import models
+
+base = models.resnet50(weights='IMAGENET1K_V2')
+for param in base.parameters():
+    param.requires_grad = False                        # congela toda la base
+
+base.fc = torch.nn.Sequential(                          # reemplaza el clasificador final
+    torch.nn.Linear(base.fc.in_features, 128),
+    torch.nn.ReLU(),
+    torch.nn.Linear(128, n_clases),
+)
+# solo base.fc tiene requires_grad=True: el optimizador solo actualiza esos pesos
+optimizer = torch.optim.Adam(base.fc.parameters(), lr=1e-3)
+```
+
+**Fine-tuning** va un paso más allá: después de entrenar el clasificador nuevo (o desde el arranque, según el caso), se **descongelan** las últimas capas convolucionales de la base y se siguen entrenando junto con el clasificador, para que la red ajuste sus patrones más específicos al dominio propio.
+
+Dos cuidados que no son opcionales:
+
+- **Learning rate bajo al descongelar.** La base trae pesos ya afinados sobre millones de imágenes; un learning rate normal (el que se usaría entrenando desde cero) los destruye en pocos pasos —es el fenómeno de "olvido catastrófico". La práctica estándar es descongelar y seguir entrenando con un learning rate **10 a 100 veces menor** que el usado para el clasificador nuevo.
+- **BatchNorm en modo inferencia durante el fine-tuning.** Las capas de `BatchNorm` (normalización por lotes) mantienen estadísticas (media y varianza) acumuladas durante el preentrenamiento sobre un dataset enorme. Si se descongelan y se dejan en modo entrenamiento, esas estadísticas se recalculan con los lotes —mucho más chicos— del dataset propio, y se degradan. La recomendación es descongelar las capas convolucionales pero mantener las de `BatchNorm` en modo evaluación (`training=False` en Keras al llamar a la base; en PyTorch, iterar los módulos y llamar `.eval()` en cada `BatchNorm2d`, o directamente congelar sus parámetros).
+
+```python
+# Keras: descongelar solo el último bloque, manteniendo BatchNorm en inferencia
+base.trainable = True
+for layer in base.layers[:-30]:
+    layer.trainable = False
+
+modelo.compile(optimizer=keras.optimizers.Adam(learning_rate=1e-5),   # LR bajo
+                loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+# Nota: al reentrenar, Keras respeta layer.trainable también para BatchNorm,
+# así que las capas congeladas no actualizan ni sus pesos ni sus estadisticas.
+```
+
+```python
+# PyTorch: descongelar el último bloque, BatchNorm fijo
+for name, param in base.named_parameters():
+    if "layer4" in name:                      # último bloque residual de ResNet
+        param.requires_grad = True
+
+for module in base.modules():
+    if isinstance(module, torch.nn.BatchNorm2d):
+        module.eval()                          # usa las estadísticas acumuladas, no las recalcula
+        for p in module.parameters():
+            p.requires_grad = False
+
+optimizer = torch.optim.Adam([
+    {'params': base.layer4.parameters(), 'lr': 1e-5},   # LR bajo para la parte descongelada
+    {'params': base.fc.parameters(), 'lr': 1e-3},
+])
+```
+
+El flujo habitual combina las dos estrategias en dos etapas: primero **feature extraction** (toda la base congelada) hasta que el clasificador nuevo converge, y recién después **fine-tuning** con learning rate bajo sobre las últimas capas.
+
+### 47. Data augmentation: más datos sin salir a buscarlos
+
+> **También fuera del programa, y también inevitable en la práctica**, sobre todo combinado con transfer learning: cuantos menos datos propios hay, más rinde generar variaciones artificiales de los que sí se tienen.
+
+La idea es simple: aplicar transformaciones aleatorias a cada imagen de entrenamiento —que no cambian su clase— para que el modelo vea una versión distinta en cada época. Es una forma de regularización (capítulo 36): en vez de que la red memorice los píxeles exactos de las 500 fotos de entrenamiento, la obliga a aprender el patrón que sobrevive a rotar, recortar o cambiar el brillo de esa foto.
+
+**Transformaciones típicas para imágenes:**
+
+| Transformación | Qué simula |
+|---|---|
+| Flip horizontal | el objeto puede aparecer espejado |
+| Rotación (unos grados) | la cámara no está perfectamente alineada |
+| Zoom / recorte aleatorio | el objeto no siempre ocupa el mismo espacio del cuadro |
+| Traslación | el objeto no está centrado |
+| Cambios de brillo/contraste | condiciones de luz distintas |
+
+Qué transformaciones aplicar depende del dominio: un flip horizontal tiene sentido para fotos de animales, pero **no** para dígitos manuscritos (un 6 espejado no es un 6) ni para radiografías donde la orientación es diagnóstica. Data augmentation no es "aplicar todo lo disponible": es elegir qué invarianzas tiene sentido enseñarle a la red.
+
+**Dos formas de aplicarlo, con una diferencia práctica importante.**
+
+```mermaid
+flowchart TD
+    D["Dataset en disco"]
+    D --> P1["Pipeline de datos<br/>CPU: decodificar + aumentar<br/>antes de armar el batch"]
+    D --> P2["Capas del modelo<br/>batch crudo, augmentation<br/>corre en GPU"]
+    P1 --> M["Modelo"]
+    P2 --> M
+    classDef n fill:#eef2ff,stroke:#4f46e5,color:#111
+    class D,M n
+```
+
+- **Como parte del pipeline de datos** (`ImageDataGenerator` histórico de Keras, o transforms de `torchvision`): la transformación se aplica en CPU al leer cada imagen, antes de que llegue al modelo.
+- **Como capas dentro del modelo** (`tf.keras.layers.RandomFlip`, `RandomRotation`, etc., o `torch.nn.Sequential` con transforms de `torchvision.transforms.v2` aplicados dentro del `forward`): la transformación se ejecuta en GPU junto con el resto del forward pass, lo que suele ser más rápido porque evita el cuello de botella de CPU.
+
+```python
+# Keras: augmentation como capas del modelo
+from tensorflow import keras
+
+aumento = keras.Sequential([
+    keras.layers.RandomFlip('horizontal'),
+    keras.layers.RandomRotation(0.1),
+    keras.layers.RandomZoom(0.1),
+])
+
+modelo = keras.Sequential([
+    aumento,                 # solo activa en modo entrenamiento
+    base,
+    keras.layers.GlobalAveragePooling2D(),
+    keras.layers.Dense(n_clases, activation='softmax'),
+])
+```
+
+```python
+# PyTorch / torchvision — el equivalente conceptual, en el pipeline de datos
+from torchvision import transforms
+
+transform_train = transforms.Compose([
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(10),
+    transforms.RandomResizedCrop(224, scale=(0.9, 1.0)),
+    transforms.ToTensor(),
+])
+
+transform_test = transforms.Compose([
+    transforms.Resize(224),
+    transforms.ToTensor(),                # sin augmentation
+])
+```
+
+**Por qué solo se aplica a `train`.** El objetivo de augmentation es que el modelo generalice mejor, no que el conjunto de validación/test sea más difícil de acertar. Evaluar con imágenes rotadas o recortadas mide una tarea distinta a la real y hace que la métrica de test deje de ser comparable entre corridas. Tanto las capas de Keras (`RandomFlip` y compañía) como los módulos de `torchvision` respetan esto de forma distinta: las capas de Keras se desactivan solas en `model.evaluate()`/`model.predict()` porque saben si están en modo entrenamiento o inferencia (igual que `Dropout`, capítulo 36); en PyTorch no hay nada automático — es responsabilidad de quien escribe el código definir `transform_train` y `transform_test` por separado y aplicar cada uno al `Dataset` que corresponde.
+
+### 48. Redes recurrentes (RNNs)
 
 Una CNN explota la estructura **espacial** —píxeles vecinos tienen que ver entre sí—. Una **RNN** explota la estructura **temporal**: cada paso de una secuencia depende de los anteriores. Las dos son formas de meterle al modelo una suposición sobre la forma de los datos, en lugar de tratar todo como un vector plano.
 
@@ -1929,7 +2141,7 @@ Además de `tanh` en el estado oculto, la salida usa **softmax** cuando hay que 
 
 Eso es exactamente lo que viene a resolver la **GRU**, que es el capítulo siguiente.
 
-### 47. GRU: unidades recurrentes con compuertas
+### 49. GRU: unidades recurrentes con compuertas
 
 La RNN simple tiene un problema estructural: **en cada paso reescribe el estado oculto por completo**. Al retropropagar, el gradiente se multiplica una vez por paso y se apaga antes de llegar lejos, así que la red no aprende dependencias largas (cap. 46).
 
@@ -2032,7 +2244,7 @@ lstm = nn.LSTM(input_size=10, hidden_size=64, num_layers=2, batch_first=True)
 
 > **Nota (inconsistencia en el material):** la tabla de ecuaciones de la slide del curso **omite el `r_t` multiplicando a `h_{t-1}`** dentro del cálculo del candidato, aunque el diagrama de la misma slide sí lo muestra. Sin esa multiplicación, la compuerta de reinicio no cumpliría ninguna función. La versión correcta es la de arriba. La slide además escribe `x̄_t` con barra en la ecuación de `z_t`, que parece un error tipográfico.
 
-### 48. LSTM: memoria a largo plazo
+### 50. LSTM: memoria a largo plazo
 
 La **LSTM** (*Long Short-Term Memory*) ataca el mismo problema que la GRU —el gradiente que se apaga al retropropagar en el tiempo— con más maquinaria. Es **anterior**: la propusieron Hochreiter y Schmidhuber en **1997**, casi veinte años antes que la GRU (2014), aunque el curso la presente después.
 
@@ -2126,7 +2338,7 @@ flowchart LR
 
 > **Nota (inconsistencia del material):** el diagrama de la slide numera las compuertas (2), (1), (3) sin seguir el orden espacial ni el de cómputo, y la lista de ecuaciones las presenta en un cuarto orden distinto. Las fórmulas en sí son correctas — a diferencia de la slide de GRU, donde faltaba un término.
 
-### 49. RNNs en la práctica: trabajar con texto
+### 51. RNNs en la práctica: trabajar con texto
 
 Los notebooks de las Clases 18 y 19 resuelven el mismo problema —clasificar el sentimiento de reseñas de IMDb— en los dos frameworks, y traen los tres pasos propios del texto que no aparecían con tablas ni imágenes.
 
@@ -2195,7 +2407,7 @@ Es el mismo patrón que persistir un modelo sin su escalador (cap. 38), y deja u
 
 **Toda transformación aprendida de los datos —tokenizer, escalador, encoder, vocabulario— es parte del modelo. Se guarda con él y se reusa idéntica al predecir.**
 
-### 50. Procesamiento de lenguaje natural
+### 52. Procesamiento de lenguaje natural
 
 El **PLN** es la rama del aprendizaje automático que busca que las computadoras comprendan y manipulen el lenguaje humano. Es uno de los campos que más se desarrolló en los últimos años, y el cap. 49 ya mostró su pieza central: los **embeddings**.
 
@@ -2226,7 +2438,7 @@ La diferencia se ve en una frase: en *"el banco de la plaza"* y *"el banco me co
 
 Esa es, en una línea, la razón de ser de los Transformadores.
 
-### 51. Seq2Seq y el problema del cuello de botella
+### 53. Seq2Seq y el problema del cuello de botella
 
 Una RNN sola no resuelve el caso donde **la entrada y la salida tienen largos distintos** — traducir una frase de 8 palabras a uno de 12, por ejemplo. Es el cuarto tipo de RNN del cap. 46, y necesita una estructura propia.
 
@@ -2269,7 +2481,7 @@ flowchart TD
     class H,B1 bien
 ```
 
-### 52. Mecanismos de atención
+### 54. Mecanismos de atención
 
 La **atención** elimina ese cuello de botella con una idea directa: en vez de comprimir todo en un vector, **conservar todos los estados del encoder** y dejar que el decoder decida, en cada palabra que genera, cuáles mirar.
 
@@ -2283,7 +2495,7 @@ La diferencia con seq2seq es que ahora el contexto **cambia en cada paso** de la
 
 **Y hay un beneficio extra: interpretabilidad.** Los pesos de atención se pueden graficar, y muestran a qué parte de la entrada miró el modelo para producir cada parte de la salida. Es una ventana poco común en deep learning, donde casi todo es opaco.
 
-### 53. Transformadores
+### 55. Transformadores
 
 El paso siguiente fue radical: **si la atención resuelve el problema, ¿hace falta la recurrencia?** La respuesta —el paper *Attention is All You Need*, 2017— fue que no.
 
@@ -2402,7 +2614,7 @@ A cambio paga dos cosas: **el costo de la atención crece con el cuadrado de la 
 >
 > **Una arquitectura mejor, mal entrenada, rinde menos que una más simple bien entrenada.**
 
-### 54. De los Transformadores a los LLMs
+### 56. De los Transformadores a los LLMs
 
 > **Nota:** este capítulo **no forma parte del programa del curso**, que termina en autoencoders y modelos generativos. Se agrega porque es la continuación directa del cap. 53 y porque es lo que hoy se encuentra en el trabajo real. Fuente principal: la documentación de [IBM Think](https://www.ibm.com/mx-es/think/topics/large-language-models).
 
