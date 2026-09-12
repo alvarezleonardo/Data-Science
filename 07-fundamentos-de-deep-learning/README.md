@@ -2,13 +2,13 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — **Módulos 1 a 5 completos** (hasta Transformadores y PLN), **Módulo 6 arrancado** (Clase 27, Autoencoders) |
+| 7 | 33 | 🔄 En curso — **Módulos 1 a 5 completos** (hasta Transformadores y PLN), **Módulo 6 en curso** (Clases 27-28: Autoencoders y GANs) |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
 ## Teoría
 
-> Los **29 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+> Los **30 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
 
 Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
@@ -37,6 +37,7 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Transformadores - P1.md`](<teoria/Transformadores - P1.md>) a [`P6.md`](<teoria/Transformadores - P6.md>) — Clase 24: arquitectura, autoatención con Q/K/V, múltiples cabezas, codificación posicional, residuales y normalización, y el decoder
 - [`Autoencoders - P1.md`](<teoria/Autoencoders - P1.md>) — Clase 27, arranca el **Módulo 6**: qué es un autoencoder, estructura encoder/espacio latente/decoder
 - [`Autoencoders - P2.md`](<teoria/Autoencoders - P2.md>) — Clase 27: tipos de autoencoders (dispersos, contractivos, de eliminación de ruido, variacionales) y aplicaciones
+- [`Redes Adversarias Generativas (GANs).md`](<teoria/Redes Adversarias Generativas (GANs).md>) — Clase 28: generador vs. discriminador, el juego minimax, la pérdida no saturante, entrenamiento alternado y modos de falla (mode collapse, inestabilidad, no convergencia)
 
 La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 53 (TensorFlow, PyTorch, CNNs, RNNs, GRU, LSTM, PLN y Transformadores).
 
@@ -54,6 +55,8 @@ Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a dato
 - [`OD_RN2_ESP_M04_S19_RNNs en PyTorch - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M04_S19_RNNs en PyTorch - Recurso descargable.ipynb>) — Clase 19: el mismo problema en PyTorch. 74,65%, y la diferencia es `max_len` (50 contra 1.000), no el framework.
 - [`OD_RN2_ESP_M05_S25_Transformadores en Python - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M05_S25_Transformadores en Python - Recurso descargable.ipynb>) — Clase 25: **un Transformer implementado desde cero** sobre el mismo problema. 82,84%, por debajo de la LSTM: entrenó 100 épocas y se sobreajustó.
 - [`mlp_iris_pytorch.ipynb`](<notebooks/mlp_iris_pytorch.ipynb>) — **notebook propio**: parte del recurso de la Clase 5 y le agrega lo que le falta — el `append` que arregla la curva de pérdida, semilla fija, seguimiento de train y test por época, matriz de confusión y detección de dispositivo (corre en **MPS**, la GPU del Mac). 96,67% con 50 épocas.
+- [`OD_RN2_ESP_M06_S29_Autoencoder en Python - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M06_S29_Autoencoder en Python - Recurso descargable.ipynb>) — Clase 29: implementación de un autoencoder.
+- [`OD_RN2_ESP_M06_S30_Redes Adversarias Generativas en Python - Recurso descargable.ipynb`](<notebooks/OD_RN2_ESP_M06_S30_Redes Adversarias Generativas en Python - Recurso descargable.ipynb>) — Clase 30: implementación de una GAN.
 
 > ⚠️ **Dos recursos de RNN tienen fallas silenciosas.** El de TensorFlow crea un `Tokenizer` nuevo al predecir en vez de usar el vocabulario de IMDb, así que las predicciones sobre frases nuevas salen invertidas pese al 86,6% de exactitud. El de PyTorch tiene el output de una sola época aunque el código pide 20. Ninguno lanza error; ambos están explicados en los propios notebooks.
 
