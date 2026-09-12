@@ -8,6 +8,8 @@
 
 ## Teoría
 
+> Los **20 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+
 Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
 - [`0 - Programa del módulo.md`](teoria/0%20-%20Programa%20del%20módulo.md)

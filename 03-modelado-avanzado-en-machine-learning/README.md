@@ -10,6 +10,8 @@ Apuntes teóricos de este módulo: **[APUNTES.md](APUNTES.md)** · guía de estu
 
 ## Contenido
 
+> Los **23 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+
 ### `teoria/`
 Slides del curso (PDF + conversión `.md`):
 

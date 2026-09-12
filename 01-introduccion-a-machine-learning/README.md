@@ -10,6 +10,8 @@ Apuntes teóricos sintetizados de este módulo: **[APUNTES.md](APUNTES.md)** · 
 
 ## Contenido
 
+> Los **15 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+
 ### `teoria/`
 Slides del curso (PDF original + conversión `.md` al lado):
 
