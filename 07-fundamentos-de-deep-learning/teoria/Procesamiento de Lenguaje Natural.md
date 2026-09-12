@@ -1,6 +1,6 @@
 # Procesamiento de Lenguaje Natural
 
-> Conversión a Markdown de las slides del curso (Clase 21 — Procesamiento de Lenguaje Natural, NLP). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 21 — Procesamiento de Lenguaje Natural, NLP). El PDF original está en [`material/`](material/).
 
 ## 1. Qué es el NLP
 

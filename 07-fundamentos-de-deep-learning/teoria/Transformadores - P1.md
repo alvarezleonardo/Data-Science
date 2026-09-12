@@ -1,6 +1,6 @@
 # Transformadores — Parte 1
 
-> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 1). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 1). El PDF original está en [`material/`](material/).
 
 ## 1. Qué es un Transformer
 

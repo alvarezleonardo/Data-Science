@@ -1,6 +1,6 @@
 # Gestión de modelos
 
-> Conversión a Markdown de las slides del curso (unidad "Backpropagation y Gestión de modelos", bloque 02). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (unidad "Backpropagation y Gestión de modelos", bloque 02). El PDF original está en [`material/`](material/).
 
 ## 1. Persistencia de modelos
 

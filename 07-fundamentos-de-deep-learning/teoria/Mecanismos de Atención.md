@@ -1,6 +1,6 @@
 # Mecanismos de Atención
 
-> Conversión a Markdown de las slides del curso (Clase 23 — Mecanismos de Atención). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 23 — Mecanismos de Atención). El PDF original está en [`material/`](material/).
 
 ## 1. La idea central
 

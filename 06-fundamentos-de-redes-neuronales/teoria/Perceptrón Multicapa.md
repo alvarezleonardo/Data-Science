@@ -1,6 +1,6 @@
 # Perceptrón Multicapa
 
-> Conversión a Markdown de la slide del curso. El PDF original está al lado.
+> Conversión a Markdown de la slide del curso. El PDF original está en [`material/`](material/).
 
 > **Nota:** el PDF de origen es un deck con animaciones tipo "build": la slide "Perceptrón Multicapa" se repite agregando un ítem por página. Se consolidó en una sola sección con los cuatro puntos, evitando duplicar el texto repetido. La slide "Arquitectura" es un diagrama; se describe en texto más abajo.
 

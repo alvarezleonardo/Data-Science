@@ -1,6 +1,6 @@
 # Introducción a PyTorch - Parte 4
 
-> Conversión a Markdown de las slides del curso (Clase 4 — Introducción a PyTorch, bloque 4). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 4 — Introducción a PyTorch, bloque 4). El PDF original está en [`material/`](material/).
 
 > **Nota:** el deck original repite el mismo bloque de código en 9 páginas seguidas, cada una señalando con una anotación una línea distinta (efecto "build" de una presentación). Se consolida acá en una sola sección con el código completo y una tabla línea por línea.
 

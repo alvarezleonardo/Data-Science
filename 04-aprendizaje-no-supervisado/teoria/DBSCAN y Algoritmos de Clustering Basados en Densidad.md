@@ -1,6 +1,6 @@
 # DBSCAN y Algoritmos de Clustering Basados en Densidad
 
-> Conversión a Markdown de la slide del curso (Clase 13). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 13). El PDF original está en [`material/`](material/).
 
 ## ¿Qué es DBSCAN?
 

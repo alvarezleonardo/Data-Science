@@ -1,6 +1,6 @@
 # Introducción a las funciones de activación
 
-> Conversión a Markdown de las slides del curso (unidad "Funciones de activación y estructura de la red", bloque 01). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (unidad "Funciones de activación y estructura de la red", bloque 01). El PDF original está en [`material/`](material/).
 
 > **Nota:** las slides de cada función son imágenes (curva + fórmula) sin texto. Se transcriben las fórmulas y se describe la forma de cada curva.
 

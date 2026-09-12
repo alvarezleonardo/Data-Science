@@ -1,6 +1,6 @@
 # Transformadores — Parte 6
 
-> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 6). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 24 — Transformadores, bloque 6). El PDF original está en [`material/`](material/).
 
 ## 1. El decoder genera la salida un token a la vez
 

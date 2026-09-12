@@ -15,18 +15,18 @@ Slides del curso (PDF original + conversión `.md` al lado):
 
 | # | Tema | PDF | Markdown |
 |---|------|-----|----------|
-| 1 | Introducción a Machine Learning | [PDF](<teoria/1 - Introducción a Machine Learning.pdf>) | [MD](<teoria/1 - Introducción a Machine Learning.md>) |
-| 2 | Aprendizaje Supervisado vs No supervisado | [PDF](<teoria/2 - Aprendizaje Supervisado vs No supervisado.pdf>) | [MD](<teoria/2 - Aprendizaje Supervisado vs No supervisado.md>) |
-| 3 | Ciclo de vida de un proyecto de ML | [PDF](<teoria/3 - Ciclo de vida de un proyecto de ML.pdf>) | [MD](<teoria/3 - Ciclo de vida de un proyecto de ML.md>) |
-| 4 | Introducción al Aprendizaje Supervisado | [PDF](<teoria/4 - Introducción al Aprendizaje Supervisado.pdf>) | [MD](<teoria/4 - Introducción al Aprendizaje Supervisado.md>) |
-| 5 | Preparación de Datos | [PDF](<teoria/5 - Preparación de Datos.pdf>) | [MD](<teoria/5 - Preparación de Datos.md>) |
-| 6 | Clasificadores Lineales | [PDF](<teoria/6 - Clasificadores Lineales.pdf>) | [MD](<teoria/6 - Clasificadores Lineales.md>) |
-| 7 | Métricas de evaluación | [PDF](<teoria/7 - Métricas de evaluación.pdf>) | [MD](<teoria/7 - Métricas de evaluación.md>) |
-| 8 | Árboles de Decisión | [PDF](<teoria/8 - Árboles de Decisión.pdf>) | [MD](<teoria/8 - Árboles de Decisión.md>) |
-| 9 | Aprendizaje No supervisado | [PDF](<teoria/9 - Aprendizaje No supervisado.pdf>) | [MD](<teoria/9 - Aprendizaje No supervisado.md>) |
-| 10 | Introducción al Clustering | [PDF](<teoria/10 - Introducción al Clustering.pdf>) | [MD](<teoria/10 - Introducción al Clustering.md>) |
-| 11 | Evaluación de modelos | [PDF](<teoria/11 - Evaluación de modelos.pdf>) | [MD](<teoria/11 - Evaluación de modelos.md>) |
-| 12 | XG Boost | [PDF](<teoria/12 - XG Boost.pdf>) | [MD](<teoria/12 - XG Boost.md>) |
+| 1 | Introducción a Machine Learning | [PDF](<teoria/material/1 - Introducción a Machine Learning.pdf>) | [MD](<teoria/1 - Introducción a Machine Learning.md>) |
+| 2 | Aprendizaje Supervisado vs No supervisado | [PDF](<teoria/material/2 - Aprendizaje Supervisado vs No supervisado.pdf>) | [MD](<teoria/2 - Aprendizaje Supervisado vs No supervisado.md>) |
+| 3 | Ciclo de vida de un proyecto de ML | [PDF](<teoria/material/3 - Ciclo de vida de un proyecto de ML.pdf>) | [MD](<teoria/3 - Ciclo de vida de un proyecto de ML.md>) |
+| 4 | Introducción al Aprendizaje Supervisado | [PDF](<teoria/material/4 - Introducción al Aprendizaje Supervisado.pdf>) | [MD](<teoria/4 - Introducción al Aprendizaje Supervisado.md>) |
+| 5 | Preparación de Datos | [PDF](<teoria/material/5 - Preparación de Datos.pdf>) | [MD](<teoria/5 - Preparación de Datos.md>) |
+| 6 | Clasificadores Lineales | [PDF](<teoria/material/6 - Clasificadores Lineales.pdf>) | [MD](<teoria/6 - Clasificadores Lineales.md>) |
+| 7 | Métricas de evaluación | [PDF](<teoria/material/7 - Métricas de evaluación.pdf>) | [MD](<teoria/7 - Métricas de evaluación.md>) |
+| 8 | Árboles de Decisión | [PDF](<teoria/material/8 - Árboles de Decisión.pdf>) | [MD](<teoria/8 - Árboles de Decisión.md>) |
+| 9 | Aprendizaje No supervisado | [PDF](<teoria/material/9 - Aprendizaje No supervisado.pdf>) | [MD](<teoria/9 - Aprendizaje No supervisado.md>) |
+| 10 | Introducción al Clustering | [PDF](<teoria/material/10 - Introducción al Clustering.pdf>) | [MD](<teoria/10 - Introducción al Clustering.md>) |
+| 11 | Evaluación de modelos | [PDF](<teoria/material/11 - Evaluación de modelos.pdf>) | [MD](<teoria/11 - Evaluación de modelos.md>) |
+| 12 | XG Boost | [PDF](<teoria/material/12 - XG Boost.pdf>) | [MD](<teoria/12 - XG Boost.md>) |
 
 (más Programa y Recursos del Curso en `teoria/`).
 

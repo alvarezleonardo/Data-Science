@@ -1,6 +1,6 @@
 # Backpropagation (retropropagación)
 
-> Conversión a Markdown de las slides del curso (unidad "Backpropagation y Gestión de modelos", bloque 01). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (unidad "Backpropagation y Gestión de modelos", bloque 01). El PDF original está en [`material/`](material/).
 
 > **Nota:** el deck desarrolla el cálculo paso a paso con fórmulas en imagen, repitiendo la slide y agregando un término por página. Se consolidó cada derivación en su resultado final, transcribiendo las fórmulas.
 

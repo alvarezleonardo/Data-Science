@@ -1,6 +1,6 @@
 # Optimización
 
-> Conversión a Markdown de las slides del curso (unidad "Optimización y regularización", bloque 03). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (unidad "Optimización y regularización", bloque 03). El PDF original está en [`material/`](material/).
 
 > **Nota:** varias slides son imágenes sin texto (la superficie de pérdida en 3D, los tres escenarios de tasa de aprendizaje). Se describen abajo. El deck repite la misma slide agregando un párrafo por página; se consolidó.
 

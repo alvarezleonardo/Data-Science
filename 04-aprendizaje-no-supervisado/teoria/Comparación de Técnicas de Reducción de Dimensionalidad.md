@@ -1,6 +1,6 @@
 # Comparación de Técnicas de Reducción de Dimensionalidad
 
-> Conversión a Markdown de la slide del curso (Clase 28, Módulo 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 28, Módulo 5). El PDF original está en [`material/`](material/).
 
 Cierre del módulo: comparación de las cuatro técnicas de reducción de dimensionalidad vistas (**PCA, LDA, t-SNE, UMAP**), con ventajas, desventajas y cuándo usar cada una.
 

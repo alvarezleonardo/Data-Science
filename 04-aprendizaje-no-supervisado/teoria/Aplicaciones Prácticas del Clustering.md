@@ -1,6 +1,6 @@
 # Aplicaciones Prácticas del Clustering
 
-> Conversión a Markdown de la slide del curso (Clase 14). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 14). El PDF original está en [`material/`](material/).
 
 Recorrido por casos de uso reales del clustering en distintas industrias.
 

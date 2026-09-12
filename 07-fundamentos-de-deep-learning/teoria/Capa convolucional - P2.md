@@ -1,6 +1,6 @@
 # Capa convolucional — Parte 2
 
-> Conversión a Markdown de las slides del curso (Clase 8 — Introducción a las CNNs, bloque 04). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 8 — Introducción a las CNNs, bloque 04). El PDF original está en [`material/`](material/).
 
 ## 1. Padding
 

@@ -43,7 +43,8 @@ Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
 ├── APUNTES-DATA-SCIENCE.md       ← manual del programa (54 capítulos, 9 partes)
 ├── requirements.txt              ← dependencias para reproducir el entorno
 ├── 01-introduccion-a-machine-learning/
-│   ├── teoria/                   ← slides del curso (PDF + conversión .md)
+│   ├── teoria/                   ← conversión a Markdown de las slides
+│   │   └── material/             ← los PDF originales del curso
 │   ├── notebooks/                ← ejercicios, prácticas y TP
 │   └── datasets/                 ← datasets del módulo
 ├── 02-desafio-profesional-etapa-1/

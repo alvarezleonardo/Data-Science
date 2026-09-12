@@ -1,6 +1,6 @@
 # Perceptrón AND — Parte 3: Iteraciones 4 y 5 del entrenamiento
 
-> Conversión a Markdown de la slide del curso. El PDF original está al lado.
+> Conversión a Markdown de la slide del curso. El PDF original está en [`material/`](material/).
 
 > **Nota:** el PDF exportado incluye, a partir de la slide "¡Muchas gracias!", una serie de slides plantilla genéricas (con texto de relleno tipo *Lorem ipsum*, ejemplos de JavaScript, SQL y evaluación de la materia) que no pertenecen al contenido de esta Parte 3 sobre la compuerta AND. Esas slides fueron excluidas de esta conversión por no tener relación con el tema. También se consolidaron en menos pasos las slides que mostraban la misma iteración construida progresivamente (efecto de animación "build"), evitando duplicar el mismo cálculo repetido en páginas consecutivas.
 

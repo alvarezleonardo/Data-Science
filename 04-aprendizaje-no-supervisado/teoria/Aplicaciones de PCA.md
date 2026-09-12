@@ -1,6 +1,6 @@
 # Aplicaciones de PCA
 
-> Conversión a Markdown de la slide del curso (Clase 24, Módulo 5). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 24, Módulo 5). El PDF original está en [`material/`](material/).
 
 ## 1. Visualización de datos de alta dimensionalidad
 

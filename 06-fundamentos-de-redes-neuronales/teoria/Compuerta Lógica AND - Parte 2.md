@@ -1,6 +1,6 @@
 # Perceptrón AND — Parte 2: Iteraciones de Entrenamiento (2ª y 3ª Pasada)
 
-> Conversión a Markdown de la slide del curso. El PDF original está al lado.
+> Conversión a Markdown de la slide del curso. El PDF original está en [`material/`](material/).
 
 ## 1. Punto de partida
 

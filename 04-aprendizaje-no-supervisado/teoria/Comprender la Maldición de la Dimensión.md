@@ -1,6 +1,6 @@
 # Comprender la Maldición de la Dimensión
 
-> Conversión a Markdown de la slide del curso (Clase 16, Módulo 4). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 16, Módulo 4). El PDF original está en [`material/`](material/).
 
 ## 1. Definición
 

@@ -1,6 +1,6 @@
 # Grafos y capa densa
 
-> Conversión a Markdown de la slide del curso (unidad "Funciones de activación y estructura de la red", bloque 02). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (unidad "Funciones de activación y estructura de la red", bloque 02). El PDF original está en [`material/`](material/).
 
 ## 1. La red como grafo
 

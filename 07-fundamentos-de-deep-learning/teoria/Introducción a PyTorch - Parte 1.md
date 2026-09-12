@@ -1,6 +1,6 @@
 # Introducción a PyTorch - Parte 1
 
-> Conversión a Markdown de las slides del curso (Clase 4 — Introducción a PyTorch, bloque 1). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 4 — Introducción a PyTorch, bloque 1). El PDF original está en [`material/`](material/).
 
 ## 1. Qué es PyTorch
 

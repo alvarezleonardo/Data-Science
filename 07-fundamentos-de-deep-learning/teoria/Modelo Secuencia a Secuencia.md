@@ -1,6 +1,6 @@
 # Modelo Secuencia a Secuencia
 
-> Conversión a Markdown de las slides del curso (Clase 22 — Modelo Secuencia a Secuencia, seq2seq). El PDF original está al lado.
+> Conversión a Markdown de las slides del curso (Clase 22 — Modelo Secuencia a Secuencia, seq2seq). El PDF original está en [`material/`](material/).
 
 ## 1. Por qué hace falta una arquitectura nueva
 

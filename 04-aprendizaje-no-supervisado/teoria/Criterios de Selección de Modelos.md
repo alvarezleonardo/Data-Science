@@ -1,6 +1,6 @@
 # Criterios de Selección de Modelos
 
-> Conversión a Markdown de la slide del curso (Clase 18, Módulo 4). El PDF original está al lado.
+> Conversión a Markdown de la slide del curso (Clase 18, Módulo 4). El PDF original está en [`material/`](material/).
 
 Los **criterios de selección de modelos** son herramientas clave para comparar y elegir entre diferentes modelos estadísticos. Los más comunes son el **Criterio de Información de Akaike (AIC)** y el **Criterio de Información Bayesiano (BIC)**. Ambos ayudan a seleccionar el modelo que mejor **equilibra el ajuste con la complejidad**, penalizando los modelos con demasiados parámetros (evitando el sobreajuste).
 
