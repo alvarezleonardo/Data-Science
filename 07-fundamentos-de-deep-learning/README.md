@@ -2,13 +2,13 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — **Módulos 1 a 5 completos** (hasta Transformadores y PLN) |
+| 7 | 33 | 🔄 En curso — **Módulos 1 a 5 completos** (hasta Transformadores y PLN), **Módulo 6 arrancado** (Clase 27, Autoencoders) |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
 ## Teoría
 
-> Los **27 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+> Los **29 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
 
 Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
@@ -35,14 +35,12 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`Modelo Secuencia a Secuencia.md`](<teoria/Modelo Secuencia a Secuencia.md>) — Clase 22: encoder-decoder, teacher forcing y el cuello de botella del vector de contexto
 - [`Mecanismos de Atención.md`](<teoria/Mecanismos de Atención.md>) — Clase 23: scores, softmax, contexto dinámico e interpretabilidad
 - [`Transformadores - P1.md`](<teoria/Transformadores - P1.md>) a [`P6.md`](<teoria/Transformadores - P6.md>) — Clase 24: arquitectura, autoatención con Q/K/V, múltiples cabezas, codificación posicional, residuales y normalización, y el decoder
+- [`Autoencoders - P1.md`](<teoria/Autoencoders - P1.md>) — Clase 27, arranca el **Módulo 6**: qué es un autoencoder, estructura encoder/espacio latente/decoder
+- [`Autoencoders - P2.md`](<teoria/Autoencoders - P2.md>) — Clase 27: tipos de autoencoders (dispersos, contractivos, de eliminación de ruido, variacionales) y aplicaciones
 
 La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 53 (TensorFlow, PyTorch, CNNs, RNNs, GRU, LSTM, PLN y Transformadores).
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
-
-### Material recibido, pendiente de convertir
-
-- `Autoencoders - P1.pdf` — Clase 27, arranca el **Módulo 6** (autoencoders y modelos generativos).
 
 ## Notebooks
 
