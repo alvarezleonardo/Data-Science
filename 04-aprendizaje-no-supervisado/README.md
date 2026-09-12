@@ -10,6 +10,8 @@ Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCA
 
 ## Contenido
 
+> Los **24 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+
 ### `teoria/`
 Slides del curso (PDF + conversión `.md`):
 

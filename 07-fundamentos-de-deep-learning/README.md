@@ -8,6 +8,8 @@
 
 ## Teoría
 
+> Los **27 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+
 Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
 - [`0 - Programa del módulo.md`](<teoria/0 - Programa del módulo.md>) — las 33 clases en 7 módulos
@@ -37,6 +39,10 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 53 (TensorFlow, PyTorch, CNNs, RNNs, GRU, LSTM, PLN y Transformadores).
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks).
+
+### Material recibido, pendiente de convertir
+
+- `Autoencoders - P1.pdf` — Clase 27, arranca el **Módulo 6** (autoencoders y modelos generativos).
 
 ## Notebooks
 
