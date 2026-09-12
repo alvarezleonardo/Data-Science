@@ -26,10 +26,10 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado) | ✅ Aprobado (6/6) |
 | 05 | [Desafío Profesional DS — Etapa 2](05-desafio-profesional-etapa-2/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
-| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-53](APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks) | 🔄 En curso — Módulos 1 a 5 completos (hasta Transformadores) |
+| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-45, 48-56](APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks) | ✅ Aprobado (7/7) — teoría completa hasta autoencoders y GANs |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
 | 09 | [Desafío Profesional DS — Etapa 3](09-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar |
-| | **Total** | **45** | **164** | | **5 completados · 1 en curso · 3 pendientes** |
+| | **Total** | **45** | **164** | | **6 completados · 3 pendientes** |
 
 Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
 

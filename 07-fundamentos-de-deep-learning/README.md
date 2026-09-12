@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 33 | 🔄 En curso — **Módulos 1 a 5 completos** (hasta Transformadores y PLN), **Módulo 6 en curso** (Clases 27-28: Autoencoders y GANs) |
+| 7 | 33 | ✅ Aprobado (7/7) — **teoría completa**: hasta Transformadores y PLN, más el Módulo 6 (Autoencoders y GANs) |
 
 > Continúa [Fundamentos de redes neuronales](../06-fundamentos-de-redes-neuronales/): de `scikit-learn` se pasa a **TensorFlow** y **PyTorch**, y de ahí a CNNs, RNNs, Transformadores y modelos generativos.
 
