@@ -66,7 +66,7 @@ El material cierra con cuatro aplicaciones de las GANs:
 3. **Superresolución de imágenes**: mejorar la calidad de una imagen de baja resolución aumentando su tamaño sin perder detalle, con el modelo **SRGAN**.
 4. **Traducción de texto a imagen**: crear imágenes a partir únicamente de descripciones textuales, con el modelo **DALL-E**.
 
-> **Nota:** el material lista estas cuatro aplicaciones como títulos con una oración cada una, sin desarrollarlas. Vale aclarar, como precisión que el material no hace, que DALL-E en sus versiones más conocidas (DALL-E 2 en adelante) es un modelo de **difusión**, no una GAN pura — la cita como ejemplo de "traducción de texto a imagen" es válida como aplicación de esa tarea, pero no como ejemplo arquitectónico estricto de GAN. No se afirma acá ninguna versión o detalle de API de estos modelos por no estar verificado; se deja constancia únicamente de la familia de modelo (difusión vs. adversario) porque es relevante para no confundir el linaje arquitectónico.
+> **Nota:** el material lista estas cuatro aplicaciones como títulos con una oración cada una, sin desarrollarlas. Además, citar a DALL-E como ejemplo de GAN es impreciso: DALL-E 2 y posteriores son modelos de difusión, y el DALL-E original era un transformador autoregresivo. La aplicación (texto a imagen) es correcta; el linaje arquitectónico no.
 
 ## 6. Relación con el resto del módulo
 
