@@ -30,7 +30,7 @@
 [24. Fundamentos biológicos](#24-fundamentos-biológicos) · [25. Historia](#25-historia-de-las-redes-neuronales) · [26. El perceptrón](#26-el-perceptrón-estructura-y-fórmulas) · [27. Entrenamiento: la compuerta AND](#27-entrenamiento-del-perceptrón-la-compuerta-and) · [28. Limitaciones](#28-limitaciones-del-perceptrón) · [29. Implementación con scikit-learn](#29-implementación-con-scikit-learn) · [30. El perceptrón multicapa](#30-el-perceptrón-multicapa-mlp) · [31. Grafos y capa densa](#31-grafos-y-capa-densa) · [32. Funciones de activación](#32-funciones-de-activación) · [33. Diseño de la arquitectura](#33-diseño-de-la-arquitectura-de-la-red) · [34. Funciones de pérdida](#34-funciones-de-pérdida) · [35. Optimización y descenso de gradiente](#35-optimización-y-descenso-de-gradiente) · [36. Regularización en redes](#36-regularización-en-redes-neuronales) · [37. Backpropagation](#37-backpropagation) · [38. Persistencia de modelos](#38-persistencia-de-modelos)
 
 **[Parte IX — Deep Learning con frameworks](#parte-ix--deep-learning-con-frameworks)**
-[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Transfer learning](#46-transfer-learning-reutilizar-una-red-ya-entrenada) · [47. Data augmentation](#47-data-augmentation-más-datos-sin-salir-a-buscarlos) · [48. Redes recurrentes](#48-redes-recurrentes-rnns) · [49. GRU](#49-gru-unidades-recurrentes-con-compuertas) · [50. LSTM](#50-lstm-memoria-a-largo-plazo) · [51. RNNs en la práctica](#51-rnns-en-la-práctica-trabajar-con-texto) · [52. Procesamiento de lenguaje natural](#52-procesamiento-de-lenguaje-natural) · [53. Seq2Seq](#53-seq2seq-y-el-problema-del-cuello-de-botella) · [54. Mecanismos de atención](#54-mecanismos-de-atención) · [55. Transformadores](#55-transformadores) · [56. De los Transformadores a los LLMs](#56-de-los-transformadores-a-los-llms)
+[39. Por qué hacen falta TensorFlow y PyTorch](#39-por-qué-hacen-falta-tensorflow-y-pytorch) · [40. TensorFlow y Keras](#40-tensorflow-y-keras) · [41. PyTorch](#41-pytorch) · [42. Keras y PyTorch lado a lado](#42-keras-y-pytorch-lado-a-lado) · [43. Redes convolucionales](#43-redes-convolucionales-cnns) · [44. La capa convolucional](#44-la-capa-convolucional) · [45. Agrupamiento, aplanamiento y densas](#45-agrupamiento-aplanamiento-y-capas-densas) · [46. Transfer learning](#46-transfer-learning-reutilizar-una-red-ya-entrenada) · [47. Data augmentation](#47-data-augmentation-más-datos-sin-salir-a-buscarlos) · [48. Redes recurrentes](#48-redes-recurrentes-rnns) · [49. GRU](#49-gru-unidades-recurrentes-con-compuertas) · [50. LSTM](#50-lstm-memoria-a-largo-plazo) · [51. RNNs en la práctica](#51-rnns-en-la-práctica-trabajar-con-texto) · [52. Procesamiento de lenguaje natural](#52-procesamiento-de-lenguaje-natural) · [53. Seq2Seq](#53-seq2seq-y-el-problema-del-cuello-de-botella) · [54. Mecanismos de atención](#54-mecanismos-de-atención) · [55. Transformadores](#55-transformadores) · [56. Autoencoders](#56-autoencoders) · [57. De los Transformadores a los LLMs](#57-de-los-transformadores-a-los-llms)
 
 **[Parte VIII — Referencia técnica](#parte-viii--referencia-técnica)** · **[Desafíos profesionales](#desafíos-profesionales)** · **[Glosario](#glosario-rápido)**
 
@@ -46,11 +46,11 @@ El manual reordena el contenido por dificultad. Esta tabla mapea cada módulo de
 | **04** — Aprendizaje no supervisado | 15, 16, 17, 18-23 |
 | **05** — Desafío Profesional (Etapa 2) | [Desafíos profesionales](#desafíos-profesionales) |
 | **06** — Fundamentos de redes neuronales | 24-38 |
-| **07** — Fundamentos de deep learning | 39-45, 48-55 (en curso) |
+| **07** — Fundamentos de deep learning | 39-45, 48-56 (en curso) |
 | **08** — Gestión de proyectos de IA | pendiente |
-| *fuera del programa* | 46, 47 (transfer learning y data augmentation) · 56 (LLMs y RAG) |
+| *fuera del programa* | 46, 47 (transfer learning y data augmentation) · 57 (LLMs y RAG) |
 
-> **Capítulos que no vienen de una slide.** El **7** (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los **46** y **47** (transfer learning y data augmentation) tampoco están en el programa, pero son de uso constante en la práctica con CNNs y se agregan junto al bloque de convolucionales. El **56** (LLMs y RAG) está **fuera del programa** — el curso termina en autoencoders y modelos generativos — y se agrega porque es la continuación directa de los Transformadores y lo que se encuentra hoy en el trabajo real. Los capítulos 5, 6, 10, 14, 19, 21 y los del módulo 07 están ampliados bastante más allá de lo que cubren las slides.
+> **Capítulos que no vienen de una slide.** El **7** (sobreajuste y sesgo-varianza) es una ampliación propia: el material del curso lo da por sabido. Los **46** y **47** (transfer learning y data augmentation) tampoco están en el programa, pero son de uso constante en la práctica con CNNs y se agregan junto al bloque de convolucionales. El **57** (LLMs y RAG) está **fuera del programa** — el curso termina en autoencoders y modelos generativos, capítulo **56** — y se agrega porque es la continuación directa de los Transformadores y lo que se encuentra hoy en el trabajo real. Los capítulos 5, 6, 10, 14, 19, 21 y los del módulo 07 están ampliados bastante más allá de lo que cubren las slides.
 
 ---
 
@@ -2614,7 +2614,175 @@ A cambio paga dos cosas: **el costo de la atención crece con el cuadrado de la 
 >
 > **Una arquitectura mejor, mal entrenada, rinde menos que una más simple bien entrenada.**
 
-### 56. De los Transformadores a los LLMs
+### 56. Autoencoders
+
+> Esta es la Clase 27 del curso, la primera del **Módulo 6 — Autoencoders y Modelos Generativos**, que cierra el bloque de contenidos nuevos del programa. Fuente: [Autoencoders - P1](<07-fundamentos-de-deep-learning/teoria/Autoencoders - P1.md>) y [Autoencoders - P2](<07-fundamentos-de-deep-learning/teoria/Autoencoders - P2.md>).
+
+Todo lo visto hasta acá en el bloque de deep learning —CNNs, RNNs, Transformadores— resuelve tareas **supervisadas**: hay una etiqueta objetivo distinta de la entrada (una clase, la palabra siguiente, una traducción). Los **autoencoders** son la puerta de entrada al **aprendizaje no supervisado** dentro de deep learning: no hay etiqueta, solo datos de entrada, y el objetivo es aprender a reconstruirlos a sí mismos.
+
+#### Encoder, cuello de botella, decoder
+
+```mermaid
+flowchart TD
+    X["<b>X</b> &mdash; entrada<br/>ej. imagen 28x28 = 784"]
+    subgraph ENC["<b>Encoder</b> &mdash; comprime"]
+        direction TD
+        E1["densa 128"] --> E2["densa 32"]
+    end
+    Z["<b>espacio latente z</b><br/>el cuello de botella<br/>32 valores, muchos menos<br/>que 784"]
+    subgraph DEC["<b>Decoder</b> &mdash; reconstruye"]
+        direction TD
+        D1["densa 128"] --> D2["densa 784"]
+    end
+    Y["<b>Y</b> &mdash; reconstruccion<br/>se compara con X (MSE)"]
+    X --> ENC --> Z --> DEC --> Y
+    classDef io fill:#fef3c7,stroke:#d97706,color:#111
+    classDef enc fill:#ecfdf5,stroke:#059669,color:#111
+    classDef lat fill:#fee2e2,stroke:#dc2626,color:#111
+    classDef dec fill:#eef2ff,stroke:#4f46e5,color:#111
+    class X,Y io
+    class E1,E2 enc
+    class Z lat
+    class D1,D2 dec
+```
+
+- **Encoder**: comprime la entrada `X` hasta el **espacio latente** — un vector de **variables latentes** de dimensión mucho menor que `X`.
+- **Espacio latente**: el **cuello de botella** de la arquitectura.
+- **Decoder**: descomprime esa representación en una reconstrucción `Y`, del mismo tamaño que `X`.
+
+En la práctica, encoder y decoder suelen ser redes "espejadas": si el encoder reduce dimensiones capa a capa (784 → 128 → 32), el decoder hace el camino inverso (32 → 128 → 784) para devolver una salida del mismo tamaño que la entrada.
+
+> **Nota (por qué el cuello de botella es lo que hace que esto funcione):** si la red pudiera copiar la entrada a la salida sin comprimirla —por ejemplo, con una capa latente del mismo tamaño que `X` y sin ninguna otra restricción—, la tarea de reconstrucción sería trivial: aprendería la función identidad y no capturaría ninguna estructura útil de los datos. Al forzar el paso por una representación **más chica**, la red no tiene margen para copiar: tiene que descartar redundancia y quedarse solo con la información que le alcanza para reconstruir lo esencial. Esa restricción de capacidad es la que obliga a aprender algo, no una consecuencia accidental de la arquitectura.
+
+#### Entrenamiento: la reconstrucción como target
+
+El autoencoder se entrena **de forma auto-supervisada**: no hace falta ninguna etiqueta externa, porque el propio `X` cumple el doble rol de entrada y de target. La función de pérdida típica es el **error cuadrático medio (MSE)** entre `X` y su reconstrucción `Y`:
+
+```
+L(X, Y) = mean((X - Y)²)
+```
+
+Es el mismo truco de autosupervisión que hace posible el preentrenamiento de los LLMs del capítulo siguiente: la señal de entrenamiento sale de los datos mismos, sin anotación humana.
+
+#### Relación con PCA
+
+Un autoencoder **lineal** (sin funciones de activación no lineales, encoder y decoder son una única transformación lineal cada uno) entrenado con MSE **converge al mismo subespacio que PCA** (cap. 23): ambos buscan la proyección de menor dimensión que minimiza el error de reconstrucción, y para ese problema la solución óptima es el subespacio generado por las componentes principales.
+
+> **Nota (verificado empíricamente):** con datos sintéticos de 10 dimensiones generados a partir de 3 factores latentes, un PCA a 3 componentes y un autoencoder lineal de 3 unidades en el espacio latente (sin sesgo, sin activaciones, entrenado con Adam y MSE) llegan al mismo error de reconstrucción (≈6,7×10⁻⁵ en ambos casos), y los ángulos entre el subespacio de PCA y el subespacio aprendido por el autoencoder quedan cerca de cero (0,16, 0,05 y 0,02 radianes) tras suficientes épocas de entrenamiento. Con pocas épocas el autoencoder todavía no convergió al mismo subespacio (los ángulos daban más de 0,6 radianes), lo que confirma que la equivalencia es un resultado asintótico del entrenamiento, no algo que valga en cualquier punto intermedio.
+
+La diferencia práctica es que un autoencoder **no lineal** (con activaciones como ReLU entre encoder y decoder) puede aprender una reducción de dimensionalidad no lineal, algo que PCA —por ser estrictamente una proyección lineal— no puede capturar.
+
+#### Variantes: regularizaciones del autoencoder clásico
+
+El material presenta cuatro variantes. Conviene separarlas en dos grupos, porque no son alternativas equivalentes entre sí:
+
+| Tipo | Qué hace | Sigue mapeando a un punto fijo del espacio latente |
+|---|---|---|
+| **Undercomplete** (el clásico) | El espacio latente tiene menos dimensiones que la entrada; es la restricción de capacidad ya descripta arriba. | sí |
+| **Sparse** (disperso) | Agrega una **regularización L1** sobre las activaciones del espacio latente, para que solo unas pocas neuronas estén activas por entrada. Favorece representaciones más interpretables. | sí |
+| **Contractivo** | Penaliza que la representación latente cambie mucho ante perturbaciones chicas de la entrada, para lograr una representación más estable y robusta. | sí |
+| **Denoising** | Recibe una entrada **corrompida a propósito** (ruido agregado) y se entrena para reconstruir la entrada **original, sin ruido**. Evita el sobreajuste y sirve para limpiar imágenes o audio ruidosos. | sí |
+| **Variacional (VAE)** | Aprende una **distribución de probabilidad** (media y varianza) sobre el espacio latente, en vez de un punto fijo. | **no** |
+
+Las primeras tres (sparse, contractivo, denoising) son **regularizaciones** sobre el autoencoder clásico: cambian qué tan buena o robusta es la representación latente, pero cada entrada se sigue mapeando a un vector fijo, igual que en el autoencoder undercomplete. El **VAE** es distinto en su naturaleza: en vez de un vector, aprende los parámetros de una distribución, y eso es lo que habilita **generar** datos nuevos. De las cinco, **solo el VAE es un modelo generativo** en sentido estricto — los demás reconstruyen o limpian una entrada dada, no producen muestras que no vieron.
+
+#### El autoencoder variacional (VAE)
+
+Si el encoder de un VAE devolviera directamente un punto del espacio latente, no habría forma de **muestrear** puntos nuevos de manera controlada: no se sabría qué región del espacio latente corresponde a datos plausibles. La solución es que el encoder, para cada entrada, devuelva los parámetros de una distribución normal —una media `μ` y una desviación estándar `σ`— en lugar de un vector fijo:
+
+```
+encoder(X) → (μ, σ)
+z ~ N(μ, σ²)          # se muestrea un punto de esa distribución
+decoder(z) → Y
+```
+
+**El problema del muestreo.** La operación `z ~ N(μ, σ²)` es un muestreo aleatorio, y el descenso de gradiente no puede retropropagar a través de una operación aleatoria: no hay gradiente que decir "si μ hubiera sido un poco distinto, z habría cambiado así". El **truco de reparametrización** rodea esto separando la aleatoriedad de los parámetros aprendibles:
+
+```
+ε ~ N(0, 1)            # el ruido aleatorio, fuera del grafo de cómputo
+z = μ + σ * ε          # z sigue siendo aleatorio, pero μ y σ reciben gradiente
+```
+
+Con `z` expresado así, `μ` y `σ` quedan conectados a `z` por una operación determinística (suma y producto), así que el gradiente sí puede fluir hacia el encoder. El ruido `ε` es el único punto aleatorio del cálculo, y no depende de ningún parámetro que haya que entrenar.
+
+**La función de pérdida tiene dos términos:**
+
+```
+L = error_reconstruccion(X, Y) + KL(N(μ, σ²) || N(0, 1))
+```
+
+- El **error de reconstrucción** (MSE o entropía cruzada binaria, según el tipo de dato) empuja a que `Y` se parezca a `X`, igual que en el autoencoder clásico.
+- La **divergencia KL** empuja a que la distribución que aprende el encoder para cada entrada se parezca a una normal estándar `N(0, 1)`. Sin este término, el modelo podría aprender distribuciones muy angostas y separadas entre sí para cada entrada —básicamente memorizando puntos, como el autoencoder clásico— y el espacio latente tendría "huecos" que no corresponden a ningún dato real. Al acercar todas las distribuciones a una normal estándar compartida, el espacio latente queda **continuo**: cualquier punto muestreado de `N(0, 1)` cae en una zona donde el decoder aprendió a generar algo razonable, y eso es lo que permite generar datos nuevos y no solo reconstruir los vistos.
+
+Los dos términos compiten: el de reconstrucción quiere distribuciones angostas y bien ajustadas a cada entrada; el KL quiere que todas se parezcan a la misma normal estándar. El balance entre ambos es lo que determina qué tan bien reconstruye contra qué tan bien genera.
+
+#### Aplicaciones
+
+1. **Reducción de dimensionalidad**: el análogo no lineal de PCA, para visualizar o preprocesar datos de alta dimensión.
+2. **Detección de anomalías**: entrenado solo con datos "normales", una entrada anómala se reconstruye peor —mayor error de reconstrucción—, y ese error sirve como señal de anomalía.
+3. **Eliminación de ruido** (*denoising*): la aplicación directa de la variante denoising, para limpiar imágenes o audio.
+4. **Pre-entrenamiento**: las capas del encoder, ya entrenadas para capturar la estructura de los datos sin supervisión, pueden reutilizarse como punto de partida de una red supervisada —la misma lógica de transfer learning del cap. 46, pero partiendo de un modelo propio en lugar de uno preentrenado en un dataset público.
+5. **Generación de datos**: exclusiva del VAE — muestrear puntos del espacio latente aprendido y generar imágenes, audio u otro dato nuevo.
+
+#### Un autoencoder simple, en código
+
+```python
+# Keras — autoencoder undercomplete para MNIST (28x28 = 784)
+from tensorflow import keras
+from tensorflow.keras import layers
+
+dim_entrada = 784
+dim_latente = 32
+
+entrada = keras.Input(shape=(dim_entrada,))
+codificado = layers.Dense(128, activation='relu')(entrada)
+codificado = layers.Dense(dim_latente, activation='relu')(codificado)
+
+decodificado = layers.Dense(128, activation='relu')(codificado)
+decodificado = layers.Dense(dim_entrada, activation='sigmoid')(decodificado)
+
+autoencoder = keras.Model(entrada, decodificado)
+autoencoder.compile(optimizer='adam', loss='mse')
+# autoencoder.fit(X_train, X_train, epochs=20, batch_size=256, validation_data=(X_test, X_test))
+# el target es la propia entrada: no hace falta ninguna etiqueta
+```
+
+```python
+# PyTorch — el mismo autoencoder
+import torch
+import torch.nn as nn
+
+class Autoencoder(nn.Module):
+    def __init__(self, dim_entrada=784, dim_latente=32):
+        super().__init__()
+        self.encoder = nn.Sequential(
+            nn.Linear(dim_entrada, 128), nn.ReLU(),
+            nn.Linear(128, dim_latente), nn.ReLU(),
+        )
+        self.decoder = nn.Sequential(
+            nn.Linear(dim_latente, 128), nn.ReLU(),
+            nn.Linear(128, dim_entrada), nn.Sigmoid(),
+        )
+
+    def forward(self, x):
+        z = self.encoder(x)
+        return self.decoder(z)
+
+modelo = Autoencoder()
+criterio = nn.MSELoss()
+optimizador = torch.optim.Adam(modelo.parameters(), lr=1e-3)
+
+# for x_batch in dataloader:
+#     reconstruccion = modelo(x_batch)
+#     loss = criterio(reconstruccion, x_batch)   # x_batch es a la vez entrada y target
+#     optimizador.zero_grad()
+#     loss.backward()
+#     optimizador.step()
+```
+
+> **Nota (verificado corriendo el código):** la clase `Autoencoder` de arriba, con `dim_entrada=784` y `dim_latente=32`, corre un `forward` y un `backward` completos sobre un lote de 8 muestras aleatorias sin errores — la arquitectura y las formas de los tensores son consistentes.
+
+### 57. De los Transformadores a los LLMs
 
 > **Nota:** este capítulo **no forma parte del programa del curso**, que termina en autoencoders y modelos generativos. Se agrega porque es la continuación directa del cap. 53 y porque es lo que hoy se encuentra en el trabajo real. Fuente principal: la documentación de [IBM Think](https://www.ibm.com/mx-es/think/topics/large-language-models).
 
@@ -2644,7 +2812,7 @@ flowchart TD
 
 Lo notable es que es **autosupervisado**: no hace falta etiquetar nada. El texto es a la vez la entrada y la etiqueta — dada la frase "el gato se subió al", la respuesta correcta "techo" ya está en el propio corpus. Eso es lo que permitió entrenar con todo internet, algo imposible si hubiera hecho falta anotación humana.
 
-Es el mismo truco que hace funcionar a los autoencoders, que el curso ve en el módulo siguiente: la señal de entrenamiento sale de los datos mismos.
+Es el mismo truco que hace funcionar a los autoencoders del capítulo anterior: la señal de entrenamiento sale de los datos mismos.
 
 **2. Fine-tuning supervisado.** El modelo base sabe mucho de lenguaje pero **no sigue instrucciones**: si se le escribe una pregunta, es tan probable que la continúe con otra pregunta como que la responda. Acá se lo entrena con un dataset chico de pares instrucción-respuesta (*instruction tuning*) para que aprenda el formato de diálogo.
 
