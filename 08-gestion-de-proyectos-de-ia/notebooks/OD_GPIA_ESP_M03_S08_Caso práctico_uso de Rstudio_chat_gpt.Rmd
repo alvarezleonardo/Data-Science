@@ -1,0 +1,78 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## Crear un modelo de ML del conjuto de datos tips, utilizando Chat GPT.
+
+```{r}
+if (!require(shiny)) install.packages("shiny")  # Instala 'shiny' si no está instalado
+if (!require(reshape2)) install.packages("reshape2")  # Instala 'reshape2' si no está instalado
+if (!require(ggplot2)) install.packages("ggplot2")  # Instala 'ggplot2' si no está instalado
+
+library(shiny)  # Carga la librería 'shiny'
+library(reshape2)  # Carga la librería 'reshape2'
+library(ggplot2)  # Carga la librería 'ggplot2'
+
+data("tips")  # Carga el dataset 'tips'
+
+tips$HighTip <- ifelse(tips$tip > mean(tips$tip), 1, 0)  # Crea la variable 'HighTip' (1: alta, 0: baja)
+
+modelo <- glm(HighTip ~ total_bill + size + sex + smoker + day + time,  # Entrena el modelo de regresión logística
+              data = tips, family = binomial)  # Especifica la distribución binomial
+
+ui <- fluidPage(  # Define la interfaz de usuario
+  titlePanel("Modelo de Clasificación de Propinas - Tips Dataset"),  # Título de la aplicación
+  sidebarLayout(  # Crea un diseño con barra lateral y principal
+    sidebarPanel(  # Define el panel lateral
+      h3("Introduzca valores para predicción"),  # Subtítulo del panel lateral
+      numericInput("total_bill", "Total de la factura:", value = 20, min = 1, max = 50),  # Campo de entrada numérica
+      numericInput("size", "Tamaño del grupo:", value = 2, min = 1, max = 6),  # Campo de entrada numérica
+      selectInput("sex", "Sexo:", choices = c("Female", "Male")),  # Campo de selección de sexo
+      selectInput("smoker", "Fumador:", choices = c("No", "Yes")),  # Campo de selección de fumador
+      selectInput("day", "Día de la semana:", choices = c("Thur", "Fri", "Sat", "Sun")),  # Campo de selección de día
+      selectInput("time", "Hora del día:", choices = c("Lunch", "Dinner")),  # Campo de selección de hora
+      actionButton("predict", "Predecir Propina")  # Botón para realizar la predicción
+    ),
+    mainPanel(  # Define el panel principal
+      h3("Resultado de la Predicción"),  # Subtítulo del panel principal
+      verbatimTextOutput("prediction"),  # Muestra el resultado de la predicción
+      h4("Monetización del Modelo"),  # Subtítulo para monetización
+      p("Este modelo puede ser utilizado por los restaurantes para predecir la probabilidad de obtener una propina alta, permitiendo adaptar la experiencia del cliente y potencialmente maximizar ingresos."),  # Texto explicativo
+      plotOutput("plot")  # Muestra un gráfico de densidad
+    )
+  )
+)
+
+server <- function(input, output) {  # Define la lógica del servidor
+  prediction <- eventReactive(input$predict, {  # Calcula la predicción cuando se pulsa el botón
+    new_data <- data.frame(  # Crea un nuevo dataframe con valores ingresados
+      total_bill = input$total_bill,  # Usa el total de la factura ingresado
+      size = input$size,  # Usa el tamaño del grupo ingresado
+      sex = input$sex,  # Usa el sexo ingresado
+      smoker = input$smoker,  # Usa la información de fumador ingresada
+      day = input$day,  # Usa el día ingresado
+      time = input$time  # Usa la hora ingresada
+    )
+    prob <- predict(modelo, newdata = new_data, type = "response")  # Calcula la probabilidad de propina alta
+    ifelse(prob > 0.5, "Propina Alta", "Propina Baja")  # Clasifica según la probabilidad calculada
+  })
+  
+  output$prediction <- renderText({  # Muestra el texto de la predicción
+    paste("La predicción es:", prediction())  # Combina texto con el resultado de la predicción
+  })
+  
+  output$plot <- renderPlot({  # Genera el gráfico de densidad
+    ggplot(tips, aes(x = total_bill, fill = as.factor(HighTip))) +  # Define el gráfico
+      geom_density(alpha = 0.5) +  # Añade la densidad con transparencia
+      labs(title = "Distribución de Facturas y Propinas", x = "Total de la Factura", fill = "Propina Alta") +  # Añade etiquetas
+      theme_minimal()  # Aplica un tema minimalista
+  })
+}
+
+shinyApp(ui = ui, server = server)  # Ejecuta la aplicación Shiny
+
+
+
+```
+
