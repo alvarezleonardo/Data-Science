@@ -14,6 +14,8 @@ Elegir un **caso de negocio** y aplicar el inicio del pipeline de Data Science: 
 
 ## Casos de negocio disponibles
 
+Ver el detalle en [`../desafio-profesional/casos-de-negocio/`](../desafio-profesional/casos-de-negocio/):
+
 | Caso | Dominio | Problema sugerido |
 |------|---------|-------------------|
 | Subtes | Movilidad urbana (CABA) | Series temporales / demanda |
@@ -31,4 +33,4 @@ Elegir un **caso de negocio** y aplicar el inicio del pipeline de Data Science: 
 - [ ] Encoding de categóricas y escalado de numéricas.
 - [ ] Dataset final reproducible y documentado.
 
-> Esta etapa es la base de la [Etapa 2](../05-desafio-profesional-etapa-2/) (modelado) y la [Etapa 3](../09-desafio-profesional-etapa-3/) (cierre).
+> Esta etapa es la base de la [Etapa 3](../05-desafio-profesional-etapa-3/) (modelado ML) y la [Etapa 4](../09-desafio-profesional-etapa-4/) (redes neuronales). Guía completa del desafío: [`../desafio-profesional/README.md`](../desafio-profesional/README.md).
