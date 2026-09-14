@@ -1,265 +1,83 @@
-<!-- Convertido automáticamente desde: Etapa 2 - Limpieza y Transformación de Datos.pdf -->
+# Etapa II — Limpieza y Transformación de Datos
 
-Etapa I
-Limpieza y Transformación de Datos
+> Fuente: [`Etapa 2 - Limpieza y Transformación de Datos.pdf`](<../../02-desafio-profesional-etapas-1-y-2/consigna/Etapa 2 - Limpieza y Transformación de Datos.pdf>)
 
-Índice
+> El PDF titula esta diapositiva "Etapa I" (igual que la de la Etapa 1), lo que parece un error de numeración en el material original — el resto del documento y el índice se refieren consistentemente a la Etapa de Limpieza y Transformación de Datos.
 
-01
-02
-03
-04
-05
-06
+## Objetivos
 
-Objetivos
-Contenidos y Herramientas Clave
-Proceso de Limpieza de Datos
-Documentación del Proceso ETL
-Entregables Esperados
-Evaluación
+- **Calidad de los Datos:** el objetivo principal de esta etapa es asegurar que los datos sean de la más alta calidad posible, eliminando inconsistencias, manejando valores faltantes, y resolviendo cualquier problema de integridad referencial.
+- **Preparación para el Análisis:** se espera que los estudiantes transformen los datos de manera que estén listos para un análisis más profundo y para la creación de visualizaciones avanzadas en la siguiente etapa.
+- **Documentación y Reproducibilidad:** es crucial que cada paso del proceso de limpieza y transformación esté bien documentado para garantizar que el trabajo sea reproducible.
 
-01
+## Contenidos y Herramientas Clave
 
-Objetivos
+**SQL y Python**
 
-Objetivos
+- **SQL:** para la extracción de datos, creación de nuevas tablas, y realización de consultas que apoyen la limpieza de datos.
+- **Pandas:** para la manipulación y transformación de datos, manejo de valores nulos, y creación de nuevas columnas derivadas.
 
-■ Calidad de los Datos: El objetivo principal de esta etapa es asegurar que los datos sean de la más alta calidad
+**Técnicas de Limpieza de Datos:**
 
-posible, eliminando inconsistencias, manejando valores faltantes, y resolviendo cualquier problema de integridad
+- Detección y manejo de valores faltantes.
+- Identificación y tratamiento de outliers.
+- Normalización y escalado de variables.
 
-referencial.
+> **Tips**
+> - **Revisión de Consistencia:** asegúrate de revisar la consistencia entre diferentes tablas o fuentes de datos.
+> - **Automatización:** cuando sea posible, automatiza procesos de limpieza para aplicarlos a futuras versiones de los datos.
 
-■ Preparación para el Análisis: Se espera que los estudiantes transformen los datos de manera que estén listos
+## Proceso de Limpieza de Datos
 
-para un análisis más profundo y para la creación de visualizaciones avanzadas en la siguiente etapa.
+**Identificación de Valores Faltantes**
+- Localiza y maneja valores nulos o faltantes en el dataset.
 
-■ Documentación y Reproducibilidad: Es crucial que cada paso del proceso de limpieza y transformación esté
+**Detección y Tratamiento de Outliers y Duplicados**
+- Usa técnicas estadísticas y visuales para identificar outliers.
+- Eliminación de duplicados o corrección de errores básicos en los datos.
 
-bien documentado para garantizar que el trabajo sea reproducible.
+**Normalización y Escalado de Datos**
+- Ajusta las variables numéricas para que estén en la misma escala, si es necesario para el análisis posterior.
 
-02
+**Transformación de Variables**
+- Creación de nuevas variables derivadas, agregación de datos, o cambios en el formato de los datos (por ejemplo, fechas).
 
-Contenidos y
-Herramientas Clave
+> **Tips**
+> - Utiliza `df.isnull().sum()` para identificar rápidamente las columnas con valores faltantes y `df.dropna()` o `df.fillna()` para tratarlos según el contexto.
+> - Los boxplots y Z-scores son herramientas útiles para detectar outliers. Decide si eliminarlos, transformarlos o tratarlos de alguna otra manera.
+> - Utiliza técnicas como Min-Max o Estandarización (Z-score) según el tipo de análisis que realizarás.
+> - Usa `pd.to_datetime()` para manejar fechas y `groupby()` para agregaciones.
 
-Contenidos y Herramientas Clave
+## Documentación del Proceso ETL
 
-SQL y Python
+- **Extract:** detalla cómo se han extraído los datos de las fuentes originales, incluyendo las consultas SQL utilizadas.
+- **Transform:** documenta cada paso del proceso de transformación, explicando por qué se tomaron ciertas decisiones (por ejemplo, eliminación de outliers, técnicas de normalización).
+- **Load:** explica cómo se han almacenado los datos transformados, asegurando que están listos para ser utilizados en el análisis y visualización posteriores.
 
-○ SQL: Para la extracción de datos, creación de nuevas tablas, y realización de consultas que apoyen la limpieza
+> **Tips**
+> - **Clara Justificación:** justifica cada decisión de transformación de manera clara, explicando por qué se eligió una técnica específica para la limpieza o transformación de los datos.
+> - **Reproducibilidad:** asegúrate de que todo el proceso esté bien documentado para que pueda ser reproducido por otros.
 
-de datos.
+## Entregables Esperados
 
-○ Pandas: Para la manipulación y transformación de datos, manejo de valores nulos, y creación de nuevas
+1. **Scripts de Limpieza y Transformación de Datos:** código en Python y consultas SQL que documentan cómo se han limpiado y transformado los datos.
+   > Tip: asegúrate de que el código esté bien organizado, comentado, y que sea fácil de seguir.
+2. **Dataset Final Transformado:** dataset limpio y transformado, listo para ser utilizado en la etapa de visualización.
+   > Tip: verifica que todos los campos sean consistentes y que no haya errores o incoherencias en los datos finales.
+3. **Documentación del Proceso de ETL:** documento que explique detalladamente cada paso del proceso de extracción, transformación y carga (ETL) de los datos.
+   > Tip: mantén la documentación clara y concisa, pero lo suficientemente detallada para que cualquier persona pueda seguir el proceso.
 
-columnas derivadas.
+## Evaluación
 
-Técnicas de Limpieza de Datos:
+**Criterios de Evaluación**
 
-○ Detección y manejo de valores faltantes.
+- Calidad de los datos procesados, incluyendo la detección y manejo de outliers y valores faltantes.
+- Eficiencia en la aplicación de transformaciones y técnicas de normalización.
+- Documentación clara y completa del proceso ETL.
+- Reproducibilidad del proceso de limpieza y transformación.
 
-○ Identiﬁcación y tratamiento de outliers.
+---
 
-○ Normalización y escalado de variables.
+Con los datos ahora limpios y transformados, estarás preparado para la Etapa 3. Asegúrate de que todos los datos estén en las mejores condiciones posibles para facilitar el modelado.
 
-Tips
-
-Revisión de Consistencia
-
-Asegúrate de revisar la consistencia entre diferentes
-tablas o fuentes de datos.
-
-Automatización
-
-Cuando sea posible, automatiza procesos de limpieza
-para aplicarlos a futuras versiones de los datos.
-
-03
-
-Proceso de Limpieza de
-Datos
-
-Proceso de Exploración de Datos
-
-Identiﬁcación de Valores Faltantes
-
-Normalización y Escalado de Datos
-
-● Localiza y maneja valores nulos o faltantes en el
-
-● Ajusta las variables numéricas para que estén en la
-
-dataset.
-
-Detección y Tratamiento de Outliers y Duplicados
-
-● Usa técnicas estadísticas y visuales para identiﬁcar
-
-outliers.
-
-● Eliminación de duplicados o corrección de errores
-
-básicos en los datos.
-
-misma escala, si es necesario para el análisis
-posterior
-
-Transformación de Variables
-
-● Creación de nuevas variables derivadas, agregación
-
-de datos, o cambios en el formato
-de los datos (por ejemplo, fechas).
-
-Tips
-
-■ Utiliza df.isnull().sum() para identiﬁcar rápidamente las columnas
-
-con valores faltantes y df.dropna() o df.ﬁllna() para tratarlos según el
-
-contexto.
-
-■ Los boxplots y Z-scores son herramientas útiles para detectar
-
-outliers. Decide si eliminarlos, transformarlos o tratarlos de alguna
-
-otra manera.
-
-■ Utiliza técnicas como Min-Max o Estandarización (Z-score) según el
-
-tipo de análisis que realizarás.
-
-■ Usa pd.to_datetime() para manejar fechas y groupby() para
-
-agregaciones.
-
-04
-
-Documentación del
-Proceso ETL
-
-Documentación del Proceso ETL
-
-Extract
-
-Detalla cómo se han extraído los datos de las fuentes originales, incluyendo las consultas SQL utilizadas.
-
-Transform:
-
-Documenta cada paso del proceso de transformación, explicando por qué se tomaron ciertas decisiones (e.g.,
-
-eliminación de outliers, técnicas de normalización).
-
-Load:
-
-Explica cómo se han almacenado los datos transformados, asegurando que están listos para
-
-ser utilizados en el análisis y visualización posteriores.
-
-Tips
-
-Clara Justiﬁcación
-
-Justiﬁca cada decisión de transformación de manera
-clara, explicando por qué se eligió una técnica
-especíﬁca para la limpieza o transformación de los
-datos.
-
-Reproducibilidad
-
-Asegúrate de que todo el proceso esté bien
-documentado para que pueda ser reproducido por
-otros.
-
-05
-
-Entregables Esperados
-
-01
-02
-03
-
-Scripts de Limpieza y Transformación de Datos
-
-Dataset Final Transformado
-
-Documentación del Proceso de ETL
-
-Entregables
-Esperados
-
-Scripts de Limpieza y
-Transformación de Datos
-
-Código en Python y consultas SQL que documentan
-
-cómo se han limpiado y transformado los datos.
-
-Tips
-
-Asegúrate de que el código esté bien organizado,
-
-comentado, y que sea fácil de seguir.
-
-Dataset Final Transformado
-
-Dataset limpio y transformado, listo para ser utilizado en
-
-la etapa de visualización.
-
-Tips
-
-Veriﬁca que todos los campos sean consistentes y
-
-que no haya errores o incoherencias en los datos
-
-ﬁnales.
-
-Documentación del Proceso de
-ETL
-
-Documento que explique detalladamente cada paso del
-
-proceso de extracción, transformación y carga (ETL) de
-
-los datos.
-
-Tips
-
-Mantén la documentación clara y concisa, pero lo
-
-suﬁcientemente detallada para que cualquier persona
-
-pueda seguir el proceso.
-
-06
-
-Evaluación
-
-Criterios de Evaluación
-
-■ Calidad de los datos procesados, incluyendo la detección y manejo de outliers y valores faltantes.
-
-■ Eﬁciencia en la aplicación de transformaciones y técnicas de normalización.
-
-■ Documentación clara y completa del proceso ETL.
-
-■ Reproducibilidad del proceso de limpieza y transformación.
-
-Con los datos ahora limpios y transformados,
-estarás preparado para la Etapa 3. Asegúrate de
-que todos los datos estén en las mejores
-condiciones posibles para facilitar el modelado.
-
-La limpieza y transformación de datos
-es una de las tareas más críticas en
-cualquier proyecto de análisis de datos.
-Hazlo bien ahora, y te facilitará
-enormemente las etapas posteriores
-del proyecto.
-
-¡Muchas gracias!
-
-
+> La limpieza y transformación de datos es una de las tareas más críticas en cualquier proyecto de análisis de datos. Hazlo bien ahora, y te facilitará enormemente las etapas posteriores del proyecto.
