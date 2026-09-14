@@ -16,6 +16,11 @@ winemag-data-130k-v2.csv
 *.tar.gz
 *.tgz
 
+# Dataset descomprimido del modulo 08 (7.352 JPEG, ~168MB): el zip ya cae en
+# *.zip, pero la carpeta descomprimida no, y varios archivos individuales
+# superan el limite de GitHub si se suman en conjunto.
+08-gestion-de-proyectos-de-ia/notebooks/Datos\ -\ Análisis\ de\ imágenes\ en\ el\ sector\ industrial/
+
 # macOS
 .DS_Store
 
