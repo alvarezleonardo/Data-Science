@@ -1048,7 +1048,7 @@ A cambio paga dos cosas: **el costo de la atención crece con el cuadrado de la 
 
 ### 56. Autoencoders
 
-> Esta es la Clase 27 del curso, la primera del **Módulo 6 — Autoencoders y Modelos Generativos**, que cierra el bloque de contenidos nuevos del programa. Fuente: [Autoencoders - P1](<07-fundamentos-de-deep-learning/teoria/Autoencoders - P1.md>) y [Autoencoders - P2](<07-fundamentos-de-deep-learning/teoria/Autoencoders - P2.md>).
+> Esta es la Clase 27 del curso, la primera del **Módulo 6 — Autoencoders y Modelos Generativos**, que cierra el bloque de contenidos nuevos del programa. Fuente: [Autoencoders - P1](<../07-fundamentos-de-deep-learning/teoria/Autoencoders - P1.md>) y [Autoencoders - P2](<../07-fundamentos-de-deep-learning/teoria/Autoencoders - P2.md>).
 
 Todo lo visto hasta acá en el bloque de deep learning —CNNs, RNNs, Transformadores— resuelve tareas **supervisadas**: hay una etiqueta objetivo distinta de la entrada (una clase, la palabra siguiente, una traducción). Los **autoencoders** son la puerta de entrada al **aprendizaje no supervisado** dentro de deep learning: no hay etiqueta, solo datos de entrada, y el objetivo es aprender a reconstruirlos a sí mismos.
 
@@ -1216,7 +1216,7 @@ optimizador = torch.optim.Adam(modelo.parameters(), lr=1e-3)
 
 ### 57. Redes Adversarias Generativas (GANs)
 
-> Esta es la Clase 28 del curso, la segunda del **Módulo 6 — Autoencoders y Modelos Generativos**, y con ella se cierra el bloque de contenidos nuevos del programa. Fuente: [Redes Adversarias Generativas (GANs)](<07-fundamentos-de-deep-learning/teoria/Redes Adversarias Generativas (GANs).md>). Continúa del capítulo anterior.
+> Esta es la Clase 28 del curso, la segunda del **Módulo 6 — Autoencoders y Modelos Generativos**, y con ella se cierra el bloque de contenidos nuevos del programa. Fuente: [Redes Adversarias Generativas (GANs)](<../07-fundamentos-de-deep-learning/teoria/Redes Adversarias Generativas (GANs).md>). Continúa del capítulo anterior.
 
 El VAE del capítulo anterior resuelve la generación de datos optimizando **una única función de pérdida**: reconstrucción más divergencia KL. Las **GAN** (*Generative Adversarial Networks*, Redes Adversarias Generativas) plantean el problema de otra forma — en vez de una pérdida fija, entrenan **dos redes enfrentadas** en un juego, y es la competencia entre ambas la que empuja a que los datos generados se vuelvan realistas.
 
