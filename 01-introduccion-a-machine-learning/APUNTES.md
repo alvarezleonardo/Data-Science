@@ -1,6 +1,6 @@
 # Apuntes — Módulo 01: Introducción a Machine Learning
 
-> Apuntes sintetizados y mejorados de la teoría del módulo. Para el repaso global del programa ver [`../APUNTES-DATA-SCIENCE.md`](../APUNTES-DATA-SCIENCE.md).
+> Apuntes sintetizados y mejorados de la teoría del módulo. Para el repaso global del programa ver [`../manual/`](../manual/README.md).
 
 ## 1. ¿Qué es Machine Learning?
 

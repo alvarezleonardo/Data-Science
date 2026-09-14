@@ -1,6 +1,6 @@
 # Apuntes — Módulo 02: Desafío Profesional · Etapa 1
 
-> Guía de la primera etapa del proyecto integrador. Repaso global en [`../APUNTES-DATA-SCIENCE.md`](../APUNTES-DATA-SCIENCE.md).
+> Guía de la primera etapa del proyecto integrador. Repaso global en [`../manual/`](../manual/README.md).
 
 ## Objetivo de la Etapa 1
 

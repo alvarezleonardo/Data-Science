@@ -6,7 +6,7 @@
 
 Profundización en modelos de regresión y técnicas avanzadas de modelado supervisado.
 
-Apuntes teóricos de este módulo: **[APUNTES.md](APUNTES.md)** · guía de estudio para examen: **[GUIA-ESTUDIO.md](GUIA-ESTUDIO.md)** · repaso global: [../APUNTES-DATA-SCIENCE.md](../APUNTES-DATA-SCIENCE.md#parte-iii--modelos-lineales).
+Apuntes teóricos de este módulo: **[APUNTES.md](APUNTES.md)** · guía de estudio para examen: **[GUIA-ESTUDIO.md](GUIA-ESTUDIO.md)** · repaso global: [../manual/03-modelos-lineales.md](../manual/03-modelos-lineales.md#parte-iii--modelos-lineales).
 
 ## Contenido
 
