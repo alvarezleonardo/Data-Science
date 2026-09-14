@@ -1,0 +1,232 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Paso 1: Configuración del Entorno
+
+Primero, instalamos y cargamos las bibliotecas necesarias. Asegúrate de tener las bibliotecas instaladas antes de correr el código.
+
+```{r}
+# Carga de las librerías
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+```
+Paso 2: Carga del Conjunto de Datos
+
+Cargamos el conjunto de datos IRIS directamente desde la base de datos de R.
+
+
+```{r}
+# Carga del dataset IRIS
+data(iris)
+
+# Visualización de las primeras filas del dataset
+head(iris)
+
+```
+
+
+Paso 3: Inspección y Descripción de los Datos
+Analizamos la estructura y las características básicas del dataset.
+
+```{r}
+# Estructura del dataset
+str(iris)
+
+# Resumen estadístico del dataset
+summary(iris)
+
+# Comprobación de valores faltantes
+sum(is.na(iris))
+
+```
+Paso 4: Transformaciones Básicas de Datos
+
+Realizamos algunas transformaciones básicas, como el cambio de nombres de columnas para una mejor legibilidad.
+
+```{r}
+# Cambio de nombres de las columnas
+colnames(iris) <- c("Longitud_Sepalo", "Anchura_Sepalo", "Longitud_Petalo", "Anchura_Petalo", "Especie")
+
+# Confirmación de los cambios
+head(iris)
+
+```
+
+Redondeo de números decimales y conversión a enteros
+
+```{r}
+# Redondeo de las columnas numéricas y conversión a enteros
+iris$Longitud_Sepalo <- as.integer(round(iris$Longitud_Sepalo))
+iris$Anchura_Sepalo <- as.integer(round(iris$Anchura_Sepalo))
+iris$Longitud_Petalo <- as.integer(round(iris$Longitud_Petalo))
+iris$Anchura_Petalo <- as.integer(round(iris$Anchura_Petalo))
+
+
+# Confirmación de los cambios
+head(iris)
+
+```
+
+Capitalización de la primera letra de las especies
+
+```{r}
+# Función para capitalizar la primera letra de una palabra
+capitalize <- function(x) {
+  sapply(x, function(y) paste(toupper(substring(y, 1, 1)), tolower(substring(y, 2)), sep = ""))
+}
+
+# Aplicación de la función a la columna Especie
+iris$Especie <- capitalize(iris$Especie)
+
+# Confirmación de los cambios
+head(iris)
+
+```
+
+
+
+```{r}
+# Matriz de correlación
+cor_matrix <- cor(iris[,1:4])
+
+# Visualización de la matriz de correlación
+corrplot::corrplot(cor_matrix, method = "circle")
+
+```
+
+```{r}
+# Cargar la librería GGally
+library(GGally)
+# Crear el gráfico de pares de la matriz de correlación
+cor_plot <- ggpairs(iris[, 1:4], 
+                    upper = list(continuous = "cor"), 
+                    lower = list(continuous = "smooth"),
+                    diag = list(continuous = "densityDiag"))
+cor_plot
+```
+
+
+```{r}
+# Guardar el dataset transformado
+write.csv(iris, "iris_transformado.csv", row.names = FALSE)
+
+# Guardar el gráfico de la matriz de correlación como una imagen PNG
+ggsave("matriz_correlacion.png", plot = cor_plot, width = 10, height = 10)
+
+
+```
+
+
+4 - Carga de VIZ
+
+Histograma de Longitud del Sépalo con Facetas
+```{r}
+# Histograma de Longitud del Sépalo con facetas por Especie
+p_hist <- ggplot(iris, aes(x = Longitud_Sepalo)) + 
+  geom_histogram(binwidth = 0.2, fill = "blue", color = "black") + 
+  theme_minimal() + 
+  labs(title = "Distribución de la Longitud del Sépalo", x = "Longitud del Sépalo", y = "Frecuencia") +
+  facet_wrap(~ Especie)
+
+# Convertir a un gráfico interactivo con plotly
+ggplotly(p_hist)
+
+```
+
+Boxplot de la Longitud del Sépalo por Especie con Facetas
+
+```{r}
+# Filtrar los datos para incluir solo la especie Virginica
+iris_virginica <- subset(iris, Especie == "Virginica")
+
+# Boxplot de la Longitud del Sépalo para Virginica
+p_box_virginica <- ggplot(iris_virginica, aes(x = Especie, y = Longitud_Sepalo, fill = Especie)) + 
+  geom_boxplot() + 
+  theme_minimal() + 
+  labs(title = "Boxplot de la Longitud del Sépalo para Virginica", x = "Especie", y = "Longitud del Sépalo")
+
+# Convertir a un gráfico interactivo con plotly
+ggplotly(p_box_virginica)
+
+```
+
+
+
+
+DT es una interfaz de R para la biblioteca JavaScript DataTables, que permite crear tablas interactivas.
+
+```{r}
+
+library(DT)
+
+# Ejemplo de tabla interactiva con DT
+datatable(iris)
+
+```
+
+
+leaflet es una biblioteca poderosa para crear mapas interactivos. Es ampliamente utilizada para visualizaciones geoespaciales.
+
+```{r}
+library(leaflet)
+
+# Ejemplo de mapa interactivo con leaflet
+leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = -123.3656, lat = 48.4284, popup = "Hello, Victoria!")
+
+```
+
+
+
+```{r}
+library(ggiraph)
+library(ggplot2)
+
+# Ejemplo de ggiraph
+gg_point <- ggplot(mtcars, aes(x = wt, y = mpg, tooltip = rownames(mtcars))) +
+  geom_point_interactive()
+
+girafe(ggobj = gg_point)
+
+```
+
+
+
+
+```{r}
+#install.packages("shiny")
+
+library(shiny)
+
+# Ejemplo básico de una aplicación Shiny
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("obs", "Number of observations:", min = 1, max = 100, value = 50)
+    ),
+    mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    hist(rnorm(input$obs))
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+```
+
+
+
+Grupo 1: Mariano Garcia, Florencia Giay, Licia, Mariano Dimartin, Martina Sposato, Luis Maria Cormick, Leandro Consolini
+Grupo 2: Sergio Cabrera, Marcos Acosta, Silvina Toffolo, Alejandra Becerra y Exequiel Rivero - Linkedin
