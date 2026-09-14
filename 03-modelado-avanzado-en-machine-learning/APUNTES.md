@@ -1,6 +1,6 @@
 # Apuntes — Módulo 03: Modelado avanzado en Machine Learning
 
-> Apuntes sintetizados de la teoría del módulo. Repaso global del programa en [`../APUNTES-DATA-SCIENCE.md`](../APUNTES-DATA-SCIENCE.md).
+> Apuntes sintetizados de la teoría del módulo. Repaso global del programa en [`../manual/`](../manual/README.md).
 
 ## 1. Regresión lineal
 

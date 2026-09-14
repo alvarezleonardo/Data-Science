@@ -6,7 +6,7 @@
 
 Este módulo corresponde a la **Etapa 1 (Exploración Visual de los Datos)** y la **Etapa 2 (Limpieza y Transformación de Datos)** del Desafío Profesional: elección de un caso de negocio, EDA y limpieza/transformación de los datos.
 
-La guía única de las 4 etapas del desafío — con consignas, casos de negocio y checklist — vive ahora en **[`../desafio-profesional/`](../desafio-profesional/)**. Guía histórica de esta etapa: **[APUNTES.md](APUNTES.md)** · repaso global: [../APUNTES-DATA-SCIENCE.md](../APUNTES-DATA-SCIENCE.md#desafíos-profesionales).
+La guía única de las 4 etapas del desafío — con consignas, casos de negocio y checklist — vive ahora en **[`../desafio-profesional/`](../desafio-profesional/)**. Guía histórica de esta etapa: **[APUNTES.md](APUNTES.md)** · repaso global: [../manual/09-referencia-tecnica.md](../manual/09-referencia-tecnica.md#desafíos-profesionales).
 
 ## Contenido
 
