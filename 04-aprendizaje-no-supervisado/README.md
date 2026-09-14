@@ -6,7 +6,7 @@
 
 Técnicas de aprendizaje no supervisado: clustering (K-Means, jerárquico, DBSCAN), reducción de dimensionalidad (PCA, LDA, t-SNE, UMAP) y selección de variables. Curso "ML3" del programa de Digital House.
 
-> **Apuntes + referencia técnica** del módulo (qué es cada técnica, cuándo aplicarla, hiperparámetros, cómo se evalúa y snippets de `scikit-learn`): ver el documento maestro **[APUNTES-DATA-SCIENCE.md → Parte VI](../APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado)** (caps. 15-23). Pensado para repaso de examen.
+> **Apuntes + referencia técnica** del módulo (qué es cada técnica, cuándo aplicarla, hiperparámetros, cómo se evalúa y snippets de `scikit-learn`): ver el documento maestro **[manual/ → Parte VI](../manual/06-aprendizaje-no-supervisado.md#parte-vi--aprendizaje-no-supervisado)** (caps. 15-23). Pensado para repaso de examen.
 
 ## Contenido
 

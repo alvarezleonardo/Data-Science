@@ -6,7 +6,7 @@
 
 Primer módulo del programa: fundamentos de ML, aprendizaje supervisado y no supervisado, clasificadores lineales, árboles de decisión, métricas, evaluación de modelos y XGBoost.
 
-Apuntes teóricos sintetizados de este módulo: **[APUNTES.md](APUNTES.md)** · repaso global: [../APUNTES-DATA-SCIENCE.md](../APUNTES-DATA-SCIENCE.md#parte-i--fundamentos).
+Apuntes teóricos sintetizados de este módulo: **[APUNTES.md](APUNTES.md)** · repaso global: [../manual/01-fundamentos.md](../manual/01-fundamentos.md#parte-i--fundamentos).
 
 ## Contenido
 

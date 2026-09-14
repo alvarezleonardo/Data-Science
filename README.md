@@ -14,19 +14,19 @@ Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning 
 ## Apuntes consolidados
 
 Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo documento:
-**[APUNTES-DATA-SCIENCE.md](APUNTES-DATA-SCIENCE.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **54 capítulos en 9 partes**, con 36 diagramas y una referencia técnica de consulta.
+**[manual/](manual/README.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **58 capítulos en 9 partes**, con 36 diagramas y una referencia técnica de consulta. Partido en un archivo por parte; `APUNTES-DATA-SCIENCE.md` en la raíz queda como puntero al índice.
 
 ## Programa y avance
 
 | # | Módulo | Unidades | Clases | Apuntes | Estado |
 |---|--------|:--------:|:------:|:-------:|--------|
-| 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | [caps. 1-8, 10, 13-14](APUNTES-DATA-SCIENCE.md#parte-i--fundamentos) | ✅ Aprobado (7/7) |
+| 01 | [Introducción a Machine Learning](01-introduccion-a-machine-learning/) | 7 | 21 | [caps. 1-8, 10, 13-14](manual/01-fundamentos.md#parte-i--fundamentos) | ✅ Aprobado (7/7) |
 | 02 | [Desafío Profesional DS — Etapas 1 y 2](02-desafio-profesional-etapas-1-y-2/) | 1 | 3 | — | ✅ Aprobado (1/1) |
-| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [caps. 9, 11-12](APUNTES-DATA-SCIENCE.md#parte-iii--modelos-lineales) | ✅ Aprobado (7/7) |
-| 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](APUNTES-DATA-SCIENCE.md#parte-vi--aprendizaje-no-supervisado) | ✅ Aprobado (6/6) |
+| 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [caps. 9, 11-12](manual/03-modelos-lineales.md#parte-iii--modelos-lineales) | ✅ Aprobado (7/7) |
+| 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](manual/06-aprendizaje-no-supervisado.md#parte-vi--aprendizaje-no-supervisado) | ✅ Aprobado (6/6) |
 | 05 | [Desafío Profesional DS — Etapa 3](05-desafio-profesional-etapa-3/) | 1 | 1 | — | ⬜ Sin cursar · hay 1 PDF sin procesar |
-| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](APUNTES-DATA-SCIENCE.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
-| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-45, 48-57](APUNTES-DATA-SCIENCE.md#parte-ix--deep-learning-con-frameworks) | ✅ Aprobado (7/7) — teoría completa hasta autoencoders y GANs |
+| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](manual/07-redes-neuronales.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
+| 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-45, 48-57](manual/08-deep-learning-con-frameworks.md#parte-ix--deep-learning-con-frameworks) | ✅ Aprobado (7/7) — teoría completa hasta autoencoders y GANs |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ⬜ Sin cursar |
 | 09 | [Desafío Profesional DS — Etapa 4](09-desafio-profesional-etapa-4/) | 1 | 1 | — | ⬜ Sin cursar |
 | | **Total** | **45** | **164** | | **6 completados · 3 pendientes** |
@@ -42,7 +42,8 @@ Las 4 etapas del Desafío Profesional (módulos 02, 05 y 09) tienen una guía ú
 ```
 .
 ├── README.md                     ← este índice
-├── APUNTES-DATA-SCIENCE.md       ← manual del programa (54 capítulos, 9 partes)
+├── APUNTES-DATA-SCIENCE.md       ← puntero al manual (ver manual/)
+├── manual/                       ← manual del programa (58 capítulos, 9 partes)
 ├── requirements.txt              ← dependencias para reproducir el entorno
 ├── 01-introduccion-a-machine-learning/
 │   ├── teoria/                   ← conversión a Markdown de las slides
