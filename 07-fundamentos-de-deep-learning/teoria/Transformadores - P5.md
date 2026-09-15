@@ -68,7 +68,7 @@ DECODER #2: Self-Attention → Add&Norm → Encoder-Decoder Attention → Add&No
                                 Softmax
 ```
 
-Cada sub-capa —incluida la nueva **Encoder-Decoder Attention** del decoder— está envuelta en su propio `Add & Normalize`. Después del último decoder, una capa **Linear** proyecta la salida al tamaño del vocabulario y una capa **Softmax** final convierte esos valores en una distribución de probabilidad sobre las palabras posibles — el mecanismo exacto de esa última parte se desarrolla en [`Transformadores - P6.md`](Transformadores%20-%20P6.md#3-de-la-salida-del-decoder-a-una-palabra-linear--softmax).
+Cada sub-capa —incluida la nueva **Encoder-Decoder Attention** del decoder— está envuelta en su propio `Add & Normalize`. Después del último decoder, una capa **Linear** proyecta la salida al tamaño del vocabulario y una capa **Softmax** final convierte esos valores en una distribución de probabilidad sobre las palabras posibles — el mecanismo exacto de esa última parte se desarrolla en [`Transformadores - P6.md`](Transformadores%20-%20P6.md#4-de-la-salida-del-decoder-a-una-palabra-linear--softmax).
 
 ## 5. Relación con el resto del módulo
 
