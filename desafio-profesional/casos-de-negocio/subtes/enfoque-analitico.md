@@ -30,7 +30,7 @@ Se descompone en cuatro preguntas operativas:
 | H2 | La recuperacion post-2020 es **parcial y desigual**: las estaciones de oficina recuperan un porcentaje menor | Ratio flujo recuperado / linea base, por grupo |
 | H3 | El patron semanal cambio: cae mas el lunes-viernes que el fin de semana, y dentro de la semana cae mas el lunes y el viernes (hibrido 3x2) | Perfil dia-de-semana por periodo; comparar la forma de la curva, no solo el nivel |
 | H4 | Los picos horarios (commuting 7-9 y 17-19) se achatan y se corren | Perfil horario por periodo |
-| H5 | Las comunas con mayor caida sostenida de flujo muestran peor evolucion de locales gastronomicos | Correlacion entre variacion de flujo y variacion de locales, a nivel comuna |
+| H5 | Las comunas con mayor caida sostenida de flujo muestran peor evolucion de la actividad gastronomica | Correlacion entre variacion de flujo y composicion de locales, a nivel comuna. **Reformulacion pendiente**: los datos 2025-2026 muestran que la gastronomia de la Comuna 1 crece, ver [fuentes-externas.md](fuentes-externas.md) |
 
 H3 y H4 son clave: distinguen una caida generalizada de actividad de un **cambio estructural en el
 motivo del viaje**. Es la evidencia que permite hablar de trabajo remoto y no solo de recesion.
@@ -50,10 +50,17 @@ motivo del viaje**. Es la evidencia que permite hablar de trabajo remoto y no so
 
 ### 3.2 Fuentes externas a incorporar
 
-**Actividad economica — Direccion General de Estadistica y Censos de CABA**
-(`estadisticaciudad.gob.ar`, seccion Locales comerciales, series historica y no historica):
-releva locales por comuna y por rubro, lo que permite aislar gastronomia y hoteleria.
-Es la fuente que habilita la pregunta 4.
+**Actividad economica.** Relevado en detalle en **[fuentes-externas.md](fuentes-externas.md)**. En
+resumen: ninguna fuente oficial cubre comuna, rubro y 2014-2026 a la vez, asi que se combinan dos del
+Instituto de Estadistica y Censos de la Ciudad:
+
+- **Indice de Actividad en Restaurantes**: mensual 2015-2026, mide volumen real de actividad. Sin
+  desagregacion territorial.
+- **Locales ocupados por comuna y rubro**: rubro "Alojamiento y comidas", cuatrimestral 2025-2026,
+  mas la foto del censo de locales de 2019. Con comuna, sin serie continua.
+
+Las habilitaciones comerciales se evaluaron y se descartaron como eje: miden aperturas y no
+actividad, y su serie de gastronomia no arranca antes de 2016 por cambio de nomenclador.
 
 **Extension temporal de los molinetes** (ver seccion 4): los anios 2022 en adelante estan
 publicados en el portal de datos abiertos de la Ciudad, con el mismo origen que los provistos.
@@ -92,13 +99,19 @@ explicita y es el que sostiene H1 y H2.
 2. **Los molinetes miden ingresos, no viajes ni personas distintas.** Una persona que viaja ida y
    vuelta cuenta dos veces; una combinacion puede contar una sola. Es un proxy de circulacion, y
    como tal se lo nombra en todo el analisis.
-3. **Correlacion no es causalidad.** La caida de locales gastronomicos en 2020 tiene como causa
+3. **La gastronomia de la Ciudad se recupero por encima del nivel pre-pandemia.** El indice de
+   restaurantes marca 182 en 2023 contra 139 en 2019 (base marzo 2015 = 100), y 158 en 2026. La
+   pregunta deja de ser si la gastronomia cayo, y pasa a ser **si se redistribuyo territorialmente**:
+   si el total se recupero pero las estaciones de oficina no, la actividad se corrio de lugar. Es una
+   conclusion mas fuerte que la hipotesis original, y obliga a reformular H5.
+
+4. **Correlacion no es causalidad.** La caida de locales gastronomicos en 2020 tiene como causa
    directa el cierre administrativo, no la ausencia de oficinistas. El analisis puede sostener
    co-movimiento y asimetria territorial; atribuir la variacion al trabajo remoto exige controlar
    por el calendario de restricciones.
-4. **Cambios en la red.** Aperturas y renombramientos de estaciones entre 2014 y 2021 cortan
+5. **Cambios en la red.** Aperturas y renombramientos de estaciones entre 2014 y 2021 cortan
    algunas series; hay que detectarlos antes de interpretar un cero como caida de demanda.
-5. **Obras y paros** generan ceros que no son caida de demanda. Se marcan como datos faltantes
+6. **Obras y paros** generan ceros que no son caida de demanda. Se marcan como datos faltantes
    justificados, no como observaciones validas.
 
 ## 5. Hallazgo tecnico: seis formatos en ocho anios
@@ -236,5 +249,5 @@ medir la brecha contra lo observado. La brecha es la cuantificacion del impacto,
 - [ ] Coordenadas de las 5 estaciones que faltan en el padron
 - [x] Decidido extender la serie a 2022-2026 (ver limitacion 1)
 - [ ] Descarga y relevamiento de formato de los anios 2022 en adelante
-- [ ] Descarga de la serie de locales comerciales por comuna y rubro
+- [x] Fuentes externas relevadas y descargadas ([fuentes-externas.md](fuentes-externas.md))
 - [ ] Notebook de la Etapa 1
