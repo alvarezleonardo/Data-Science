@@ -19,12 +19,19 @@ Se elige **uno solo** al empezar la Etapa 1, y se mantiene el mismo durante las 
 
 | Caso | Dominio | Tipo de problema |
 |------|---------|-------------------|
-| [subtes](casos-de-negocio/subtes/) | Movilidad urbana (CABA) | Series temporales / demanda |
+| **[subtes](casos-de-negocio/subtes/)** — elegido | Movilidad urbana (CABA) | Series temporales / demanda |
 | [airbnb](casos-de-negocio/airbnb/) | Precios de alojamiento | Regresión de precio |
 | [cambio-climatico](casos-de-negocio/cambio-climatico/) | Ambiental | Regresión / tendencias |
 | [diabetes](casos-de-negocio/diabetes/) | Salud | Clasificación binaria |
 
-> Los datasets de cada caso (`*.zip`) no se versionan por superar el límite de 100 MB de GitHub. Se mantienen localmente / en Drive.
+**Caso elegido: subtes.** El enfoque analítico, las hipótesis y el plan de las cuatro etapas están en
+**[casos-de-negocio/subtes/enfoque-analitico.md](casos-de-negocio/subtes/enfoque-analitico.md)**:
+impacto post-pandemia sobre el uso del subte y su correlato en la actividad gastronómica y hotelera
+de las zonas de oficinas.
+
+> Los datasets de cada caso no se versionan: los `*.zip` superan el límite de 100 MB de GitHub y los
+> CSV descomprimidos del caso subtes pesan ~8 GB. Se mantienen localmente / en Drive, y
+> `casos-de-negocio/*/datasets/` está en `.gitignore`.
 
 ## Cómo se encadenan las etapas
 
