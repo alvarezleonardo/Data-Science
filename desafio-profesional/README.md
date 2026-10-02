@@ -24,10 +24,11 @@ Se elige **uno solo** al empezar la Etapa 1, y se mantiene el mismo durante las 
 | [cambio-climatico](casos-de-negocio/cambio-climatico/) | Ambiental | Regresión / tendencias |
 | [diabetes](casos-de-negocio/diabetes/) | Salud | Clasificación binaria |
 
-**Caso elegido: subtes.** El enfoque analítico, las hipótesis y el plan de las cuatro etapas están en
-**[casos-de-negocio/subtes/enfoque-analitico.md](casos-de-negocio/subtes/enfoque-analitico.md)**:
-impacto post-pandemia sobre el uso del subte y su correlato en la actividad gastronómica y hotelera
-de las zonas de oficinas.
+**Caso elegido: subtes.** Toda la documentación del trabajo vive en
+**[casos-de-negocio/subtes/documentacion/](casos-de-negocio/subtes/documentacion/)** — enfoque, metodología,
+calidad del dato, fuentes externas, resultados y cobertura de los entregables. El tema: impacto
+post-pandemia sobre el uso del subte y su correlato en la actividad gastronómica y hotelera de las zonas
+de oficinas, con la serie extendida de 2014 a junio de 2026 (139,9 millones de registros).
 
 > Los datasets de cada caso no se versionan: los `*.zip` superan el límite de 100 MB de GitHub y los
 > CSV descomprimidos del caso subtes pesan ~8 GB. Se mantienen localmente / en Drive, y

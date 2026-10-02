@@ -1,7 +1,7 @@
 # Caso Subtes — Enfoque analitico elegido
 
 > Caso de negocio seleccionado para el Desafio Profesional. El brief original esta en
-> [2.1 - Casos de Negocio - Subtes.md](<2.1 - Casos de Negocio - Subtes.md>); el enunciado habilita
+> [2.1 - Casos de Negocio - Subtes.md](<../2.1 - Casos de Negocio - Subtes.md>); el enunciado habilita
 > explicitamente a plantear preguntas propias ("tu podras buscar responder otras que consideres
 > relevantes"). Este documento fija la pregunta de negocio, las hipotesis y el plan de las 4 etapas.
 
