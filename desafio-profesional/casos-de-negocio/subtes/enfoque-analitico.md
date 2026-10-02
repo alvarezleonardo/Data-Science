@@ -42,7 +42,7 @@ motivo del viaje**. Es la evidencia que permite hablar de trabajo remoto y no so
 | Archivo | Contenido | Observacion |
 |---|---|---|
 | `historico_2014.csv` .. `historico_2021.csv` | Pasajeros por molinete, estacion, linea, en tramos de 15 minutos | ~8 GB sin comprimir. **Seis formatos distintos** entre los 8 anios: ver seccion 5 |
-| `estaciones-accesibles.csv` | 94 filas con `long`, `lat`, `linea`, `estacion` | **Es la clave del cruce territorial**: aporta la coordenada de cada estacion |
+| `estaciones-accesibles.csv` | 93 filas con `long`, `lat`, `linea`, `estacion` | **Clave del cruce territorial**: aporta coordenadas. Pero son solo **85 estaciones unicas** (8 repetidas por tener dos accesos) y faltan 5 no accesibles: ver [diccionario-estaciones.md](diccionario-estaciones.md) |
 | `lineas-de-subte.csv` | Trazado de las lineas en WKT | Para el mapa |
 | `registro-historico-del-precio-del-boleto.csv` | 305 registros de tarifa desde 1994 | Permite deflactar y analizar elasticidad precio-demanda |
 | `viajes_anual.csv` | 49 filas, total anual | Control de consistencia de los agregados propios |
@@ -67,7 +67,7 @@ molinete -> estacion -> (lat, long) de estaciones-accesibles.csv -> comuna / bar
 ```
 
 El ultimo paso requiere el poligono de comunas/barrios de CABA (dato abierto) y una asignacion
-espacial punto-en-poligono. Con 94 estaciones el resultado es auditable fila por fila, asi que la
+espacial punto-en-poligono. Con 90 estaciones el resultado es auditable fila por fila, asi que la
 asignacion se revisa a mano antes de usarla.
 
 Ademas de la comuna, cada estacion se clasifica por **funcion urbana** (oficinas / mixta /
@@ -76,12 +76,19 @@ explicita y es el que sostiene H1 y H2.
 
 ## 4. Limitaciones conocidas
 
-1. **El dataset provisto termina el 31/12/2021.** La pregunta del usuario incluye que la modalidad
-   virtual "sigue", lo cual no se puede sostener con datos que cortan en 2021: 2021 todavia tiene
-   restricciones vigentes, de modo que lo que se mide ahi es recuperacion temprana, no el nuevo
-   equilibrio. **Decision propuesta:** incorporar los anios 2022+ desde el portal de datos abiertos
-   de la Ciudad. Si se decide no ampliar, el alcance de la conclusion se acota a "recuperacion al
-   cierre de 2021" y se declara como limitacion.
+1. **El dataset provisto termina el 31/12/2021, y se decidio extenderlo.** La pregunta incluye que
+   el cambio de costumbres laborales no se revirtio y se sostiene hasta hoy, lo cual no se puede
+   afirmar con datos que cortan en 2021: en 2021 todavia habia restricciones vigentes, de modo que
+   ahi se mide recuperacion temprana, no el nuevo equilibrio. **Decision tomada:** incorporar los
+   anios 2022 en adelante desde el portal de datos abiertos de la Ciudad, para llevar la serie hasta
+   2026. Esto convierte la pregunta de "cuanto se recupero al cierre de 2021" en "cual es el nuevo
+   nivel de equilibrio y cuanta brecha quedo contra la tendencia pre-pandemia", que es la pregunta
+   que realmente interesa.
+
+   Con cinco anios de post-pandemia la serie permite, ademas, separar dos efectos que en 2021 estan
+   mezclados: la **recuperacion** del nivel de actividad y el **cambio estructural** del motivo del
+   viaje. Si el patron lunes-viernes (H3) sigue achatado en 2026 con el nivel total ya recuperado, la
+   conclusion sobre trabajo hibrido se sostiene sola, sin necesidad de suponerla.
 2. **Los molinetes miden ingresos, no viajes ni personas distintas.** Una persona que viaja ida y
    vuelta cuenta dos veces; una combinacion puede contar una sola. Es un proxy de circulacion, y
    como tal se lo nombra en todo el analisis.
@@ -167,9 +174,10 @@ estaciones afectadas. El caso de 2020 es el peor, porque el caracter de reemplaz
 la unica salida es un diccionario explicito, no un decode.
 
 **Decision:** el normalizador de nombres no puede ser un `.str.upper().str.strip()`. Requiere un
-diccionario de equivalencias construido a mano, validado contra las 94 estaciones de
-`estaciones-accesibles.csv`, que es el padron de referencia. Ese diccionario es un entregable de la
-Etapa 2.
+diccionario de equivalencias construido a mano y validado contra un padron de referencia. Ese
+trabajo ya esta iniciado en **[diccionario-estaciones.md](diccionario-estaciones.md)**, que
+documenta 12 alias verificados, las 5 estaciones sin coordenada, las 3 que abrieron despues de
+2018 y el orden en que deben aplicarse las operaciones de normalizacion.
 
 ### 5.3 Linea: cuatro nomenclaturas y valores vacios
 
@@ -224,7 +232,9 @@ medir la brecha contra lo observado. La brecha es la cuantificacion del impacto,
 - [x] Formatos de los 8 anios relevados
 - [x] Via de cruce territorial identificada (coordenadas por estacion)
 - [x] Inventario de estaciones, lineas, volumen y cobertura por anio (seccion 5.1 a 5.3)
-- [ ] Diccionario de normalizacion de estaciones, contra el padron de 94 de `estaciones-accesibles.csv`
-- [ ] Decision sobre extender la serie a 2022+
+- [x] Diccionario de normalizacion iniciado: 12 alias verificados ([diccionario-estaciones.md](diccionario-estaciones.md))
+- [ ] Coordenadas de las 5 estaciones que faltan en el padron
+- [x] Decidido extender la serie a 2022-2026 (ver limitacion 1)
+- [ ] Descarga y relevamiento de formato de los anios 2022 en adelante
 - [ ] Descarga de la serie de locales comerciales por comuna y rubro
 - [ ] Notebook de la Etapa 1
