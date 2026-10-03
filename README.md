@@ -24,18 +24,23 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 02 | [Desafío Profesional DS — Etapas 1 y 2](02-desafio-profesional-etapas-1-y-2/) | 1 | 3 | — | ✅ Aprobado (1/1) |
 | 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [caps. 9, 11-12](manual/03-modelos-lineales.md#parte-iii--modelos-lineales) | ✅ Aprobado (7/7) |
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](manual/06-aprendizaje-no-supervisado.md#parte-vi--aprendizaje-no-supervisado) | ✅ Aprobado (6/6) |
-| 05 | [Desafío Profesional DS — Etapa 3](05-desafio-profesional-etapa-3/) | 1 | 1 | [consigna](desafio-profesional/consignas/etapa-3-modelado-machine-learning.md) | ⬜ Sin cursar · consigna procesada |
+| 05 | [Desafío Profesional DS — Etapa 3](05-desafio-profesional-etapa-3/) | 1 | 1 | [consigna](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/blob/main/consignas/etapa-3-modelado-machine-learning.md) | ⬜ Sin cursar · consigna procesada |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](manual/07-redes-neuronales.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
 | 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-45, 48-57](manual/08-deep-learning-con-frameworks.md#parte-ix--deep-learning-con-frameworks) | ✅ Aprobado (7/7) — teoría completa hasta autoencoders y GANs |
 | 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | 🔄 En curso — teoría de los módulos 2 a 6 · 7 notebooks documentados |
-| 09 | [Desafío Profesional DS — Etapa 4](09-desafio-profesional-etapa-4/) | 1 | 1 | [consigna](desafio-profesional/consignas/etapa-4-implementacion-redes-neuronales.md) | ⬜ Sin cursar · consigna procesada |
+| 09 | [Desafío Profesional DS — Etapa 4](09-desafio-profesional-etapa-4/) | 1 | 1 | [consigna](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/blob/main/consignas/etapa-4-implementacion-redes-neuronales.md) | ⬜ Sin cursar · consigna procesada |
 | | **Total** | **45** | **164** | | **6 completados · 1 en curso · 2 pendientes** |
 
 Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
 
 > El estado de cada módulo es el que declara su propio `README.md`; esta tabla lo resume.
 
-Las 4 etapas del Desafío Profesional (módulos 02, 05 y 09) tienen una guía única de punta a punta en **[`desafio-profesional/`](desafio-profesional/)**: consignas, casos de negocio y checklist accionable por etapa.
+Las 4 etapas del Desafío Profesional (módulos 02, 05 y 09) se desarrollan en un repositorio aparte:
+**[Data-Science-Desafio-Profesional](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional)** (privado). Ahí viven las consignas, los casos de negocio y
+todo el desarrollo del caso elegido. En este repositorio quedan los PDF originales del campus, dentro
+de la carpeta de cada módulo.
+
+> Este repositorio reúne **la cursada**: teoría, apuntes, notebooks de práctica y el manual del programa.
 
 ## Estructura del repositorio
 
@@ -63,7 +68,6 @@ Las 4 etapas del Desafío Profesional (módulos 02, 05 y 09) tienen una guía ú
 ├── 07-fundamentos-de-deep-learning/
 │   ├── teoria/  notebooks/  datasets/   ← módulo en curso
 ├── 08..09/                       ← módulos siguientes (placeholders)
-└── desafio-profesional/          ← guía unificada de las 4 etapas del proyecto integrador
     ├── README.md  consignas/  casos-de-negocio/
 ```
 

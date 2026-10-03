@@ -6,7 +6,7 @@
 
 Este módulo corresponde a la **Etapa 1 (Exploración Visual de los Datos)** y la **Etapa 2 (Limpieza y Transformación de Datos)** del Desafío Profesional: elección de un caso de negocio, EDA y limpieza/transformación de los datos.
 
-La guía única de las 4 etapas del desafío — con consignas, casos de negocio y checklist — vive ahora en **[`../desafio-profesional/`](../desafio-profesional/)**. Guía histórica de esta etapa: **[APUNTES.md](APUNTES.md)** · repaso global: [../manual/09-referencia-tecnica.md](../manual/09-referencia-tecnica.md#desafíos-profesionales).
+El desarrollo de las 4 etapas del desafío vive en el repositorio privado **[Data-Science-Desafio-Profesional](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional)**. Guía histórica de esta etapa: **[APUNTES.md](APUNTES.md)** · repaso global: [../manual/09-referencia-tecnica.md](../manual/09-referencia-tecnica.md#desafíos-profesionales).
 
 ## Contenido
 
@@ -15,13 +15,14 @@ Presentación general del Desafío Profesional (transversal a las 4 etapas):
 [Desafío Profesional Data Science — Introducción](<introduccion/1 - Desafío Profesional Data Science - Introducción.pdf>).
 
 ### `consigna/`
-Material de las Etapas 1 y 2 (los PDF originales quedan acá; las versiones en Markdown están en [`../desafio-profesional/consignas/`](../desafio-profesional/consignas/)):
+Material de las Etapas 1 y 2. Los PDF originales quedan acá; las versiones en Markdown están en el
+[repositorio del desafío](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/tree/main/consignas) (privado):
 1. [Casos de Negocio — Introducción DS](<consigna/2 - Casos de Negocio - Introducción DS.pdf>)
 2. [Etapa 1 — Exploración Visual de los Datos](<consigna/Etapa 1 - Exploración Visual de los Datos.pdf>)
 3. [Etapa 2 — Limpieza y Transformación de Datos](<consigna/Etapa 2 - Limpieza y Transformación de Datos.pdf>)
 
 ### Casos de negocio
-Los briefs de los 4 casos disponibles se movieron a [`../desafio-profesional/casos-de-negocio/`](../desafio-profesional/casos-de-negocio/).
+Los briefs de los 4 casos disponibles están en el [repositorio del desafío](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/tree/main/casos-de-negocio) (privado).
 
 > Los datasets de los casos (`*.zip`) no se versionan por superar el límite de 100 MB de GitHub. Se mantienen localmente / en Drive.
 
