@@ -42,7 +42,3 @@ CLAUDE.md
 # Paginas web guardadas (playgrounds interactivos, con su carpeta _files)
 *Playground.html
 *Playground_files/
-
-# Datasets del Desafio Profesional: los zip ya caen en *.zip, pero los CSV
-# descomprimidos pesan ~8 GB en el caso subtes y tampoco deben versionarse.
-desafio-profesional/casos-de-negocio/*/datasets/
