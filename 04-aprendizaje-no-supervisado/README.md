@@ -17,30 +17,30 @@ Slides del curso (PDF + conversión `.md`):
 
 | Clase | Tema | PDF | Markdown |
 |:-----:|------|-----|----------|
-| 3 | Principios del Aprendizaje no Supervisado | [PDF](<teoria/material/Principios del Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Principios del Aprendizaje no Supervisado.md>) |
-| 4 | Aplicaciones del Aprendizaje no Supervisado | [PDF](<teoria/material/Aplicaciones del Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Aplicaciones del Aprendizaje no Supervisado.md>) |
-| 5 | Técnicas Comunes en Aprendizaje no Supervisado | [PDF](<teoria/material/Técnicas Comunes en Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Técnicas Comunes en Aprendizaje no Supervisado.md>) |
-| 6 | Preparación de Datos para Aprendizaje no Supervisado | [PDF](<teoria/material/Preparación de Datos para Aprendizaje no Supervisado.pdf>) | [MD](<teoria/Preparación de Datos para Aprendizaje no Supervisado.md>) |
-| 7 | Evaluación de Modelos No Supervisados | [PDF](<teoria/material/Evaluación de Modelos No Supervisados.pdf>) | [MD](<teoria/Evaluación de Modelos No Supervisados.md>) |
-| 9 | Fundamentos de Clustering | [PDF](<teoria/material/Fundamentos de Clustering.pdf>) | [MD](<teoria/Fundamentos de Clustering.md>) |
-| 10 | Clustering Jerárquico | [PDF](<teoria/material/Clustering Jerárquico.pdf>) | [MD](<teoria/Clustering Jerárquico.md>) |
-| 11 | Algoritmo de K-means | [PDF](<teoria/material/Algoritmo de K-means.pdf>) | [MD](<teoria/Algoritmo de K-means.md>) |
-| 12 | Evaluación de Clusters | [PDF](<teoria/material/Evaluación de Clusters.pdf>) | [MD](<teoria/Evaluación de Clusters.md>) |
-| 13 | DBSCAN y Algoritmos de Clustering Basados en Densidad | [PDF](<teoria/material/DBSCAN y Algoritmos de Clustering Basados en Densidad.pdf>) | [MD](<teoria/DBSCAN y Algoritmos de Clustering Basados en Densidad.md>) |
-| 14 | Aplicaciones Prácticas del Clustering | [PDF](<teoria/material/Aplicaciones Prácticas del Clustering.pdf>) | [MD](<teoria/Aplicaciones Prácticas del Clustering.md>) |
-| 16 | Comprender la Maldición de la Dimensión | [PDF](<teoria/material/Comprender la Maldición de la Dimensión.pdf>) | [MD](<teoria/Comprender la Maldición de la Dimensión.md>) |
-| 17 | Estrategias de Selección de Variables | [PDF](<teoria/material/Estrategias de Selección de Variables.pdf>) | [MD](<teoria/Estrategias de Selección de Variables.md>) |
-| 18 | Criterios de Selección de Modelos | [PDF](<teoria/material/Criterios de Selección de Modelos.pdf>) | [MD](<teoria/Criterios de Selección de Modelos.md>) |
-| 19 | Selección de Variables con Regularización | [PDF](<teoria/material/Selección de Variables con Regularización.pdf>) | [MD](<teoria/Selección de Variables con Regularización.md>) |
-| 22 | Principios de Reducción de la Dimensionalidad | [PDF](<teoria/material/Principios de Reducción de la Dimensionalidad.pdf>) | [MD](<teoria/Principios de Reducción de la Dimensionalidad.md>) |
-| 23 | Análisis de Componentes Principales (PCA) | [PDF](<teoria/material/Análisis de Componentes Principales (PCA).pdf>) | [MD](<teoria/Análisis de Componentes Principales (PCA).md>) |
-| 24 | Aplicaciones de PCA | [PDF](<teoria/material/Aplicaciones de PCA.pdf>) | [MD](<teoria/Aplicaciones de PCA.md>) |
-| 25 | Análisis Discriminante Lineal (LDA) | [PDF](<teoria/material/Análisis Discriminante Lineal (LDA).pdf>) | [MD](<teoria/Análisis Discriminante Lineal (LDA).md>) |
-| 26 | T-SNE para Visualización | [PDF](<teoria/material/T-SNE para Visualización.pdf>) | [MD](<teoria/T-SNE para Visualización.md>) |
-| 27 | UMAP para Reducción de Dimensionalidad | [PDF](<teoria/material/UMAP para Reducción de Dimensionalidad.pdf>) | [MD](<teoria/UMAP para Reducción de Dimensionalidad.md>) |
-| 28 | Comparación de Técnicas de Reducción de Dimensionalidad | [PDF](<teoria/material/Comparación de Técnicas de Reducción de Dimensionalidad.pdf>) | [MD](<teoria/Comparación de Técnicas de Reducción de Dimensionalidad.md>) |
+| 3 | Principios del Aprendizaje no Supervisado | [PDF](<teoria/material/principios-del-aprendizaje-no-supervisado.pdf>) | [MD](<teoria/principios-del-aprendizaje-no-supervisado.md>) |
+| 4 | Aplicaciones del Aprendizaje no Supervisado | [PDF](<teoria/material/aplicaciones-del-aprendizaje-no-supervisado.pdf>) | [MD](<teoria/aplicaciones-del-aprendizaje-no-supervisado.md>) |
+| 5 | Técnicas Comunes en Aprendizaje no Supervisado | [PDF](<teoria/material/tecnicas-comunes-en-aprendizaje-no-supervisado.pdf>) | [MD](<teoria/tecnicas-comunes-en-aprendizaje-no-supervisado.md>) |
+| 6 | Preparación de Datos para Aprendizaje no Supervisado | [PDF](<teoria/material/preparacion-de-datos-para-aprendizaje-no-supervisado.pdf>) | [MD](<teoria/preparacion-de-datos-para-aprendizaje-no-supervisado.md>) |
+| 7 | Evaluación de Modelos No Supervisados | [PDF](<teoria/material/evaluacion-de-modelos-no-supervisados.pdf>) | [MD](<teoria/evaluacion-de-modelos-no-supervisados.md>) |
+| 9 | Fundamentos de Clustering | [PDF](<teoria/material/fundamentos-de-clustering.pdf>) | [MD](<teoria/fundamentos-de-clustering.md>) |
+| 10 | Clustering Jerárquico | [PDF](<teoria/material/clustering-jerarquico.pdf>) | [MD](<teoria/clustering-jerarquico.md>) |
+| 11 | Algoritmo de K-means | [PDF](<teoria/material/algoritmo-de-k-means.pdf>) | [MD](<teoria/algoritmo-de-k-means.md>) |
+| 12 | Evaluación de Clusters | [PDF](<teoria/material/evaluacion-de-clusters.pdf>) | [MD](<teoria/evaluacion-de-clusters.md>) |
+| 13 | DBSCAN y Algoritmos de Clustering Basados en Densidad | [PDF](<teoria/material/dbscan-y-algoritmos-de-clustering-basados-en-densidad.pdf>) | [MD](<teoria/dbscan-y-algoritmos-de-clustering-basados-en-densidad.md>) |
+| 14 | Aplicaciones Prácticas del Clustering | [PDF](<teoria/material/aplicaciones-practicas-del-clustering.pdf>) | [MD](<teoria/aplicaciones-practicas-del-clustering.md>) |
+| 16 | Comprender la Maldición de la Dimensión | [PDF](<teoria/material/comprender-la-maldicion-de-la-dimension.pdf>) | [MD](<teoria/comprender-la-maldicion-de-la-dimension.md>) |
+| 17 | Estrategias de Selección de Variables | [PDF](<teoria/material/estrategias-de-seleccion-de-variables.pdf>) | [MD](<teoria/estrategias-de-seleccion-de-variables.md>) |
+| 18 | Criterios de Selección de Modelos | [PDF](<teoria/material/criterios-de-seleccion-de-modelos.pdf>) | [MD](<teoria/criterios-de-seleccion-de-modelos.md>) |
+| 19 | Selección de Variables con Regularización | [PDF](<teoria/material/seleccion-de-variables-con-regularizacion.pdf>) | [MD](<teoria/seleccion-de-variables-con-regularizacion.md>) |
+| 22 | Principios de Reducción de la Dimensionalidad | [PDF](<teoria/material/principios-de-reduccion-de-la-dimensionalidad.pdf>) | [MD](<teoria/principios-de-reduccion-de-la-dimensionalidad.md>) |
+| 23 | Análisis de Componentes Principales (PCA) | [PDF](<teoria/material/analisis-de-componentes-principales-pca.pdf>) | [MD](<teoria/analisis-de-componentes-principales-pca.md>) |
+| 24 | Aplicaciones de PCA | [PDF](<teoria/material/aplicaciones-de-pca.pdf>) | [MD](<teoria/aplicaciones-de-pca.md>) |
+| 25 | Análisis Discriminante Lineal (LDA) | [PDF](<teoria/material/analisis-discriminante-lineal-lda.pdf>) | [MD](<teoria/analisis-discriminante-lineal-lda.md>) |
+| 26 | T-SNE para Visualización | [PDF](<teoria/material/t-sne-para-visualizacion.pdf>) | [MD](<teoria/t-sne-para-visualizacion.md>) |
+| 27 | UMAP para Reducción de Dimensionalidad | [PDF](<teoria/material/umap-para-reduccion-de-dimensionalidad.pdf>) | [MD](<teoria/umap-para-reduccion-de-dimensionalidad.md>) |
+| 28 | Comparación de Técnicas de Reducción de Dimensionalidad | [PDF](<teoria/material/comparacion-de-tecnicas-de-reduccion-de-dimensionalidad.pdf>) | [MD](<teoria/comparacion-de-tecnicas-de-reduccion-de-dimensionalidad.md>) |
 
-Material del curso: [Programa del Curso](<teoria/material/Programa del Curso.pdf>) · [Cuestionario de Autoevaluación](<teoria/material/Cuestionario de Autoevaluación.pdf>).
+Material del curso: [Programa del Curso](<teoria/material/programa-del-curso.pdf>) · [Cuestionario de Autoevaluación](<teoria/material/cuestionario-de-autoevaluacion.pdf>).
 
 ### `notebooks/`
 

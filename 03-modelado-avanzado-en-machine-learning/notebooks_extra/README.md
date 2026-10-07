@@ -2,7 +2,7 @@
 
 Notebooks de práctica adicional, **no evaluados**, que integran los temas del módulo.
 
-## `Ejercicio_Incremental.ipynb`
+## `ejercicio-incremental.ipynb`
 
 Ejercicio integrador sobre el dataset **California housing** (`../datasets/housing.csv`), prediciendo `median_house_value`. Recorre el flujo completo de un problema de regresión:
 

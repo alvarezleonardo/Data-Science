@@ -40,7 +40,7 @@ Este proyecto implementa un modelo de Machine Learning para predecir si lloverá
 
 ```
 Ejercicio 7 XGBoost/
-├── Ejercicio 7.ipynb       # Notebook principal con análisis completo
+├── ejercicio-7.ipynb       # Notebook principal con análisis completo
 ├── weatherAUS.csv.zip      # Dataset de datos meteorológicos
 └── README.md               # Este archivo
 ```
@@ -57,7 +57,7 @@ pip install numpy pandas matplotlib seaborn scikit-learn xgboost
 
 1. Clona o descarga este repositorio
 2. Asegúrate de que el archivo `weatherAUS.csv.zip` esté en el mismo directorio
-3. Abre `Ejercicio 7.ipynb` en Jupyter Notebook o JupyterLab
+3. Abre `ejercicio-7.ipynb` en Jupyter Notebook o JupyterLab
 4. Ejecuta las celdas secuencialmente
 
 ## 📖 Metodología

@@ -4,7 +4,7 @@
 Este proyecto implementa un modelo de **Regresión Logística** para predecir la rotación de empleados (employee turnover) utilizando datos de recursos humanos. El enfoque principal está en el análisis exhaustivo de métricas de evaluación de modelos de clasificación binaria.
 
 ## 📁 Dataset
-**Archivo**: `HR_comma_sep.csv`
+**Archivo**: `hr-comma-sep.csv`
 
 El dataset contiene información sobre empleados con las siguientes características:
 - `satisfaction_level`: Nivel de satisfacción del empleado (0-1)
@@ -19,8 +19,8 @@ El dataset contiene información sobre empleados con las siguientes característ
 ## 📂 Estructura del Proyecto
 ```
 Ejercicio 3 Metricas/
-├── Ejercicio3.ipynb       # Notebook principal con análisis completo
-├── HR_comma_sep.csv       # Dataset de recursos humanos
+├── ejercicio3.ipynb       # Notebook principal con análisis completo
+├── hr-comma-sep.csv       # Dataset de recursos humanos
 └── README.md              # Documentación del proyecto
 ```
 
@@ -104,8 +104,8 @@ pip install scikit-learn pandas numpy matplotlib
 
 ## 🚀 Uso
 
-1. Abrir el notebook `Ejercicio3.ipynb` en Jupyter o VS Code
-2. Verificar que `HR_comma_sep.csv` esté en el mismo directorio
+1. Abrir el notebook `ejercicio3.ipynb` en Jupyter o VS Code
+2. Verificar que `hr-comma-sep.csv` esté en el mismo directorio
 3. Ejecutar las celdas secuencialmente
 4. Cada sección incluye explicaciones detalladas de las métricas y su aplicación
 

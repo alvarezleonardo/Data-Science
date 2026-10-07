@@ -18,13 +18,13 @@ El proyecto utiliza características de películas como tiempo de duración, dis
 ## Estructura del Proyecto
 
 ```
-├── ejercicio 4.ipynb                    # Notebook principal con el análisis
-├── Movie_classification.csv             # Dataset original
-├── Data/
-│   ├── Movie_Classification_train_x.csv # Conjunto de entrenamiento (features)
-│   ├── Movie_Classification_train_y.csv # Conjunto de entrenamiento (target)
-│   ├── Movie_Classification_test_x.csv  # Conjunto de prueba (features)
-│   └── Movie_Classification_test_y.csv  # Conjunto de prueba (target)
+├── ejercicio-4.ipynb                    # Notebook principal con el análisis
+├── movie-classification.csv             # Dataset original
+├── data/
+│   ├── movie-classification-train-x.csv # Conjunto de entrenamiento (features)
+│   ├── movie-classification-train-y.csv # Conjunto de entrenamiento (target)
+│   ├── movie-classification-test-x.csv  # Conjunto de prueba (features)
+│   └── movie-classification-test-y.csv  # Conjunto de prueba (target)
 └── README.md                            # Este archivo
 ```
 
@@ -40,7 +40,7 @@ El proyecto utiliza características de películas como tiempo de duración, dis
 ## Metodología Detallada
 
 ### 1. Carga y Exploración de Datos
-- Carga del dataset `Movie_classification.csv`
+- Carga del dataset `movie-classification.csv`
 - Análisis exploratorio inicial: dimensiones, tipos de datos, primeras observaciones
 - Identificación de valores faltantes y análisis de distribuciones
 
@@ -164,18 +164,18 @@ pip install numpy pandas seaborn matplotlib scikit-learn
 
 3. **Abrir el notebook**:
 ```bash
-jupyter notebook "ejercicio 4.ipynb"
+jupyter notebook "ejercicio-4.ipynb"
 ```
 
 4. **Ejecutar las celdas secuencialmente** para reproducir el análisis completo
 
 ## Archivos Generados
 
-El notebook genera automáticamente los siguientes archivos en el directorio `Data/`:
-- `Movie_Classification_train_x.csv`: Features de entrenamiento
-- `Movie_Classification_train_y.csv`: Target de entrenamiento
-- `Movie_Classification_test_x.csv`: Features de prueba
-- `Movie_Classification_test_y.csv`: Target de prueba
+El notebook genera automáticamente los siguientes archivos en el directorio `data/`:
+- `movie-classification-train-x.csv`: Features de entrenamiento
+- `movie-classification-train-y.csv`: Target de entrenamiento
+- `movie-classification-test-x.csv`: Features de prueba
+- `movie-classification-test-y.csv`: Target de prueba
 
 ## Próximos Pasos
 
