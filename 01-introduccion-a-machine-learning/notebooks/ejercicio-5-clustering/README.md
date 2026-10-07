@@ -17,13 +17,12 @@ Este proyecto implementa un análisis de clustering utilizando el algoritmo **K-
 Ejercicio 5 Clustering/
 │
 ├── clustering.ipynb          # Notebook principal con el análisis
-├── mall_customers.csv         # Dataset de clientes
 └── README.md                  # Documentación del proyecto
 ```
 
 ## 📊 Dataset
 
-El archivo `mall_customers.csv` contiene información de 200 clientes con las siguientes características:
+El archivo `../../datasets/mall-customers.csv` contiene información de 200 clientes con las siguientes características:
 
 | Variable | Descripción |
 |----------|-------------|

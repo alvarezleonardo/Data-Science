@@ -46,6 +46,6 @@ Slides del curso (PDF original + conversión `.md` al lado):
 | [tp1](notebooks/tp1/) | Trabajo Práctico 1 (Framingham) |
 
 ### `datasets/`
-Datasets del módulo (abalone, breast-cancer, Default, diabetes, framingham, HR, mall_customers, Movie_classification).
+Datasets del módulo (abalone, breast-cancer, default, diabetes, framingham, hr-comma-sep, mall-customers, movie-classification).
 
 [← Volver al índice](../README.md)
