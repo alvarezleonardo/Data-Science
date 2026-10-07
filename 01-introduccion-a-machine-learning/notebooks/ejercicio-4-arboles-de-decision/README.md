@@ -19,7 +19,6 @@ El proyecto utiliza características de películas como tiempo de duración, dis
 
 ```
 ├── ejercicio-4.ipynb                    # Notebook principal con el análisis
-├── movie-classification.csv             # Dataset original
 ├── data/
 │   ├── movie-classification-train-x.csv # Conjunto de entrenamiento (features)
 │   ├── movie-classification-train-y.csv # Conjunto de entrenamiento (target)
@@ -40,7 +39,7 @@ El proyecto utiliza características de películas como tiempo de duración, dis
 ## Metodología Detallada
 
 ### 1. Carga y Exploración de Datos
-- Carga del dataset `movie-classification.csv`
+- Carga del dataset `../../datasets/movie-classification.csv`
 - Análisis exploratorio inicial: dimensiones, tipos de datos, primeras observaciones
 - Identificación de valores faltantes y análisis de distribuciones
 

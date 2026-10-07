@@ -18,7 +18,7 @@ Este proyecto implementa un análisis completo de clasificación utilizando el a
 ## 📊 Dataset
 
 **Nombre**: Abalone Dataset
-- **Archivo**: `abalone.csv`
+- **Archivo**: `../../datasets/abalone.csv`
 - **Separador**: Punto y coma (`;`)
 - **Variable objetivo**: `Adulto` (clasificación binaria)
 - **Variables eliminadas**: `Sex` (categórica) y `Adulto` (target)
@@ -48,7 +48,6 @@ Este proyecto implementa un análisis completo de clasificación utilizando el a
 ```
 Ejercicio 6 Evaluación de modelos/
 │
-├── abalone.csv              # Dataset de Abalone
 ├── ejercicio6.ipynb         # Notebook principal con el análisis
 └── README.md               # Este archivo
 ```
@@ -132,7 +131,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 
 ### Ejecución
 1. Abrir `ejercicio6.ipynb` en Jupyter Notebook o VS Code
-2. Asegurarse de que `abalone.csv` esté en el mismo directorio
+2. Asegurarse de que `../../datasets/abalone.csv` esté en el mismo directorio
 3. Ejecutar las celdas secuencialmente
 4. Analizar los resultados y visualizaciones
 

@@ -16,7 +16,7 @@ Desarrollar un modelo predictivo que permita identificar clientes con alto riesg
 
 ## 📊 Dataset
 
-**Archivo:** `default.csv`
+**Archivo:** `../../datasets/default.csv`
 
 El dataset contiene información de clientes y su historial de pagos. Los datos están desbalanceados, con aproximadamente **3.33%** de clientes que han hecho default y **96.67%** que han cumplido con sus pagos.
 
@@ -53,7 +53,6 @@ El proyecto utiliza las siguientes librerías de Python:
 Ejercicio 2 Clasificadores lineales/
 │
 ├── ejercicio-reglogistica.ipynb    # Notebook principal con análisis completo
-├── default.csv                     # Dataset de entrada (get_dummies)
 - **Eliminación de multicolinealidad**: Uso de `drop_first=True` para evitar la trampa de variables dummy (dummy variable trap)
   - Si tenemos 2 categorías, solo necesitamos 1 variable dummy
   - La segunda categoría está implícita: si student_Yes = 0, entonces student_No = 1
@@ -233,7 +232,7 @@ pip install pandas numpy scikit-learn
 
 ### Ejecución
 
-1. Asegúrate de tener el archivo `default.csv` en el mismo directorio
+1. Asegúrate de tener el archivo `../../datasets/default.csv` en el mismo directorio
 2. Abre el notebook `ejercicio-reglogistica.ipynb`
 3. Ejecuta las celdas secuencialmente (Shift + Enter)
 
