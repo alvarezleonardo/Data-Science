@@ -12,14 +12,14 @@ El desarrollo de las 4 etapas del desafío vive en el repositorio privado **[Dat
 
 ### `introduccion/`
 Presentación general del Desafío Profesional (transversal a las 4 etapas):
-[Desafío Profesional Data Science — Introducción](<introduccion/1 - Desafío Profesional Data Science - Introducción.pdf>).
+[Desafío Profesional Data Science — Introducción](<introduccion/1-desafio-profesional-data-science-introduccion.pdf>).
 
 ### `consigna/`
 Material de las Etapas 1 y 2. Los PDF originales quedan acá; las versiones en Markdown están en el
 [repositorio del desafío](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/tree/main/consignas) (privado):
-1. [Casos de Negocio — Introducción DS](<consigna/2 - Casos de Negocio - Introducción DS.pdf>)
-2. [Etapa 1 — Exploración Visual de los Datos](<consigna/Etapa 1 - Exploración Visual de los Datos.pdf>)
-3. [Etapa 2 — Limpieza y Transformación de Datos](<consigna/Etapa 2 - Limpieza y Transformación de Datos.pdf>)
+1. [Casos de Negocio — Introducción DS](<consigna/2-casos-de-negocio-introduccion-ds.pdf>)
+2. [Etapa 1 — Exploración Visual de los Datos](<consigna/etapa-1-exploracion-visual-de-los-datos.pdf>)
+3. [Etapa 2 — Limpieza y Transformación de Datos](<consigna/etapa-2-limpieza-y-transformacion-de-datos.pdf>)
 
 ### Casos de negocio
 Los briefs de los 4 casos disponibles están en el [repositorio del desafío](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/tree/main/casos-de-negocio) (privado).
