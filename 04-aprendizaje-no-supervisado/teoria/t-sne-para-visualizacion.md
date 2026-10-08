@@ -28,4 +28,4 @@
 - **Computacionalmente intensivo** en datasets grandes.
 - Preserva bien la **estructura local**, pero la **estructura global** (distancias entre clusters) puede no ser fiable.
 
-> Comparación con PCA (lineal), LDA (supervisado) y UMAP en [Comparación de Técnicas de Reducción de Dimensionalidad](<comparacion-de-tecnicas-de-reduccion-de-dimensionalidad.md>). Práctica: [notebooks/tsne_practica.ipynb](../notebooks/tsne_practica.ipynb).
+> Comparación con PCA (lineal), LDA (supervisado) y UMAP en [Comparación de Técnicas de Reducción de Dimensionalidad](<comparacion-de-tecnicas-de-reduccion-de-dimensionalidad.md>). Práctica: [notebooks/tsne-practica.ipynb](../notebooks/tsne-practica.ipynb).

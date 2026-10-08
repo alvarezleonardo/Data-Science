@@ -30,4 +30,4 @@ PCA puede usarse para **reducir la dimensionalidad antes de entrenar** un modelo
 | **Imágenes** | Comprimir la representación antes de clasificar |
 | **Texto (NLP clásico)** | Reducir matrices términos-documentos dispersas |
 
-> Enlaza con [Análisis de Componentes Principales (PCA)](<analisis-de-componentes-principales-pca.md>) (teoría, Clase 23). Práctica: [notebooks/aplicaciones_pca_practica.ipynb](../notebooks/aplicaciones_pca_practica.ipynb).
+> Enlaza con [Análisis de Componentes Principales (PCA)](<analisis-de-componentes-principales-pca.md>) (teoría, Clase 23). Práctica: [notebooks/aplicaciones-pca-practica.ipynb](../notebooks/aplicaciones-pca-practica.ipynb).

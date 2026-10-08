@@ -14,7 +14,7 @@ Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning 
 ## Apuntes consolidados
 
 Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo documento:
-**[manual/](manual/README.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **58 capítulos en 9 partes**, con 40 diagramas y una referencia técnica de consulta. Partido en un archivo por parte; `APUNTES-DATA-SCIENCE.md` en la raíz queda como puntero al índice.
+**[manual/](manual/README.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **67 capítulos en 10 partes**, con 45 diagramas y una referencia técnica de consulta. Partido en un archivo por parte; `APUNTES-DATA-SCIENCE.md` en la raíz queda como puntero al índice.
 
 ## Programa y avance
 
@@ -27,7 +27,7 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 05 | [Desafío Profesional DS — Etapa 3](05-desafio-profesional-etapa-3/) | 1 | 1 | [consigna](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/blob/main/consignas/etapa-3-modelado-machine-learning.md) | ⬜ Sin cursar · consigna procesada |
 | 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](manual/07-redes-neuronales.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 5 notebooks propios · evaluación final resuelta |
 | 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-45, 48-57](manual/08-deep-learning-con-frameworks.md#parte-ix--deep-learning-con-frameworks) | ✅ Aprobado (7/7) — teoría completa hasta autoencoders y GANs |
-| 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ✅ Aprobado (7/7) — teoría completa · 7 notebooks documentados |
+| 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | [caps. 59-67](manual/10-gestion-de-proyectos-de-ia.md#parte-x--gestión-de-proyectos-de-ia-y-mlops) | ✅ Aprobado (7/7) — teoría completa · 7 notebooks documentados |
 | 09 | [Desafío Profesional DS — Etapa 4](09-desafio-profesional-etapa-4/) | 1 | 1 | [consigna](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/blob/main/consignas/etapa-4-implementacion-redes-neuronales.md) | ⬜ Sin cursar · consigna procesada |
 | | **Total** | **45** | **164** | | **7 completados · 2 del Desafío Profesional, en el repo aparte** |
 
@@ -39,10 +39,6 @@ repositorio aparte, así que no tienen cursada propia.
 
 > El estado de cada módulo es el que declara su propio `README.md`; esta tabla lo resume.
 
-> **El módulo 08 está aprobado, pero su teoría todavía no está en el manual consolidado.** Por eso su
-> celda de apuntes figura vacía: los capítulos de gestión de proyectos de IA y MLOps quedan pendientes
-> de escribir. La teoría convertida sí está completa, en
-> [`08-gestion-de-proyectos-de-ia/teoria/`](08-gestion-de-proyectos-de-ia/teoria/).
 
 Las 4 etapas del Desafío Profesional (módulos 02, 05 y 09) se desarrollan en un repositorio aparte:
 **[Data-Science-Desafio-Profesional](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional)** (privado). Ahí viven las consignas, los casos de negocio y
@@ -57,7 +53,7 @@ de la carpeta de cada módulo.
 .
 ├── README.md                     ← este índice
 ├── APUNTES-DATA-SCIENCE.md       ← puntero al manual (ver manual/)
-├── manual/                       ← manual del programa (58 capítulos, 9 partes)
+├── manual/                       ← manual del programa (67 capítulos, 10 partes)
 ├── requirements.txt              ← dependencias para reproducir el entorno
 ├── 01-introduccion-a-machine-learning/
 │   ├── teoria/                   ← conversión a Markdown de las slides
@@ -95,7 +91,7 @@ pip install -r requirements.txt
 
 Recomendado: **un único `.venv` en la raíz** del repo para todos los módulos (en vez de uno por ejercicio). La versión de Python sugerida está en [`.python-version`](.python-version).
 
-Datasets pesados: ver [`scripts/descargar_datos.sh`](scripts/descargar_datos.sh).
+Datasets pesados: ver [`scripts/descargar-datos.sh`](scripts/descargar-datos.sh).
 
 ## Convenciones
 

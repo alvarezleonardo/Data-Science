@@ -32,4 +32,4 @@ Identificar las **direcciones (componentes principales)** en las que los datos *
 - **Preprocesar** antes de entrenar (menos ruido, menos overfitting, más velocidad).
 - **Descorrelacionar** features (los componentes son ortogonales).
 
-> **Importante:** conviene **estandarizar** las variables antes de PCA cuando están en escalas distintas, porque PCA es sensible a la escala (una variable con valores grandes dominaría la varianza). Práctica: [notebooks/aplicaciones_pca_practica.ipynb](../notebooks/aplicaciones_pca_practica.ipynb). Comparación con LDA en [Análisis Discriminante Lineal (LDA)](<analisis-discriminante-lineal-lda.md>).
+> **Importante:** conviene **estandarizar** las variables antes de PCA cuando están en escalas distintas, porque PCA es sensible a la escala (una variable con valores grandes dominaría la varianza). Práctica: [notebooks/aplicaciones-pca-practica.ipynb](../notebooks/aplicaciones-pca-practica.ipynb). Comparación con LDA en [Análisis Discriminante Lineal (LDA)](<analisis-discriminante-lineal-lda.md>).

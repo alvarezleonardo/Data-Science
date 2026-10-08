@@ -17,6 +17,11 @@
 - [`despliegue-y-escalabilidad-de-proyectos-de-ia.md`](<teoria/despliegue-y-escalabilidad-de-proyectos-de-ia.md>) — Clase 13, Módulo 5: escalabilidad horizontal y vertical, recursos en la nube, reducción de latencia, GPU vs. CPU y contenedores (Docker)
 - [`introduccion-a-mlops.md`](<teoria/introduccion-a-mlops.md>) — Clase 15, Módulo 6: definición de MLOps, experiment tracking y control de versiones de modelos (W&B, MLflow), y el stack de CI/CD y monitoreo (Jenkins, GitHub Actions, Prometheus, Grafana)
 
+La teoría de este módulo está consolidada en el manual:
+[**Parte X — Gestión de proyectos de IA y MLOps**](../manual/10-gestion-de-proyectos-de-ia.md#parte-x--gestión-de-proyectos-de-ia-y-mlops),
+capítulos 59 a 67 (fases del proyecto, definición del problema, roles del equipo, plataformas en la nube,
+escalabilidad, rendimiento, MLOps, experiment tracking y CI/CD).
+
 La teoría está completa. Los módulos 1 y 7 no aportan material: el 1 es la bienvenida y el 7 es el
 cierre de curso, con la clase 17 de despedida y la clase 18 de evaluación integral. Toda la teoría
 descargable del módulo corresponde a las unidades 2 a 6, y está convertida.

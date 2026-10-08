@@ -33,4 +33,4 @@ Pasos:
 
 > Recordar: `k` es un **hiperparámetro** (se define antes de entrenar). Para elegirlo se usan el **método del codo** y el **índice de silueta** (ver Clase 12).
 
-> Práctica asociada: [notebooks/kmeans_practica.ipynb](../notebooks/kmeans_practica.ipynb) — `KMeans` de sklearn sobre `make_blobs`, visualización de clusters y centroides, y análisis de silueta.
+> Práctica asociada: [notebooks/kmeans-practica.ipynb](../notebooks/kmeans-practica.ipynb) — `KMeans` de sklearn sobre `make_blobs`, visualización de clusters y centroides, y análisis de silueta.
