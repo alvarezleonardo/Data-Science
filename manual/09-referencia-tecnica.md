@@ -1,4 +1,4 @@
-[Índice](README.md) · [← Anterior](08-deep-learning-con-frameworks.md)
+[Índice](README.md) · [← Anterior](08-deep-learning-con-frameworks.md) · [Siguiente →](10-gestion-de-proyectos-de-ia.md)
 
 # Parte VIII — Referencia técnica
 

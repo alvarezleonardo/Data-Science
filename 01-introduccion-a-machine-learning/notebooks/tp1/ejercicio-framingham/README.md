@@ -108,9 +108,9 @@ El proyecto incluye múltiples visualizaciones profesionales:
 ├── 📊 framingham.csv                    # Dataset original (4,240 registros)
 │
 └── 📁 outputs/ (generados al ejecutar)
-    ├── analisis_tipos_variables.png     # Gráfico de clasificación de variables
+    ├── analisis-tipos-variables.png     # Gráfico de clasificación de variables
     ├── reporte_variables.txt            # Reporte detallado de análisis
-    └── resumen_columnas.csv             # Resumen tabular de columnas
+    └── resumen-columnas.csv             # Resumen tabular de columnas
 ```
 
 ### 🔥 Quick Start

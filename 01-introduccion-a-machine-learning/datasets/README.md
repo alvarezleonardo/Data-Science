@@ -13,4 +13,4 @@ Datasets usados en los ejercicios y prácticas del módulo.
 | `mall-customers.csv` | Clientes de shopping (segmentación) | — (sin label) | Clustering |
 | `movie-classification.csv` | Datos de películas | `Start_Tech_Oscar` | Clasificación / Árboles |
 
-> Datasets livianos versionados directamente. Los pesados (`*.zip` > 100 MB) no se versionan: ver [`scripts/descargar_datos.sh`](../../scripts/descargar_datos.sh).
+> Datasets livianos versionados directamente. Los pesados (`*.zip` > 100 MB) no se versionan: ver [`scripts/descargar-datos.sh`](../../scripts/descargar-datos.sh).

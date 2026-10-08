@@ -1,6 +1,6 @@
 # Manual de Data Science — Digital House
 
-> Este manual se partió en varios archivos dentro de [`manual/`](manual/README.md) porque el archivo único (58 capítulos, ~3.000 líneas) se había vuelto inmanejable. Este archivo queda como puntero corto: el contenido completo, con índice y tabla de equivalencia de módulos, está en [`manual/README.md`](manual/README.md).
+> Este manual se partió en varios archivos dentro de [`manual/`](manual/README.md) porque el archivo único (67 capítulos, ~3.400 líneas) se había vuelto inmanejable. Este archivo queda como puntero corto: el contenido completo, con índice y tabla de equivalencia de módulos, está en [`manual/README.md`](manual/README.md).
 
 ## Índice de partes
 

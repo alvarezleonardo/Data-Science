@@ -46,16 +46,16 @@ Material del curso: [Programa del Curso](<teoria/material/programa-del-curso.pdf
 
 | Notebook | Tema |
 |----------|------|
-| [clustering_jerarquico_practica.ipynb](notebooks/clustering_jerarquico_practica.ipynb) | Práctica de la Clase 10: clustering jerárquico aglomerativo con `scipy` (`linkage`, `dendrogram`, `fcluster`); dendrogramas variando el número de clusters y los métodos de enlace (simple, completo, promedio, centroide, Ward) con distancia euclidiana. |
-| [kmeans_practica.ipynb](notebooks/kmeans_practica.ipynb) | Práctica de la Clase 11: `KMeans` sobre `make_blobs`; visualización de clusters y centroides, análisis de silueta. |
-| [evaluacion_clusters_practica.ipynb](notebooks/evaluacion_clusters_practica.ipynb) | Práctica de la Clase 12: elección del nº óptimo de clusters con el método del codo (inercia) y silueta. |
-| [dbscan_practica.ipynb](notebooks/dbscan_practica.ipynb) | Práctica de la Clase 13: `DBSCAN`; ajuste de `eps` y `min_samples`, comparación con K-means. |
-| [clustering_practica_complementaria.ipynb](notebooks/clustering_practica_complementaria.ipynb) | Práctica complementaria (Clase 14): K-means con `KFold` y `GridSearchCV`, imputación y escalado sobre el dataset `wine`. |
-| [seleccion_variables_embedded_practica.ipynb](notebooks/seleccion_variables_embedded_practica.ipynb) | Práctica de la Clase 20 (métodos embedded): sobre el dataset `Iris`, análisis de dimensionalidad y correlación, K-means como línea base, elección del nº de clusters (codo vs. silueta) y selección de variables con `feature_importances` de `RandomForest`. |
-| [aplicaciones_pca_practica.ipynb](notebooks/aplicaciones_pca_practica.ipynb) | Práctica de la Clase 24: `PCA` de sklearn sobre el dataset `wine`; estandarización con `StandardScaler`, varianza explicada por componente (`explained_variance_ratio_`), elección de `n_components` y clasificación comparando el rendimiento con y sin reducción. |
-| [lda_practica.ipynb](notebooks/lda_practica.ipynb) | Práctica de la Clase 25: `LinearDiscriminantAnalysis` de sklearn; proyección supervisada que maximiza la separación entre clases y comparación con la proyección de PCA. |
-| [tsne_practica.ipynb](notebooks/tsne_practica.ipynb) | Práctica de la Clase 26: `TSNE` de sklearn (`sklearn.manifold`); visualización en 2D de datos de alta dimensión, efecto de `perplexity` y exploración de clusters. |
-| [umap_practica.ipynb](notebooks/umap_practica.ipynb) | Práctica de la Clase 27: `UMAP` (paquete `umap-learn`); proyección a 2D preservando estructura local y global, ajuste de `n_neighbors` y `min_dist`. Requiere `pip install umap-learn`. |
+| [clustering-jerarquico-practica.ipynb](notebooks/clustering-jerarquico-practica.ipynb) | Práctica de la Clase 10: clustering jerárquico aglomerativo con `scipy` (`linkage`, `dendrogram`, `fcluster`); dendrogramas variando el número de clusters y los métodos de enlace (simple, completo, promedio, centroide, Ward) con distancia euclidiana. |
+| [kmeans-practica.ipynb](notebooks/kmeans-practica.ipynb) | Práctica de la Clase 11: `KMeans` sobre `make_blobs`; visualización de clusters y centroides, análisis de silueta. |
+| [evaluacion-clusters-practica.ipynb](notebooks/evaluacion-clusters-practica.ipynb) | Práctica de la Clase 12: elección del nº óptimo de clusters con el método del codo (inercia) y silueta. |
+| [dbscan-practica.ipynb](notebooks/dbscan-practica.ipynb) | Práctica de la Clase 13: `DBSCAN`; ajuste de `eps` y `min_samples`, comparación con K-means. |
+| [clustering-practica-complementaria.ipynb](notebooks/clustering-practica-complementaria.ipynb) | Práctica complementaria (Clase 14): K-means con `KFold` y `GridSearchCV`, imputación y escalado sobre el dataset `wine`. |
+| [seleccion-variables-embedded-practica.ipynb](notebooks/seleccion-variables-embedded-practica.ipynb) | Práctica de la Clase 20 (métodos embedded): sobre el dataset `Iris`, análisis de dimensionalidad y correlación, K-means como línea base, elección del nº de clusters (codo vs. silueta) y selección de variables con `feature_importances` de `RandomForest`. |
+| [aplicaciones-pca-practica.ipynb](notebooks/aplicaciones-pca-practica.ipynb) | Práctica de la Clase 24: `PCA` de sklearn sobre el dataset `wine`; estandarización con `StandardScaler`, varianza explicada por componente (`explained_variance_ratio_`), elección de `n_components` y clasificación comparando el rendimiento con y sin reducción. |
+| [lda-practica.ipynb](notebooks/lda-practica.ipynb) | Práctica de la Clase 25: `LinearDiscriminantAnalysis` de sklearn; proyección supervisada que maximiza la separación entre clases y comparación con la proyección de PCA. |
+| [tsne-practica.ipynb](notebooks/tsne-practica.ipynb) | Práctica de la Clase 26: `TSNE` de sklearn (`sklearn.manifold`); visualización en 2D de datos de alta dimensión, efecto de `perplexity` y exploración de clusters. |
+| [umap-practica.ipynb](notebooks/umap-practica.ipynb) | Práctica de la Clase 27: `UMAP` (paquete `umap-learn`); proyección a 2D preservando estructura local y global, ajuste de `n_neighbors` y `min_dist`. Requiere `pip install umap-learn`. |
 
 ### `datasets/`
 Datasets del módulo (se agregarán a medida que avance el módulo).
@@ -80,11 +80,11 @@ Leyenda: ✅ material disponible · ⬜ pendiente.
 
 ### Módulo 3 — Clustering y K-means
 - Clase 9 — Fundamentos de Clustering. ✅
-- Clase 10 — Clustering Jerárquico (dendrogramas). ✅ + [práctica](notebooks/clustering_jerarquico_practica.ipynb)
-- Clase 11 — Algoritmo de K-means. ✅ + [práctica](notebooks/kmeans_practica.ipynb)
-- Clase 12 — Evaluación de Clusters (nº óptimo de clusters). ✅ + [práctica](notebooks/evaluacion_clusters_practica.ipynb)
-- Clase 13 — DBSCAN y clustering basado en densidad. ✅ + [práctica](notebooks/dbscan_practica.ipynb)
-- Clase 14 — Aplicaciones Prácticas del Clustering. ✅ + [práctica](notebooks/clustering_practica_complementaria.ipynb)
+- Clase 10 — Clustering Jerárquico (dendrogramas). ✅ + [práctica](notebooks/clustering-jerarquico-practica.ipynb)
+- Clase 11 — Algoritmo de K-means. ✅ + [práctica](notebooks/kmeans-practica.ipynb)
+- Clase 12 — Evaluación de Clusters (nº óptimo de clusters). ✅ + [práctica](notebooks/evaluacion-clusters-practica.ipynb)
+- Clase 13 — DBSCAN y clustering basado en densidad. ✅ + [práctica](notebooks/dbscan-practica.ipynb)
+- Clase 14 — Aplicaciones Prácticas del Clustering. ✅ + [práctica](notebooks/clustering-practica-complementaria.ipynb)
 - Clase 15 — Checkpoint de contenidos. ⬜
 
 ### Módulo 4 — La Maldición de la Dimensión y Selección de Variables
@@ -92,16 +92,16 @@ Leyenda: ✅ material disponible · ⬜ pendiente.
 - Clase 17 — Estrategias de Selección de Variables (filtros, RFE). ✅
 - Clase 18 — Criterios de Selección de Modelos (AIC, BIC). ✅
 - Clase 19 — Selección de Variables con Regularización (Lasso, Ridge). ✅
-- Clase 20 — Selección de Variables con Métodos Embedded (árboles, Random Forest). ✅ + [práctica](notebooks/seleccion_variables_embedded_practica.ipynb)
+- Clase 20 — Selección de Variables con Métodos Embedded (árboles, Random Forest). ✅ + [práctica](notebooks/seleccion-variables-embedded-practica.ipynb)
 - Clase 21 — Checkpoint de contenidos. ⬜
 
 ### Módulo 5 — Reducción de la Dimensionalidad
 - Clase 22 — Principios de Reducción de la Dimensionalidad. ✅
 - Clase 23 — Análisis de Componentes Principales (PCA). ✅
-- Clase 24 — Aplicaciones de PCA. ✅ + [práctica](notebooks/aplicaciones_pca_practica.ipynb)
-- Clase 25 — Análisis Discriminante Lineal (LDA). ✅ + [práctica](notebooks/lda_practica.ipynb)
-- Clase 26 — T-SNE para Visualización. ✅ + [práctica](notebooks/tsne_practica.ipynb)
-- Clase 27 — UMAP para Reducción de Dimensionalidad. ✅ + [práctica](notebooks/umap_practica.ipynb)
+- Clase 24 — Aplicaciones de PCA. ✅ + [práctica](notebooks/aplicaciones-pca-practica.ipynb)
+- Clase 25 — Análisis Discriminante Lineal (LDA). ✅ + [práctica](notebooks/lda-practica.ipynb)
+- Clase 26 — T-SNE para Visualización. ✅ + [práctica](notebooks/tsne-practica.ipynb)
+- Clase 27 — UMAP para Reducción de Dimensionalidad. ✅ + [práctica](notebooks/umap-practica.ipynb)
 - Clase 28 — Comparación de Técnicas de Reducción. ✅
 - Clase 29 — Checkpoint de contenidos. ⬜
 

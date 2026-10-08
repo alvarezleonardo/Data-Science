@@ -48,27 +48,27 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 
 | Notebook | Tema |
 |----------|------|
-| [regresion_lineal.ipynb](notebooks/regresion_lineal.ipynb) | Regresión lineal simple y múltiple con `statsmodels` (OLS), R² y validación cruzada (KFold). Dataset `advertising`. |
-| [evaluacion_modelos_regresion.ipynb](notebooks/evaluacion_modelos_regresion.ipynb) | Regresión lineal con `scikit-learn`, métricas (MAE/MSE/RMSE/R²) y train/test split. Dataset `bikes`. |
-| [regresion_polinomial.ipynb](notebooks/regresion_polinomial.ipynb) | Regresión polinómica con `PolynomialFeatures` + `Pipeline`; underfitting/overfitting y curva bias-variance (RMSE vs grado). Datos sintéticos. |
-| [regularizacion_ridge_lasso.ipynb](notebooks/regularizacion_ridge_lasso.ipynb) | Regularización Ridge (L2) y Lasso (L1) con `RidgeCV`/`LassoCV`; estandarización, elección de `alpha` por CV y selección de variables ante colinealidad. Dataset `Credit`. |
-| [ensambles_bagging_random_forest.ipynb](notebooks/ensambles_bagging_random_forest.ipynb) | Ensambles de averaging: `BaggingRegressor`, `RandomForestRegressor` y `ExtraTreesRegressor`; comparación de MSE vs. regresión lineal base. Dataset `Hitters`. |
+| [regresion-lineal.ipynb](notebooks/regresion-lineal.ipynb) | Regresión lineal simple y múltiple con `statsmodels` (OLS), R² y validación cruzada (KFold). Dataset `advertising`. |
+| [evaluacion-modelos-regresion.ipynb](notebooks/evaluacion-modelos-regresion.ipynb) | Regresión lineal con `scikit-learn`, métricas (MAE/MSE/RMSE/R²) y train/test split. Dataset `bikes`. |
+| [regresion-polinomial.ipynb](notebooks/regresion-polinomial.ipynb) | Regresión polinómica con `PolynomialFeatures` + `Pipeline`; underfitting/overfitting y curva bias-variance (RMSE vs grado). Datos sintéticos. |
+| [regularizacion-ridge-lasso.ipynb](notebooks/regularizacion-ridge-lasso.ipynb) | Regularización Ridge (L2) y Lasso (L1) con `RidgeCV`/`LassoCV`; estandarización, elección de `alpha` por CV y selección de variables ante colinealidad. Dataset `Credit`. |
+| [ensambles-bagging-random-forest.ipynb](notebooks/ensambles-bagging-random-forest.ipynb) | Ensambles de averaging: `BaggingRegressor`, `RandomForestRegressor` y `ExtraTreesRegressor`; comparación de MSE vs. regresión lineal base. Dataset `Hitters`. |
 | [adaboost.ipynb](notebooks/adaboost.ipynb) | Boosting con `AdaBoostRegressor` (base lineal) vs. regresión lineal. Dataset `Hitters`. |
-| [gradient_boosting.ipynb](notebooks/gradient_boosting.ipynb) | Boosting con `GradientBoostingRegressor` (árboles); MSE vs. base lineal. Dataset `Hitters`. |
+| [gradient-boosting.ipynb](notebooks/gradient-boosting.ipynb) | Boosting con `GradientBoostingRegressor` (árboles); MSE vs. base lineal. Dataset `Hitters`. |
 | [xgboost.ipynb](notebooks/xgboost.ipynb) | `XGBRegressor` sobre precios de viviendas; dummies para categóricas, nulos manejados por XGBoost, evaluación R²/MSE/RMSE. Dataset `housing` (California). |
 | [svm.ipynb](notebooks/svm.ipynb) | Clasificación con `SVC` (kernel lineal): margen máximo, estandarización, accuracy + matriz de confusión. Dataset `iris`. |
 | [svr.ipynb](notebooks/svr.ipynb) | Regresión con `SVR`: comparación de kernels (RBF/sigmoid/poly) y de `C`; R²/MSE/RMSE. Dataset `Hitters` (log Salary). |
-| [descenso_gradiente.ipynb](notebooks/descenso_gradiente.ipynb) | Descenso del gradiente **desde cero** (clase propia) para regresión lineal; curva de pérdida y comparación con `LinearRegression`. Dataset `boston_data`. |
-| [mas_practica_1_bikes.ipynb](notebooks/mas_practica_1_bikes.ipynb) | Resolución de *Más Práctica 1*: feature engineering de `hora` (numérica vs 23 dummies) y `día`; comparación de modelos por CV. `hora` categórica es la que más mejora (R² 0.33→0.61). Dataset `bikes`. |
+| [descenso-gradiente.ipynb](notebooks/descenso-gradiente.ipynb) | Descenso del gradiente **desde cero** (clase propia) para regresión lineal; curva de pérdida y comparación con `LinearRegression`. Dataset `boston_data`. |
+| [mas-practica-1-bikes.ipynb](notebooks/mas-practica-1-bikes.ipynb) | Resolución de *Más Práctica 1*: feature engineering de `hora` (numérica vs 23 dummies) y `día`; comparación de modelos por CV. `hora` categórica es la que más mejora (R² 0.33→0.61). Dataset `bikes`. |
 | [maspractica1.ipynb](notebooks/maspractica1.ipynb) | Versión de trabajo del mismo ejercicio: 20 celdas, solo código y sin texto, con los outputs guardados. Se conserva como registro del proceso; la resolución documentada es la de arriba. |
 | [mas-practica-2.ipynb](<notebooks/mas-practica-2.ipynb>) | Resolución de *Más Práctica 2*: regularización **Lasso** (`LassoCV` para elegir α) con `OneHotEncoder` + `MinMaxScaler`; comparación de coeficientes y métricas entre `statsmodels` y `scikit-learn`. Dataset `diamonds`. |
 
-### `notebooks_extra/`
-Práctica adicional no evaluada — ver [notebooks_extra/README.md](notebooks_extra/README.md).
+### `notebooks-extra/`
+Práctica adicional no evaluada — ver [notebooks-extra/README.md](notebooks-extra/README.md).
 
 | Notebook | Tema |
 |----------|------|
-| [ejercicio-incremental.ipynb](notebooks_extra/ejercicio-incremental.ipynb) | Ejercicio integrador sobre California `housing`: EDA + limpieza + progresión de modelos (LinearRegression → DecisionTree → SVR → RandomForest → XGBoost) + validación cruzada + `GridSearchCV`/`RandomizedSearchCV`. |
-| [evaluacion_final_modulo.ipynb](notebooks_extra/evaluacion_final_modulo.ipynb) | Evaluación final del módulo sobre California `housing`: preprocesamiento (imputación + `StandardScaler` + `OneHotEncoder`) y cuestionario de 12 preguntas (árbol, regresión lineal, SVR, Random Forest y conceptuales). Consignas y respuestas en [evaluacion_final_modulo.md](notebooks_extra/evaluacion_final_modulo.md). |
+| [ejercicio-incremental.ipynb](notebooks-extra/ejercicio-incremental.ipynb) | Ejercicio integrador sobre California `housing`: EDA + limpieza + progresión de modelos (LinearRegression → DecisionTree → SVR → RandomForest → XGBoost) + validación cruzada + `GridSearchCV`/`RandomizedSearchCV`. |
+| [evaluacion-final-modulo.ipynb](notebooks-extra/evaluacion-final-modulo.ipynb) | Evaluación final del módulo sobre California `housing`: preprocesamiento (imputación + `StandardScaler` + `OneHotEncoder`) y cuestionario de 12 preguntas (árbol, regresión lineal, SVR, Random Forest y conceptuales). Consignas y respuestas en [evaluacion-final-modulo.md](notebooks-extra/evaluacion-final-modulo.md). |
 
 [← Volver al índice](../README.md)

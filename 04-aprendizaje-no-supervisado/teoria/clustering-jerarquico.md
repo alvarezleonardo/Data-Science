@@ -43,4 +43,4 @@ Ejemplos (con 8 elementos a–h):
 - Un **corte más bajo** → **más** clusters; un **corte más alto** → **menos** clusters.
 - Si dos clusters se fusionan en un **nivel bajo**, están **muy relacionados**; si se fusionan en un **nivel alto**, están más **distantes**.
 
-> Práctica asociada: [notebooks/clustering_jerarquico_practica.ipynb](../notebooks/clustering_jerarquico_practica.ipynb) — dendrogramas con `scipy` (`linkage`, `dendrogram`, `fcluster`), variando `k` y los métodos de enlace (single, complete, average, centroid, ward).
+> Práctica asociada: [notebooks/clustering-jerarquico-practica.ipynb](../notebooks/clustering-jerarquico-practica.ipynb) — dendrogramas con `scipy` (`linkage`, `dendrogram`, `fcluster`), variando `k` y los métodos de enlace (single, complete, average, centroid, ward).

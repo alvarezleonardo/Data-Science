@@ -146,7 +146,7 @@ salarios de los jugadores en función de sus estadísticas de rendimiento.
 
 3
 
-Descripción del Dataset: boston_data.csv
+Descripción del Dataset: boston-data.csv
 
 Este dataset contiene información sobre propiedades inmobiliarias en Boston,
 
@@ -154,7 +154,7 @@ incluyendo características de las propiedades y precios. Se utiliza para constr
 
 de regresión que predigan los precios de las propiedades.
 
-El dataset boston_data.csv será utilizado en el Módulo 5: Optimización y Descenso del
+El dataset boston-data.csv será utilizado en el Módulo 5: Optimización y Descenso del
 
 Gradiente, donde se aprenderá a aplicar técnicas de optimización y descenso del
 

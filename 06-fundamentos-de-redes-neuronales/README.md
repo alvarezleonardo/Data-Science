@@ -32,12 +32,12 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
 ## Notebooks
 
-- [`practica_redes_neuronales.ipynb`](<notebooks/practica_redes_neuronales.ipynb>) — implementación del perceptrón desde cero: función escalón, regla delta, entrenamiento con la compuerta AND (reproduciendo los pesos del cálculo manual de las slides), frontera de decisión, el problema del XOR y la versión con `sklearn.linear_model.Perceptron`.
-- [`perceptron_iris_sklearn.ipynb`](<notebooks/perceptron_iris_sklearn.ipynb>) — el perceptrón aplicado al dataset **Iris** (setosa vs versicolor) con `scikit-learn`: exploración del dataset, división train/test estratificada, entrenamiento, lectura de pesos y sesgo, exactitud, matriz de confusión, frontera de decisión, y el contraste entre la compuerta AND (converge) y el XOR (no puede). Amplía el recurso descargable de la clase `OD_RN1_ESP_M02_S05` con explicaciones paso a paso y corrige el cálculo de exactitud del original.
-- [`mlp_clasificacion_iris.ipynb`](<notebooks/mlp_clasificacion_iris.ipynb>) — **perceptrón multicapa** aplicado a las 3 clases de Iris con `MLPClassifier`: escalado, diagnóstico del entrenamiento (`n_iter_`, `loss_curve_`), inspección de la arquitectura real, regiones de decisión no lineales, efecto del tamaño de la red y comparación directa contra el perceptrón simple. Amplía el recurso de clase `OD_RN1_ESP_M03_S10`.
-- [`mlp_regresion_california.ipynb`](<notebooks/mlp_regresion_california.ipynb>) — **MLP para regresión** sobre California Housing con `MLPRegressor`: exploración del dataset, por qué el escalado es obligatorio, MSE/RMSE/MAE/R² y cómo leerlas, comparación contra la media y una regresión lineal, análisis de residuos y del techo artificial del dataset. Amplía el recurso de clase `OD_RN1_ESP_M03_S11`.
+- [`practica-redes-neuronales.ipynb`](<notebooks/practica-redes-neuronales.ipynb>) — implementación del perceptrón desde cero: función escalón, regla delta, entrenamiento con la compuerta AND (reproduciendo los pesos del cálculo manual de las slides), frontera de decisión, el problema del XOR y la versión con `sklearn.linear_model.Perceptron`.
+- [`perceptron-iris-sklearn.ipynb`](<notebooks/perceptron-iris-sklearn.ipynb>) — el perceptrón aplicado al dataset **Iris** (setosa vs versicolor) con `scikit-learn`: exploración del dataset, división train/test estratificada, entrenamiento, lectura de pesos y sesgo, exactitud, matriz de confusión, frontera de decisión, y el contraste entre la compuerta AND (converge) y el XOR (no puede). Amplía el recurso descargable de la clase `OD_RN1_ESP_M02_S05` con explicaciones paso a paso y corrige el cálculo de exactitud del original.
+- [`mlp-clasificacion-iris.ipynb`](<notebooks/mlp-clasificacion-iris.ipynb>) — **perceptrón multicapa** aplicado a las 3 clases de Iris con `MLPClassifier`: escalado, diagnóstico del entrenamiento (`n_iter_`, `loss_curve_`), inspección de la arquitectura real, regiones de decisión no lineales, efecto del tamaño de la red y comparación directa contra el perceptrón simple. Amplía el recurso de clase `OD_RN1_ESP_M03_S10`.
+- [`mlp-regresion-california.ipynb`](<notebooks/mlp-regresion-california.ipynb>) — **MLP para regresión** sobre California Housing con `MLPRegressor`: exploración del dataset, por qué el escalado es obligatorio, MSE/RMSE/MAE/R² y cómo leerlas, comparación contra la media y una regresión lineal, análisis de residuos y del techo artificial del dataset. Amplía el recurso de clase `OD_RN1_ESP_M03_S11`.
 
-- [`funciones_activacion.ipynb`](<notebooks/funciones_activacion.ipynb>) — **funciones de activación** en detalle: sigmoide, tanh y ReLU graficadas desde cero con sus derivadas, la saturación medida numéricamente (derivada ~0,0025 y ~0,00002 en `x = 6`, contra 1 de ReLU), la demostración empírica de que con `activation='identity'` un MLP no resuelve el XOR y con `tanh`/`relu` sí, la comparación de las tres activaciones sobre Iris **con y sin escalado** contra el recurso de clase, y el efecto de la arquitectura (de `(2,)` a `(100,100)`) sobre capacidad, sobreajuste y cantidad de parámetros. Amplía el recurso de clase `OD_RN1_ESP_M03_S10`.
+- [`funciones-activacion.ipynb`](<notebooks/funciones-activacion.ipynb>) — **funciones de activación** en detalle: sigmoide, tanh y ReLU graficadas desde cero con sus derivadas, la saturación medida numéricamente (derivada ~0,0025 y ~0,00002 en `x = 6`, contra 1 de ReLU), la demostración empírica de que con `activation='identity'` un MLP no resuelve el XOR y con `tanh`/`relu` sí, la comparación de las tres activaciones sobre Iris **con y sin escalado** contra el recurso de clase, y el efecto de la arquitectura (de `(2,)` a `(100,100)`) sobre capacidad, sobreajuste y cantidad de parámetros. Amplía el recurso de clase `OD_RN1_ESP_M03_S10`.
 
 Los recursos descargables de la clase se conservan en [`notebooks/`](notebooks/) con su nombre `OD_RN1_ESP_*`. Dos aclaraciones sobre ellos:
 
@@ -48,11 +48,11 @@ Apuntes consolidados también en el [manual del programa](../manual/07-redes-neu
 
 ### Persistencia de modelos
 
-Los notebooks `guardar_modelo_joblib_pickle.ipynb`, `cargar_modelo_joblib.ipynb` y `cargar_modelo_pickle.ipynb` son los recursos de las clases 23-24. Se les agregaron celdas markdown explicativas, sin tocar el código ni los outputs.
+Los notebooks `guardar-modelo-joblib-pickle.ipynb`, `cargar-modelo-joblib.ipynb` y `cargar-modelo-pickle.ipynb` son los recursos de las clases 23-24. Se les agregaron celdas markdown explicativas, sin tocar el código ni los outputs.
 
 `m7-practica-final.ipynb` es el recurso de la clase 26 (Bonus Track), la práctica final del módulo.
 
-> Los archivos de modelo que generan (`.joblib`, `.pkl`) **no se versionan** — están en el `.gitignore` como todo artefacto binario. Para correr los dos notebooks de carga hay que ejecutar antes `guardar_modelo_joblib_pickle.ipynb`.
+> Los archivos de modelo que generan (`.joblib`, `.pkl`) **no se versionan** — están en el `.gitignore` como todo artefacto binario. Para correr los dos notebooks de carga hay que ejecutar antes `guardar-modelo-joblib-pickle.ipynb`.
 
 ## Práctica
 

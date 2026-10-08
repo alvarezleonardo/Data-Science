@@ -44,4 +44,4 @@ En datos con **formas no esféricas** (anillos concéntricos, medias lunas, espi
 - **DBSCAN:** ideal para clusters de **formas arbitrarias** y para **manejar ruido**. No requiere fijar `k`, pero es sensible a la elección de `ε` y **MinPts**.
 - **Clustering jerárquico:** da una visión detallada de la estructura (dendrograma) y no requiere fijar `k`, pero es **menos eficiente** en grandes volúmenes.
 
-> Práctica asociada: [notebooks/dbscan_practica.ipynb](../notebooks/dbscan_practica.ipynb) — `DBSCAN` de sklearn, ajuste de `eps` y `min_samples`, y comparación con K-means.
+> Práctica asociada: [notebooks/dbscan-practica.ipynb](../notebooks/dbscan-practica.ipynb) — `DBSCAN` de sklearn, ajuste de `eps` y `min_samples`, y comparación con K-means.

@@ -53,7 +53,7 @@ Ejercicio 1/
 │
 ├── README.md                  # 📖 Este archivo - Documentación general
 │
-├── explicacion_librerias.md  # 📚 Explicación detallada de las librerías utilizadas
+├── explicacion-librerias.md  # 📚 Explicación detallada de las librerías utilizadas
 │💻 Instalación y Configuración
 
 ### Requisitos Previos
@@ -191,8 +191,8 @@ jupyter lab
 - Cada celda depende de las anteriores
 - Las celdas markdown proporcionan contexto y explicaciones
 9. **Evaluación**: Cálculo de métricas de rendimiento README.md                  # Este archivo
-├── explicacion_librerias.md  # Explicación detallada de las librerías
-└── explicacion_codigo.md     # Análisis paso a paso del código
+├── explicacion-librerias.md  # Explicación detallada de las librerías
+└── explicacion-codigo.md     # Análisis paso a paso del código
 ```
 
 ## Instalación

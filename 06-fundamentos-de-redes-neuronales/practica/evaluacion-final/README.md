@@ -5,7 +5,7 @@ Trabajo para la evaluación final del módulo, sobre el dataset `winemag-data-13
 | Archivo | Contenido |
 |---|---|
 | [`enunciado.md`](enunciado.md) | Consigna del curso, transcripta |
-| [`evaluacion_final_vinos.ipynb`](evaluacion_final_vinos.ipynb) | Resolución |
+| [`evaluacion-final-vinos.ipynb`](evaluacion-final-vinos.ipynb) | Resolución |
 
 ## Antes de ejecutar
 

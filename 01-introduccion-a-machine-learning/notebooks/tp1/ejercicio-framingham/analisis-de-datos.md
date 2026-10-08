@@ -235,8 +235,8 @@ print("=" * 100)
 print(df_resumen.to_string(index=False))
 
 # Exportar a CSV para documentación
-df_resumen.to_csv('resumen_columnas.csv', index=False)
-print("\n✅ Resumen exportado a 'resumen_columnas.csv'")
+df_resumen.to_csv('resumen-columnas.csv', index=False)
+print("\n✅ Resumen exportado a 'resumen-columnas.csv'")
 ```
 
 #### 🎨 Método 4: Visualización de Tipos de Variables
@@ -282,9 +282,9 @@ def visualizar_tipos_variables(clasificacion, df):
     axes[1, 1].grid(axis='y', alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('analisis_tipos_variables.png', dpi=300, bbox_inches='tight')
+    plt.savefig('analisis-tipos-variables.png', dpi=300, bbox_inches='tight')
     plt.show()
-    print("\n📊 Visualización guardada en 'analisis_tipos_variables.png'")
+    print("\n📊 Visualización guardada en 'analisis-tipos-variables.png'")
 
 
 # Generar visualización
@@ -505,8 +505,8 @@ def pipeline_identificacion_variables(ruta_csv):
     # 5. Generar resumen de columnas
     print("\n📊 Paso 5: Generando resumen de columnas...")
     df_resumen = generar_resumen_columnas(df)
-    df_resumen.to_csv('resumen_columnas.csv', index=False)
-    print("✅ Resumen exportado a 'resumen_columnas.csv'")
+    df_resumen.to_csv('resumen-columnas.csv', index=False)
+    print("✅ Resumen exportado a 'resumen-columnas.csv'")
     
     # 6. Visualizaciones
     print("\n🎨 Paso 6: Generando visualizaciones...")

@@ -44,4 +44,4 @@ Recorrido por casos de uso reales del clustering en distintas industrias.
 - **Segmentación de usuarios:** agrupar usuarios por uso de servicios y comportamiento.
   - *Ejemplo:* una telco usa **DBSCAN** para segmentar por hábitos de consumo de datos y llamadas → **planes de tarifas personalizados**.
 
-> Práctica complementaria: [notebooks/clustering_practica_complementaria.ipynb](../notebooks/clustering_practica_complementaria.ipynb) — K-means con `KFold`, `GridSearchCV`, imputación y escalado sobre el dataset `wine`.
+> Práctica complementaria: [notebooks/clustering-practica-complementaria.ipynb](../notebooks/clustering-practica-complementaria.ipynb) — K-means con `KFold`, `GridSearchCV`, imputación y escalado sobre el dataset `wine`.

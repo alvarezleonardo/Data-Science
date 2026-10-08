@@ -74,4 +74,4 @@ Combina linealmente **lo mejor de ambos mundos** (Lasso + Ridge):
 | **Lasso** | L1 | **Sí** (a cero exacto) | Selección de variables / modelos dispersos |
 | **Elastic Net** | L1 + L2 | Sí (parcial) | Combina selección y estabilidad; 2 hiperparámetros |
 
-> Práctica asociada: [notebooks/seleccion_variables_embedded_practica.ipynb](../notebooks/seleccion_variables_embedded_practica.ipynb) — métodos embedded de selección de variables. Enlaza con [Criterios de Selección de Modelos](<criterios-de-seleccion-de-modelos.md>) (Clase 18) y [Comprender la Maldición de la Dimensión](<comprender-la-maldicion-de-la-dimension.md>) (Clase 16).
+> Práctica asociada: [notebooks/seleccion-variables-embedded-practica.ipynb](../notebooks/seleccion-variables-embedded-practica.ipynb) — métodos embedded de selección de variables. Enlaza con [Criterios de Selección de Modelos](<criterios-de-seleccion-de-modelos.md>) (Clase 18) y [Comprender la Maldición de la Dimensión](<comprender-la-maldicion-de-la-dimension.md>) (Clase 16).

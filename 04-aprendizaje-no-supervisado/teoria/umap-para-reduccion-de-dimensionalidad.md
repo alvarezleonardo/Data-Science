@@ -34,4 +34,4 @@ UMAP es un algoritmo **no lineal** que usa conceptos de **geometría algebraica 
 | **Eficiente y escalable** (más que t-SNE) | La **interpretación** de resultados puede requerir análisis adicional |
 | **Flexible**: ajustable con `n_neighbors` para distintas escalas de estructura | |
 
-> **Nota de instalación:** UMAP no viene con scikit-learn; se instala aparte (`pip install umap-learn`) y se usa como `import umap`. Comparación completa en [Comparación de Técnicas de Reducción de Dimensionalidad](<comparacion-de-tecnicas-de-reduccion-de-dimensionalidad.md>). Práctica: [notebooks/umap_practica.ipynb](../notebooks/umap_practica.ipynb).
+> **Nota de instalación:** UMAP no viene con scikit-learn; se instala aparte (`pip install umap-learn`) y se usa como `import umap`. Comparación completa en [Comparación de Técnicas de Reducción de Dimensionalidad](<comparacion-de-tecnicas-de-reduccion-de-dimensionalidad.md>). Práctica: [notebooks/umap-practica.ipynb](../notebooks/umap-practica.ipynb).

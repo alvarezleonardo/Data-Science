@@ -30,9 +30,9 @@ Al revisarlo se corrigieron errores para que corra en versiones actuales de las 
 
 Verificado: corre de punta a punta sin errores (las secciones de GridSearch son sólo lentas, no fallan).
 
-## `evaluacion_final_modulo.ipynb`
+## `evaluacion-final-modulo.ipynb`
 
-Evaluación final del módulo sobre **California housing** (`../datasets/housing.csv`). Consignas y respuestas en [`evaluacion_final_modulo.md`](evaluacion_final_modulo.md).
+Evaluación final del módulo sobre **California housing** (`../datasets/housing.csv`). Consignas y respuestas en [`evaluacion-final-modulo.md`](evaluacion-final-modulo.md).
 
 Arranca con el **preprocesamiento pedido** (imputación de nulos con la media, `StandardScaler` sobre todas las variables numéricas —incluido el target, según la consigna literal—, `OneHotEncoder` en `ocean_proximity`, unificación en un dataframe nuevo) y el **split** (20% test, `random_state=42`).
 
