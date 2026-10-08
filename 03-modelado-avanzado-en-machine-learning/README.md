@@ -60,6 +60,7 @@ advertising, bikes, boston_data, Credit, diamonds, Hitters, housing, Movie_class
 | [svr.ipynb](notebooks/svr.ipynb) | Regresión con `SVR`: comparación de kernels (RBF/sigmoid/poly) y de `C`; R²/MSE/RMSE. Dataset `Hitters` (log Salary). |
 | [descenso_gradiente.ipynb](notebooks/descenso_gradiente.ipynb) | Descenso del gradiente **desde cero** (clase propia) para regresión lineal; curva de pérdida y comparación con `LinearRegression`. Dataset `boston_data`. |
 | [mas_practica_1_bikes.ipynb](notebooks/mas_practica_1_bikes.ipynb) | Resolución de *Más Práctica 1*: feature engineering de `hora` (numérica vs 23 dummies) y `día`; comparación de modelos por CV. `hora` categórica es la que más mejora (R² 0.33→0.61). Dataset `bikes`. |
+| [maspractica1.ipynb](notebooks/maspractica1.ipynb) | Versión de trabajo del mismo ejercicio: 20 celdas, solo código y sin texto, con los outputs guardados. Se conserva como registro del proceso; la resolución documentada es la de arriba. |
 | [mas-practica-2.ipynb](<notebooks/mas-practica-2.ipynb>) | Resolución de *Más Práctica 2*: regularización **Lasso** (`LassoCV` para elegir α) con `OneHotEncoder` + `MinMaxScaler`; comparación de coeficientes y métricas entre `statsmodels` y `scikit-learn`. Dataset `diamonds`. |
 
 ### `notebooks_extra/`

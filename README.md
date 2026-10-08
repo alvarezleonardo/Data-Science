@@ -1,7 +1,7 @@
 # Data Science
 
-![Progreso](https://img.shields.io/badge/completados-5%2F9%20m%C3%B3dulos-blue)
-![En curso](https://img.shields.io/badge/en%20curso-m%C3%B3dulo%2007-orange)
+![Progreso](https://img.shields.io/badge/completados-7%2F9%20m%C3%B3dulos-blue)
+![Cursada](https://img.shields.io/badge/cursada-completa-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -14,7 +14,7 @@ Especialización en Machine Learning, Aprendizaje no supervisado, Deep Learning 
 ## Apuntes consolidados
 
 Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo documento:
-**[manual/](manual/README.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **58 capítulos en 9 partes**, con 36 diagramas y una referencia técnica de consulta. Partido en un archivo por parte; `APUNTES-DATA-SCIENCE.md` en la raíz queda como puntero al índice.
+**[manual/](manual/README.md)** — manual del programa, ordenado de lo más básico a lo más complejo: **58 capítulos en 9 partes**, con 40 diagramas y una referencia técnica de consulta. Partido en un archivo por parte; `APUNTES-DATA-SCIENCE.md` en la raíz queda como puntero al índice.
 
 ## Programa y avance
 
@@ -25,15 +25,24 @@ Apuntes teóricos de todo el programa, sintetizados y corregidos, en un solo doc
 | 03 | [Modelado avanzado en Machine Learning](03-modelado-avanzado-en-machine-learning/) | 7 | 28 | [caps. 9, 11-12](manual/03-modelos-lineales.md#parte-iii--modelos-lineales) | ✅ Aprobado (7/7) |
 | 04 | [Aprendizaje no supervisado](04-aprendizaje-no-supervisado/) | 6 | 31 | [caps. 15-23](manual/06-aprendizaje-no-supervisado.md#parte-vi--aprendizaje-no-supervisado) | ✅ Aprobado (6/6) |
 | 05 | [Desafío Profesional DS — Etapa 3](05-desafio-profesional-etapa-3/) | 1 | 1 | [consigna](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/blob/main/consignas/etapa-3-modelado-machine-learning.md) | ⬜ Sin cursar · consigna procesada |
-| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](manual/07-redes-neuronales.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 4 notebooks propios · evaluación final resuelta |
+| 06 | [Fundamentos de redes neuronales](06-fundamentos-de-redes-neuronales/) | 8 | 28 | [caps. 24-38](manual/07-redes-neuronales.md#parte-vii--redes-neuronales) | ✅ Completado (8/8) — teoría completa · 5 notebooks propios · evaluación final resuelta |
 | 07 | [Fundamentos de Deep Learning](07-fundamentos-de-deep-learning/) | 7 | 33 | [caps. 39-45, 48-57](manual/08-deep-learning-con-frameworks.md#parte-ix--deep-learning-con-frameworks) | ✅ Aprobado (7/7) — teoría completa hasta autoencoders y GANs |
-| 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | 🔄 En curso — teoría de los módulos 2 a 6 · 7 notebooks documentados |
+| 08 | [Gestión de proyectos de IA](08-gestion-de-proyectos-de-ia/) | 7 | 18 | — | ✅ Aprobado (7/7) — teoría completa · 7 notebooks documentados |
 | 09 | [Desafío Profesional DS — Etapa 4](09-desafio-profesional-etapa-4/) | 1 | 1 | [consigna](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional/blob/main/consignas/etapa-4-implementacion-redes-neuronales.md) | ⬜ Sin cursar · consigna procesada |
-| | **Total** | **45** | **164** | | **6 completados · 1 en curso · 2 pendientes** |
+| | **Total** | **45** | **164** | | **7 completados · 2 del Desafío Profesional, en el repo aparte** |
 
-Leyenda: ✅ Aprobado o completado · 🔄 En curso · ⬜ Pendiente
+Leyenda: ✅ Aprobado o completado · ⬜ Sin cursar
+
+**La cursada está completa**: siete de los nueve módulos están aprobados o completados. Los dos
+restantes, 05 y 09, son instancias de entrega del Desafío Profesional y se desarrollan en el
+repositorio aparte, así que no tienen cursada propia.
 
 > El estado de cada módulo es el que declara su propio `README.md`; esta tabla lo resume.
+
+> **El módulo 08 está aprobado, pero su teoría todavía no está en el manual consolidado.** Por eso su
+> celda de apuntes figura vacía: los capítulos de gestión de proyectos de IA y MLOps quedan pendientes
+> de escribir. La teoría convertida sí está completa, en
+> [`08-gestion-de-proyectos-de-ia/teoria/`](08-gestion-de-proyectos-de-ia/teoria/).
 
 Las 4 etapas del Desafío Profesional (módulos 02, 05 y 09) se desarrollan en un repositorio aparte:
 **[Data-Science-Desafio-Profesional](https://github.com/alvarezleonardo/Data-Science-Desafio-Profesional)** (privado). Ahí viven las consignas, los casos de negocio y
@@ -61,14 +70,15 @@ de la carpeta de cada módulo.
 │   ├── teoria/  notebooks/  datasets/
 ├── 04-aprendizaje-no-supervisado/
 │   ├── teoria/  notebooks/  datasets/
-├── 05-desafio-profesional-etapa-3/   ← material recibido, sin procesar
+├── 05-desafio-profesional-etapa-3/   ← PDF de la consigna
 ├── 06-fundamentos-de-redes-neuronales/
 │   ├── teoria/  notebooks/
 │   └── practica/evaluacion-final/    ← enunciado + notebook resuelta
 ├── 07-fundamentos-de-deep-learning/
-│   ├── teoria/  notebooks/  datasets/   ← módulo en curso
-├── 08..09/                       ← módulos siguientes (placeholders)
-    ├── README.md  consignas/  casos-de-negocio/
+│   ├── teoria/  notebooks/  datasets/
+├── 08-gestion-de-proyectos-de-ia/
+│   ├── teoria/  notebooks/            ← teoria de las unidades 2 a 6 y 7 notebooks
+└── 09-desafio-profesional-etapa-4/   ← PDF de la consigna; el desarrollo va en el repo privado
 ```
 
 Cada módulo con contenido tiene su propio `README.md` con el detalle de clases y materiales.

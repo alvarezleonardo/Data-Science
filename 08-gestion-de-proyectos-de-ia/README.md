@@ -2,13 +2,13 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 7 | 18 | 🟨 En curso — teoría de los módulos 2 a 6 documentada |
+| 7 | 18 | ✅ Aprobado (7/7) — teoría completa |
 
 > Continúa [Fundamentos de Deep Learning](../07-fundamentos-de-deep-learning/): de entrenar redes neuronales se pasa a la **gestión integral de proyectos de IA** — definición del problema, herramientas y frameworks, gestión de equipos, despliegue, escalabilidad y MLOps.
 
 ## Teoría
 
-> Los **6 PDF y 1 PPTX originales** convertidos hasta ahora están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+> Los **6 PDF y 1 PPTX originales** están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
 
 - [`0-programa-del-modulo.md`](<teoria/0-programa-del-modulo.md>) — las 18 clases en 7 módulos
 - [`introduccion-a-la-ia-y-su-evolucion.md`](<teoria/introduccion-a-la-ia-y-su-evolucion.md>) — Clases 2 a 4, Módulo 2: definición de IA, ramas (ML/DL/IA simbólica), breve historia, IA débil vs. fuerte, casos de impacto sectorial y las cuatro fases de un proyecto de IA
@@ -17,7 +17,9 @@
 - [`despliegue-y-escalabilidad-de-proyectos-de-ia.md`](<teoria/despliegue-y-escalabilidad-de-proyectos-de-ia.md>) — Clase 13, Módulo 5: escalabilidad horizontal y vertical, recursos en la nube, reducción de latencia, GPU vs. CPU y contenedores (Docker)
 - [`introduccion-a-mlops.md`](<teoria/introduccion-a-mlops.md>) — Clase 15, Módulo 6: definición de MLOps, experiment tracking y control de versiones de modelos (W&B, MLflow), y el stack de CI/CD y monitoreo (Jenkins, GitHub Actions, Prometheus, Grafana)
 
-Queda pendiente convertir la teoría del módulo 7 (Cierre de curso) a medida que se sume el material correspondiente.
+La teoría está completa. Los módulos 1 y 7 no aportan material: el 1 es la bienvenida y el 7 es el
+cierre de curso, con la clase 17 de despedida y la clase 18 de evaluación integral. Toda la teoría
+descargable del módulo corresponde a las unidades 2 a 6, y está convertida.
 
 ## Notebooks
 

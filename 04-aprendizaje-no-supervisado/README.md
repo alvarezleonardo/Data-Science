@@ -64,7 +64,7 @@ Datasets del módulo (se agregarán a medida que avance el módulo).
 
 Leyenda: ✅ material disponible · ⬜ pendiente.
 
-> **Cierre de contenido:** todas las clases con material teórico/práctico del curso (23) están procesadas y consolidadas. Las clases restantes son de **entorno** (C2), **checkpoints** de contenidos (C8, C15, C21, C29) y **cierre** (C30 despedida/resumen, C31 evaluación integral): no tienen slides propias, por eso figuran como ⬜. El módulo pasará a ✅ Aprobado al rendir la evaluación integral.
+> **Cierre de contenido:** todas las clases con material teórico/práctico del curso (23) están procesadas y consolidadas. Las clases restantes son de **entorno** (C2), **checkpoints** de contenidos (C8, C15, C21, C29) y **cierre** (C30 despedida/resumen, C31 evaluación integral): no tienen slides propias, por eso figuran como ⬜. El módulo está ✅ Aprobado: la evaluación integral ya fue rendida.
 
 ### Módulo 1 — Bienvenida
 - Clase 1 — Bienvenida: programa del curso, presentación, cuestionario de autoevaluación. ✅
