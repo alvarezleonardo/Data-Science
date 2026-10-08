@@ -8,7 +8,7 @@
 
 ## Teoría
 
-> Los **30 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
+> Los **29 PDF originales** del curso están en [`teoria/material/`](teoria/material/); en `teoria/` quedan sus conversiones a Markdown.
 
 Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 
@@ -39,7 +39,7 @@ Conversión a Markdown de las slides del curso, en [`teoria/`](teoria/):
 - [`autoencoders-p2.md`](<teoria/autoencoders-p2.md>) — Clase 27: tipos de autoencoders (dispersos, contractivos, de eliminación de ruido, variacionales) y aplicaciones
 - [`redes-adversarias-generativas-gans.md`](<teoria/redes-adversarias-generativas-gans.md>) — Clase 28: generador vs. discriminador, el juego minimax, la pérdida no saturante, entrenamiento alternado y modos de falla (mode collapse, inestabilidad, no convergencia)
 
-La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../manual/08-deep-learning-con-frameworks.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 53 (TensorFlow, PyTorch, CNNs, RNNs, GRU, LSTM, PLN y Transformadores).
+La teoría de este módulo está consolidada en el manual: [**Parte IX — Deep Learning con frameworks**](../manual/08-deep-learning-con-frameworks.md#parte-ix--deep-learning-con-frameworks), capítulos 39 a 57 (TensorFlow, PyTorch, CNNs, RNNs, GRU, LSTM, PLN, Transformadores, autoencoders y GANs).
 
 Los dos bloques enseñan **el mismo flujo en los dos frameworks**: acceso a datos → definir el modelo → configurar pérdida y optimizador → entrenar → evaluar. La comparación consolidada está en la [Parte IX del manual](../manual/08-deep-learning-con-frameworks.md#parte-ix--deep-learning-con-frameworks).
 

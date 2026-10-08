@@ -2,7 +2,7 @@
 
 | Unidades | Clases | Estado |
 |:--------:|:------:|--------|
-| 8 | 28 | ✅ Completado — teoría de las 8 unidades + 4 notebooks propios, 7 recursos de clase y la evaluación final |
+| 8 | 28 | ✅ Completado — teoría de las 8 unidades + 5 notebooks propios, 8 recursos de clase y la evaluación final |
 
 > Módulo terminado. Toda la teoría del programa está documentada: fundamentos biológicos, historia de las RNA, perceptrón, estructura y fórmulas, entrenamiento con la compuerta AND, limitaciones, implementación con scikit-learn, perceptrón multicapa, funciones de activación, grafos y capa densa, diseño de la arquitectura, funciones de pérdida, optimización, regularización, backpropagation y persistencia de modelos. La evaluación final está resuelta en [`practica/evaluacion-final/`](<practica/evaluacion-final/>).
 
@@ -49,6 +49,8 @@ Apuntes consolidados también en el [manual del programa](../manual/07-redes-neu
 ### Persistencia de modelos
 
 Los notebooks `guardar_modelo_joblib_pickle.ipynb`, `cargar_modelo_joblib.ipynb` y `cargar_modelo_pickle.ipynb` son los recursos de las clases 23-24. Se les agregaron celdas markdown explicativas, sin tocar el código ni los outputs.
+
+`m7-practica-final.ipynb` es el recurso de la clase 26 (Bonus Track), la práctica final del módulo.
 
 > Los archivos de modelo que generan (`.joblib`, `.pkl`) **no se versionan** — están en el `.gitignore` como todo artefacto binario. Para correr los dos notebooks de carga hay que ejecutar antes `guardar_modelo_joblib_pickle.ipynb`.
 
